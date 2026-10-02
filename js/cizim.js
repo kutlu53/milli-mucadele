@@ -322,6 +322,29 @@
     c.restore();
   }
 
+  // Köylü görünüşleri (hikâye sahnelerinde ortak kullanılır).
+  var KOYLU = [
+    { bas: 'ortu', uzun: true, govde: '#7b4a55' }, { bas: 'fes', govde: '#55657a' }, { bas: 'ortu', uzun: true, govde: '#4f6d5c' },
+    { bas: 'sarik', govde: '#6b5a4a' }, { bas: 'ortu', uzun: true, govde: '#5d5a7a' }, { bas: 'fes', govde: '#7a5c3e' }
+  ];
+  function sar(deger, boy) { return ((deger % boy) + boy) % boy; }
+
+  // Kara Fatma: koyu başörtülü, kuşaklı figür.
+  function fatma(c, x, y, s, o) {
+    o = o || {};
+    kisi(c, x, y, s, { bas: 'ortu', ortu: '#3a3340', govde: '#6b6a4a', kusak: '#3a2a1c', kol: o.kol, yon: o.yon, siluet: o.siluet });
+  }
+
+  // Yağan kar.
+  function kar(c, t) {
+    var rs = IP.tohumluRastgele(77);
+    c.fillStyle = 'rgba(255,255,255,.85)';
+    for (var i = 0; i < 70; i++) {
+      var x = rs() * 1600 + Math.sin(t + i) * 20, y = (rs() * 900 + t * (40 + rs() * 60)) % 900;
+      daire(c, x, y, 2 + rs() * 3); c.fill();
+    }
+  }
+
   /* ---------- Hikâye sahneleri (1600 × 900 sanal ölçü) ---------- */
   var DUKKAN_RENK = ['#e2cfa4', '#d6bd8c', '#e8d9b5', '#d0b584', '#dec79a', '#d9c39a'];
   var evlerGece = null;
@@ -837,6 +860,139 @@
       doku(c);
     },
 
+    /* ----- Kara Fatma ----- */
+    // 1. Erzurum: karlı dağlar; meydanda haber okunuyor, Fatma dinliyor.
+    erzurum_haber: function (c, t) {
+      gok(c, '#9fb2c6', '#e4e8e6');
+      tepeler(c, 400, 80, '#f2f5f7', 0.4);
+      tepeler(c, 500, 40, '#a9b4c2', 2.2);
+      for (var e = 0; e < 5; e++) ev(c, 40 + e * 320, 650, 250, 150 + (e % 2) * 40, { renk: ['#b9b2a6', '#aaa397', '#c4bdb0'][e % 3], catiRenk: '#f2f5f7' });
+      zemin(c, 650, '#e9ecee');
+      // sandığın üstünde haberi okuyan kişi
+      c.fillStyle = '#8a6a45'; c.strokeStyle = R.koyu; c.lineWidth = 5; c.beginPath(); c.rect(900, 730, 160, 70); c.fill(); c.stroke();
+      kisi(c, 980, 732, 1.15, { bas: 'fes', govde: '#55657a', kol: 'cagri' });
+      c.save(); c.translate(1050, 520 + Math.sin(t * 3) * 4); c.rotate(0.15);
+      c.fillStyle = '#fff6dc'; c.beginPath(); c.rect(-34, -46, 68, 92); c.fill(); c.stroke();
+      c.lineWidth = 3; for (var l = 0; l < 4; l++) { c.beginPath(); c.moveTo(-22, -28 + l * 18); c.lineTo(22, -28 + l * 18); c.stroke(); }
+      c.restore();
+      [[1210, 824, 1], [1330, 806, 2], [1450, 836, 3], [760, 814, 0], [640, 836, 5]].forEach(function (k) {
+        kisi(c, k[0], k[1], 1.05, Object.assign({ yon: k[0] > 980 ? -1 : 1 }, KOYLU[k[2]]));
+      });
+      fatma(c, 400, 866, 1.5);
+      kar(c, t);
+      doku(c);
+    },
+
+    // 2. Uzun yolculuğun sonu: Fatma masanın karşısında görev ister. Paşa saygıyla, gölge olarak çizilir.
+    pasa_gorusme: function (c, t) {
+      c.fillStyle = '#c9b48a'; c.fillRect(0, 0, 1600, 900);
+      c.fillStyle = '#bca77c'; for (var d = 0; d < 16; d++) c.fillRect(d * 100 + 48, 0, 5, 660);
+      // pencere: dışarıda gelinen uzun yol
+      c.save(); c.beginPath(); c.rect(140, 150, 380, 330); c.clip();
+      gok(c, '#9fb2c6', '#e4e8e6');
+      tepeler(c, 330, 50, '#a9b4c2', 1.0);
+      c.fillStyle = '#e3ddc8'; c.fillRect(0, 380, 1600, 200);
+      c.strokeStyle = '#8a6a45'; c.lineWidth = 14; c.lineCap = 'round';
+      c.beginPath(); c.moveTo(130, 478); c.bezierCurveTo(330, 440, 240, 410, 420, 398); c.bezierCurveTo(500, 392, 440, 356, 530, 346); c.stroke();
+      c.restore();
+      c.strokeStyle = R.koyu; c.lineWidth = 12; c.strokeRect(140, 150, 380, 330);
+      c.lineWidth = 6; c.beginPath(); c.moveTo(330, 150); c.lineTo(330, 480); c.moveTo(140, 315); c.lineTo(520, 315); c.stroke();
+      // zemin
+      c.fillStyle = '#8a6a45'; c.fillRect(0, 660, 1600, 240);
+      c.lineWidth = 5; c.beginPath(); c.moveTo(0, 660); c.lineTo(1600, 660); c.stroke();
+      // duvarda bayrak
+      bayrak(c, 1310, 170, 190, 126, t * 0.25);
+      c.lineWidth = 5; c.strokeRect(1310, 170, 190, 126);
+      // masa ve ardındaki gölge
+      kisi(c, 1090, 700, 1.55, { siluet: '#2b2620', bas: 'kalpak' });
+      c.fillStyle = '#6b4a2c'; c.beginPath(); c.rect(860, 600, 480, 150); c.fill(); c.stroke();
+      c.fillStyle = '#7d5a38'; c.beginPath(); c.rect(836, 578, 528, 30); c.fill(); c.stroke();
+      c.fillStyle = '#fff6dc'; c.beginPath(); c.rect(960, 560, 150, 20); c.fill(); c.stroke();
+      // lamba
+      var g = c.createRadialGradient(1280, 500, 6, 1280, 500, 190 + Math.sin(t * 5) * 8);
+      g.addColorStop(0, 'rgba(255,230,150,.8)'); g.addColorStop(1, 'rgba(255,230,150,0)');
+      c.fillStyle = g; c.fillRect(1080, 300, 400, 400);
+      c.fillStyle = R.altin; c.beginPath(); c.rect(1262, 540, 36, 40); c.fill(); c.stroke();
+      c.fillStyle = '#fff3b0'; c.beginPath(); c.ellipse(1280, 506, 20, 34, 0, 0, TAU); c.fill(); c.stroke();
+      fatma(c, 560, 850, 1.65);
+      doku(c);
+    },
+
+    // 3. Köy köy gönüllü toplama: Fatma yürür, ardındaki sıra uzar.
+    gonullu_toplama: function (c, t) {
+      gok(c, '#f2dfae', '#e8c88c');
+      bulut(c, (t * 8) % 1900 - 200, 150, 1, 'rgba(255,250,235,.75)');
+      tepeler(c, 440, 56, '#d2b47c', 0.6 + t * 0.12);
+      var i;
+      for (i = 0; i < 7; i++) ev(c, sar(i * 300 - t * 70, 2100) - 260, 620, 220, 130 + (i % 3) * 30, { renk: DUKKAN_RENK[i % 6], cati: i % 2 ? 'kiremit' : 'duz' });
+      zemin(c, 620, '#cbad74');
+      var d = (t % 14) / 2, sayi = 1 + Math.min(5, Math.floor(d));
+      for (i = sayi - 1; i >= 0; i--) {
+        c.globalAlpha = i === sayi - 1 && d < 6 ? Math.min(1, (d % 1) * 3) : 1;
+        kisi(c, 900 - i * 150, 800 + (i % 2) * 34 - Math.abs(Math.sin(t * 5 + i)) * 6, 1.1, KOYLU[i]);
+        c.globalAlpha = 1;
+      }
+      fatma(c, 1100, 812 - Math.abs(Math.sin(t * 5)) * 6, 1.35, { kol: 'cagri' });
+      kuslar(c, t);
+      doku(c);
+    },
+
+    // 4. Batı Cephesi: gün doğarken sırtta bayrağıyla yürüyen müfreze (gölge olarak).
+    bati_cephesi: function (c, t) {
+      gok(c, '#f0a560', '#fbe6b8');
+      c.fillStyle = '#fff3c8'; daire(c, 1250, 470, 110); c.fill();
+      tepeler(c, 520, 40, '#c98a55', 0.8);
+      c.fillStyle = '#5b3f2a'; c.beginPath(); c.moveTo(0, 900); c.lineTo(0, 640); c.quadraticCurveTo(800, 520, 1600, 660); c.lineTo(1600, 900); c.closePath(); c.fill();
+      function sirtY(x) { var u = x / 1600; return (1 - u) * (1 - u) * 640 + 2 * u * (1 - u) * 520 + u * u * 660; }
+      var on = 1700 - sar(t * 50, 2500);
+      for (var i = 5; i >= 0; i--) {
+        var x = on + i * 125;
+        if (x < -100 || x > 1700) continue;
+        var y = sirtY(x) + 8 - Math.abs(Math.sin(t * 5 + i)) * 5;
+        if (i === 0) {
+          c.strokeStyle = '#2b2118'; c.lineWidth = 9; c.lineCap = 'round'; c.beginPath(); c.moveTo(x - 30, y - 70); c.lineTo(x - 30, y - 350); c.stroke();
+          bayrak(c, x - 26, y - 346, 150, 100, t);
+          fatma(c, x, y, 1, { siluet: '#2b2118', yon: -1 });
+        } else kisi(c, x, y, 0.95, { siluet: '#2b2118', bas: KOYLU[i].bas, uzun: KOYLU[i].uzun, yon: -1 });
+      }
+      tepeler(c, 850, 14, '#3a2a1c', 2);
+      kuslar(c, t, '#5b3a22');
+      doku(c);
+    },
+
+    // 5. Madalya: Fatma'nın göğsünde parlayan madalya, iki yanda sevinen halk.
+    madalya: function (c, t) {
+      gok(c, '#f6b469', '#fdeec3');
+      c.save(); c.translate(800, 560);
+      for (var i = 0; i < 14; i++) {
+        c.rotate(TAU / 14);
+        c.fillStyle = 'rgba(255,250,215,' + (0.16 + Math.sin(t * 1.5 + i) * 0.06) + ')';
+        c.beginPath(); c.moveTo(0, 0); c.lineTo(-90, -1300); c.lineTo(90, -1300); c.closePath(); c.fill();
+      }
+      c.restore();
+      tepeler(c, 640, 30, '#e0b377', 0.4);
+      zemin(c, 760, '#cbad74');
+      c.strokeStyle = R.koyu; c.lineWidth = 9; c.lineCap = 'round'; c.beginPath(); c.moveTo(300, 760); c.lineTo(300, 290); c.stroke();
+      bayrak(c, 304, 296, 210, 140, t);
+      for (var k = 0; k < 6; k++) {
+        var x = k < 3 ? 110 + k * 150 : 1190 + (k - 3) * 150;
+        kisi(c, x, 880 - Math.abs(Math.sin(t * 3.2 + k * 1.3)) * 14, 1.05, Object.assign({ kol: k % 2 ? 'yukari' : 'acik', yon: k < 3 ? 1 : -1 }, KOYLU[k]));
+      }
+      fatma(c, 800, 892, 2.3);
+      // madalya
+      var mx = 836, my = 672, vur = 1 + Math.sin(t * 4) * 0.08;
+      var g = c.createRadialGradient(mx, my, 4, mx, my, 150 * vur);
+      g.addColorStop(0, 'rgba(255,240,170,.9)'); g.addColorStop(1, 'rgba(255,220,120,0)');
+      c.fillStyle = g; c.fillRect(mx - 170, my - 170, 340, 340);
+      c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round';
+      c.fillStyle = R.kirmizi; c.beginPath(); c.rect(mx - 15, my - 56, 30, 40); c.fill(); c.stroke();
+      c.fillStyle = R.altin; daire(c, mx, my, 28); c.fill(); c.stroke();
+      c.fillStyle = '#fff3c4'; c.beginPath();
+      for (var n = 0; n < 10; n++) { var a = -Math.PI / 2 + n * Math.PI / 5, r = n % 2 ? 8 : 19; c.lineTo(mx + Math.cos(a) * r, my + Math.sin(a) * r); }
+      c.closePath(); c.fill(); c.stroke();
+      doku(c);
+    },
+
     // Görseli henüz hazır olmayan paneller için.
     bos: function (c) {
       gok(c, '#eadab4', '#dcc594');
@@ -885,19 +1041,25 @@
         var rs = IP.tohumluRastgele(3);
         for (var i = 0; i < 1500; i++) { c.fillStyle = 'rgba(60,40,20,' + rs() * 0.12 + ')'; c.fillRect(rs() * 400, rs() * 400, 2, 2); }
       }
-      if (tip === 'yemenili') {
-        // omuzlar, omuza inen yemeni, yüz
-        c.fillStyle = '#4f6d5c'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 300, 150, 290); c.lineTo(250, 290);
+      if (tip === 'yemenili' || tip === 'madalyali') {
+        var madalyali = tip === 'madalyali', ortuRenk = madalyali ? '#3a3340' : YEMENI;
+        // omuzlar, omuza inen örtü, yüz
+        c.fillStyle = madalyali ? '#6b6a4a' : '#4f6d5c'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 300, 150, 290); c.lineTo(250, 290);
         c.quadraticCurveTo(340, 300, 370, 400); c.closePath(); c.fill(); c.stroke();
-        c.fillStyle = YEMENI; c.beginPath(); c.moveTo(120, 150); c.quadraticCurveTo(92, 250, 122, 330); c.lineTo(278, 330);
+        c.fillStyle = ortuRenk; c.beginPath(); c.moveTo(120, 150); c.quadraticCurveTo(92, 250, 122, 330); c.lineTo(278, 330);
         c.quadraticCurveTo(308, 250, 280, 150); c.closePath(); c.fill(); c.stroke();
         c.fillStyle = '#e2b98c'; c.beginPath(); c.ellipse(200, 196, 62, 76, 0, 0, TAU); c.fill(); c.stroke();
-        c.fillStyle = YEMENI;
+        c.fillStyle = ortuRenk;
         c.beginPath(); c.moveTo(130, 196); c.quadraticCurveTo(112, 92, 200, 84); c.quadraticCurveTo(288, 92, 270, 196);
         c.quadraticCurveTo(254, 134, 200, 130); c.quadraticCurveTo(146, 134, 130, 196); c.closePath(); c.fill(); c.stroke();
         c.beginPath(); c.moveTo(144, 240); c.quadraticCurveTo(200, 296, 256, 240); c.lineTo(240, 312); c.lineTo(200, 296); c.lineTo(160, 312); c.closePath(); c.fill(); c.stroke();
         c.fillStyle = R.krem;
-        [[150, 118], [200, 102], [250, 118], [124, 250], [276, 250], [180, 306], [220, 306]].forEach(function (n) { daire(c, n[0], n[1], 5); c.fill(); });
+        if (!madalyali) [[150, 118], [200, 102], [250, 118], [124, 250], [276, 250], [180, 306], [220, 306]].forEach(function (n) { daire(c, n[0], n[1], 5); c.fill(); });
+        else {
+          // göğüste madalya
+          c.fillStyle = R.kirmizi; c.beginPath(); c.rect(286, 326, 24, 30); c.fill(); c.stroke();
+          c.fillStyle = R.altin; daire(c, 298, 372, 20); c.fill(); c.stroke();
+        }
         c.lineWidth = 5; c.beginPath(); c.moveTo(200, 180); c.quadraticCurveTo(192, 206, 204, 212); c.stroke();
         c.fillStyle = R.koyu; daire(c, 174, 184, 6.5); c.fill(); daire(c, 226, 184, 6.5); c.fill();
         c.beginPath(); c.moveTo(158, 168); c.quadraticCurveTo(174, 160, 188, 168); c.stroke();
@@ -965,7 +1127,7 @@
     },
 
     // Mini oyunların da kullandığı hazır çizimler.
-    kosan: kosan, siper: siper, torba: torba, kisi: kisi,
+    kosan: kosan, siper: siper, torba: torba, kisi: kisi, ev: ev, bayrak: bayrak,
 
     // Rehber Telgrafçı Nuri (kurgusal karakter) — mavi tonlarla ayrılır.
     nuri: function (tuval) {

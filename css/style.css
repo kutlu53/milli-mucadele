@@ -266,6 +266,8 @@ p { margin: 0; }
 .kart-dugme small { display: block; font-size: .62rem; line-height: 1.2; }
 .kart-dugme.secili { background: var(--altin); transform: translateY(-8px); box-shadow: 0 12px 0 -4px var(--koyu), 0 0 18px var(--altin); }
 .kolon-dugme { align-self: center; }
+.oyun-rozet { position: absolute; left: .6rem; top: .6rem; }
+.durak-dugme { font-size: 1.1rem; min-width: 8rem; }
 
 /* Röportaj */
 .roportaj { justify-content: space-between; }

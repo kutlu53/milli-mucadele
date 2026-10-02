@@ -132,3 +132,33 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Başarı testindeki sorular bu bülten sorularıyla birebir aynı olmamalı (bkz. PROJE_BILGILERI.md §5.3).
 - Yanlış cevaptan sonra soru yeniden sorulmuyor, sıradaki soruya geçiliyor. Senaryoda bu konuda bir kural yok; ekip karar vermeli.
 - Sıradaki iş: Kara Fatma'nın bölümü (4. kahraman).
+
+---
+
+## 2 Ekim 2026 — Kara Fatma'nın bölümü
+
+**Ne istendi?**
+- Dördüncü kahramana, Kara Fatma'ya geçilmesi.
+
+**Ne yapıldı?**
+- `data/heroes.json` dosyasına Kara Fatma'nın içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`.
+- **5 yeni hikâye çizimi:** karlı Erzurum'da okunan haber, masanın karşısında görev isteme (Mustafa Kemal Paşa saygıyla, yalnızca gölge olarak çizildi), köy köy uzayan gönüllü sırası, gün doğarken sırtta bayrağıyla yürüyen müfreze, göğüste parlayan madalya. Silah ya da çatışma çizilmedi.
+- **Yeni portre:** başörtülü, göğsünde madalya olan temsilî çizim.
+- **Yeni mini oyun "Müfrezeni Kur"** (`games/mufreze.js`), iki aşamalı:
+  - *1. aşama — Gönüllü toplama:* Köyde 8 kişi var. Dokununca ne iş bildiklerini söylerler. Oyuncu 5 görevi (yol göstermek, atlara bakmak, yaralılara bakmak, haber taşımak, yemek hazırlamak) o işi bilen kişiye verir. Doğru kişi müfrezeye katılıp bayrağın yanına dizilir. Yanlış kişi "Bu görev bana göre değil" der; cezası yok.
+  - *2. aşama — Rota:* Durakları sırayla seçme bulmacası. Senaryoda duraklar yazılı olmadığı için dosyada `[İÇERİK BEKLENİYOR]` duruyor; bu durumda bulmaca atlanıyor ve müfreze yalnızca Erzurum'dan Batı Cephesi'ne yürüyor. Ekip durakları dosyaya yazınca bulmaca kendiliğinden açılır.
+- Köylüler kurgusal olduğu için oyun ekranında "kurgusal köylüler" rozeti duruyor.
+
+**Ne test edildi?**
+- Bölüm otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Hata çıkmadı, 3 yıldız kaydedildi. Test programı bir görevi bilerek yanlış kişiye verdi; uyarı çıktı, oyun devam etti.
+- Rota bulmacası, dosyaya dokunmadan test sırasında geçici "Deneme A/B/C" durakları verilerek denendi: yanlış sırada seçim reddedildi, doğru sırada müfreze ilerledi.
+
+**Ne bulundu ve düzeltildi?**
+- Arka sıradaki köylülerin beceri etiketleri öndeki köylülerin başıyla üst üste biniyordu; ön sıranın yerleri kaydırıldı.
+
+**Açık konular**
+- **Rota durakları eksik.** Ekip, Erzurum'dan Batı Cephesi'ne giden durakları kaynaklardan doğrulayıp `heroes.json` içindeki `rota.duraklar` listesine sırasıyla yazmalı.
+- Köylülerin sözleri ve üç çeldirici köylü (türkü söyleyen, saat onaran, balık tutan) senaryoda yoktu; oyun için yazıldı. Ekip onaylamalı.
+- Bonus soru ("Anlatılanlara göre Kara Fatma esir düşünce ne yaptı?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi. Ekip onaylamalı.
+- Mini oyunda kaybetme yok; bitiren herkes mini oyun yıldızını alıyor. Pilot testte çok kolay bulunursa süre ya da hata sınırı eklenebilir.
+- Sıradaki iş: Gördesli Makbule'nin bölümü (5. kahraman).

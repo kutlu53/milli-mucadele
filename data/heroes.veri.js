@@ -228,7 +228,97 @@ window.IP_VERI = {
       "duygu_ani": "Cephede yalnızca askerler değil, bütün bir şehir vardır.",
       "portre": { "dosya": "", "cizim": "yemenili", "temsili": true }
     },
-    { "id": "kara-fatma", "hazir": false, "ad": "Kara Fatma", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Erzurum", "harita_x": 0.809, "harita_y": 0.371 } },
+    {
+      "id": "kara-fatma",
+      "hazir": true,
+      "ad": "Kara Fatma",
+      "baslik": "Müfrezenin Komutanı",
+      "alan": "cephe",
+      "alan_etiketi": "Cephe — Batı",
+      "konum": { "ad": "Erzurum", "harita_x": 0.809, "harita_y": 0.371 },
+      "tarih_etiketi": "1919–1922",
+      "tarih_dogrulandi": false,
+      "altin_bilgiler": [
+        {
+          "metin": "Asıl adı Fatma Seher Erden'dir ve Erzurumludur.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Mustafa Kemal Paşa'nın yanına giderek görev istedi, gönüllülerden oluşan bir milis müfrezesi kurdu.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Batı Cephesi'nde savaştı. Gösterdiği başarılar nedeniyle rütbe ve İstiklal Madalyası aldı.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Rütbenin adı doğrulanacak."
+        }
+      ],
+      "paneller": [
+        { "metin": "Erzurum. Fatma, Millî Mücadele haberlerini dinler ve yola çıkmaya karar verir.", "gorsel": "erzurum_haber", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Uzun bir yolculuk yapar. Mustafa Kemal Paşa'nın karşısına çıkıp görev ister.", "gorsel": "pasa_gorusme", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Görüşmenin yeri doğrulanacak." },
+        { "metin": "Köy köy dolaşıp gönüllü toplar. Müfrezesinde kadınlar da vardır.", "gorsel": "gonullu_toplama", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Müfrezede kadınların bulunduğu doğrulanacak." },
+        { "metin": "Batı Cephesi. Müfreze cephede görev yapar.", "gorsel": "bati_cephesi", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Göğsüne İstiklal Madalyası takılır.", "gorsel": "madalya", "anlati_mi": false, "dogrulandi": false }
+      ],
+      "mini_oyun": {
+        "modul": "mufreze",
+        "ad": "Müfrezeni Kur",
+        "aciklama": "Köylülerle konuş, her görev için o işi bilen kişiyi bul ve müfrezeni kur.",
+        "koyluler_kurgusal": true,
+        "gorevler": [
+          { "gorev": "Yol göstermek", "beceri": "yol bilen", "soz": "Bu dağların bütün yollarını bilirim." },
+          { "gorev": "Atlara bakmak", "beceri": "at yetiştiren", "soz": "Yıllardır at yetiştiririm." },
+          { "gorev": "Yaralılara bakmak", "beceri": "yaralılara bakan", "soz": "Yara sarmayı ve hastaya bakmayı bilirim." },
+          { "gorev": "Haber taşımak", "beceri": "haber taşıyan", "soz": "Hızlı koşarım, haberi hemen ulaştırırım." },
+          { "gorev": "Yemek hazırlamak", "beceri": "yemek hazırlayan", "soz": "Kalabalık sofralara yemek yetiştiririm." }
+        ],
+        "diger_koyluler": [
+          { "beceri": "türkü söyleyen", "soz": "Sesim güzeldir, türkü söylerim." },
+          { "beceri": "saat onaran", "soz": "Bozuk saatleri onarırım." },
+          { "beceri": "balık tutan", "soz": "Derede balık tutmayı severim." }
+        ],
+        "rota": {
+          "baslangic": "Erzurum",
+          "bitis": "Batı Cephesi",
+          "duraklar": ["[İÇERİK BEKLENİYOR]", "[İÇERİK BEKLENİYOR]", "[İÇERİK BEKLENİYOR]"],
+          "dogrulandi": false,
+          "not": "Senaryoda rota durakları yazılı değil. Ekip doğrulanmış durakları sırasıyla buraya yazınca oyunda sıralama bulmacası kendiliğinden açılır."
+        },
+        "kazanim": "Bir birliği oluşturan, farklı becerilere sahip insanlardır.",
+        "not": "Köylülerin sözleri kurgusaldır; senaryoda yalnızca beceriler yazılıydı. 'Diğer köylüler' çeldirici olarak eklendi. Ekip onaylamalı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Erzurum'dan neden yola çıktınız?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Mustafa Kemal Paşa'ya ne dediniz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Müfrezenizde kimler vardı?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "İstiklal Madalyası sizin için ne ifade ediyor?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 2, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "{0}'lu Fatma Seher Hanım kurduğu {1} ile Batı Cephesi'nde savaştı ve {2} ile ödüllendirildi.",
+        "dogrular": ["Erzurum", "milis müfrezesi", "İstiklal Madalyası"],
+        "celdiriciler": ["Kastamonu", "gazete", "Nobel Ödülü"],
+        "ipucu_bilgi": [0, 1, 2]
+      },
+      "biliyor_muydun": {
+        "metin": "Bir dönem esir düştüğü ve kaçarak birliğine döndüğü anlatılır.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "Anlatılanlara göre Kara Fatma esir düşünce ne yaptı?",
+          "secenekler": ["Kaçarak birliğine döndü", "Bir gazete çıkardı", "Telgrafçı oldu"],
+          "dogru": 0,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "\"Ben de vatanım için bir şey yapabilirim\" diyerek binlerce kilometre yol giden bir kadın.",
+      "portre": { "dosya": "", "cizim": "madalyali", "temsili": true }
+    },
     { "id": "gordesli-makbule", "hazir": false, "ad": "Gördesli Makbule", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Gördes", "harita_x": 0.143, "harita_y": 0.51 } },
     { "id": "halime-cavus", "hazir": false, "ad": "Halime Çavuş", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "Kastamonu", "harita_x": 0.425, "harita_y": 0.16 } },
     { "id": "serife-baci", "hazir": false, "ad": "Şerife Bacı", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "İnebolu", "harita_x": 0.424, "harita_y": 0.074 } },

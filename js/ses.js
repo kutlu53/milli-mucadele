@@ -59,6 +59,8 @@
     sayfa: function () { hisirti(0.35, 0.18, 1400); },
     damga: function () { hisirti(0.12, 0.5, 300); nota(90, 0.2, 'sine', 0.4); },
     not: function () { hisirti(0.18, 0.1, 3200); },
+    kisa: function () { nota(1250, 0.07, 'square', 0.07); },
+    uzun: function () { nota(1250, 0.24, 'square', 0.07); },
     zipla: function () { nota(380, 0.14, 'sine', 0.12, 0, 720); },
     engel: function () { nota(180, 0.15, 'square', 0.06); nota(150, 0.2, 'square', 0.06, 0.12); },
     zafer: function () {

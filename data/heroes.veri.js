@@ -690,7 +690,89 @@ window.IP_VERI = {
       "duygu_ani": "Bir kadının sesinin bir meydanı doldurması.",
       "portre": { "dosya": "", "cizim": "siyah_ortulu", "temsili": true, "not": "Senaryoya göre fotoğrafı bulunan kahramanlarda gerçek fotoğrafın stilize hâli kullanılacak. Fotoğraf eklenene kadar temsilî çizim duruyor." }
     },
-    { "id": "yunus-nadi", "hazir": false, "ad": "Yunus Nadi", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Ankara", "harita_x": 0.377, "harita_y": 0.367 } },
+    {
+      "id": "yunus-nadi",
+      "hazir": true,
+      "ad": "Yunus Nadi",
+      "baslik": "İlk Haber",
+      "alan": "basin",
+      "alan_etiketi": "Basın-yayın",
+      "konum": { "ad": "Ankara", "harita_x": 0.377, "harita_y": 0.367 },
+      "tarih_etiketi": "Nisan 1920",
+      "tarih_dogrulandi": false,
+      "altin_bilgiler": [
+        {
+          "metin": "Gazetecidir. Halide Edib ile birlikte Anadolu Ajansı'nın kurulmasına öncülük etti. Ajans 6 Nisan 1920'de kuruldu.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Ankara'da \"Yeni Gün\" gazetesini çıkararak Millî Mücadele'yi halka duyurdu.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Doğrulanacak."
+        },
+        {
+          "metin": "Ajansın amacı, Millî Mücadele haberlerini doğru ve hızlı biçimde Anadolu'ya ve dünyaya ulaştırmaktı.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        }
+      ],
+      "paneller": [
+        { "metin": "Ankara yolunda bir tren istasyonu. Yunus Nadi ve Halide Edib konuşuyor.", "gorsel": "istasyon", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "İstasyonun adı doğrulanacak." },
+        { "metin": "İşgalcilerin yalan haberlerine karşı milletin kendi sesi olmalıdır.", "gorsel": "kendi_sesi", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Ajansın adı konur: Anadolu Ajansı.", "gorsel": "ajans_adi", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Telgrafhane. İlk haber Anadolu'nun dört bir yanına gider.", "gorsel": "ilk_haber", "anlati_mi": false, "dogrulandi": false }
+      ],
+      "mini_oyun": {
+        "modul": "telgrafhane",
+        "ad": "Telgrafhane",
+        "aciklama": "Önce haberleri ayıkla: kaynağı belli olanı gönder, söylentiyi çöpe at. Sonra haberi telgrafla Anadolu'ya ulaştır.",
+        "kartlar_kurgusal": true,
+        "kartlar": [
+          { "metin": "Maraş halkı direndi, şehir kurtuldu.", "kaynak": "Maraş'tan gelen resmî telgraf", "tur": "kaynakli" },
+          { "metin": "Antep halkı şehrini savunuyor.", "kaynak": "Antep'teki muhabirin mektubu", "tur": "kaynakli" },
+          { "metin": "İnebolu'dan yola çıkan cephane kolları cepheye ilerliyor.", "kaynak": "İnebolu telgrafhanesi", "tur": "kaynakli" },
+          { "metin": "Duyduğuma göre Ankara'da kimse kalmamış.", "kaynak": "", "tur": "soylenti" },
+          { "metin": "Bir yolcu söylemiş: Direniş bitmiş.", "kaynak": "", "tur": "soylenti" },
+          { "metin": "Herkes diyor ki yardım hiç gelmeyecek.", "kaynak": "", "tur": "soylenti" }
+        ],
+        "telgraflar": [
+          { "metin": "Maraş halkı direndi, şehir kurtuldu." },
+          { "metin": "İnebolu'dan yola çıkan cephane kolları cepheye ilerliyor." },
+          { "metin": "Anadolu Ajansı kuruldu. Millî Mücadele'nin haberleri buradan duyurulacak.", "etiket": "Ajansın ilk haberi (temsilî)" }
+        ],
+        "kazanim": "Bir haberi yaymadan önce kaynağına bakılır.",
+        "not": "Haber kartları ve kaynak adları kurgusaldır; oyun için yazıldı (kaynaklı kartlar önceki kahramanların Altın Bilgilerine dayanır). Son telgraf, ajansın gerçek ilk haberinin metni değildir; temsilîdir. Telgraf işaretleri gerçek Mors kodu değildir. Kazanım cümlesi senaryodaki 'dezenformasyonla bağ kurar' notundan türetildi. Ekip onaylamalı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Anadolu Ajansı'nı neden kurdunuz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 2, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "İlk haberi nasıl gönderdiniz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Gazeteci olmak Millî Mücadele'de neden önemliydi?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "{0} tarihinde kurulan {1}, Millî Mücadele'nin sesini dünyaya duyurdu. Yunus Nadi Ankara'da {2} gazetesini çıkardı.",
+        "dogrular": ["6 Nisan 1920", "Anadolu Ajansı", "Yeni Gün"],
+        "celdiriciler": ["23 Nisan 1920", "Sebilürreşad", "Ateşten Gömlek"],
+        "ipucu_bilgi": [0, 0, 1]
+      },
+      "biliyor_muydun": {
+        "metin": "Anadolu Ajansı bugün de Türkiye'nin resmî haber ajansı olarak çalışıyor.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "Anadolu Ajansı bugün ne olarak çalışıyor?",
+          "secenekler": ["Resmî haber ajansı", "Tren istasyonu", "Matbaa"],
+          "dogru": 0,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "Bir istasyonda konuşan iki kişinin bir milletin sesini kurması.",
+      "portre": { "dosya": "", "cizim": "fesli", "temsili": true, "not": "Fotoğraf eklenene kadar temsilî çizim duruyor." }
+    },
     { "id": "mehmet-akif", "hazir": false, "ad": "Mehmet Âkif Ersoy", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Kastamonu", "harita_x": 0.45, "harita_y": 0.19 } }
   ]
 };

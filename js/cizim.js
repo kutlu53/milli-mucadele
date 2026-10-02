@@ -457,6 +457,9 @@
     });
   }
 
+  // Yunus Nadi'nin görünüşü (fesli, koyu takım elbiseli).
+  var NADI = { bas: 'fes', govde: '#3a4658' };
+
   /* ---------- Hikâye sahneleri (1600 × 900 sanal ölçü) ---------- */
   var DUKKAN_RENK = ['#e2cfa4', '#d6bd8c', '#e8d9b5', '#d0b584', '#dec79a', '#d9c39a'];
   var evlerGece = null;
@@ -1543,6 +1546,126 @@
       doku(c);
     },
 
+    /* ----- Yunus Nadi ----- */
+    // 1. İstasyon: peronda konuşan iki kişi, bekleyen tren.
+    istasyon: function (c, t) {
+      gok(c, '#e9dcb4', '#f0d9a6');
+      tepeler(c, 440, 50, '#c9b486', 0.9);
+      // istasyon binası
+      ev(c, 80, 640, 560, 250, { renk: '#d6bd8c', cati: 'kiremit', pencere: 4 });
+      c.fillStyle = '#fff6dc'; c.strokeStyle = R.koyu; c.lineWidth = 6; daire(c, 360, 300, 40); c.fill(); c.stroke();
+      c.beginPath(); c.moveTo(360, 300); c.lineTo(360, 272); c.moveTo(360, 300); c.lineTo(380, 308); c.stroke();
+      // tren
+      var sal = Math.sin(t * 8) * 1.5;
+      bulut(c, 1230 + Math.sin(t * 0.7) * 16, 300 - (t * 20 % 90), 0.7 + (t * 20 % 90) / 200, 'rgba(120,115,110,.5)');
+      c.fillStyle = '#2b2f3a'; c.lineWidth = 5; c.lineJoin = 'round';
+      c.beginPath(); c.rect(880, 470 + sal, 420, 150); c.fill(); c.stroke();
+      c.beginPath(); c.rect(1300, 400 + sal, 180, 220); c.fill(); c.stroke();
+      c.beginPath(); c.rect(1200, 380 + sal, 50, 90); c.fill(); c.stroke();
+      c.fillStyle = '#6b879a'; c.beginPath(); c.rect(1330, 430 + sal, 110, 70); c.fill(); c.stroke();
+      c.fillStyle = R.kirmizi; c.fillRect(880, 596 + sal, 600, 14);
+      [960, 1100, 1240, 1400].forEach(function (x) {
+        c.fillStyle = '#3a2a1c'; daire(c, x, 640, 46); c.fill(); c.stroke();
+        c.save(); c.translate(x, 640); c.rotate(t * 0.6); c.beginPath(); c.moveTo(-46, 0); c.lineTo(46, 0); c.moveTo(0, -46); c.lineTo(0, 46); c.stroke(); c.restore();
+      });
+      // peron ve raylar
+      c.fillStyle = '#5b4630'; c.fillRect(700, 686, 900, 10);
+      zemin(c, 696, '#c2ab7a');
+      kisi(c, 560, 860, 1.5, HALIDE);
+      kisi(c, 780, 860, 1.55, Object.assign({ yon: -1, kol: 'cagri' }, NADI));
+      kuslar(c, t);
+      doku(c);
+    },
+
+    // 2. Yalan haberler ve milletin sesi: solda dağılan söylenti kâğıtları, sağda parlayan telgraf direği.
+    kendi_sesi: function (c, t) {
+      gok(c, '#8d8a92', '#f1dca4');
+      var g = c.createLinearGradient(0, 0, 1600, 0);
+      g.addColorStop(0, 'rgba(40,40,60,.55)'); g.addColorStop(0.5, 'rgba(40,40,60,0)');
+      c.fillStyle = g; c.fillRect(0, 0, 1600, 900);
+      bulut(c, 260 + Math.sin(t * 0.5) * 30, 200, 1.6, 'rgba(60,58,70,.6)');
+      bulut(c, 520 + Math.sin(t * 0.4 + 1) * 30, 300, 1.2, 'rgba(60,58,70,.5)');
+      zemin(c, 680, '#c2ab7a');
+      // savrulan söylenti kâğıtları: üstlerinde soru işareti
+      for (var i = 0; i < 7; i++) {
+        var x = 80 + sar(i * 97 + t * 40, 620), y = 240 + ((i * 131 + t * 60) % 420);
+        c.save(); c.translate(x, y); c.rotate(Math.sin(t * 2 + i) * 0.5);
+        c.fillStyle = '#d9d2c0'; c.strokeStyle = R.koyu; c.lineWidth = 4; c.beginPath(); c.rect(-34, -44, 68, 88); c.fill(); c.stroke();
+        c.fillStyle = '#6b6152'; c.font = '900 56px Manset, serif'; c.textAlign = 'center'; c.fillText('?', 0, 20);
+        c.restore();
+      }
+      // telgraf direği ve yayılan dalgalar
+      var dg = c.createRadialGradient(1220, 330, 10, 1220, 330, 420);
+      dg.addColorStop(0, 'rgba(255,240,170,.9)'); dg.addColorStop(1, 'rgba(255,220,120,0)');
+      c.fillStyle = dg; c.fillRect(800, 0, 800, 760);
+      c.strokeStyle = R.koyu; c.lineWidth = 12; c.lineCap = 'round';
+      c.beginPath(); c.moveTo(1220, 700); c.lineTo(1220, 300); c.moveTo(1150, 340); c.lineTo(1290, 340); c.stroke();
+      c.strokeStyle = 'rgba(179,38,30,.8)'; c.lineWidth = 7;
+      for (var d = 0; d < 4; d++) { var r = 70 + ((t * 80 + d * 70) % 280); c.beginPath(); c.arc(1220, 320, r, -0.6, 0.6); c.stroke(); c.beginPath(); c.arc(1220, 320, r, Math.PI - 0.6, Math.PI + 0.6); c.stroke(); }
+      kisi(c, 760, 860, 1.5, Object.assign({ kol: 'cagri' }, NADI));
+      kisi(c, 600, 860, 1.45, HALIDE);
+      doku(c);
+    },
+
+    // 3. Ajansın adı konur: kapının üstüne tabela asılır.
+    ajans_adi: function (c, t) {
+      gok(c, '#f2dfae', '#ecc98a');
+      tepeler(c, 470, 40, '#d0b27a', 1.9);
+      ev(c, 420, 760, 760, 420, { renk: '#e2cfa4', pencere: 4, catiRenk: '#8a6a45' });
+      zemin(c, 760, '#cbad74');
+      // tabela: parlayarak yerine oturur
+      var p = Math.min(1, (t % 9) / 2.5), ty = 300 + (1 - p) * -160;
+      c.save(); c.translate(800, ty + 210); c.rotate((1 - p) * Math.sin(t * 6) * 0.08);
+      var g = c.createRadialGradient(0, 0, 20, 0, 0, 420);
+      g.addColorStop(0, 'rgba(255,236,160,' + 0.7 * p + ')'); g.addColorStop(1, 'rgba(255,236,160,0)');
+      c.fillStyle = g; c.fillRect(-420, -260, 840, 520);
+      c.fillStyle = R.kirmizi; c.strokeStyle = R.koyu; c.lineWidth = 7; c.lineJoin = 'round';
+      c.beginPath(); c.rect(-290, -52, 580, 104); c.fill(); c.stroke();
+      c.strokeStyle = R.krem; c.lineWidth = 9; c.lineCap = 'round';
+      // tabelada yazı yerine telgraf işaretleri
+      [[-230, 0], [-190, 1], [-110, 0], [-70, 0], [-30, 1], [60, 1], [140, 0], [180, 1]].forEach(function (k) {
+        c.beginPath(); c.moveTo(k[0], 0); c.lineTo(k[0] + (k[1] ? 50 : 1), 0); c.stroke();
+      });
+      c.restore();
+      kisi(c, 300, 870, 1.5, Object.assign({ kol: 'yukari' }, NADI));
+      kisi(c, 1300, 870, 1.45, Object.assign({ yon: -1 }, HALIDE));
+      kuslar(c, t);
+      doku(c);
+    },
+
+    // 4. Telgrafhane: ilk haber duvar haritasında şehir şehir yayılır.
+    ilk_haber: function (c, t) {
+      c.fillStyle = '#6b563c'; c.fillRect(0, 0, 1600, 900);
+      c.fillStyle = '#5d4a33'; for (var d = 0; d < 16; d++) c.fillRect(d * 100 + 48, 0, 5, 650);
+      c.fillStyle = '#7d5a38'; c.fillRect(0, 650, 1600, 250);
+      c.strokeStyle = R.koyu; c.lineWidth = 5; c.beginPath(); c.moveTo(0, 650); c.lineTo(1600, 650); c.stroke();
+      // duvar haritası
+      var G = IP.cografya, mx = 520, my = 110, mw = 960, mh = 444;
+      c.fillStyle = '#2f3f55'; c.beginPath(); c.rect(mx - 20, my - 20, mw + 40, mh + 40); c.fill(); c.stroke();
+      c.beginPath();
+      G.sinir.forEach(function (n, k) { var p = G.oran(n[0], n[1]); if (k) c.lineTo(mx + p[0] * mw, my + p[1] * mh); else c.moveTo(mx + p[0] * mw, my + p[1] * mh); });
+      c.closePath(); c.fillStyle = '#e4cf9f'; c.fill(); c.lineWidth = 3; c.stroke();
+      var rs = IP.tohumluRastgele(64), acik = Math.floor((t % 12) * 3);
+      for (var i = 0; i < 26; i++) {
+        var sx = mx + (0.08 + rs() * 0.84) * mw, sy = my + (0.22 + rs() * 0.56) * mh;
+        if (i >= acik) continue;
+        var g = c.createRadialGradient(sx, sy, 2, sx, sy, 34);
+        g.addColorStop(0, 'rgba(255,220,110,' + (0.7 + Math.sin(t * 4 + i) * 0.3) + ')'); g.addColorStop(1, 'rgba(255,220,110,0)');
+        c.fillStyle = g; c.fillRect(sx - 34, sy - 34, 68, 68);
+        c.fillStyle = R.kirmizi; daire(c, sx, sy, 6); c.fill();
+      }
+      // masa, telgraf tuşu ve tel
+      c.fillStyle = '#6b4a2c'; c.lineWidth = 5; c.beginPath(); c.rect(120, 640, 560, 150); c.fill(); c.stroke();
+      c.fillStyle = '#7d5a38'; c.beginPath(); c.rect(96, 616, 608, 30); c.fill(); c.stroke();
+      var vur = Math.sin(t * 14) > 0.2 ? 6 : 0;
+      c.fillStyle = '#c9a23a'; c.beginPath(); c.rect(470, 596 + vur, 150, 14); c.fill(); c.stroke();
+      c.fillStyle = R.koyu; c.beginPath(); c.ellipse(486, 586 + vur, 26, 12, 0, 0, TAU); c.fill();
+      c.lineWidth = 4; c.beginPath(); c.moveTo(620, 604); c.quadraticCurveTo(700, 520, 500, 320); c.stroke();
+      kisi(c, 330, 640, 1.5, NADI);
+      c.fillStyle = '#6b4a2c'; c.lineWidth = 5; c.beginPath(); c.rect(120, 640, 400, 150); c.fill(); c.stroke();
+      doku(c);
+    },
+
     // Görseli henüz hazır olmayan paneller için.
     bos: function (c) {
       gok(c, '#eadab4', '#dcc594');
@@ -1590,6 +1713,25 @@
       function kumlama() {
         var rs = IP.tohumluRastgele(3);
         for (var i = 0; i < 1500; i++) { c.fillStyle = 'rgba(60,40,20,' + rs() * 0.12 + ')'; c.fillRect(rs() * 400, rs() * 400, 2, 2); }
+      }
+      if (tip === 'fesli') {
+        // takım elbise, yaka, yüz, bıyık ve fes
+        c.fillStyle = '#3a4658'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 300, 150, 290); c.lineTo(250, 290);
+        c.quadraticCurveTo(340, 300, 370, 400); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = '#f3ead6'; c.beginPath(); c.moveTo(162, 288); c.lineTo(200, 360); c.lineTo(238, 288); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = R.kirmizi; c.beginPath(); c.moveTo(190, 310); c.lineTo(210, 310); c.lineTo(216, 400); c.lineTo(184, 400); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = '#d9ab7c'; c.beginPath(); c.rect(174, 250, 52, 46); c.fill(); c.stroke();
+        c.fillStyle = '#e2b98c'; c.beginPath(); c.ellipse(200, 196, 64, 78, 0, 0, TAU); c.fill(); c.stroke();
+        c.fillStyle = '#a3271f'; c.beginPath(); c.moveTo(140, 142); c.lineTo(152, 52); c.lineTo(248, 52); c.lineTo(260, 142); c.quadraticCurveTo(200, 122, 140, 142); c.closePath(); c.fill(); c.stroke();
+        c.beginPath(); c.moveTo(200, 52); c.quadraticCurveTo(262, 60, 266, 120); c.stroke();
+        c.fillStyle = '#2b2118'; c.beginPath(); c.moveTo(162, 234); c.quadraticCurveTo(200, 214, 238, 234); c.quadraticCurveTo(200, 230, 162, 234); c.fill(); c.stroke();
+        c.lineWidth = 5; c.beginPath(); c.moveTo(200, 176); c.quadraticCurveTo(190, 206, 204, 212); c.stroke();
+        c.fillStyle = R.koyu; daire(c, 174, 182, 6.5); c.fill(); daire(c, 226, 182, 6.5); c.fill();
+        c.beginPath(); c.moveTo(156, 164); c.quadraticCurveTo(174, 154, 190, 164); c.stroke();
+        c.beginPath(); c.moveTo(210, 164); c.quadraticCurveTo(226, 154, 244, 164); c.stroke();
+        c.beginPath(); c.arc(200, 244, 14, 0.2 * Math.PI, 0.8 * Math.PI); c.stroke();
+        kumlama();
+        return;
       }
       if (tip === 'efeli') {
         // cepken, gömlek, yüz, sarılı fes

@@ -270,6 +270,27 @@ p { margin: 0; }
 .kolon-dugme { align-self: center; }
 .oyun-rozet { position: absolute; left: .6rem; top: .6rem; }
 .kart-tepsi.parola { min-height: 9rem; }
+.telgraf-panel { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: .8rem; pointer-events: none; }
+.telgraf-panel > * { pointer-events: auto; }
+.telgraf-panel.ust { align-items: flex-start; justify-content: flex-start; padding-top: 2.7rem; }
+.telgraf-panel.ust > * { pointer-events: none; }
+.haber-karti { width: min(34rem, 60%); padding: 1rem 1.3rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; transition: transform .55s, opacity .55s; }
+.haber-karti p { font: 700 1.3rem Manset, serif; }
+.haber-karti small { font: 700 .9rem Daktilo, monospace; color: var(--kirmizi); }
+.haber-karti.salla { animation: salla .4s; }
+.haber-karti.gidiyor { opacity: 0; }
+.haber-karti.gidiyor.sola { transform: translate(-36vw, 40%) rotate(-14deg) scale(.3); }
+.haber-karti.gidiyor.saga { transform: translate(36vw, 40%) rotate(14deg) scale(.3); }
+.telgraf-metin { width: min(40rem, 52%); padding: .6rem .9rem; display: flex; flex-direction: column; gap: .4rem; }
+.telgraf-metin p { font: 700 .95rem Daktilo, monospace; line-height: 1.6; }
+.telgraf-metin span.gitti { color: #4e8a4a; }
+.telgraf-metin span.siradaki { background: var(--altin); border-radius: .25em; padding: 0 .25em; }
+.isaret-sira { display: flex; gap: .7rem; align-items: center; justify-content: center; min-height: 1.8rem; }
+.isaret-sira i { display: block; height: 1.1rem; border-radius: 1rem; background: #b9a67c; border: 3px solid var(--koyu); }
+.isaret-sira i.kisa { width: 1.1rem; }
+.isaret-sira i.uzun { width: 3.4rem; }
+.isaret-sira i.tamam { background: #4e8a4a; }
+.isaret-sira i.simdi { background: var(--kirmizi); box-shadow: 0 0 12px var(--altin); transform: scale(1.2); }
 .soz-tepsi { width: min(96vw, 80rem); display: flex; flex-direction: column; align-items: center; gap: .45rem; }
 .soz-yuvalar, .soz-kartlar { width: 100%; display: grid; grid-template-columns: repeat(5, 1fr); gap: .4rem; }
 .soz-yuva, .soz-kart {

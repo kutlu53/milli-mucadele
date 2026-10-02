@@ -318,3 +318,36 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Bonus soru ("Halide Edib'in Millî Mücadele yıllarını anlattığı romanın adı nedir?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi.
 - Halide Edib'in gerçek fotoğrafı bulunursa portre onunla değiştirilmeli.
 - Sıradaki iş: Yunus Nadi'nin bölümü (9. kahraman; mini oyunu "Telgrafhane").
+
+---
+
+## 2 Ekim 2026 — Yunus Nadi'nin bölümü
+
+**Ne istendi?**
+- Halide Edib'in bölümünün GitHub'a gönderilmesi ve dokuzuncu kahramana, Yunus Nadi'ye geçilmesi.
+
+**Ne yapıldı?**
+- Halide Edib'in bölümü kaydedildi ve GitHub'a gönderildi.
+- `data/heroes.json` dosyasına Yunus Nadi'nin içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`.
+- **4 yeni hikâye çizimi:** istasyonda konuşan iki kişi ve bekleyen tren, dağılan söylenti kâğıtlarına karşı parlayan telgraf direği, kapının üstüne asılan ajans tabelası, duvar haritasında şehir şehir yayılan ilk haber.
+- **Yeni portre:** fesli, bıyıklı temsilî çizim.
+- **Yeni mini oyun "Telgrafhane"** (`games/telgrafhane.js`), iki aşamalı:
+  - *1. aşama — Doğru mu, söylenti mi?* Masaya 6 haber kartı gelir. Her kartta "Kaynak:" satırı vardır. Kaynağı belli olan haber "Gönder", kaynağı belli olmayan söylenti "Çöp" düğmesiyle ayrılır. Yanlışta kart sallanır ve nedeni yazılır.
+  - *2. aşama — Telgraf:* 3 haber kelime kelime gönderilir. Her kelimenin iki işareti vardır: kısa (•) için tuşa dokunulur, uzun (—) için basılı tutulur. Basılı tutarken bir halka dolar; dolunca işaret "uzun" olur. Gönderilen her kelimede telden bir kıvılcım geçer ve duvardaki haritada bir ışık yanar.
+  - Üçüncü haber "Ajansın ilk haberi (temsilî)" diye etiketlidir.
+- Haber kartları ve telgraf metinleri kodda değil, `heroes.json` içinde duruyor.
+- İki yeni ses eklendi: kısa ve uzun telgraf sesi.
+
+**Ne test edildi?**
+- Bölüm otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Test programı bir kartı bilerek yanlış kutuya attı ve bir işareti bilerek yanlış bastı; ikisinde de uyarı çıktı, oyun devam etti. 3 yıldız kaydedildi, hata çıkmadı.
+
+**Ne bulundu ve düzeltildi?**
+- Telgraf aşamasında haber metni kutusu "kurgusal haber kartları" rozetinin altında kalıyordu; kutu biraz aşağı alındı.
+
+**Açık konular**
+- **Haber kartları kurgusaldır** (ekranda rozetle belirtiliyor). Kaynaklı üç kart önceki kahramanların Altın Bilgilerine dayanıyor; kaynak adları ("Maraş'tan gelen resmî telgraf" gibi) oyun için yazıldı. Ekip onaylamalı.
+- **Son telgraf, ajansın gerçek ilk haberinin metni değildir;** temsilîdir. Ekip gerçek ilk haberi kaynaklardan bulursa metin değiştirilebilir.
+- Telgraf işaretleri gerçek Mors kodu değildir (senaryo "basitleştirilmiş" diyor): sesli harf kısa, sessiz harf uzun sayılıyor ve her kelimenin yalnızca ilk iki harfi gönderiliyor.
+- Kazanım cümlesi ("Bir haberi yaymadan önce kaynağına bakılır.") senaryodaki dezenformasyon notundan türetildi. Bonus soru da "Biliyor muydun?" metninden türetildi.
+- Bu mini oyunda kaybetme yok; bitiren herkes yıldızı alıyor.
+- Sıradaki iş: Mehmet Âkif Ersoy'un bölümü (10. ve son kahraman; mini oyunu "Mürettip"). İstiklal Marşı'nın ilk iki kıtası resmî kaynaktan alınmalı.

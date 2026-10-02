@@ -195,3 +195,34 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Mini oyunda kaybetme yok; bitiren herkes yıldızı alıyor. Pilot testte zorluk (kare sayısı, kırmızı bölge) denenmeli.
 - Bir mini oyun açılırken hata verirse ekran boş kalıyor. İleride "bu oyun açılamadı, geç" ekranı eklenebilir.
 - Sıradaki iş: Halime Çavuş'un bölümü (6. kahraman; mini oyunu önceki beş kahramanı soran "Kontrol Noktası").
+
+---
+
+## 2 Ekim 2026 — Halime Çavuş'un bölümü
+
+**Ne istendi?**
+- Gördesli Makbule'nin bölümünün GitHub'a gönderilmesi ve altıncı kahramana, Halime Çavuş'a geçilmesi.
+
+**Ne yapıldı?**
+- Gördesli Makbule'nin bölümü kaydedildi ve GitHub'a gönderildi.
+- `data/heroes.json` dosyasına Halime Çavuş'un içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`.
+- **4 yeni hikâye çizimi:** yazım sırasındaki erkekler ve kenarda kalan Kezban, saç kesme ve kılık değiştirme (sahne iki görünüş arasında gidip gelir), gece gündüz yol alan kağnı kolu, kalpağını çıkarınca şaşıran arkadaşları.
+- **Yeni çizim: kağnı** (öküz, tahta tekerlek, örtülü sandıklar). Şerife Bacı'nın bölümünde de kullanılacak.
+- **Yeni portre:** kalpaklı genç temsilî çizim.
+- **Yeni mini oyun "Kontrol Noktası"** (`games/kontrol.js`): Oyunun yerleşik tekrar bölümü. Kağnı 5 kontrol noktasından geçer. Her noktada nöbetçi, önceki beş kahramandan biriyle ilgili bir parola sorusu sorar.
+  - Doğru cevapta bariyer kalkar, kağnı yola devam eder.
+  - Yanlış cevapta şüphe göstergesi bir artar, o kahramanın kartı 5 saniye açılır, sonra aynı soru yeniden sorulur (yanlış seçenek kapanır).
+  - Şüphe göstergesi dolarsa (5 yanlış) "tekrar dene / yıldızsız devam et" ekranı çıkar.
+- Parola soruları kodda değil, `heroes.json` içinde (`mini_oyun.sorular`) duruyor.
+
+**Ne test edildi?**
+- Bölüm otomatik oynatıldı (3 boyutlu, 1366×768): test programı bir soruyu bilerek yanlış cevapladı; kart açıldı, soru yeniden soruldu, bölüm 3 yıldızla bitti. Hata çıkmadı.
+- Şüphe göstergesinin dolması ayrıca denendi (3 boyutsuz, 1024×768): 5 yanlıştan sonra "Nöbetçi şüphelendi" ekranı çıktı, "yıldızsız devam et" ile bölüm 2 yıldızla bitti.
+
+**Ne bulundu ve düzeltildi?**
+- Yanlış cevapta açılan kart oyun alanına sığmıyor, üstündeki yazı kesiliyordu. Kart artık bütün ekranın üstünde açılıyor.
+
+**Açık konular**
+- Parola soruları senaryoda yoktu; önceki beş kahramanın Altın Bilgilerinden türetildi. Ekip onaylamalı. Başarı testindeki sorularla birebir aynı olmamalı.
+- Bonus soru ("Öküz arabasının bir başka adı nedir?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi. Ekip onaylamalı.
+- Sıradaki iş: Şerife Bacı'nın bölümü (7. kahraman; oyunun en uzun ve en duygusal bölümü).

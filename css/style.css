@@ -267,6 +267,11 @@ p { margin: 0; }
 .kart-dugme.secili { background: var(--altin); transform: translateY(-8px); box-shadow: 0 12px 0 -4px var(--koyu), 0 0 18px var(--altin); }
 .kolon-dugme { align-self: center; }
 .oyun-rozet { position: absolute; left: .6rem; top: .6rem; }
+.kart-tepsi.parola { min-height: 9rem; }
+.parola-kutu { width: min(60rem, 96vw); padding: .5rem 1rem .7rem; display: flex; flex-direction: column; gap: .4rem; text-align: center; animation: belir .3s; }
+.parola-kutu p { font: 700 1.15rem Manset, serif; }
+.parola-bas { display: flex; align-items: center; justify-content: center; gap: .7rem; font: 700 .8rem Daktilo, monospace; color: var(--kirmizi); }
+.parola-perde { z-index: 5; flex-direction: column; gap: .8rem; animation: belir .3s; }
 .durak-dugme { font-size: 1.1rem; min-width: 8rem; }
 
 /* Röportaj */

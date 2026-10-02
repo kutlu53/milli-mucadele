@@ -392,7 +392,85 @@ window.IP_VERI = {
       "duygu_ani": "Dağların türküsünü bilen bir kadının vatan savunması.",
       "portre": { "dosya": "", "cizim": "efeli", "temsili": true }
     },
-    { "id": "halime-cavus", "hazir": false, "ad": "Halime Çavuş", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "Kastamonu", "harita_x": 0.425, "harita_y": 0.16 } },
+    {
+      "id": "halime-cavus",
+      "hazir": true,
+      "ad": "Halime Çavuş",
+      "baslik": "Gizli Kimlik",
+      "alan": "lojistik",
+      "alan_etiketi": "Lojistik",
+      "konum": { "ad": "Kastamonu", "harita_x": 0.425, "harita_y": 0.16 },
+      "tarih_etiketi": "1920–1922",
+      "tarih_dogrulandi": false,
+      "altin_bilgiler": [
+        {
+          "metin": "Kastamonuludur. Asıl adı Kezban'dır.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Asıl adı doğrulanacak."
+        },
+        {
+          "metin": "Erkek kılığına girip \"Halim\" adıyla cephane taşıyan birliklere katıldı.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Doğrulanacak."
+        },
+        {
+          "metin": "Hizmetleri nedeniyle çavuş rütbesi ve İstiklal Madalyası aldı.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Doğrulanacak."
+        }
+      ],
+      "paneller": [
+        { "metin": "Kastamonu. Kezban, kadınların cepheye gidemeyeceğini duyar.", "gorsel": "kastamonu_duyuru", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Saçlarını keser, erkek kıyafeti giyer ve \"Halim\" adını alır.", "gorsel": "sac_kesme", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Cephane kolunda gece gündüz yük taşır.", "gorsel": "cephane_kolu", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Gerçek kimliği ortaya çıktığında herkes şaşırır. Ona \"Halime Çavuş\" denir.", "gorsel": "kimlik", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Kimliğin ortaya çıkışı doğrulanacak." }
+      ],
+      "mini_oyun": {
+        "modul": "kontrol",
+        "ad": "Kontrol Noktası",
+        "aciklama": "Cephane yüklü kağnıyla kontrol noktalarından geç. Nöbetçinin parola sorularını bil.",
+        "suphe_siniri": 5,
+        "kazanim": "",
+        "sorular": [
+          { "kahraman": "sutcu-imam", "soru": "Sütçü İmam hangi şehirde direnişi başlattı?", "secenekler": ["Antep", "Maraş", "Erzurum"], "dogru": 1 },
+          { "kahraman": "sahin-bey", "soru": "Şahin Bey hangi yolda işgal kuvvetlerini durdurmak için savaştı?", "secenekler": ["Kilis–Antep yolu", "İzmir–Aydın yolu", "İnebolu–Kastamonu yolu"], "dogru": 0 },
+          { "kahraman": "tayyar-rahmiye", "soru": "Rahmiye'ye \"Tayyar\" lakabı neden verildi?", "secenekler": ["Maraşlı olduğu için", "Gazeteci olduğu için", "Hızı ve cesareti için"], "dogru": 2 },
+          { "kahraman": "kara-fatma", "soru": "Kara Fatma'nın asıl adı nedir?", "secenekler": ["Fatma Seher Erden", "Halide Edib Adıvar", "Makbule"], "dogru": 0 },
+          { "kahraman": "gordesli-makbule", "soru": "Gördesli Makbule hangi kıyafetle savaştı?", "secenekler": ["Denizci kıyafetiyle", "Efe kıyafetiyle", "Postacı kıyafetiyle"], "dogru": 1 }
+        ],
+        "not": "Parola soruları senaryo belgesinde yoktu; önceki beş kahramanın Altın Bilgilerinden türetildi. Ekip onaylamalı. Başarı testindeki sorular bunlarla birebir aynı olmamalı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Neden erkek kılığına girdiniz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Cephane nasıl taşınırdı?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Gerçek adınız ortaya çıkınca ne oldu?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 2, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "Kastamonulu {0}, \"{1}\" adıyla cephane taşıdı ve {2} rütbesi aldı.",
+        "dogrular": ["Kezban", "Halim", "çavuş"],
+        "celdiriciler": ["Fatma", "Said", "paşa"],
+        "ipucu_bilgi": [0, 1, 2]
+      },
+      "biliyor_muydun": {
+        "metin": "Millî Mücadele'de cephanenin büyük bölümü öküz arabaları (kağnılar), atlar ve insanların sırtında taşındı.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "Öküz arabasının bir başka adı nedir?",
+          "secenekler": ["Kağnı", "Tayyare", "Telgraf"],
+          "dogru": 0,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "Ülkesine hizmet etmek için kimliğini saklamak zorunda kalan bir genç kadın.",
+      "portre": { "dosya": "", "cizim": "kalpakli_genc", "temsili": true }
+    },
     { "id": "serife-baci", "hazir": false, "ad": "Şerife Bacı", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "İnebolu", "harita_x": 0.424, "harita_y": 0.074 } },
     { "id": "halide-edib", "hazir": false, "ad": "Halide Edib Adıvar", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "İstanbul", "harita_x": 0.178, "harita_y": 0.213 } },
     { "id": "yunus-nadi", "hazir": false, "ad": "Yunus Nadi", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Ankara", "harita_x": 0.377, "harita_y": 0.367 } },

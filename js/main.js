@@ -155,7 +155,7 @@
     var hesap = durumHesapla(), durumlar = hesap.durumlar, bekleyen = hesap.bekleyenBulten;
     var siradaki = IP.veri.kahramanlar.filter(function (k) { return durumlar[k.id] === 'acik'; })[0];
     var hepsiTamam = IP.kayit.tamamSayisi() >= IP.veri.kahramanlar.length;
-    var bosMesaj = hepsiTamam ? 'On sayfanın hepsi canlandı! Zafer Nüshası hazırlanıyor.' : 'Sıradaki kahramanın bölümü hazırlanıyor.';
+    var bosMesaj = hepsiTamam ? (IP.kayit.veri.final_goruldu ? 'Zafer Nüshası basıldı. İstediğin bölümü yeniden oynayabilirsin.' : 'On sayfanın hepsi canlandı! Matbaa seni bekliyor.') : 'Sıradaki kahramanın bölümü hazırlanıyor.';
     if (o.yak) durumlar[o.yak] = 'acik'; // ışık birazdan gözümüzün önünde yanacak
     return IP.sahneDegistir(function (e) {
       IP.ucb.goster('harita');
@@ -166,6 +166,9 @@
       baslik.appendChild(IP.el('h2', null, 'Anadolu Haritası'));
       var yonerge = IP.el('div', 'yonerge', siradaki ? 'Yanıp sönen konuma dokun.' : bosMesaj);
       baslik.appendChild(yonerge);
+      if (hepsiTamam && !bekleyen && !IP.kayit.veri.final_goruldu) {
+        baslik.appendChild(IP.dugme('• — •  Zafer Nüshası ▶', 'bulten-dugme', finalAkisi));
+      }
       if (bekleyen) {
         yonerge.textContent = 'Nuri\'den acil telgraf var!';
         baslik.appendChild(IP.dugme('• — •  ' + bekleyen.ad + ' ▶', 'bulten-dugme', function () { bultenEkrani(bekleyen); }));
@@ -251,6 +254,7 @@
       serit.appendChild(sayfalar);
       serit.appendChild(IP.el('span', null, tamam + ' / ' + toplam + ' sayfa'));
       // Yapılmış bültenler buradan yeniden açılabilir.
+      if (IP.kayit.veri.final_goruldu) serit.appendChild(IP.dugme('Zafer Nüshası ↻', 'ikincil kucuk', finalAkisi));
       IP.bulten.liste().forEach(function (b) {
         var sonuc = IP.kayit.bulten(b.no);
         if (sonuc) serit.appendChild(IP.dugme('Bülten ' + b.no + ': ' + sonuc.en_iyi + '/' + sonuc.toplam + ' ↻', 'ikincil kucuk', function () { bultenEkrani(b); }));
@@ -359,6 +363,42 @@
     IP.ucb.kur(document.getElementById('arka3b'));
     acilisEkrani();
   });
+
+  /* ---------- Final: Zafer Nüshası → Büyük Bülten → veda ---------- */
+  async function finalAkisi() {
+    var h3 = IP.ucb.var ? IP.ucb.harita() : null;
+    function haritaHazirla() {
+      IP.ucb.goster('harita');
+      if (h3) { h3.durumAyarla(durumHesapla().durumlar); h3.hemenGenel(); }
+    }
+    await IP.sahneDegistir(function (e) {
+      IP.ucb.goster('telgraf');
+      if (IP.ucb.var) IP.ucb.telgraf().bakis(-1.3);
+      ustSerit({ cikis: true });
+      return IP.final.telgraf(e);
+    });
+    await IP.sahneDegistir(function (e) {
+      IP.ucb.goster(null);
+      ustSerit({ cikis: true });
+      return IP.final.gazete(e);
+    });
+    var buyuk = IP.bulten.liste().filter(function (b) { return b.sonra === 'final'; })[0];
+    if (buyuk) {
+      var sonuc = await IP.sahneDegistir(function (e) {
+        haritaHazirla();
+        ustSerit({ cikis: true });
+        return IP.bulten.goster(e, buyuk, h3, { devam: 'Devam ▶' });
+      });
+      IP.kayit.bultenSonucu(buyuk.no, sonuc);
+    }
+    await IP.sahneDegistir(function (e) {
+      haritaHazirla();
+      ustSerit({ cikis: true });
+      return IP.final.veda(e);
+    });
+    IP.kayit.veri.final_goruldu = true; IP.kayit.kaydet();
+    haritaEkrani();
+  }
 
   IP.haritaEkrani = haritaEkrani;
 })();

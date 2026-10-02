@@ -2,6 +2,12 @@ window.IP_VERI = {
   "surum": "0.1-taslak",
   "aciklama": "Oyundaki tüm tarihî içerik bu dosyadan gelir. 'dogrulandi': false olan her bilgi TASLAKTIR; en az iki güvenilir kaynakla doğrulanmadan gerçek uygulamada kullanılmaz. Bu dosyayı değiştirdikten sonra 'araclar/veri-paketle.bat' dosyasını çalıştırın.",
   "rehber": { "ad": "Telgrafçı Nuri", "kurgusal": true },
+  "final": {
+    "gazete_adi": "İstiklal Postası",
+    "nusha": "Zafer Nüshası",
+    "telgraf": "Bütün haberler ulaştı. Matbaayı çalıştır!",
+    "veda": "Onları sen unutmadıkça kaybolmazlar."
+  },
   "prolog": [
     { "konusan": "anlatici", "metin": "Okulun eski deposunda tozlu bir tahta sandık buldun. İçinde pirinçten bir telgraf makinesi ve eski bir defter var." },
     { "konusan": "telgraf", "metin": "Burası Ankara, yıl 1920. Milletin sesini duyuracak bir muhabir arıyoruz. Unutulan kahramanların sayfaları siliniyor. Onları kaydet!" },

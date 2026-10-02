@@ -386,3 +386,34 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Kazanım cümlesi ve bonus soru türetildi; ekip onaylamalı.
 - Âkif'in ödülü kabul etmediği bilgisi `[DOĞRULA]` etiketli; çizimde yalnızca dokunulmamış bir kese olarak gösterildi.
 - **Kalan işler:** Final (Zafer Nüshası + 15 soruluk Büyük Bülten), öğretmen paneli ve CSV dışa aktarma; ardından pilot test ve içeriğin kaynaklarla doğrulanması.
+
+---
+
+## 2 Ekim 2026 — Final: Zafer Nüshası ve Büyük Bülten
+
+**Ne istendi?**
+- Mehmet Âkif'in bölümünün GitHub'a gönderilmesi ve oyunun finalinin yapılması.
+
+**Ne yapıldı?**
+- Mehmet Âkif'in bölümü kaydedildi ve GitHub'a gönderildi.
+- **Final akışı (`js/final.js`):** On sayfa ve iki bülten tamamlanınca haritada "Zafer Nüshası" düğmesi yanıp söner. Sırasıyla:
+  1. Telgraftan son mesaj gelir: "Bütün haberler ulaştı. Matbaayı çalıştır!"
+  2. **Zafer Nüshası:** On kahramanın manşeti, portreleriyle birlikte tek bir gazete sayfasında birleşir. "Yazdır" düğmesi tarayıcının yazdırma penceresini açar; kâğıda yalnızca gazete çıkar.
+  3. **Büyük Bülten:** 15 soruluk son karışık tekrar (8 doğru/yanlış, 5 boşluk doldurma, 2 eşleştirme). On kahramanın hepsi en az bir soruda geçiyor. Bülten ekranı öncekiyle aynı.
+  4. **Veda:** Harita bütünüyle aydınlanır, Nuri veda eder: "Onları sen unutmadıkça kaybolmazlar."
+- **Ad yerine kod:** Gazetede "Muhabir: D-07" gibi anonim kod yazıyor. Yanında "Adın: ______" diye boş bir çizgi var; öğrenci adını yazdırılan kâğıda elle yazar. Böylece ad bilgisayarda hiçbir yerde saklanmıyor ("kişisel veri yok" kuralı).
+- Final metinleri `heroes.json` içindeki `final` bölümünde, Büyük Bülten soruları `bulletins.json` içinde (no: 3) duruyor.
+- Final bir kez görüldükten sonra haritanın altındaki şeritten yeniden açılabilir. Büyük Bülten'in puanı da diğer bültenler gibi kaydedilir.
+
+**Ne test edildi?**
+- Final otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Telgraf, gazete, Büyük Bülten (iki bilerek yapılan hatayla 13/15) ve veda ekranı sırayla geçti; hata çıkmadı.
+- Yazdırma görünümü denendi: kâğıtta yalnızca gazete, on haber iki sütun hâlinde çıkıyor. Gerçek bir yazıcıyla denenmedi.
+
+**Ne bulundu ve düzeltildi?**
+- Gazetedeki "Adın:" yazısı dev gibi çıkıyor ve sayfa aşağı kaydırılamıyordu. Sebep: "Haberi Yaz" ekranı da aynı stil adlarını (`gazete`, `gazete-ad`) kullanıyordu ve iki ekranın kuralları birbirine karışıyordu. Final ekranının stil adları değiştirildi.
+
+**Açık konular**
+- Büyük Bülten soruları senaryoda yoktu; Altın Bilgilerden türetildi. Ekip onaylamalı. Bu bülten araştırmadaki başarı testi değildir; test soruları bunlarla birebir aynı olmamalı.
+- İçerik doğrulanana kadar gazetede ve yazdırılan kâğıtta "TASLAK İÇERİK" damgası görünüyor.
+- Gazete gerçek bir yazıcıda (okul yazıcısı, A4) denenmeli.
+- **Kalan işler:** öğretmen paneli (gizli giriş, ilerleme, tümünü aç, sunum modu, CSV dışa aktarma, sıfırlama); ardından pilot test ve içeriğin kaynaklarla doğrulanması.

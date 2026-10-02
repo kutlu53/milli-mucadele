@@ -205,6 +205,31 @@ p { margin: 0; }
 .bulten-sayac span { display: block; height: 100%; background: var(--altin); animation: bultenSayac 5s linear forwards; }
 @keyframes bultenSayac { from { width: 100%; } to { width: 0; } }
 
+/* Final: Zafer Nüshası */
+.gazete-ekrani { justify-content: flex-start; gap: .6rem; }
+.zafer-gazete { position: relative; width: min(70rem, 96vw); flex: 1; min-height: 0; overflow-y: auto; padding: 1rem 1.6rem 1.2rem; animation: belir .6s; }
+.gazete-ust { text-align: center; border-bottom: 5px double var(--koyu); padding-bottom: .4rem; margin-bottom: .7rem; }
+.gazete-nusha { font: 700 .9rem Daktilo, monospace; letter-spacing: .3em; color: var(--kirmizi); text-transform: uppercase; }
+.gazete-ust h1 { font: 900 clamp(2rem, 5vw, 3.6rem) Manset, serif; letter-spacing: .04em; line-height: 1.1; border-top: 5px double var(--koyu); margin-top: .2rem; padding-top: .2rem; }
+.gazete-kunye { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font: 700 .85rem Daktilo, monospace; margin-top: .3rem; }
+.kunye-ad::after { content: ''; display: inline-block; width: 12rem; border-bottom: 2px solid var(--koyu); vertical-align: bottom; }
+.gazete-sutunlar { columns: 2; column-gap: 1.6rem; column-rule: 2px solid var(--sepya); }
+.gazete-haber { display: flex; gap: .7rem; align-items: flex-start; break-inside: avoid; padding: .45rem 0; border-bottom: 1px solid var(--sepya); }
+.gazete-haber canvas { width: 3.6rem; height: 3.6rem; flex: none; border-radius: 50%; border: 3px solid var(--koyu); }
+.gazete-haber h3 { font: 900 1.05rem Manset, serif; color: var(--kirmizi); }
+.gazete-haber p { font-size: .85rem; line-height: 1.35; }
+.veda { justify-content: flex-end; padding-bottom: 5rem; gap: 1rem; }
+.veda .nuri-balon { max-width: min(46rem, 94vw); }
+.veda .nuri-yazi { font: 700 1.5rem Manset, serif; }
+@media (max-width: 760px) { .gazete-sutunlar { columns: 1; } }
+/* Yazdırma: yalnızca gazete sayfası kâğıda çıkar. */
+@media print {
+  html, body { height: auto; overflow: visible; background: #fff; }
+  #arka3b, #ust, #efekt, .gazete-dugmeler { display: none !important; }
+  #sahne, .ekran { position: static; padding: 0; display: block; }
+  .zafer-gazete { width: 100%; max-height: none; overflow: visible; box-shadow: none; border: none; background: #fff; animation: none; }
+}
+
 /* Yolculuk */
 .yolculuk { justify-content: flex-end; padding-bottom: 12vh; pointer-events: none; }
 .yolculuk-yazi { position: relative; text-align: center; color: var(--krem); text-shadow: 0 4px 16px #000, 0 0 3px #000; padding: 0 2rem; }

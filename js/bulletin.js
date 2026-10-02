@@ -16,7 +16,8 @@
     },
 
     // h3: 3 boyutlu harita (yoksa düz harita çizilir). Sonuç: { dogru, toplam, sure_sn }
-    goster: function (ekran, b, h3) {
+    // ayar.devam: bitiş düğmesinin yazısı (verilmezse 'Haritaya dön').
+    goster: function (ekran, b, h3, ayar) {
       return new Promise(function (coz) {
         var sorular = b.sorular, n = sorular.length, no = 0, dogru = 0, baslangic = Date.now();
         ekran.classList.add('bulten');
@@ -191,7 +192,7 @@
           var nuri = IP.nuriBalonu(dogru === n ? 'Tek hata yok! Bülten hemen telgrafla gidiyor.' : 'Bülten telgrafla gidiyor. Bu bülteni haritadan istediğin zaman yeniden açabilirsin.');
           nuri.classList.add('belir'); kart.appendChild(nuri);
           var sira = IP.el('div', 'dugme-sira');
-          sira.appendChild(IP.dugme('Haritaya dön ▶', null, function () {
+          sira.appendChild(IP.dugme((ayar && ayar.devam) || 'Haritaya dön ▶', null, function () {
             coz({ dogru: dogru, toplam: n, sure_sn: Math.round((Date.now() - baslangic) / 1000) });
           }));
           kart.appendChild(sira);

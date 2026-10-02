@@ -398,6 +398,19 @@
     c.restore();
   }
 
+  // Şerife Bacı'nın görünüşü.
+  var SERIFE = { bas: 'ortu', uzun: true, govde: '#5d5a7a' };
+
+  // Kağnıdaki sandıkların üstüne örtülen örtü. x: örtünün sol ucu, oran: ne kadarının örtüldüğü (0..1).
+  function ortuCiz(c, x, oran) {
+    if (oran <= 0.02) return;
+    c.fillStyle = '#efe6d2'; c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round';
+    c.beginPath(); c.moveTo(x, 672); c.quadraticCurveTo(x + 20, 520, x + 150 * oran, 516);
+    c.quadraticCurveTo(x + 286 * oran, 520, x + 300 * oran, 672); c.quadraticCurveTo(x + 150 * oran, 648, x, 672); c.closePath(); c.fill(); c.stroke();
+    c.fillStyle = YEMENI;
+    for (var i = 0; i < 5; i++) { daire(c, x + (30 + i * 60) * oran, 640 - Math.sin((i + 0.5) / 5 * Math.PI) * 60, 5); c.fill(); }
+  }
+
   /* ---------- Hikâye sahneleri (1600 × 900 sanal ölçü) ---------- */
   var DUKKAN_RENK = ['#e2cfa4', '#d6bd8c', '#e8d9b5', '#d0b584', '#dec79a', '#d9c39a'];
   var evlerGece = null;
@@ -1243,6 +1256,146 @@
       doku(c);
     },
 
+    /* ----- Şerife Bacı ----- */
+    // 1. İnebolu İskelesi: gemiden inen sandıklar kağnıya taşınır.
+    iskele: function (c, t) {
+      gok(c, '#b9c6d2', '#e6e2d0');
+      c.fillStyle = '#3d6584'; c.fillRect(0, 430, 1600, 230);
+      c.strokeStyle = 'rgba(255,255,255,.45)'; c.lineWidth = 5; c.lineCap = 'round';
+      for (var d = 0; d < 16; d++) {
+        var wx = sar(d * 210 + t * 30, 1800) - 100, wy = 460 + (d % 4) * 48;
+        c.beginPath(); c.moveTo(wx, wy); c.quadraticCurveTo(wx + 26, wy - 12, wx + 52, wy); c.stroke();
+      }
+      // uzakta gemi
+      var sal = Math.sin(t * 1.2) * 4;
+      bulut(c, 380 + Math.sin(t * 0.4) * 20, 300 + sal, 0.6, 'rgba(80,80,90,.5)');
+      c.fillStyle = '#2b2f3a'; c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round';
+      c.beginPath(); c.rect(330, 372 + sal, 44, 84); c.fill(); c.stroke();
+      c.beginPath(); c.moveTo(130, 456 + sal); c.lineTo(600, 456 + sal); c.lineTo(550, 520 + sal); c.lineTo(180, 520 + sal); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = R.kirmizi; c.fillRect(182, 500 + sal, 366, 16);
+      // iskele
+      c.fillStyle = '#b9a47a'; c.fillRect(0, 650, 1600, 250);
+      c.strokeStyle = 'rgba(43,33,24,.4)'; c.lineWidth = 4;
+      for (var p = 0; p < 20; p++) { c.beginPath(); c.moveTo(p * 84, 650); c.lineTo(p * 84 - 40, 900); c.stroke(); }
+      c.strokeStyle = R.koyu; c.lineWidth = 5; c.beginPath(); c.moveTo(0, 650); c.lineTo(1600, 650); c.stroke();
+      // sandık taşıyanlar
+      for (var i = 0; i < 4; i++) {
+        var x = sar(t * 60 + i * 260, 1040) + 40, y = 812 + (i % 2) * 30 - Math.abs(Math.sin(t * 5 + i)) * 5;
+        kisi(c, x, y, 1.05, Object.assign({ kol: 'yukari' }, KOYLU[(i * 2 + 1) % 6]));
+        c.fillStyle = '#6b5a3a'; c.beginPath(); c.rect(x - 52, y - 236, 104, 50); c.fill(); c.stroke();
+      }
+      kagni(c, 1300, 850, 1.05, 0, { duruyor: true });
+      kuslar(c, t);
+      doku(c);
+    },
+
+    // 2. Kış yolu: Şerife kucağında bebeğiyle kağnının yanında yürür.
+    bebek: function (c, t) {
+      gok(c, '#c9d3dc', '#ecece2');
+      tepeler(c, 420, 70, '#f2f5f7', 0.6 + t * 0.03);
+      tepeler(c, 520, 40, '#b4bfca', 2.0 + t * 0.05);
+      c.fillStyle = '#e9ecee'; c.fillRect(0, 600, 1600, 300);
+      for (var i = 0; i < 6; i++) cam(c, sar(i * 320 - t * 80, 1900) - 150, 660, 1.2);
+      c.fillStyle = '#cfc8b6'; c.fillRect(0, 750, 1600, 100);
+      kagni(c, 920, 846, 1.1, t);
+      var y = 852 - Math.abs(Math.sin(t * 5)) * 6;
+      kisi(c, 520, y, 1.35, SERIFE);
+      c.fillStyle = '#f3ead6'; c.strokeStyle = R.koyu; c.lineWidth = 5;
+      c.save(); c.translate(536, y - 150); c.rotate(-0.35); c.beginPath(); c.ellipse(0, 0, 38, 22, 0, 0, TAU); c.fill(); c.stroke(); c.restore();
+      kar(c, t);
+      doku(c);
+    },
+
+    // 3. Kar fırtınası: tipi yolu örter.
+    firtina: function (c, t) {
+      gok(c, '#8e99a6', '#c9d1d8');
+      tepeler(c, 480, 50, '#aab4be', 1.0);
+      c.fillStyle = '#dfe4e8'; c.fillRect(0, 600, 1600, 300);
+      kagni(c, 880, 836, 1.1, t * 0.4);
+      c.save(); c.translate(500, 842); c.rotate(0.12); kisi(c, 0, 0, 1.35, SERIFE); c.restore();
+      var rs = IP.tohumluRastgele(91);
+      c.strokeStyle = 'rgba(255,255,255,.85)'; c.lineCap = 'round';
+      for (var i = 0; i < 110; i++) {
+        var x = sar(rs() * 1800 - t * (500 + rs() * 600), 1900) - 100, y = rs() * 900, u = 40 + rs() * 70;
+        c.lineWidth = 2 + rs() * 4; c.beginPath(); c.moveTo(x, y); c.lineTo(x - u, y + u * 0.22); c.stroke();
+      }
+      c.fillStyle = 'rgba(235,240,244,' + (0.35 + Math.sin(t * 0.9) * 0.15) + ')'; c.fillRect(0, 0, 1600, 900);
+      doku(c);
+    },
+
+    // 4. Anlatı: örtü cephanenin üzerine örtülür.
+    ortu: function (c, t) {
+      gok(c, '#59647a', '#a9b4c2');
+      tepeler(c, 500, 44, '#8e99a6', 2.2);
+      c.fillStyle = '#d5dbe0'; c.fillRect(0, 600, 1600, 300);
+      kagni(c, 820, 836, 1.25, 0, { duruyor: true });
+      kisi(c, 500, 846, 1.35, Object.assign({ kol: 'cagri' }, SERIFE));
+      ortuCiz(c, 616, Math.min(1, (t % 10) / 4));
+      var rs = IP.tohumluRastgele(92);
+      c.strokeStyle = 'rgba(255,255,255,.8)'; c.lineCap = 'round';
+      for (var i = 0; i < 70; i++) {
+        var x = sar(rs() * 1800 - t * (300 + rs() * 400), 1900) - 100, y = rs() * 900, u = 30 + rs() * 50;
+        c.lineWidth = 2 + rs() * 3; c.beginPath(); c.moveTo(x, y); c.lineTo(x - u, y + u * 0.3); c.stroke();
+      }
+      c.fillStyle = 'rgba(225,232,240,.18)'; c.fillRect(0, 0, 1600, 900);
+      doku(c);
+    },
+
+    // 5. Sabah: karla kaplı kağnı ve örtü. İnsan bedeni gösterilmez.
+    sabah: function (c, t) {
+      gok(c, '#f3c9a0', '#f6ead6');
+      var g = c.createRadialGradient(1220, 520, 30, 1220, 520, 520);
+      g.addColorStop(0, 'rgba(255,244,200,.95)'); g.addColorStop(1, 'rgba(255,230,170,0)');
+      c.fillStyle = g; c.fillRect(600, 0, 1000, 900);
+      tepeler(c, 500, 50, '#e9edf0', 1.4);
+      c.fillStyle = '#f4f6f7'; c.fillRect(0, 610, 1600, 290);
+      // uzaktan gelen kol
+      for (var i = 0; i < 3; i++) kisi(c, 1500 - sar(t * 6, 200) + i * 46, 650, 0.34, { siluet: '#6b7480', bas: 'kalpak' });
+      kagni(c, 800, 826, 1.25, 0, { duruyor: true });
+      ortuCiz(c, 596, 1);
+      // kar birikintileri
+      c.fillStyle = '#ffffff';
+      [[730, 540, 120, 30], [1040, 700, 90, 22], [1150, 690, 40, 16], [748, 830, 150, 26], [1040, 836, 120, 20]].forEach(function (k) { c.beginPath(); c.ellipse(k[0], k[1], k[2], k[3], 0, 0, TAU); c.fill(); });
+      var rs = IP.tohumluRastgele(93);
+      for (i = 0; i < 40; i++) {
+        var x = rs() * 1600, y = 620 + rs() * 270, p = Math.max(0, Math.sin(t * 2 + rs() * 6));
+        c.fillStyle = 'rgba(255,220,140,' + p + ')'; daire(c, x, y, 2 + p * 3); c.fill();
+      }
+      doku(c);
+    },
+
+    // 6. Bugün: anıtın önünde ziyaretçiler (temsilî çizim).
+    anit: function (c, t) {
+      gok(c, '#bfe0f0', '#f1f0d8');
+      bulut(c, sar(t * 8, 1900) - 200, 150, 1, 'rgba(255,255,255,.85)');
+      bulut(c, sar(t * 6 + 900, 1900) - 200, 230, 0.7, 'rgba(255,255,255,.7)');
+      tepeler(c, 520, 40, '#8fb07a', 0.8);
+      zemin(c, 700, '#b9c98a');
+      [[120, 720, 1.6], [260, 700, 1.2], [1380, 720, 1.6], [1500, 704, 1.2]].forEach(function (a) { cam(c, a[0], a[1], a[2]); });
+      c.strokeStyle = R.koyu; c.lineWidth = 9; c.lineCap = 'round'; c.beginPath(); c.moveTo(1140, 720); c.lineTo(1140, 300); c.stroke();
+      bayrak(c, 1144, 306, 200, 132, t);
+      // kaide ve anıt taşı
+      c.lineWidth = 5; c.lineJoin = 'round';
+      c.fillStyle = '#a8a296'; c.beginPath(); c.rect(540, 730, 520, 44); c.fill(); c.stroke();
+      c.fillStyle = '#b8b2a6'; c.beginPath(); c.rect(600, 690, 400, 44); c.fill(); c.stroke();
+      c.fillStyle = '#c9c3b6'; c.beginPath(); c.moveTo(700, 690); c.lineTo(700, 400); c.arc(800, 400, 100, Math.PI, 0); c.lineTo(900, 690); c.closePath(); c.fill(); c.stroke();
+      // kabartma: kağnı tekerleği
+      daire(c, 800, 420, 52); c.stroke(); daire(c, 800, 420, 12); c.stroke();
+      c.beginPath(); c.moveTo(748, 420); c.lineTo(852, 420); c.moveTo(800, 368); c.lineTo(800, 472); c.stroke();
+      c.fillStyle = '#8a8172'; c.beginPath(); c.rect(730, 520, 140, 110); c.fill(); c.stroke();
+      c.lineWidth = 3; for (var l = 0; l < 4; l++) { c.beginPath(); c.moveTo(748, 544 + l * 22); c.lineTo(852, 544 + l * 22); c.stroke(); }
+      // çelenk
+      c.lineWidth = 14; c.strokeStyle = '#4f8a4a'; daire(c, 800, 716, 34); c.stroke();
+      c.fillStyle = R.kirmizi; for (var k = 0; k < 8; k++) { daire(c, 800 + Math.cos(k * TAU / 8) * 34, 716 + Math.sin(k * TAU / 8) * 34, 8); c.fill(); }
+      // ziyaretçiler
+      kisi(c, 380, 860, 1.15, { govde: '#55657a' });
+      kisi(c, 480, 866, 0.72, { govde: R.kirmizi });
+      kisi(c, 1260, 860, 1.15, { bas: 'ortu', uzun: true, govde: '#7b4a55', yon: -1 });
+      kisi(c, 1350, 866, 0.72, { govde: R.mavi, yon: -1 });
+      kuslar(c, t);
+      doku(c);
+    },
+
     // Görseli henüz hazır olmayan paneller için.
     bos: function (c) {
       gok(c, '#eadab4', '#dcc594');
@@ -1315,10 +1468,11 @@
         kumlama();
         return;
       }
-      if (tip === 'yemenili' || tip === 'madalyali') {
-        var madalyali = tip === 'madalyali', ortuRenk = madalyali ? '#3a3340' : YEMENI;
+      if (tip === 'yemenili' || tip === 'madalyali' || tip === 'beyaz_ortulu' || tip === 'koylu_kadin') {
+        var madalyali = tip === 'madalyali';
+        var ortuRenk = { madalyali: '#3a3340', beyaz_ortulu: '#efe6d2', koylu_kadin: '#7f9a6f' }[tip] || YEMENI;
         // omuzlar, omuza inen örtü, yüz
-        c.fillStyle = madalyali ? '#6b6a4a' : '#4f6d5c'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 300, 150, 290); c.lineTo(250, 290);
+        c.fillStyle = { madalyali: '#6b6a4a', beyaz_ortulu: '#5d5a7a', koylu_kadin: '#7b4a55' }[tip] || '#4f6d5c'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 300, 150, 290); c.lineTo(250, 290);
         c.quadraticCurveTo(340, 300, 370, 400); c.closePath(); c.fill(); c.stroke();
         c.fillStyle = ortuRenk; c.beginPath(); c.moveTo(120, 150); c.quadraticCurveTo(92, 250, 122, 330); c.lineTo(278, 330);
         c.quadraticCurveTo(308, 250, 280, 150); c.closePath(); c.fill(); c.stroke();
@@ -1328,8 +1482,8 @@
         c.quadraticCurveTo(254, 134, 200, 130); c.quadraticCurveTo(146, 134, 130, 196); c.closePath(); c.fill(); c.stroke();
         c.beginPath(); c.moveTo(144, 240); c.quadraticCurveTo(200, 296, 256, 240); c.lineTo(240, 312); c.lineTo(200, 296); c.lineTo(160, 312); c.closePath(); c.fill(); c.stroke();
         c.fillStyle = R.krem;
-        if (!madalyali) [[150, 118], [200, 102], [250, 118], [124, 250], [276, 250], [180, 306], [220, 306]].forEach(function (n) { daire(c, n[0], n[1], 5); c.fill(); });
-        else {
+        if (tip === 'yemenili') [[150, 118], [200, 102], [250, 118], [124, 250], [276, 250], [180, 306], [220, 306]].forEach(function (n) { daire(c, n[0], n[1], 5); c.fill(); });
+        else if (madalyali) {
           // göğüste madalya
           c.fillStyle = R.kirmizi; c.beginPath(); c.rect(286, 326, 24, 30); c.fill(); c.stroke();
           c.fillStyle = R.altin; daire(c, 298, 372, 20); c.fill(); c.stroke();

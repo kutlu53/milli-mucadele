@@ -57,7 +57,8 @@
 
         var ust = IP.el('div', 'rop-ust');
         var sol = IP.el('div', 'rop-sol');
-        sol.appendChild(IP.portreKutusu(k));
+        // Röportaj kahramanla değil de bir tanıkla yapılıyorsa onun portresi ve adı gösterilir.
+        sol.appendChild(IP.portreKutusu(r.konusan ? { ad: r.konusan.ad, portre: { cizim: r.konusan.cizim, temsili: true } } : k));
         var konusma = IP.el('div', 'rop-konusma');
         var soruBalon = IP.el('div', 'balon soru'); soruBalon.style.visibility = 'hidden';
         var cevapBalon = IP.el('div', 'balon cevap kagit');

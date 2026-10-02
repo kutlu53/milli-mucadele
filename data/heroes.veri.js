@@ -471,7 +471,139 @@ window.IP_VERI = {
       "duygu_ani": "Ülkesine hizmet etmek için kimliğini saklamak zorunda kalan bir genç kadın.",
       "portre": { "dosya": "", "cizim": "kalpakli_genc", "temsili": true }
     },
-    { "id": "serife-baci", "hazir": false, "ad": "Şerife Bacı", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "İnebolu", "harita_x": 0.424, "harita_y": 0.074 } },
+    {
+      "id": "serife-baci",
+      "hazir": true,
+      "ad": "Şerife Bacı",
+      "baslik": "Kar Fırtınasında Kağnı",
+      "alan": "lojistik",
+      "alan_etiketi": "Lojistik",
+      "konum": { "ad": "İnebolu", "harita_x": 0.424, "harita_y": 0.074 },
+      "tarih_etiketi": "Kış 1921",
+      "tarih_dogrulandi": false,
+      "tarih_dogrula_notu": "Tarih doğrulanacak.",
+      "altin_bilgiler": [
+        {
+          "metin": "İnebolu İskelesi'ne gelen cephaneyi kağnılarla cepheye taşıyan Kastamonulu kadınlardandır.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Anlatılanlara göre, kar fırtınasında cephanenin ıslanmaması için onu kendi örtüsüyle örttü.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "anlati_mi": true
+        },
+        {
+          "metin": "Soğuktan donarak şehit oldu. Millî Mücadele'nin kadın şehitlerinin sembolü olarak anılır.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "\"İlk kadın şehit\" ifadesi doğrulanmadan kullanılmayacak."
+        }
+      ],
+      "paneller": [
+        { "metin": "İnebolu İskelesi. Gemilerden indirilen cephane sandıkları kağnılara yükleniyor.", "gorsel": "iskele", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Şerife, kucağında bebeğiyle kağnının yanında yürüyor.", "gorsel": "bebek", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Bebeğiyle yola çıktığı doğrulanacak." },
+        { "metin": "Kar fırtınası başlar. Yol görünmez olur.", "gorsel": "firtina", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Anlatılanlara göre örtüsünü cephanenin üzerine örter.", "gorsel": "ortu", "anlati_mi": true, "dogrulandi": false },
+        { "metin": "Sabah olur. Cephane kuru ve sağlam şekilde yerindedir.", "gorsel": "sabah", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Bugün Kastamonu'da Şerife Bacı'nın anıtı vardır.", "gorsel": "anit", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Anıt bilgisi doğrulanacak. Çizim temsilîdir, gerçek anıtı göstermez." }
+      ],
+      "mini_oyun": {
+        "modul": "istiklalyolu",
+        "ad": "İstiklal Yolu",
+        "aciklama": "Cephane yüklü kağnıyı İnebolu'dan Kastamonu yönüne götür. Yolda vereceğin kararlar cephaneyi kuru tutmalı.",
+        "olaylar": [
+          {
+            "ad": "İnebolu İskelesi", "gorsel": "iskele",
+            "metin": "Cephane sandıkları kağnına yüklendi. Kar atıştırıyor. Yola çıkmadan önce ne yaparsın?",
+            "secenekler": [
+              { "metin": "Sandıkları örtüyle sıkıca sar", "sonuc": "Sandıkları sıkıca sardın. Biraz zaman aldı ama kar artık cephaneye kolay işlemez.", "etki": { "sicaklik": -5 }, "siki_ortu": true },
+              { "metin": "Vakit kaybetmeden yola çık", "sonuc": "Hemen yola çıktın. Sandıkların üstü açık kaldı, kar taneleri üstlerine konuyor.", "etki": { "kuruluk": -6 } }
+            ]
+          },
+          {
+            "ad": "Buzlu yokuş", "gorsel": "yokus",
+            "metin": "Yol dikleşti ve buz tuttu. Tekerlekler kayıyor.",
+            "secenekler": [
+              { "metin": "Yavaş çık, tekerleklerin arkasına taş koy", "sonuc": "Adım adım çıktın. Kağnı kaymadı ama soğukta uzun süre kaldın.", "etki": { "sicaklik": -10, "saglamlik": -5 } },
+              { "metin": "Hızlanarak çık", "sonuc": "Kağnı yokuşun ortasında kaydı. Bir tekerlek taşa çarptı, sandıklar kara değdi.", "etki": { "saglamlik": -25, "kuruluk": -10 } }
+            ]
+          },
+          {
+            "ad": "Yol ayrımı", "gorsel": "ayrim",
+            "metin": "Yol ikiye ayrılıyor. Biri kısa ama dik, öbürü uzun ama düz.",
+            "secenekler": [
+              { "metin": "Kısa ama dik yol", "sonuc": "Dik yol kağnıyı çok zorladı ama daha erken vardın.", "etki": { "saglamlik": -20, "sicaklik": -5 } },
+              { "metin": "Uzun ama düz yol", "sonuc": "Düz yol kağnıyı yormadı. Yol uzadığı için daha çok üşüdün.", "etki": { "sicaklik": -18 } }
+            ]
+          },
+          {
+            "ad": "Donmuş dere", "gorsel": "dere",
+            "metin": "Önünde donmuş bir dere var. Buz ince görünüyor.",
+            "secenekler": [
+              { "metin": "Buzun üstünden geç", "sonuc": "Buz çatladı! Tekerlek suya girdi, sandıklara su sıçradı.", "etki": { "kuruluk": -30, "saglamlik": -10 } },
+              { "metin": "Sığ geçidi bulmak için dolaş", "sonuc": "Dereyi sığ yerinden geçtin. Sandıklar kuru kaldı ama yol uzadı.", "etki": { "sicaklik": -12 } }
+            ]
+          },
+          {
+            "ad": "Mola yeri", "gorsel": "mola",
+            "metin": "Öküzler yoruldu. Mola vermek gerek.",
+            "secenekler": [
+              { "metin": "Rüzgâr almayan kayalığın dibinde dur", "sonuc": "Kayalık rüzgârı kesti. Biraz ısındın, öküzler dinlendi.", "etki": { "sicaklik": 15 } },
+              { "metin": "Yolun ortasında kısa bir mola ver", "sonuc": "Açıkta durdun. Kar sandıkların üstüne birikti.", "etki": { "sicaklik": 5, "kuruluk": -10 } },
+              { "metin": "Mola verme", "sonuc": "Durmadan yürüdün. Soğuk iyice işledi, kağnı da yoruldu.", "etki": { "sicaklik": -15, "saglamlik": -10 } }
+            ]
+          },
+          {
+            "ad": "Kar fırtınası", "gorsel": "firtina",
+            "metin": "Kar fırtınası bastırdı, yol görünmüyor. Elinde tek bir kalın örtü var.",
+            "secenekler": [
+              { "metin": "Örtüyü cephanenin üstüne ört", "sonuc": "Örtü sandıkları sardı. Cephane kuru kalacak.", "etki": { "sicaklik": -30, "kuruluk": 5 } },
+              { "metin": "Örtüye kendin sarın", "sonuc": "Örtü seni biraz ısıttı. Ama kar sandıkların üstüne yığılıyor.", "etki": { "sicaklik": 10, "kuruluk": -40 } }
+            ]
+          }
+        ],
+        "final": {
+          "anlatim": [
+            "Anlatılanlara göre Şerife Bacı, kar fırtınasında cephane ıslanmasın diye onu kendi örtüsüyle örttü.",
+            "Soğuktan donarak şehit oldu. Bugün Millî Mücadele'nin kadın şehitlerinin sembolü olarak anılıyor."
+          ],
+          "kapanis": "Cephane cepheye ulaştı."
+        },
+        "kazanim": "Kendini değil, cepheye gidecek cephaneyi korumak.",
+        "not": "Olayların metinleri ve seçenekleri oyun için yazıldı (kurgusal kararlar); senaryoda yalnızca olay türleri vardı. Kazanım cümlesi 'Duygu anı' satırından alındı. Son sahnedeki anlatım Altın Bilgilerden derlendi. Ekip onaylamalı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan": { "ad": "Köylü kadın", "cizim": "koylu_kadin" },
+        "konusan_notu": "Bu röportaj Şerife Bacı ile değil, onu tanıyan kurgusal bir köylü kadınla yapılıyor.",
+        "sorular": [
+          { "soru": "Cephane nereden geliyordu?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Kadınlar bu yolda neler yaşadı?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "O kış gecesi ne oldu?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "{0} İskelesi'nden cephane taşıyan Şerife Bacı, {1} ıslanmasın diye örtüsünü verdi ve {2} şehit oldu.",
+        "dogrular": ["İnebolu", "cephane", "kar fırtınasında"],
+        "celdiriciler": ["İzmir", "bebeği", "cephede"],
+        "ipucu_bilgi": [0, 1, 1]
+      },
+      "biliyor_muydun": {
+        "metin": "İnebolu'dan Kastamonu ve Çankırı üzerinden Ankara'ya uzanan bu yola bugün \"İstiklal Yolu\" deniyor.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "İnebolu'dan Ankara'ya uzanan yola bugün ne ad veriliyor?",
+          "secenekler": ["İpek Yolu", "Kral Yolu", "İstiklal Yolu"],
+          "dogru": 2,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "Kendini değil, cepheye gidecek cephaneyi korumak.",
+      "ogretmen_notu": "Bu bölüm öğrencileri duygusal olarak etkileyebilir. Öğretmen oturum öncesinde kısa bir hazırlık konuşması yapmalı, oturum sonrasında sınıfla birkaç dakika sohbet etmelidir.",
+      "portre": { "dosya": "", "cizim": "beyaz_ortulu", "temsili": true }
+    },
     { "id": "halide-edib", "hazir": false, "ad": "Halide Edib Adıvar", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "İstanbul", "harita_x": 0.178, "harita_y": 0.213 } },
     { "id": "yunus-nadi", "hazir": false, "ad": "Yunus Nadi", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Ankara", "harita_x": 0.377, "harita_y": 0.367 } },
     { "id": "mehmet-akif", "hazir": false, "ad": "Mehmet Âkif Ersoy", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Kastamonu", "harita_x": 0.45, "harita_y": 0.19 } }

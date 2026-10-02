@@ -226,3 +226,39 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Parola soruları senaryoda yoktu; önceki beş kahramanın Altın Bilgilerinden türetildi. Ekip onaylamalı. Başarı testindeki sorularla birebir aynı olmamalı.
 - Bonus soru ("Öküz arabasının bir başka adı nedir?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi. Ekip onaylamalı.
 - Sıradaki iş: Şerife Bacı'nın bölümü (7. kahraman; oyunun en uzun ve en duygusal bölümü).
+
+---
+
+## 2 Ekim 2026 — Şerife Bacı'nın bölümü
+
+**Ne istendi?**
+- Halime Çavuş'un bölümünün GitHub'a gönderilmesi ve yedinci kahramana, Şerife Bacı'ya geçilmesi.
+
+**Ne yapıldı?**
+- Halime Çavuş'un bölümü kaydedildi ve GitHub'a gönderildi.
+- `data/heroes.json` dosyasına Şerife Bacı'nın içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`.
+- **Belge / anlatı ayrımı:** Örtü olayını anlatan cümleler "Anlatılanlara göre…" diye başlıyor ve o hikâye panelinde "halk anlatısı" rozeti çıkıyor.
+- **6 yeni hikâye çizimi:** İnebolu İskelesi'nde sandık taşıyanlar, kış yolunda kağnının yanında yürüyen Şerife, kar fırtınası, örtünün sandıkların üstüne örtülmesi, sabah karla kaplı kağnı ve örtü, bugünkü anıt ve ziyaretçiler. İnsan bedeni gösterilmedi. Anıt çizimi temsilîdir, gerçek anıtı göstermez.
+- **Röportaj tanıkla yapılıyor:** Bu bölümde röportaj Şerife Bacı ile değil, kurgusal bir köylü kadınla yapılıyor. Ekranda köylü kadının portresi ve "kurgusal" notu görünüyor. (Röportaj ekranına "konuşan başka biri olabilir" özelliği eklendi.)
+- **Yeni mini oyun "İstiklal Yolu"** (`games/istiklalyolu.js`): Kuşbakışı kağnı yolculuğu. Yolda 6 durak var: iskele, buzlu yokuş, yol ayrımı, donmuş dere, mola yeri, kar fırtınası. Her durakta oyuncu bir karar verir.
+  - Üç gösterge: cephane kuruluğu, kağnı sağlamlığı, sıcaklık. Her karar göstergeleri değiştirir.
+  - Yıldız yalnızca cephanenin kuru ulaşmasına bağlı (kuruluk 60 ve üstü).
+  - Son değişmez: yolculuğun sonunda renkler solar, kar yoğunlaşır, Nuri olanı anlatır ve ekrana "Cephane cepheye ulaştı." yazısı gelir. Cephane ıslandıysa "yolu yeniden dene" seçeneği çıkar; kaybetme ekranı yoktur.
+  - Durakların metinleri ve seçenekleri kodda değil, `heroes.json` içinde (`mini_oyun.olaylar`) duruyor; sayıları da oradan değiştirilebilir.
+
+**Ne test edildi?**
+- Bölüm otomatik oynatıldı (3 boyutlu, 1366×768): dikkatli kararlarla cephane kuru ulaştı, 3 yıldız kaydedildi. Hata çıkmadı.
+- Dikkatsiz kararlarla (3 boyutsuz, 1024×768) cephane ıslandı; "yolu yeniden dene / devam" ekranı çıktı, bölüm 2 yıldızla bitti.
+
+**Ne bulundu ve düzeltildi?**
+- Oyun sahnesi geniş ekranın yalnızca ortasını dolduruyor, iki yan boş kalıyordu. Sahne artık bütün oyun alanını dolduruyor ve kağnı daha büyük görünüyor.
+- Bitiş ekranında kapanış cümlesi iki kez görünüyordu; alttaki kaldırıldı.
+- Ağaçlar yola çok yakın çıkıp yürüyen figürün üstüne biniyordu; yoldan uzaklaştırıldı.
+
+**Açık konular**
+- **Öğretmen hazırlığı:** Bu bölüm öğrencileri duygusal olarak etkileyebilir. Senaryodaki not gereği öğretmen oturumdan önce kısa bir hazırlık konuşması yapmalı, sonra sınıfla sohbet etmeli.
+- Durakların metinleri, seçenekleri ve sayıları oyun için yazıldı (senaryoda yalnızca olay türleri vardı). Son sahnedeki anlatım Altın Bilgilerden derlendi. Ekip onaylamalı.
+- "Örtüye kendin sarın" seçeneği senaryodaki "örtünün kime verileceği" kararından geliyor. Ekip bu seçeneğin kalıp kalmayacağına karar vermeli.
+- Bonus soru ("İnebolu'dan Ankara'ya uzanan yola bugün ne ad veriliyor?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi.
+- Senaryo bu oyun için yaklaşık 4 dakika diyor; test programı 41 saniyede bitirdi (okumadan tıkladığı için). Öğrencilerle süre ölçülmeli.
+- Sıradaki iş: Ajans Bülteni 2 (ilk yedi kahramanın karışık tekrarı).

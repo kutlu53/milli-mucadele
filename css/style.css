@@ -268,6 +268,15 @@ p { margin: 0; }
 .kolon-dugme { align-self: center; }
 .oyun-rozet { position: absolute; left: .6rem; top: .6rem; }
 .kart-tepsi.parola { min-height: 9rem; }
+.gosterge.olcer { display: flex; flex-direction: column; gap: .15rem; min-width: 8.6rem; padding: .25em .6em .35em; }
+.olcer b { font: 700 .62rem Metin, serif; color: var(--krem); }
+.olcer em { display: block; height: .5rem; background: rgba(255, 255, 255, .16); border-radius: 1em; overflow: hidden; }
+.olcer i { display: block; height: 100%; width: 100%; background: var(--altin); border-radius: 1em; }
+.gosterge.olcer.az { animation: none; color: inherit; }
+.olcer.az i { background: #ff6a50; }
+.olcer.azaldi { animation: salla .4s; }
+.olcer.artti { box-shadow: 0 0 14px var(--altin); }
+.son-yazi { font: 900 2.2rem Manset, serif; color: var(--krem); text-shadow: 0 3px 14px #000; text-align: center; animation: belir 1.4s; }
 .parola-kutu { width: min(60rem, 96vw); padding: .5rem 1rem .7rem; display: flex; flex-direction: column; gap: .4rem; text-align: center; animation: belir .3s; }
 .parola-kutu p { font: 700 1.15rem Manset, serif; }
 .parola-bas { display: flex; align-items: center; justify-content: center; gap: .7rem; font: 700 .8rem Daktilo, monospace; color: var(--kirmizi); }

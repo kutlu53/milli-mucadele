@@ -29,6 +29,12 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Bulunup düzeltilen hatalar: ilk hikâye paneli bulanık çıkıyordu (tuval yanlış anda ölçülüyordu); yavaş bilgisayarda kamera uçuşu çok uzun sürüyordu (artık gerçek süreye göre); açılışta başlık telgrafın üstüne biniyordu.
 - **Henüz test edilmedi:** gerçek akıllı tahta ve tablet (dokunmatik sürükleme), sesli okumanın Türkçe sesi, okul bilgisayarları.
 
+**GitHub bağlantısı (aynı gün)**
+- Ne istendi: Projenin GitHub'a bağlanması.
+- Ne yapıldı: Klasör bir git deposu yapıldı, ilk kayıt (commit) alındı ve herkese açık depoya gönderildi: https://github.com/kutlu53/milli-mucadele
+- `.gitignore` eklendi: araştırma verileri (`*.csv`), onam belgeleri ve kişisel bilgi içerebilecek klasörler GitHub'a gönderilmez.
+- Ne test edildi: Gönderimden sonra yerel depo ile GitHub'daki deponun aynı olduğu kontrol edildi.
+
 **Açık konular**
 - Senaryoda oyuncu adını seçiyor ve Zafer Nüshası'nda adı yazıyor; kurallarda ise "öğrenci adı tutulmaz" deniyor. Şimdilik kural uygulandı (yalnızca kod). Karar verilmeli.
 - Sütçü İmam'ın bilgileri iki kaynakla doğrulanıp `heroes.json` dosyasına kaynak kodlarıyla işlenmeli; röportaj cevapları yazılmalı.

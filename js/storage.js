@@ -40,6 +40,24 @@
       this.kaydet();
     },
 
+    // Bir bültenin sonucunu yazar. Araştırma için ilk denemenin puanı saklanır; en iyi puan ayrıca tutulur.
+    bultenSonucu: function (no, sonuc) {
+      var hepsi = this.veri.bultenler = this.veri.bultenler || {}, eski = hepsi[no];
+      hepsi[no] = {
+        dogru: eski ? eski.dogru : sonuc.dogru,
+        en_iyi: Math.max(eski ? eski.en_iyi : 0, sonuc.dogru),
+        toplam: sonuc.toplam,
+        sure_sn: eski ? eski.sure_sn : sonuc.sure_sn,
+        deneme: (eski ? eski.deneme : 0) + 1,
+        tarih: eski ? eski.tarih : new Date().toISOString().slice(0, 10)
+      };
+      this.kaydet();
+    },
+
+    bulten: function (no) {
+      return (this.veri.bultenler || {})[no] || null;
+    },
+
     tamamMi: function (id) {
       var k = this.veri.kahramanlar[id];
       return !!(k && k.tamam);

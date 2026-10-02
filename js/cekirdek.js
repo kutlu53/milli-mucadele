@@ -53,15 +53,19 @@
     };
   };
 
-  // Veriyi yükler. Yerel sunucuda heroes.json okunur; çift tıklamayla açıldıysa
-  // tarayıcı buna izin vermez, o zaman heroes.veri.js içindeki kopya kullanılır.
+  // Veriyi yükler. Yerel sunucuda heroes.json ve bulletins.json okunur; çift tıklamayla açıldıysa
+  // tarayıcı buna izin vermez, o zaman *.veri.js dosyalarındaki kopyalar kullanılır.
   IP.veriYukle = function () {
-    function bitir(v) { IP.veri = v; return v; }
-    if (location.protocol === 'file:') return Promise.resolve(bitir(window.IP_VERI));
-    return fetch('data/heroes.json', { cache: 'no-store' })
-      .then(function (y) { if (!y.ok) throw new Error('okunamadı'); return y.json(); })
-      .then(bitir)
-      .catch(function () { return bitir(window.IP_VERI); });
+    function oku(dosya, yedek) {
+      if (location.protocol === 'file:') return Promise.resolve(yedek);
+      return fetch(dosya, { cache: 'no-store' })
+        .then(function (y) { if (!y.ok) throw new Error('okunamadı'); return y.json(); })
+        .catch(function () { return yedek; });
+    }
+    return Promise.all([oku('data/heroes.json', window.IP_VERI), oku('data/bulletins.json', window.IP_BULTEN)]).then(function (v) {
+      IP.veri = v[0]; IP.bultenVeri = v[1];
+      return IP.veri;
+    });
   };
 
   IP.kahramanBul = function (id) {

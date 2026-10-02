@@ -106,3 +106,29 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Mini oyunun "kazanım" cümlesi senaryodaki "Duygu anı" satırından alındı. Ekip onaylamalı.
 - Tur süresi 120 saniye yapıldı (senaryoda tur başına yaklaşık 1 dakika yazıyor). Koşu hızı, boşluklar ve fener hızı `games/sipere.js` dosyasının başındaki ayarlardan değiştirilebilir; pilot testte denenmeli.
 - Sıradaki iş: Ajans Bülteni 1 (ilk üç kahramanın karışık tekrarı).
+
+---
+
+## 2 Ekim 2026 — Ajans Bülteni 1
+
+**Ne istendi?**
+- İlk üç kahramanı karışık soran Ajans Bülteni 1'in yapılması.
+
+**Ne yapıldı?**
+- **Yeni veri dosyası `data/bulletins.json`:** Bülten soruları burada durur; kodun içinde soru yok. Üç soru türü var: doğru/yanlış, boşluk doldurma, eşleştirme. Bülten 1'de 8 soru bulunuyor (3 doğru/yanlış, 4 boşluk doldurma, 1 eşleştirme).
+- **Yeni ekran (`js/bulletin.js`):** Nuri bülteni ister, sorular Anadolu haritasının üstünde tek tek gelir.
+  - Doğru cevapta soru kartı kısa süre çekilir ve haritada o kahramanın ışığı parlar.
+  - Yanlış cevapta doğru cevap gösterilir ve Kahraman Kartı'nın bilgi yüzü 5 saniye açılır.
+- **Haritada bülten düğmesi:** Tayyar Rahmiye'nin sayfası canlanınca haritada "Ajans Bülteni 1" düğmesi yanıp söner. Bülten yapılmadan sıradaki kahraman açılmaz; ama puan kaç olursa olsun yapılınca açılır.
+- **Kayıt:** Bültenin puanı öğrenci koduyla saklanır. Bülten alttaki şeritten yeniden açılabilir; araştırma için ilk denemenin puanı korunur, en iyi puan ayrıca tutulur.
+- `araclar/veri-paketle.bat` artık iki veri dosyasını da (`heroes.json` ve `bulletins.json`) paketliyor.
+
+**Ne test edildi?**
+- Bülten otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Test programı iki soruda bilerek hata yaptı; kart açıldı, puan 6/8 kaydedildi, hata çıkmadı.
+- Tayyar Rahmiye'nin bölümü yeniden oynatıldı; bozulmadı.
+
+**Açık konular**
+- Bülten soruları senaryo belgesinde yoktu; ilk üç kahramanın Altın Bilgilerinden ve senaryodaki çeldiricilerden türetildi. Hepsi "taslak" damgalı. Ekip onaylamalı ya da değiştirmeli.
+- Başarı testindeki sorular bu bülten sorularıyla birebir aynı olmamalı (bkz. PROJE_BILGILERI.md §5.3).
+- Yanlış cevaptan sonra soru yeniden sorulmuyor, sıradaki soruya geçiliyor. Senaryoda bu konuda bir kural yok; ekip karar vermeli.
+- Sıradaki iş: Kara Fatma'nın bölümü (4. kahraman).

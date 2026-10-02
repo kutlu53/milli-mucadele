@@ -122,17 +122,37 @@
   }
 
   /* ---------- Harita ---------- */
-  function haritaEkrani(o) {
-    o = o || {};
-    var h3 = IP.ucb.var ? IP.ucb.harita() : null;
-    var durumlar = {};
-    // Kahramanlar sırayla açılır: bir öncekinin sayfası canlanmadan sıradaki kilitli kalır.
-    var oncekiTamam = true;
+  // Kahramanlar sırayla açılır: bir öncekinin sayfası canlanmadan sıradaki kilitli kalır.
+  // Araya bülten giriyorsa, bülten yapılmadan sonraki kahraman açılmaz (puanı ne olursa olsun).
+  function durumHesapla() {
+    var durumlar = {}, oncekiTamam = true, bekleyenBulten = null;
     IP.veri.kahramanlar.forEach(function (k) {
       var tamam = IP.kayit.tamamMi(k.id);
       durumlar[k.id] = tamam ? 'tamam' : (k.hazir && oncekiTamam ? 'acik' : 'kilitli');
       oncekiTamam = tamam;
+      var b = IP.bulten.sonraki(k.id);
+      if (b && tamam && !IP.kayit.bulten(b.no)) { oncekiTamam = false; bekleyenBulten = bekleyenBulten || b; }
     });
+    return { durumlar: durumlar, bekleyenBulten: bekleyenBulten };
+  }
+
+  function bultenEkrani(b) {
+    var h3 = IP.ucb.var ? IP.ucb.harita() : null;
+    IP.sahneDegistir(function (e) {
+      IP.ucb.goster('harita');
+      if (h3) { h3.durumAyarla(durumHesapla().durumlar); h3.hemenGenel(); }
+      ustSerit({ cikis: true });
+      return IP.bulten.goster(e, b, h3);
+    }).then(function (sonuc) {
+      IP.kayit.bultenSonucu(b.no, sonuc);
+      haritaEkrani();
+    });
+  }
+
+  function haritaEkrani(o) {
+    o = o || {};
+    var h3 = IP.ucb.var ? IP.ucb.harita() : null;
+    var hesap = durumHesapla(), durumlar = hesap.durumlar, bekleyen = hesap.bekleyenBulten;
     var siradaki = IP.veri.kahramanlar.filter(function (k) { return durumlar[k.id] === 'acik'; })[0];
     if (o.yak) durumlar[o.yak] = 'acik'; // ışık birazdan gözümüzün önünde yanacak
     return IP.sahneDegistir(function (e) {
@@ -142,8 +162,12 @@
       e.classList.add('harita-ekrani');
       var baslik = IP.el('div', 'harita-baslik');
       baslik.appendChild(IP.el('h2', null, 'Anadolu Haritası'));
-      var yonerge = IP.el('div', 'yonerge', 'Yanıp sönen konuma dokun.');
+      var yonerge = IP.el('div', 'yonerge', siradaki ? 'Yanıp sönen konuma dokun.' : 'Sıradaki kahramanın bölümü hazırlanıyor.');
       baslik.appendChild(yonerge);
+      if (bekleyen) {
+        yonerge.textContent = 'Nuri\'den acil telgraf var!';
+        baslik.appendChild(IP.dugme('• — •  ' + bekleyen.ad + ' ▶', 'bulten-dugme', function () { bultenEkrani(bekleyen); }));
+      }
       e.appendChild(baslik);
 
       // 3 boyut yoksa: düz (2 boyutlu) harita
@@ -216,6 +240,11 @@
       });
       serit.appendChild(sayfalar);
       serit.appendChild(IP.el('span', null, tamam + ' / ' + toplam + ' sayfa'));
+      // Yapılmış bültenler buradan yeniden açılabilir.
+      IP.bulten.liste().forEach(function (b) {
+        var sonuc = IP.kayit.bulten(b.no);
+        if (sonuc) serit.appendChild(IP.dugme('Bülten ' + b.no + ': ' + sonuc.en_iyi + '/' + sonuc.toplam + ' ↻', 'ikincil kucuk', function () { bultenEkrani(b); }));
+      });
       e.appendChild(serit);
 
       // Bölüm yeni bittiyse: ışık yakma töreni
@@ -233,7 +262,8 @@
           return h3 ? h3.genel(2.4) : null;
         }).then(function () {
           e.classList.remove('toren');
-          yonerge.textContent = siradaki ? 'Sayfa canlandı! Sıradaki görev: ' + siradaki.konum.ad : 'Sayfa canlandı! Sıradaki kahramanın bölümü hazırlanıyor.';
+          yonerge.textContent = bekleyen ? 'Sayfa canlandı! Nuri\'den acil telgraf var!'
+            : (siradaki ? 'Sayfa canlandı! Sıradaki görev: ' + siradaki.konum.ad : 'Sayfa canlandı! Sıradaki kahramanın bölümü hazırlanıyor.');
         });
       }
     });

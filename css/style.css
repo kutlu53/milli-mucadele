@@ -159,6 +159,49 @@ p { margin: 0; }
 .harita2b { position: relative; width: min(96vw, calc((100vh - 13rem) * 2.16)); border: 4px solid var(--koyu); border-radius: .5rem; box-shadow: 0 .6rem 2rem #000; }
 .harita2b canvas { display: block; width: 100%; border-radius: .25rem; }
 
+/* Ajans Bülteni */
+.bulten-dugme { margin-top: .5rem; font-family: Daktilo, monospace; animation: bultenNabiz 1.2s ease-in-out infinite; }
+@keyframes bultenNabiz { 50% { transform: scale(1.07); box-shadow: 0 4px 0 var(--koyu), 0 0 26px rgba(255, 90, 60, .9); } }
+.toren .bulten-dugme { display: none; }
+.bulten { justify-content: flex-start; gap: .8rem; }
+.bulten > * { position: relative; z-index: 1; }
+.bulten > .bulten-harita { position: absolute; left: 50%; top: 54%; transform: translate(-50%, -50%); z-index: 0; }
+.bulten-ust { text-align: center; color: var(--krem); text-shadow: 0 3px 10px #000; display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+.bulten-ust h2 { font: 700 1.3rem Daktilo, monospace; letter-spacing: .08em; }
+.bulten-noktalar { display: flex; gap: .45rem; }
+.bulten-noktalar span { width: 1rem; height: 1rem; border-radius: 50%; border: 2px solid var(--krem); background: rgba(20, 14, 9, .6); }
+.bulten-noktalar .aktif { background: var(--altin); transform: scale(1.3); }
+.bulten-noktalar .dogru { background: #4e8a4a; }
+.bulten-noktalar .yanlis { background: var(--kirmizi); }
+.bulten-kart {
+  width: min(48rem, 94vw); margin: auto 0; padding: 1rem 1.4rem 1.2rem; display: flex; flex-direction: column; gap: .8rem;
+  transition: opacity .35s, transform .35s; border-top: 10px solid var(--kirmizi);
+}
+.bulten-kart.belir { animation: belir .35s; }
+.bulten-kart.saklan { opacity: 0; transform: translateY(30px) scale(.95); pointer-events: none; }
+.bulten-kart h2 { font-weight: 900; font-size: 1.7rem; color: var(--kirmizi); text-align: center; }
+.bulten-no { display: flex; align-items: center; gap: .8rem; font: 700 .85rem Daktilo, monospace; color: var(--sepya); border-bottom: 2px solid var(--sepya); padding-bottom: .3rem; }
+.bulten-ifade { font: 700 1.3rem Manset, serif; line-height: 1.5; text-align: center; }
+.bulten-bosluk { display: inline-block; min-width: 6rem; padding: 0 .4em; border-bottom: 4px dashed var(--kirmizi); color: var(--kirmizi); text-align: center; }
+.bulten-bosluk.dolu { border-bottom-style: solid; animation: otur .35s; }
+.bulten-aciklama { font-style: italic; border-left: 5px solid var(--altin); padding-left: .7rem; }
+.bulten-bilgi { font: 600 .85rem Metin, serif; color: var(--sepya); text-align: center; }
+.bulten-esles { display: grid; grid-template-columns: 1fr 1.4fr; gap: .7rem 1.2rem; }
+.esles-kolon { display: flex; flex-direction: column; gap: .6rem; }
+.esles-kolon .dugme { width: 100%; min-height: 52px; }
+.dugme.secili { background: var(--altin); color: var(--koyu); }
+.bulten > .bulten-isik {
+  position: fixed; z-index: 3; width: 10rem; height: 10rem; margin: -5rem 0 0 -5rem; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 240, 180, .95) 0, rgba(255, 190, 80, .55) 30%, rgba(255, 190, 80, 0) 70%);
+  animation: bultenParla 1.7s ease-out forwards; display: flex; align-items: flex-end; justify-content: center;
+}
+.bulten-isik strong { font: 900 1.2rem Manset, serif; color: var(--krem); text-shadow: 0 2px 8px #000, 0 0 3px #000; white-space: nowrap; transform: translateY(1.2rem); }
+@keyframes bultenParla { 0% { transform: scale(.2); opacity: 0; } 25% { transform: scale(1.25); opacity: 1; } 75% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.1); opacity: 0; } }
+.bulten > .bulten-perde { position: absolute; inset: 0; z-index: 5; background: rgba(8, 8, 18, .8); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .9rem; animation: belir .3s; }
+.bulten-sayac { width: 12rem; height: .6rem; border: 2px solid var(--krem); border-radius: 1em; overflow: hidden; }
+.bulten-sayac span { display: block; height: 100%; background: var(--altin); animation: bultenSayac 5s linear forwards; }
+@keyframes bultenSayac { from { width: 100%; } to { width: 0; } }
+
 /* Yolculuk */
 .yolculuk { justify-content: flex-end; padding-bottom: 12vh; pointer-events: none; }
 .yolculuk-yazi { position: relative; text-align: center; color: var(--krem); text-shadow: 0 4px 16px #000, 0 0 3px #000; padding: 0 2rem; }

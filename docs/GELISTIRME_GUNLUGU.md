@@ -35,6 +35,12 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - `.gitignore` eklendi: araştırma verileri (`*.csv`), onam belgeleri ve kişisel bilgi içerebilecek klasörler GitHub'a gönderilmez.
 - Ne test edildi: Gönderimden sonra yerel depo ile GitHub'daki deponun aynı olduğu kontrol edildi.
 
+**İnternette yayın (aynı gün)**
+- Ne istendi: Oyunun GitHub üzerinden yayımlanması.
+- Ne yapıldı: GitHub Pages açıldı (`main` dalı, ana klasör). Adres: https://kutlu53.github.io/milli-mucadele/ — GitHub'a gönderilen her değişiklik 1–2 dakika içinde bu adrese yansır.
+- Ne test edildi: Yayındaki sayfa açıldı; başlık, 10 kahramanın verisi ve 3 boyutlu sahne yüklendi.
+- Not: Bu adres tanıtım ve uzaktan deneme içindir. Sınıf uygulamasında oyun yine internetsiz, bilgisayardaki klasörden açılır.
+
 **Açık konular**
 - Senaryoda oyuncu adını seçiyor ve Zafer Nüshası'nda adı yazıyor; kurallarda ise "öğrenci adı tutulmaz" deniyor. Şimdilik kural uygulandı (yalnızca kod). Karar verilmeli.
 - Sütçü İmam'ın bilgileri iki kaynakla doğrulanıp `heroes.json` dosyasına kaynak kodlarıyla işlenmeli; röportaj cevapları yazılmalı.

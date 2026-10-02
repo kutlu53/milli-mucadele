@@ -162,3 +162,36 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Bonus soru ("Anlatılanlara göre Kara Fatma esir düşünce ne yaptı?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi. Ekip onaylamalı.
 - Mini oyunda kaybetme yok; bitiren herkes mini oyun yıldızını alıyor. Pilot testte çok kolay bulunursa süre ya da hata sınırı eklenebilir.
 - Sıradaki iş: Gördesli Makbule'nin bölümü (5. kahraman).
+
+---
+
+## 2 Ekim 2026 — Gördesli Makbule'nin bölümü
+
+**Ne istendi?**
+- Beşinci kahramana, Gördesli Makbule'ye geçilmesi.
+
+**Ne yapıldı?**
+- `data/heroes.json` dosyasına Gördesli Makbule'nin içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`.
+- **4 yeni hikâye çizimi:** dağ köylerine haber getiren haberci ve yaklaşan kara bulutlar, efe kıyafetiyle dağ yoluna çıkan Makbule ve eşi, karakolun görüş alanına girmeden kıvrımlı patikada ilerleyen birlik, gün batımında dağ başında bir zeybek silueti. Silah ya da çatışma çizilmedi.
+- **Yeni portre:** sarılı fesli, cepkenli temsilî çizim.
+- **Yeni mini oyun "Dağ Yolu"** (`games/dagyolu.js`): Döndürmeli yol bulmacası. Patika parçasına dokununca çeyrek tur döner. Amaç Gördes köyünden Kuvâ-yi Milliye kampına kesintisiz yol kurmak.
+  - Köye bağlanan parçalar parlar; böylece oyuncu yolun nereye kadar geldiğini görür.
+  - Yol, karakolun görüş alanından (kırmızı kareler) geçemez. Geçerse oyun uyarır ve yolu kabul etmez.
+  - 3 bulmaca var: 4×3, 5×4 ve 6×4 kare. Kırmızı bölge her seferinde büyür.
+  - Takılan oyuncu "İpucu" düğmesiyle bir parçayı yerine oturtabilir; cezası yok, ipucu sayısı kaydedilir.
+  - Bulmacalar programla kurulur ama herkeste aynı çıkar (araştırmada her öğrenci aynı bulmacayı görsün diye).
+
+**Ne test edildi?**
+- Bölüm otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Hata çıkmadı, 3 yıldız kaydedildi. Test programı bir kez "İpucu" düğmesini de kullandı.
+- Kırmızı kareden geçen yolun reddedilmesi otomatik testte denenmedi; elle denenmeli.
+
+**Ne bulundu ve düzeltildi?**
+- Mini oyun ilk denemede hiç açılmadı (boş ekran). Sebep: başlangıç parçası köye bakmıyorsa yol arama programı "sonuç yok" yerine boş değer döndürüyor, oyun da bunu okuyamayıp duruyordu. Artık her durumda düzgün bir sonuç döndürüyor.
+- Dar ekranda (1024 piksel) kamp ve bayrağı ekranın kenarından taşıyordu; kareler biraz küçültülüp iki yana daha çok yer bırakıldı.
+
+**Açık konular**
+- Bonus soru ("Kuvâ-yi Milliye birliklerini kim oluşturdu?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi. Ekip onaylamalı.
+- Mini oyunun "kazanım" cümlesi senaryoda yoktu; 3. hikâye panelinden alındı. Ekip onaylamalı.
+- Mini oyunda kaybetme yok; bitiren herkes yıldızı alıyor. Pilot testte zorluk (kare sayısı, kırmızı bölge) denenmeli.
+- Bir mini oyun açılırken hata verirse ekran boş kalıyor. İleride "bu oyun açılamadı, geç" ekranı eklenebilir.
+- Sıradaki iş: Halime Çavuş'un bölümü (6. kahraman; mini oyunu önceki beş kahramanı soran "Kontrol Noktası").

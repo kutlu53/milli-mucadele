@@ -183,6 +183,11 @@
     } else if (o.bas === 'kep') {
       c.fillStyle = sil || '#4a5568'; c.beginPath(); c.rect(-20, -174, 40, 18); c.fill(); c.stroke();
       c.beginPath(); c.moveTo(18, -158); c.lineTo(34, -156); c.stroke();
+    } else if (o.bas === 'efe') {
+      // efe başlığı: sarılı fes ve püskül
+      c.fillStyle = sil || '#a3271f'; c.beginPath(); c.moveTo(-18, -158); c.lineTo(-13, -188); c.lineTo(13, -188); c.lineTo(18, -158); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = sil || R.altin; c.beginPath(); c.rect(-22, -168, 44, 12); c.fill(); c.stroke();
+      c.beginPath(); c.moveTo(20, -160); c.lineTo(30, -138); c.stroke();
     } else if (o.bas === 'kalpak') {
       c.fillStyle = sil || '#2b2118'; c.beginPath(); c.moveTo(-22, -154); c.lineTo(-18, -186); c.quadraticCurveTo(0, -198, 18, -186);
       c.lineTo(22, -154); c.quadraticCurveTo(0, -162, -22, -154); c.closePath(); c.fill(); c.stroke();
@@ -333,6 +338,16 @@
   function fatma(c, x, y, s, o) {
     o = o || {};
     kisi(c, x, y, s, { bas: 'ortu', ortu: '#3a3340', govde: '#6b6a4a', kusak: '#3a2a1c', kol: o.kol, yon: o.yon, siluet: o.siluet });
+  }
+
+  // Çam ağacı. (x, y) gövdenin dibidir.
+  function cam(c, x, y, s) {
+    c.strokeStyle = R.koyu; c.lineWidth = 4; c.lineJoin = 'round';
+    c.fillStyle = '#6b4a2c'; c.beginPath(); c.rect(x - 6 * s, y - 24 * s, 12 * s, 24 * s); c.fill(); c.stroke();
+    c.fillStyle = '#4f6d4a';
+    [[46, 20, 80], [36, 60, 120]].forEach(function (k) {
+      c.beginPath(); c.moveTo(x - k[0] * s, y - k[1] * s); c.lineTo(x, y - k[2] * s); c.lineTo(x + k[0] * s, y - k[1] * s); c.closePath(); c.fill(); c.stroke();
+    });
   }
 
   // Yağan kar.
@@ -993,6 +1008,96 @@
       doku(c);
     },
 
+    /* ----- Gördesli Makbule ----- */
+    // 1. Dağ köyleri: haberci koşarak gelir, kara bulutlar yaklaşır.
+    gordes_haber: function (c, t) {
+      gok(c, '#cfe0d8', '#f1e6c0');
+      tepeler(c, 380, 90, '#7f9a6f', 0.5);
+      tepeler(c, 470, 70, '#6b8a5c', 2.0);
+      [[120, 520], [430, 468], [770, 540], [1110, 478], [1390, 530]].forEach(function (e, n) {
+        ev(c, e[0], e[1], 130, 86, { cati: 'kiremit', renk: DUKKAN_RENK[n], pencere: 1 });
+        cam(c, e[0] - 40, e[1] + 6, 0.8); cam(c, e[0] + 180, e[1] + 10, 1);
+      });
+      bulut(c, sar(t * 26, 2300) - 400, 150, 1.7, 'rgba(70,66,74,.6)');
+      bulut(c, sar(t * 20 + 500, 2300) - 400, 240, 1.3, 'rgba(70,66,74,.5)');
+      zemin(c, 660, '#b9a56e');
+      [[980, 836, 0], [1120, 812, 1], [1250, 840, 2], [1380, 816, 3], [1500, 844, 4]].forEach(function (k) {
+        kisi(c, k[0], k[1], 1.1, Object.assign({ yon: -1 }, KOYLU[k[2]]));
+      });
+      // haberci
+      var d = t % 9, kosuyor = d < 4, x = kosuyor ? -120 + d / 4 * 800 : 680, y = 840 - (kosuyor ? Math.abs(Math.sin(t * 12)) * 12 : 0);
+      kisi(c, x, y, 1.2, { bas: 'fes', govde: '#7a5c3e', kol: 'cagri' });
+      c.fillStyle = '#fff6dc'; c.strokeStyle = R.koyu; c.lineWidth = 4;
+      c.beginPath(); c.rect(x + 46, y - 256, 50, 64); c.fill(); c.stroke();
+      doku(c);
+    },
+
+    // 2. Efe kıyafeti: Makbule ve eşi dağ yoluna çıkar.
+    efe_kiyafet: function (c, t) {
+      gok(c, '#f3dba6', '#eccb8e');
+      c.fillStyle = 'rgba(255,248,220,.85)'; daire(c, 300, 180, 60); c.fill();
+      tepeler(c, 360, 110, '#8aa06a', 1.4);
+      tepeler(c, 470, 70, '#74905e', 2.9);
+      // yokuş yukarı patika
+      c.fillStyle = '#a8b07a'; c.fillRect(0, 560, 1600, 340);
+      c.fillStyle = '#e0c995'; c.strokeStyle = 'rgba(43,33,24,.5)'; c.lineWidth = 4;
+      c.beginPath(); c.moveTo(60, 900); c.lineTo(520, 900); c.quadraticCurveTo(900, 700, 1500, 520); c.lineTo(1600, 470); c.lineTo(1600, 430);
+      c.quadraticCurveTo(900, 640, 60, 900); c.closePath(); c.fill(); c.stroke();
+      ev(c, 80, 760, 230, 150, { cati: 'kiremit', renk: '#e2cfa4' });
+      [[420, 640, 1.2], [1250, 470, 0.9], [1420, 660, 1.5], [1100, 760, 1.6], [620, 600, 1]].forEach(function (a) { cam(c, a[0], a[1], a[2]); });
+      kisi(c, 990, 716 - Math.abs(Math.sin(t * 4 + 1)) * 6, 1.35, { bas: 'efe', govde: '#3d4f6b', kusak: '#8a3a2a' });
+      kisi(c, 760, 808 - Math.abs(Math.sin(t * 4)) * 6, 1.55, { bas: 'efe', govde: '#4a5a3a', kusak: R.kirmizi });
+      kuslar(c, t);
+      doku(c);
+    },
+
+    // 3. Dağ yolları: birlik, karakolun görüş alanına girmeden kıvrımlı patikadan ilerler.
+    dag_yollari: function (c, t) {
+      gok(c, '#dfe6c8', '#f2e2b0');
+      tepeler(c, 330, 120, '#8aa06a', 0.3);
+      tepeler(c, 480, 90, '#74905e', 1.9);
+      tepeler(c, 640, 60, '#62804f', 3.4);
+      // karakol ve kırmızı görüş alanı
+      var sal = Math.sin(t * 0.8) * 0.18;
+      c.save(); c.translate(1330, 392); c.rotate(sal);
+      c.fillStyle = 'rgba(179,38,30,.28)'; c.beginPath(); c.moveTo(0, 0); c.lineTo(-260, 420); c.lineTo(60, 440); c.closePath(); c.fill();
+      c.restore();
+      c.fillStyle = '#4a4d58'; c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round';
+      c.beginPath(); c.rect(1300, 392, 60, 120); c.fill(); c.stroke();
+      c.beginPath(); c.rect(1284, 366, 92, 30); c.fill(); c.stroke();
+      c.fillStyle = R.kirmizi; c.beginPath(); c.moveTo(1276, 366); c.lineTo(1330, 318); c.lineTo(1384, 366); c.closePath(); c.fill(); c.stroke();
+      // kıvrımlı patika
+      var yol = [[-40, 860], [220, 760], [120, 640], [420, 560], [330, 460], [640, 420], [820, 520], [760, 660], [1000, 740], [1180, 860], [1640, 880]];
+      c.lineCap = 'round'; c.lineJoin = 'round';
+      c.strokeStyle = '#5b4630'; c.lineWidth = 34; c.beginPath(); yol.forEach(function (p) { c.lineTo(p[0], p[1]); }); c.stroke();
+      c.strokeStyle = '#efdcae'; c.lineWidth = 24; c.beginPath(); yol.forEach(function (p) { c.lineTo(p[0], p[1]); }); c.stroke();
+      [[540, 700, 1.3], [960, 400, 1], [60, 520, 1.1], [1500, 700, 1.6], [900, 860, 1.5], [1120, 560, 1.1]].forEach(function (a) { cam(c, a[0], a[1], a[2]); });
+      // patikada yürüyen efeler
+      for (var i = 0; i < 4; i++) {
+        var u = sar(t * 0.05 - i * 0.045, 1) * (yol.length - 1), n = Math.floor(u), o = u - n;
+        var x = yol[n][0] + (yol[n + 1][0] - yol[n][0]) * o, y = yol[n][1] + (yol[n + 1][1] - yol[n][1]) * o;
+        kisi(c, x, y + 10 - Math.abs(Math.sin(t * 6 + i)) * 5, 0.62, { bas: 'efe', govde: ['#4a5a3a', '#3d4f6b', '#6b5a4a', '#55657a'][i], kusak: R.kirmizi, yon: yol[n + 1][0] < yol[n][0] ? -1 : 1 });
+      }
+      doku(c);
+    },
+
+    // 4. Dağ başında bir zeybek silueti, gün batımı.
+    zeybek_siluet: function (c, t) {
+      gok(c, '#c4553a', '#f6d08f');
+      var g = c.createRadialGradient(800, 500, 40, 800, 500, 620);
+      g.addColorStop(0, 'rgba(255,240,190,.95)'); g.addColorStop(0.35, 'rgba(255,200,120,.45)'); g.addColorStop(1, 'rgba(255,200,120,0)');
+      c.fillStyle = g; c.fillRect(0, 0, 1600, 900);
+      c.fillStyle = '#fff0c0'; daire(c, 800, 500, 170); c.fill();
+      tepeler(c, 620, 60, '#8a5a3c', 0.7);
+      c.fillStyle = '#3a2a1c'; c.beginPath(); c.moveTo(180, 900); c.quadraticCurveTo(560, 640, 740, 600); c.lineTo(860, 600); c.quadraticCurveTo(1040, 640, 1420, 900); c.closePath(); c.fill();
+      c.save(); c.translate(800, 604); c.rotate(Math.sin(t * 1.2) * 0.05);
+      kisi(c, 0, 0, 1.6, { siluet: '#3a2a1c', bas: 'efe', kol: 'acik' });
+      c.restore();
+      tepeler(c, 850, 20, '#2b2118', 2.2);
+      kuslar(c, t * 0.6, '#3a2a1c');
+      doku(c);
+    },
+
     // Görseli henüz hazır olmayan paneller için.
     bos: function (c) {
       gok(c, '#eadab4', '#dcc594');
@@ -1040,6 +1145,30 @@
       function kumlama() {
         var rs = IP.tohumluRastgele(3);
         for (var i = 0; i < 1500; i++) { c.fillStyle = 'rgba(60,40,20,' + rs() * 0.12 + ')'; c.fillRect(rs() * 400, rs() * 400, 2, 2); }
+      }
+      if (tip === 'efeli') {
+        // cepken, gömlek, yüz, sarılı fes
+        c.fillStyle = '#3d4f6b'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 300, 150, 290); c.lineTo(250, 290);
+        c.quadraticCurveTo(340, 300, 370, 400); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = '#f3ead6'; c.beginPath(); c.moveTo(160, 290); c.lineTo(200, 400); c.lineTo(240, 290); c.closePath(); c.fill(); c.stroke();
+        c.strokeStyle = R.altin; c.lineWidth = 5;
+        c.beginPath(); c.moveTo(150, 300); c.quadraticCurveTo(150, 350, 180, 400); c.moveTo(250, 300); c.quadraticCurveTo(250, 350, 220, 400); c.stroke();
+        c.strokeStyle = R.koyu; c.lineWidth = 6;
+        c.fillStyle = '#d9ab7c'; c.beginPath(); c.rect(174, 250, 52, 46); c.fill(); c.stroke();
+        c.fillStyle = '#3a2a1c'; c.beginPath(); c.ellipse(200, 190, 76, 84, 0, 0, TAU); c.fill(); c.stroke();
+        c.fillStyle = '#e2b98c'; c.beginPath(); c.ellipse(200, 198, 62, 76, 0, 0, TAU); c.fill(); c.stroke();
+        c.fillStyle = '#a3271f'; c.beginPath(); c.moveTo(138, 150); c.lineTo(150, 62); c.lineTo(250, 62); c.lineTo(262, 150); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = R.altin; c.beginPath(); c.moveTo(128, 160); c.quadraticCurveTo(200, 120, 272, 160); c.lineTo(268, 128); c.quadraticCurveTo(200, 92, 132, 128); c.closePath(); c.fill(); c.stroke();
+        c.lineWidth = 4; c.beginPath(); c.moveTo(150, 142); c.lineTo(170, 116); c.moveTo(190, 134); c.lineTo(210, 108); c.moveTo(230, 138); c.lineTo(250, 114); c.stroke();
+        c.lineWidth = 6; c.beginPath(); c.moveTo(262, 140); c.quadraticCurveTo(292, 170, 282, 214); c.stroke();
+        c.fillStyle = R.kirmizi; daire(c, 282, 220, 9); c.fill(); c.stroke();
+        c.lineWidth = 5; c.beginPath(); c.moveTo(200, 186); c.quadraticCurveTo(192, 212, 204, 218); c.stroke();
+        c.fillStyle = R.koyu; daire(c, 174, 190, 6.5); c.fill(); daire(c, 226, 190, 6.5); c.fill();
+        c.beginPath(); c.moveTo(158, 174); c.quadraticCurveTo(174, 166, 188, 174); c.stroke();
+        c.beginPath(); c.moveTo(212, 174); c.quadraticCurveTo(226, 166, 242, 174); c.stroke();
+        c.beginPath(); c.arc(200, 230, 14, 0.2 * Math.PI, 0.8 * Math.PI); c.stroke();
+        kumlama();
+        return;
       }
       if (tip === 'yemenili' || tip === 'madalyali') {
         var madalyali = tip === 'madalyali', ortuRenk = madalyali ? '#3a3340' : YEMENI;

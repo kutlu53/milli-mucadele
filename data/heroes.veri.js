@@ -319,7 +319,79 @@ window.IP_VERI = {
       "duygu_ani": "\"Ben de vatanım için bir şey yapabilirim\" diyerek binlerce kilometre yol giden bir kadın.",
       "portre": { "dosya": "", "cizim": "madalyali", "temsili": true }
     },
-    { "id": "gordesli-makbule", "hazir": false, "ad": "Gördesli Makbule", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Gördes", "harita_x": 0.143, "harita_y": 0.51 } },
+    {
+      "id": "gordesli-makbule",
+      "hazir": true,
+      "ad": "Gördesli Makbule",
+      "baslik": "Efe Kadın",
+      "alan": "cephe",
+      "alan_etiketi": "Cephe — Batı",
+      "konum": { "ad": "Gördes", "harita_x": 0.143, "harita_y": 0.51 },
+      "tarih_etiketi": "1919–1921",
+      "tarih_dogrulandi": false,
+      "altin_bilgiler": [
+        {
+          "metin": "Manisa'nın Gördes ilçesindendir. Eşiyle birlikte Kuvâ-yi Milliye'ye katıldı.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Eşinin adı doğrulanacak."
+        },
+        {
+          "metin": "Yunan işgaline karşı efe kıyafetiyle Kuvâ-yi Milliye birliklerinde savaştı.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Çarpışmalardan birinde şehit düştü.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Yıl ve yer doğrulanacak."
+        }
+      ],
+      "paneller": [
+        { "metin": "Gördes'in dağ köyleri. İşgal haberi gelir.", "gorsel": "gordes_haber", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Makbule efe kıyafetini giyer ve eşiyle dağa çıkar.", "gorsel": "efe_kiyafet", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Kuvâ-yi Milliye birlikleri dağ yollarını çok iyi bilir.", "gorsel": "dag_yollari", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Makbule bir çarpışmada şehit düşer.", "gorsel": "zeybek_siluet", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Yıl ve yer doğrulanacak." }
+      ],
+      "mini_oyun": {
+        "modul": "dagyolu",
+        "ad": "Dağ Yolu",
+        "aciklama": "Patika parçalarını döndür. Gördes köyünden Kuvâ-yi Milliye kampına kesintisiz bir yol kur.",
+        "baslangic": "Gördes köyü",
+        "bitis": "Kuvâ-yi Milliye kampı",
+        "bulmaca_sayisi": 3,
+        "kazanim": "Kuvâ-yi Milliye birlikleri dağ yollarını çok iyi bilir.",
+        "not": "Senaryoda bu mini oyun için kazanım cümlesi yoktu; 3. hikâye panelinden alındı. Ekip onaylamalı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Kuvâ-yi Milliye ne demek?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Neden efe kıyafeti giydiniz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Dağlarda nasıl hayatta kaldınız?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "{0}'li Makbule Hanım, {1} birliklerinde {2} kıyafetiyle işgale karşı savaştı.",
+        "dogrular": ["Gördes", "Kuvâ-yi Milliye", "efe"],
+        "celdiriciler": ["Erzurum", "Anadolu Ajansı", "asker"],
+        "ipucu_bilgi": [0, 1, 1]
+      },
+      "biliyor_muydun": {
+        "metin": "Kuvâ-yi Milliye, düzenli ordu kurulmadan önce halkın işgale karşı kendiliğinden oluşturduğu direniş birlikleridir.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "Kuvâ-yi Milliye birliklerini kim oluşturdu?",
+          "secenekler": ["Yabancı gazeteciler", "İşgale karşı çıkan halk", "İstanbul'daki matbaalar"],
+          "dogru": 1,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "Dağların türküsünü bilen bir kadının vatan savunması.",
+      "portre": { "dosya": "", "cizim": "efeli", "temsili": true }
+    },
     { "id": "halime-cavus", "hazir": false, "ad": "Halime Çavuş", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "Kastamonu", "harita_x": 0.425, "harita_y": 0.16 } },
     { "id": "serife-baci", "hazir": false, "ad": "Şerife Bacı", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "İnebolu", "harita_x": 0.424, "harita_y": 0.074 } },
     { "id": "halide-edib", "hazir": false, "ad": "Halide Edib Adıvar", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "İstanbul", "harita_x": 0.178, "harita_y": 0.213 } },

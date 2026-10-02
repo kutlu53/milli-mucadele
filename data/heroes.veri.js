@@ -604,7 +604,92 @@ window.IP_VERI = {
       "ogretmen_notu": "Bu bölüm öğrencileri duygusal olarak etkileyebilir. Öğretmen oturum öncesinde kısa bir hazırlık konuşması yapmalı, oturum sonrasında sınıfla birkaç dakika sohbet etmelidir.",
       "portre": { "dosya": "", "cizim": "beyaz_ortulu", "temsili": true }
     },
-    { "id": "halide-edib", "hazir": false, "ad": "Halide Edib Adıvar", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "İstanbul", "harita_x": 0.178, "harita_y": 0.213 } },
+    {
+      "id": "halide-edib",
+      "hazir": true,
+      "ad": "Halide Edib Adıvar",
+      "baslik": "Meydanda Bir Ses",
+      "alan": "basin",
+      "alan_etiketi": "Basın-yayın",
+      "konum": { "ad": "İstanbul", "harita_x": 0.178, "harita_y": 0.213 },
+      "tarih_etiketi": "1919",
+      "tarih_dogrulandi": false,
+      "tarih_dogrula_notu": "Mitingin tarihi doğrulanacak.",
+      "altin_bilgiler": [
+        {
+          "metin": "İzmir'in işgalini protesto eden Sultanahmet Mitingi'nde (1919) halka seslenen bir konuşma yaptı.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Tarih doğrulanacak."
+        },
+        {
+          "metin": "Anadolu'ya geçerek Millî Mücadele'ye katıldı. Yunus Nadi ile birlikte Anadolu Ajansı'nın kuruluşunda rol aldı.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Cephede görev alarak rütbe aldı. Millî Mücadele'yi \"Ateşten Gömlek\" romanında anlattı.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Rütbeler doğrulanacak."
+        }
+      ],
+      "paneller": [
+        { "metin": "Sultanahmet Meydanı. Siyahlarla örtülü pankartlar ve büyük bir kalabalık var.", "gorsel": "sultanahmet_meydan", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Halide Edib kürsüde halka seslenir.", "gorsel": "kursu", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "İşgal altındaki İstanbul'dan gizlice Anadolu'ya geçer.", "gorsel": "gizli_gecis", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Geçişin nasıl yapıldığı doğrulanacak; çizim bilerek genel tutuldu." },
+        { "metin": "Ankara yolunda Yunus Nadi ile bir ajans kurma fikri doğar.", "gorsel": "ajans_fikri", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Halide Edib cephede üniformasıyla görev alır.", "gorsel": "cephede", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Rütbeler doğrulanacak." }
+      ],
+      "mini_oyun": {
+        "modul": "seslen",
+        "ad": "Kalabalığa Seslen",
+        "aciklama": "Meydandaki kalabalığa bir konuşma hazırla. Doğru sözleri seç ve sıraya diz.",
+        "secilecek": 5,
+        "kartlar": [
+          { "metin": "Kardeşlerim, bugün burada hep birlikteyiz!", "tur": "uygun", "yer": "acilis" },
+          { "metin": "İzmir'in işgalini kabul etmiyoruz!", "tur": "uygun" },
+          { "metin": "Birlik olursak kimse bizi yıkamaz.", "tur": "uygun" },
+          { "metin": "Bu millet bağımsızlığından vazgeçmez.", "tur": "uygun" },
+          { "metin": "Hep birlikte söz verelim: Bu vatanı savunacağız!", "tur": "uygun", "yer": "kapanis" },
+          { "metin": "Bugün hava çok güzel, pikniğe gidelim.", "tur": "konu_disi", "neden": "Bu söz konu dışı: miting işgali protesto etmek için toplandı." },
+          { "metin": "Çarşıda kumaş fiyatları çok arttı.", "tur": "konu_disi", "neden": "Bu söz konu dışı: miting işgali protesto etmek için toplandı." },
+          { "metin": "Bu haberi hemen telefonla bütün dünyaya duyuralım!", "tur": "cag_disi", "neden": "Bu söz çağına uymuyor: o yıllarda haberler telgrafla ve gazeteyle yayılırdı." },
+          { "metin": "Bu konuşmayı internetten canlı yayımlayalım!", "tur": "cag_disi", "neden": "Bu söz çağına uymuyor: 1919'da internet yoktu." },
+          { "metin": "Televizyonlar bu mitingi akşam haberlerinde göstersin!", "tur": "cag_disi", "neden": "Bu söz çağına uymuyor: 1919'da televizyon yoktu." }
+        ],
+        "kazanim": "Her söz kendi çağına ve konusuna göre söylenir.",
+        "not": "Cümle kartları oyun için özgün olarak yazıldı; gerçek konuşmadan alıntı değildir. Senaryoda yalnızca 'telefon' örneği vardı. Kazanım cümlesi senaryodaki 'tarihsel bağlam ve dönem düşüncesi' ifadesinden sadeleştirildi. Ekip kartları gözden geçirip onaylamalı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Sultanahmet'te kalabalığa ne söylediniz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "İstanbul'dan Anadolu'ya nasıl geçtiniz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Ajans kurmak neden gerekliydi?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Cephede ne gördünüz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 2, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "Halide Edib Hanım, {0} Mitingi'nde {1}'in işgalini protesto etti. Daha sonra {2}'nın kuruluşunda rol aldı.",
+        "dogrular": ["Sultanahmet", "İzmir", "Anadolu Ajansı"],
+        "celdiriciler": ["Erzurum", "Antep", "Sebilürreşad"],
+        "ipucu_bilgi": [0, 0, 1]
+      },
+      "biliyor_muydun": {
+        "metin": "\"Ateşten Gömlek\" romanı Millî Mücadele yıllarını anlatır ve sinemaya da uyarlanmıştır.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "Halide Edib'in Millî Mücadele yıllarını anlattığı romanın adı nedir?",
+          "secenekler": ["Safahat", "Ateşten Gömlek", "Yeni Gün"],
+          "dogru": 1,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "Bir kadının sesinin bir meydanı doldurması.",
+      "portre": { "dosya": "", "cizim": "siyah_ortulu", "temsili": true, "not": "Senaryoya göre fotoğrafı bulunan kahramanlarda gerçek fotoğrafın stilize hâli kullanılacak. Fotoğraf eklenene kadar temsilî çizim duruyor." }
+    },
     { "id": "yunus-nadi", "hazir": false, "ad": "Yunus Nadi", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Ankara", "harita_x": 0.377, "harita_y": 0.367 } },
     { "id": "mehmet-akif", "hazir": false, "ad": "Mehmet Âkif Ersoy", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Kastamonu", "harita_x": 0.45, "harita_y": 0.19 } }
   ]

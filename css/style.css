@@ -270,6 +270,30 @@ p { margin: 0; }
 .kolon-dugme { align-self: center; }
 .oyun-rozet { position: absolute; left: .6rem; top: .6rem; }
 .kart-tepsi.parola { min-height: 9rem; }
+.soz-tepsi { width: min(96vw, 80rem); display: flex; flex-direction: column; align-items: center; gap: .45rem; }
+.soz-yuvalar, .soz-kartlar { width: 100%; display: grid; grid-template-columns: repeat(5, 1fr); gap: .4rem; }
+.soz-yuva, .soz-kart {
+  min-height: 52px; padding: .3rem .5rem; font: 600 .78rem Metin, serif; line-height: 1.2; color: var(--koyu); text-align: center; cursor: pointer;
+  border: 3px solid var(--koyu); border-radius: .45em; background: linear-gradient(#fff6dc, #ecd9a8); box-shadow: 0 3px 0 var(--koyu);
+}
+.soz-kart:disabled { opacity: .3; cursor: default; }
+.soz-yuva { display: flex; align-items: center; gap: .4rem; text-align: left; background: rgba(255, 255, 255, .14); border-style: dashed; border-color: var(--krem); color: var(--krem); box-shadow: none; }
+.soz-yuva b { font: 900 1.1rem Manset, serif; color: var(--altin); }
+.soz-yuva.dolu { background: var(--krem); border-style: solid; border-color: var(--koyu); color: var(--koyu); }
+.soz-yuva.dolu b { color: var(--kirmizi); }
+.soz-yuva.okunuyor { background: var(--altin); transform: translateY(-4px); }
+.soz-yuva:disabled { cursor: default; }
+.soz-balon {
+  position: absolute; left: 50%; bottom: .6rem; transform: translateX(-50%); width: min(40rem, 92%); padding: .4rem 1rem; text-align: center; pointer-events: none;
+  background: #fff6dc; border: 3px solid var(--koyu); border-radius: .8rem; box-shadow: 0 .4rem 1rem rgba(0, 0, 0, .5); opacity: 0; transition: opacity .25s;
+}
+.soz-balon.goster { opacity: 1; }
+.soz-balon p { font: 700 1.1rem Manset, serif; }
+.soz-balon small { display: block; font: 600 .8rem Metin, serif; }
+.soz-balon.iyi small { color: #2f6b2c; }
+.soz-balon.kotu { border-color: var(--kirmizi); }
+.soz-balon.kotu small { color: var(--kirmizi); }
+@media (max-width: 760px) { .soz-yuvalar, .soz-kartlar { grid-template-columns: repeat(2, 1fr); } }
 .gosterge.olcer { display: flex; flex-direction: column; gap: .15rem; min-width: 8.6rem; padding: .25em .6em .35em; }
 .olcer b { font: 700 .62rem Metin, serif; color: var(--krem); }
 .olcer em { display: block; height: .5rem; background: rgba(255, 255, 255, .16); border-radius: 1em; overflow: hidden; }

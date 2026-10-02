@@ -283,3 +283,38 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 **Açık konular**
 - Bülten 2 soruları da senaryoda yoktu; Altın Bilgilerden ve senaryodaki çeldiricilerden türetildi. Ekip onaylamalı. Başarı testindeki sorularla birebir aynı olmamalı.
 - Sıradaki iş: Halide Edib Adıvar'ın bölümü (8. kahraman; mini oyunu "Kalabalığa Seslen").
+
+---
+
+## 2 Ekim 2026 — Halide Edib Adıvar'ın bölümü
+
+**Ne istendi?**
+- Ajans Bülteni 2'nin GitHub'a gönderilmesi ve sekizinci kahramana, Halide Edib Adıvar'a geçilmesi.
+
+**Ne yapıldı?**
+- Ajans Bülteni 2 kaydedildi ve GitHub'a gönderildi.
+- `data/heroes.json` dosyasına Halide Edib Adıvar'ın içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`.
+- **5 yeni hikâye çizimi:** siyah pankartlı meydan ve kalabalık, kürsüde seslenen Halide Edib (sesi halka halka yayılır), gece şehirden ayrılış, telgraf tellerinin altında doğan ajans fikri, cephede üniformalı Halide.
+  - "Gizlice Anadolu'ya geçiş" sahnesi bilerek genel çizildi (gece, şehir silueti, yola çıkan bir gölge), çünkü geçişin nasıl yapıldığı henüz doğrulanmadı.
+  - Cami silueti genel bir siluettir; belirli bir yapının ölçülü çizimi değildir.
+- **Yeni portre:** koyu örtülü temsilî çizim. Senaryoya göre fotoğrafı bulunan kahramanlarda gerçek fotoğrafın stilize hâli kullanılacak; fotoğraf eklenene kadar bu çizim duruyor.
+- **Yeni mini oyun "Kalabalığa Seslen"** (`games/seslen.js`): 10 söz kartından 5'i seçilip sıraya dizilir, sonra "Konuşmayı yap" düğmesine basılır. Halide Edib sözleri tek tek söyler.
+  - Konuya uygun söz kalabalığı büyütür (meydandaki insan sayısı gerçekten artar).
+  - Konu dışı ya da çağına uymayan söz kalabalığı azaltır ve nedeni yazılır (örneğin "1919'da televizyon yoktu").
+  - Konuşma bir selamla başlayıp bir çağrıyla biterse ek puan gelir. Meydan %100 dolunca oyun tamamlanır.
+  - Dolmazsa ipuçları gösterilir; oyuncu konuşmayı düzeltip yeniden dener ya da yıldızsız devam eder.
+- Söz kartları kodda değil, `heroes.json` içinde (`mini_oyun.kartlar`) duruyor.
+
+**Ne test edildi?**
+- Bölüm otomatik oynatıldı (3 boyutlu, 1366×768): test programı önce kötü bir konuşma kurdu (kalabalık %38, ipuçları çıktı), sonra düzeltti (meydan doldu). 3 yıldız kaydedildi, hata çıkmadı.
+- "Yıldızsız devam et" yolu ayrıca denendi (3 boyutsuz, 1024×768): bölüm 2 yıldızla bitti.
+
+**Ne bulundu ve düzeltildi?**
+- Konuşma balonu kürsüdeki Halide Edib'in üstünü kapatıyordu; balon sahnenin altına alındı.
+
+**Açık konular**
+- **Söz kartları özgün yazıldı;** gerçek konuşmadan alıntı değildir. Ekip 10 kartı gözden geçirip onaylamalı. "Telefon" kartı senaryodaki örnekten alındı; açıklaması "o yıllarda haberler telgrafla ve gazeteyle yayılırdı" biçiminde yazıldı.
+- Kazanım cümlesi ("Her söz kendi çağına ve konusuna göre söylenir.") senaryodaki "tarihsel bağlam ve dönem düşüncesi" ifadesinden sadeleştirildi. Ekip onaylamalı.
+- Bonus soru ("Halide Edib'in Millî Mücadele yıllarını anlattığı romanın adı nedir?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi.
+- Halide Edib'in gerçek fotoğrafı bulunursa portre onunla değiştirilmeli.
+- Sıradaki iş: Yunus Nadi'nin bölümü (9. kahraman; mini oyunu "Telgrafhane").

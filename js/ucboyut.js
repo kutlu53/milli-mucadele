@@ -255,7 +255,11 @@
     var vurus = 0, uzaklik = 11.5, bakisY = 0.3;
     return {
       sahne: sahne, kamera: kamera,
-      boyutla: function (oran) { uzaklik = oran < 1.25 ? 11.5 * 1.25 / oran : 11.5; },
+      boyutla: function (oran) {
+        // Dik ekranda kamera biraz uzaklaşır; sis de uzaklığa göre ayarlanır ki sahne kararmasın.
+        uzaklik = oran < 1.25 ? Math.min(11.5 * 1.25 / oran, 21) : 11.5;
+        sahne.fog.near = uzaklik + 0.5; sahne.fog.far = uzaklik + 18.5;
+      },
       // Telgraf tuşuna bir kez bastırır.
       vur: function () { vurus = 1; },
       // Kameranın baktığı yüksekliği ayarlar (yazılar altta iken sahneyi yukarı kaydırmak için).
@@ -367,6 +371,7 @@
         // Harita ekrana sığsın diye kamera uzaklığı ekran oranına göre ayarlanır.
         var yatayAci = Math.atan(Math.tan(kamera.fov * Math.PI / 360) * oran);
         genelUzaklik = Math.max(13.5, (HG / 2 * 1.12) / Math.tan(yatayAci));
+        sahne.fog.near = genelUzaklik * 1.35; sahne.fog.far = genelUzaklik * 3.4;
         if (!gecis && !this.yakinda) { var g = genelKonum(); kam.konum.copy(g.konum); kam.hedef.copy(g.hedef); }
       },
       yakinda: false,

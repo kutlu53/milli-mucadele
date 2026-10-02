@@ -41,6 +41,12 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Ne test edildi: Yayındaki sayfa açıldı; başlık, 10 kahramanın verisi ve 3 boyutlu sahne yüklendi.
 - Not: Bu adres tanıtım ve uzaktan deneme içindir. Sınıf uygulamasında oyun yine internetsiz, bilgisayardaki klasörden açılır.
 
+**Telefon ve dik ekran denemesi (aynı gün)**
+- Ne istendi: Oyunun telefonda oynanıp oynanamayacağının öğrenilmesi.
+- Ne test edildi: Oyun telefon boyutunda dik (390×844) ve yatay (844×390), ayrıca dik tablet boyutunda (768×1024) otomatik oynatıldı.
+- Ne bulundu ve düzeltildi: Dik ekranda 3 boyutlu sahneler kararıyordu (harita hiç görünmüyordu). Sebep: kamera uzaklaşınca "sis" her şeyi örtüyordu. Sis artık kamera uzaklığına göre ayarlanıyor. Dik telefon ve dik tablette oyun sonuna kadar oynanıyor.
+- Düzeltilmedi: Yatay tutulan telefonda ekran çok alçak kalıyor; Haberi Yaz ekranında boşlukların bir kısmı görünmüyor. Telefon hedef cihaz olmadığı için karar bekliyor.
+
 **Açık konular**
 - Senaryoda oyuncu adını seçiyor ve Zafer Nüshası'nda adı yazıyor; kurallarda ise "öğrenci adı tutulmaz" deniyor. Şimdilik kural uygulandı (yalnızca kod). Karar verilmeli.
 - Sütçü İmam'ın bilgileri iki kaynakla doğrulanıp `heroes.json` dosyasına kaynak kodlarıyla işlenmeli; röportaj cevapları yazılmalı.

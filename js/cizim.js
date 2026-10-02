@@ -460,6 +460,9 @@
   // Yunus Nadi'nin görünüşü (fesli, koyu takım elbiseli).
   var NADI = { bas: 'fes', govde: '#3a4658' };
 
+  // Mehmet Âkif'in görünüşü (kalpaklı, sakallı, koyu giysili).
+  var AKIF = { bas: 'kalpak', govde: '#3a3340', sakal: '#2b2118' };
+
   /* ---------- Hikâye sahneleri (1600 × 900 sanal ölçü) ---------- */
   var DUKKAN_RENK = ['#e2cfa4', '#d6bd8c', '#e8d9b5', '#d0b584', '#dec79a', '#d9c39a'];
   var evlerGece = null;
@@ -1666,6 +1669,138 @@
       doku(c);
     },
 
+    /* ----- Mehmet Âkif Ersoy ----- */
+    // 1. Cami: Âkif kürsüde, cami tıklım tıklım.
+    vaaz: function (c, t) {
+      c.fillStyle = '#d9c9a0'; c.fillRect(0, 0, 1600, 900);
+      // kemerler ve pencerelerden süzülen ışık
+      c.strokeStyle = R.koyu; c.lineWidth = 6; c.lineJoin = 'round';
+      [200, 600, 1000, 1400].forEach(function (x, n) {
+        c.fillStyle = '#c9b688'; c.beginPath(); c.moveTo(x - 150, 620); c.lineTo(x - 150, 300); c.arc(x, 300, 150, Math.PI, 0); c.lineTo(x + 150, 620); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = '#f6e9b8'; c.beginPath(); c.moveTo(x - 50, 420); c.lineTo(x - 50, 290); c.arc(x, 290, 50, Math.PI, 0); c.lineTo(x + 50, 420); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = 'rgba(255,240,180,' + (0.16 + Math.sin(t + n) * 0.05) + ')';
+        c.beginPath(); c.moveTo(x - 50, 300); c.lineTo(x + 50, 300); c.lineTo(x + 260, 900); c.lineTo(x - 100, 900); c.closePath(); c.fill();
+      });
+      c.fillStyle = '#8a3a2a'; c.fillRect(0, 620, 1600, 280);
+      c.lineWidth = 5; c.beginPath(); c.moveTo(0, 620); c.lineTo(1600, 620); c.stroke();
+      // kürsü
+      c.fillStyle = '#6b4a2c'; c.beginPath(); c.rect(690, 470, 220, 190); c.fill(); c.stroke();
+      c.fillStyle = '#7d5a38'; c.beginPath(); c.rect(672, 450, 256, 28); c.fill(); c.stroke();
+      kisi(c, 800, 452, 1.5, Object.assign({ kol: 'cagri' }, AKIF));
+      kalabalik(c, 300, t, { y: 690 });
+      doku(c);
+    },
+
+    // 2. Vaaz kâğıda geçer, matbaada harf harf dizilir.
+    dizgi: function (c, t) {
+      c.fillStyle = '#5a4630'; c.fillRect(0, 0, 1600, 900);
+      var g = c.createRadialGradient(800, 100, 20, 800, 100, 900);
+      g.addColorStop(0, 'rgba(255,225,150,.5)'); g.addColorStop(1, 'rgba(255,225,150,0)');
+      c.fillStyle = g; c.fillRect(0, 0, 1600, 900);
+      c.fillStyle = '#7d5a38'; c.fillRect(0, 560, 1600, 340);
+      c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round'; c.beginPath(); c.moveTo(0, 560); c.lineTo(1600, 560); c.stroke();
+      // el yazısı kâğıt
+      c.save(); c.translate(330, 700); c.rotate(-0.08);
+      c.fillStyle = '#fff6dc'; c.beginPath(); c.rect(-170, -130, 340, 260); c.fill(); c.stroke();
+      c.lineWidth = 4; for (var l = 0; l < 7; l++) { c.beginPath(); c.moveTo(-140, -96 + l * 32); c.quadraticCurveTo(-40, -106 + l * 32, 130 - (l % 3) * 40, -96 + l * 32); c.stroke(); }
+      c.restore();
+      // kâğıttan kalıba uçan harf kalıpları
+      c.lineWidth = 5;
+      for (var i = 0; i < 6; i++) {
+        var u = sar(t * 0.25 + i / 6, 1), x = 480 + u * 520, y = 640 - Math.sin(u * Math.PI) * 220;
+        c.save(); c.translate(x, y); c.rotate(u * 3);
+        c.fillStyle = '#b9b2a2'; c.beginPath(); c.rect(-22, -28, 44, 56); c.fill(); c.stroke();
+        c.fillStyle = R.koyu; c.fillRect(-10, -14, 20, 6); c.fillRect(-10, 0, 14, 6);
+        c.restore();
+      }
+      // dizgi çubuğu: kalıplar sağdan sola dolar
+      c.fillStyle = '#3a2a1c'; c.beginPath(); c.rect(1000, 700, 520, 90); c.fill(); c.stroke();
+      var dolu = Math.floor(sar(t * 1.2, 9));
+      for (i = 0; i < 8; i++) {
+        if (i >= dolu) continue;
+        c.fillStyle = '#b9b2a2'; c.beginPath(); c.rect(1452 - i * 58, 712, 50, 66); c.fill(); c.stroke();
+        c.fillStyle = R.koyu; c.fillRect(1466 - i * 58, 728, 22, 7); c.fillRect(1466 - i * 58, 746, 14, 7);
+      }
+      doku(c);
+    },
+
+    // 3. Dergi nüshaları Anadolu'ya dağılır.
+    dergi_dagilim: function (c, t) {
+      gok(c, '#f2dfae', '#ecc98a');
+      tepeler(c, 430, 70, '#d2b47c', 0.9);
+      tepeler(c, 540, 50, '#c29f66', 2.3);
+      c.fillStyle = '#b9a56e'; c.fillRect(0, 640, 1600, 260);
+      // uzaktaki şehirler ve köyler
+      [[180, 600], [520, 560], [900, 610], [1260, 570], [1480, 620]].forEach(function (e, n) { ev(c, e[0], e[1], 90, 60, { cati: 'kiremit', renk: DUKKAN_RENK[n], pencere: 1 }); });
+      // uçan dergi sayfaları
+      for (var i = 0; i < 9; i++) {
+        var u = sar(t * 0.12 + i / 9, 1), x = 200 + u * 1500 + Math.sin(i * 2) * 60, y = 760 - Math.sin(u * Math.PI) * (300 + (i % 3) * 90) - u * 120;
+        c.save(); c.translate(x, y); c.rotate(Math.sin(t * 3 + i) * 0.4);
+        c.fillStyle = '#fff6dc'; c.strokeStyle = R.koyu; c.lineWidth = 4; c.beginPath(); c.rect(-34, -44, 68, 88); c.fill(); c.stroke();
+        c.fillStyle = R.kirmizi; c.fillRect(-24, -34, 48, 12);
+        c.lineWidth = 3; for (var l = 0; l < 3; l++) { c.beginPath(); c.moveTo(-22, -8 + l * 16); c.lineTo(22, -8 + l * 16); c.stroke(); }
+        c.restore();
+      }
+      // deste ve dağıtan kişi
+      c.fillStyle = '#fff6dc'; c.strokeStyle = R.koyu; c.lineWidth = 5;
+      for (i = 0; i < 5; i++) { c.beginPath(); c.rect(90, 820 - i * 14, 120, 14); c.fill(); c.stroke(); }
+      kisi(c, 300, 870, 1.4, { bas: 'fes', govde: '#55657a', kol: 'cagri' });
+      kuslar(c, t);
+      doku(c);
+    },
+
+    // 4. Gece, lamba ışığında marşı yazar; ödül kesesi masanın kenarında durur.
+    mars_yazim: function (c, t) {
+      c.fillStyle = '#2a2740'; c.fillRect(0, 0, 1600, 900);
+      // pencere: gece
+      c.fillStyle = '#0f1836'; c.strokeStyle = R.koyu; c.lineWidth = 10; c.beginPath(); c.rect(1080, 130, 320, 300); c.fill(); c.stroke();
+      c.fillStyle = '#f6efcf'; daire(c, 1300, 220, 34); c.fill(); c.fillStyle = '#0f1836'; daire(c, 1286, 212, 30); c.fill();
+      c.lineWidth = 6; c.beginPath(); c.moveTo(1240, 130); c.lineTo(1240, 430); c.stroke();
+      var titre = Math.sin(t * 9) * 8;
+      var g = c.createRadialGradient(620, 470, 10, 620, 470, 560 + titre);
+      g.addColorStop(0, 'rgba(255,225,140,.85)'); g.addColorStop(1, 'rgba(255,225,140,0)');
+      c.fillStyle = g; c.fillRect(0, 0, 1600, 900);
+      kisi(c, 860, 760, 1.7, AKIF);
+      // masa
+      c.fillStyle = '#6b4a2c'; c.lineWidth = 5; c.beginPath(); c.rect(260, 640, 1000, 260); c.fill(); c.stroke();
+      c.fillStyle = '#7d5a38'; c.beginPath(); c.rect(230, 612, 1060, 36); c.fill(); c.stroke();
+      // lamba
+      c.fillStyle = R.altin; c.beginPath(); c.rect(596, 540, 48, 72); c.fill(); c.stroke();
+      c.fillStyle = '#fff3b0'; c.beginPath(); c.ellipse(620, 500, 24, 44 + titre * 0.3, 0, 0, TAU); c.fill(); c.stroke();
+      // kâğıt ve kalem: satırlar yazıldıkça çoğalır
+      c.fillStyle = '#fff6dc'; c.beginPath(); c.moveTo(760, 606); c.lineTo(1040, 606); c.lineTo(1060, 640); c.lineTo(740, 640); c.closePath(); c.fill(); c.stroke();
+      c.lineWidth = 3; var satir = 1 + Math.floor(sar(t * 0.6, 4));
+      for (var l = 0; l < satir; l++) { c.beginPath(); c.moveTo(780 + l * 3, 614 + l * 7); c.lineTo(1010 + l * 4, 614 + l * 7); c.stroke(); }
+      // ödül kesesi: masanın uzak köşesinde, dokunulmamış
+      c.lineWidth = 5; c.fillStyle = '#8a6a45'; c.beginPath(); c.ellipse(360, 590, 46, 36, 0, 0, TAU); c.fill(); c.stroke();
+      c.beginPath(); c.moveTo(336, 560); c.lineTo(360, 536); c.lineTo(384, 560); c.closePath(); c.fill(); c.stroke();
+      doku(c);
+    },
+
+    // 5. Meclis ayakta: marş kabul edilir.
+    meclis: function (c, t) {
+      c.fillStyle = '#c9b48a'; c.fillRect(0, 0, 1600, 900);
+      c.fillStyle = '#bca77c'; for (var d = 0; d < 16; d++) c.fillRect(d * 100 + 48, 0, 5, 560);
+      c.save(); c.translate(800, 300);
+      for (var i = 0; i < 14; i++) {
+        c.rotate(TAU / 14);
+        c.fillStyle = 'rgba(255,250,215,' + (0.14 + Math.sin(t * 1.5 + i) * 0.05) + ')';
+        c.beginPath(); c.moveTo(0, 0); c.lineTo(-80, -1100); c.lineTo(80, -1100); c.closePath(); c.fill();
+      }
+      c.restore();
+      bayrak(c, 1090, 120, 300, 200, t * 0.4);
+      c.strokeStyle = R.koyu; c.lineWidth = 6; c.strokeRect(1090, 120, 300, 200);
+      // kürsü
+      c.fillStyle = '#6b4a2c'; c.lineWidth = 5; c.lineJoin = 'round';
+      c.beginPath(); c.rect(640, 430, 320, 150); c.fill(); c.stroke();
+      c.fillStyle = '#7d5a38'; c.beginPath(); c.rect(620, 408, 360, 30); c.fill(); c.stroke();
+      kisi(c, 800, 410, 1.2, { bas: 'kalpak', govde: '#3a4658' });
+      c.fillStyle = '#8a3a2a'; c.fillRect(0, 560, 1600, 340);
+      c.beginPath(); c.moveTo(0, 560); c.lineTo(1600, 560); c.stroke();
+      kalabalik(c, 300, t, { y: 640, sevinc: true });
+      doku(c);
+    },
+
     // Görseli henüz hazır olmayan paneller için.
     bos: function (c) {
       gok(c, '#eadab4', '#dcc594');
@@ -1709,7 +1844,7 @@
       g.addColorStop(0, '#ecd9ad'); g.addColorStop(1, '#b89868');
       c.fillStyle = g; c.fillRect(0, 0, 400, 400);
       c.lineWidth = 6; c.strokeStyle = R.koyu; c.lineJoin = 'round'; c.lineCap = 'round';
-      var genc = tip === 'kalpakli_genc', kalpakli = tip === 'kalpakli' || genc;
+      var genc = tip === 'kalpakli_genc', sakalli = tip === 'kalpakli_sakalli', kalpakli = tip === 'kalpakli' || genc || sakalli;
       function kumlama() {
         var rs = IP.tohumluRastgele(3);
         for (var i = 0; i < 1500; i++) { c.fillStyle = 'rgba(60,40,20,' + rs() * 0.12 + ')'; c.fillRect(rs() * 400, rs() * 400, 2, 2); }
@@ -1810,6 +1945,10 @@
         // sakal
         c.beginPath(); c.moveTo(134, 196); c.quadraticCurveTo(140, 300, 200, 304); c.quadraticCurveTo(260, 300, 266, 196);
         c.quadraticCurveTo(250, 236, 200, 232); c.quadraticCurveTo(150, 236, 134, 196); c.closePath(); c.fill(); c.stroke();
+      }
+      if (sakalli) {
+        c.beginPath(); c.moveTo(136, 206); c.quadraticCurveTo(144, 290, 200, 296); c.quadraticCurveTo(256, 290, 264, 206);
+        c.quadraticCurveTo(248, 246, 200, 244); c.quadraticCurveTo(152, 246, 136, 206); c.closePath(); c.fill(); c.stroke();
       }
       // bıyık, burun, gözler, kaşlar
       if (genc) {

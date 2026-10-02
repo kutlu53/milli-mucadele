@@ -773,6 +773,88 @@ window.IP_VERI = {
       "duygu_ani": "Bir istasyonda konuşan iki kişinin bir milletin sesini kurması.",
       "portre": { "dosya": "", "cizim": "fesli", "temsili": true, "not": "Fotoğraf eklenene kadar temsilî çizim duruyor." }
     },
-    { "id": "mehmet-akif", "hazir": false, "ad": "Mehmet Âkif Ersoy", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Kastamonu", "harita_x": 0.45, "harita_y": 0.19 } }
+    {
+      "id": "mehmet-akif",
+      "hazir": true,
+      "ad": "Mehmet Âkif Ersoy",
+      "baslik": "Matbaadan Marşa",
+      "alan": "basin",
+      "alan_etiketi": "Basın-yayın",
+      "konum": { "ad": "Kastamonu", "harita_x": 0.45, "harita_y": 0.19 },
+      "tarih_etiketi": "1920–1921",
+      "tarih_dogrulandi": false,
+      "altin_bilgiler": [
+        {
+          "metin": "Kastamonu Nasrullah Camii'nde verdiği vaazla halkı Millî Mücadele'yi desteklemeye çağırdı (1920). Bu vaaz \"Sebilürreşad\" dergisinde basılarak geniş kitlelere ulaştı.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Doğrulanacak."
+        },
+        {
+          "metin": "Burdur milletvekili olarak TBMM'de görev yaptı.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "İstiklal Marşı'nı yazdı. Marş 12 Mart 1921'de TBMM'de kabul edildi.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        }
+      ],
+      "paneller": [
+        { "metin": "Kastamonu, Nasrullah Camii. Âkif kürsüde, cami tıklım tıklım.", "gorsel": "vaaz", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Vaaz kâğıda geçer, matbaada dizilir.", "gorsel": "dizgi", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Sebilürreşad nüshaları Anadolu'ya dağılır, cepheye kadar ulaşır.", "gorsel": "dergi_dagilim", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Nüshaların cepheye ulaştığı doğrulanacak." },
+        { "metin": "Ankara, TBMM. Âkif marşı yazar ama yarışma ödülünü kabul etmez.", "gorsel": "mars_yazim", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Ödülü kabul etmediği doğrulanacak." },
+        { "metin": "12 Mart 1921: Marş kabul edilir. Meclis ayakta.", "gorsel": "meclis", "anlati_mi": false, "dogrulandi": false }
+      ],
+      "mini_oyun": {
+        "modul": "murettip",
+        "ad": "Mürettip",
+        "aciklama": "Eski bir matbaadasın. Harf kalıplarıyla manşeti diz, sonra sayfayı bas.",
+        "manset": "BİRLİK",
+        "celdirici_harfler": ["A", "M", "S"],
+        "dergi": "Sebilürreşad",
+        "baski_konu": "Kastamonu Nasrullah Camii vaazı",
+        "mars": {
+          "baslik": "İstiklal Marşı",
+          "kitalar": [
+            ["[İÇERİK BEKLENİYOR]", "[İÇERİK BEKLENİYOR]", "[İÇERİK BEKLENİYOR]", "[İÇERİK BEKLENİYOR]"],
+            ["[İÇERİK BEKLENİYOR]", "[İÇERİK BEKLENİYOR]", "[İÇERİK BEKLENİYOR]", "[İÇERİK BEKLENİYOR]"]
+          ],
+          "kaynak": "",
+          "not": "Senaryo, marş metninin resmî kaynaktan alınmasını istiyor. Ekip ilk iki kıtanın dizelerini resmî kaynaktan aynen (her dize ayrı tırnak içinde, sırasıyla) buraya yazınca oyunda sıralama aşaması kendiliğinden açılır."
+        },
+        "kazanim": "Basılan söz, geniş kitlelere ulaşır.",
+        "not": "Manşet sözcüğü (BİRLİK) senaryodaki haber şablonundan ('halkı birliğe çağırdı') seçildi; dergideki gerçek başlık değildir. Kazanım cümlesi 1. Altın Bilgiden sadeleştirildi. Ekip onaylamalı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Kastamonu'da halka ne anlattınız?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Bir dergi Millî Mücadele'ye nasıl yardım eder?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "İstiklal Marşı'nı yazarken neler hissettiniz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 2, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "Mehmet Âkif, Kastamonu {0} Camii'ndeki vaazıyla halkı birliğe çağırdı. Vaaz {1} dergisinde yayımlandı. İstiklal Marşı {2}'de kabul edildi.",
+        "dogrular": ["Nasrullah", "Sebilürreşad", "12 Mart 1921"],
+        "celdiriciler": ["Uzunoluk", "Yeni Gün", "29 Ekim 1923"],
+        "ipucu_bilgi": [0, 0, 2]
+      },
+      "biliyor_muydun": {
+        "metin": "Âkif, İstiklal Marşı'nı Safahat'ına koymadı. Onu milletin eseri saydığını söylediği anlatılır.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "Âkif, İstiklal Marşı'nı hangi kitabına koymadı?",
+          "secenekler": ["Safahat", "Ateşten Gömlek", "Yeni Gün"],
+          "dogru": 0,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "Meclisin ayağa kalkıp marşı dinlediği an.",
+      "portre": { "dosya": "", "cizim": "kalpakli_sakalli", "temsili": true, "not": "Fotoğraf eklenene kadar temsilî çizim duruyor." }
+    }
   ]
 };

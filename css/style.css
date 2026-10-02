@@ -121,8 +121,11 @@ p { margin: 0; }
 /* Harita */
 .harita-ekrani { justify-content: space-between; pointer-events: none; }
 .harita-ekrani > * { pointer-events: auto; }
-.harita-baslik { text-align: center; color: var(--krem); text-shadow: 0 3px 10px #000; }
-.harita-baslik h2 { font-size: 1.7rem; font-weight: 900; letter-spacing: .06em; }
+/* Başlık haritanın altında durur: üstte olunca kuzeydeki etiketlerle üst üste biniyordu. */
+.harita-baslik { order: 1; margin-top: auto; text-align: center; color: var(--krem); text-shadow: 0 3px 10px #000; }
+.harita-ekrani > .defter-serit { order: 2; }
+.harita-baslik:has(.bulten-dugme) h2 { display: none; }
+.harita-baslik h2 { font-size: 1.3rem; font-weight: 900; letter-spacing: .06em; }
 .isaret {
   --dx: -50%; --dy: -135%;
   position: absolute; transform: translate(var(--dx), var(--dy)); z-index: 2; white-space: nowrap;
@@ -143,8 +146,6 @@ p { margin: 0; }
 .isaret.alt::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--koyu); }
 .isaret.sol { --dx: calc(-100% - 18px); --dy: -50%; }
 .isaret.sol::after { left: 100%; top: 50%; margin: -9px 0 0; border-top-color: transparent; border-left-color: var(--koyu); }
-.isaret.sol.tepe { --dy: -12%; }
-.isaret.sol.tepe::after { top: 12%; margin-top: 0; }
 .isaret.sag { --dx: 18px; --dy: -50%; }
 .isaret.sag::after { left: auto; right: 100%; top: 50%; margin: -9px 0 0; border-top-color: transparent; border-right-color: var(--koyu); }
 @keyframes nabiz { 50% { transform: translate(var(--dx), var(--dy)) scale(1.09); box-shadow: 0 4px 0 var(--koyu), 0 0 26px rgba(255, 90, 60, .9); } }
@@ -270,6 +271,25 @@ p { margin: 0; }
 .kolon-dugme { align-self: center; }
 .oyun-rozet { position: absolute; left: .6rem; top: .6rem; }
 .kart-tepsi.parola { min-height: 9rem; }
+.dizgi-panel { position: absolute; left: 24%; right: 34%; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .6rem; padding: .5rem; pointer-events: none; }
+.dizgi-panel.kucuk { opacity: .85; }
+.dizgi-hedef { padding: .3rem 1.2rem; display: flex; flex-direction: column; align-items: center; }
+.dizgi-hedef small { font: 700 .7rem Daktilo, monospace; color: var(--sepya); }
+.dizgi-hedef strong { font: 900 2rem Manset, serif; letter-spacing: .12em; color: var(--kirmizi); }
+.dizgi-cubuk { display: flex; gap: .25rem; padding: .4rem; background: #3a2a1c; border: 3px solid var(--koyu); border-radius: .3rem; box-shadow: 0 .4rem 1rem rgba(0, 0, 0, .5); }
+.dizgi-yuva { width: 3rem; height: 3.8rem; border: 2px dashed #8a6a45; border-radius: .2rem; display: flex; align-items: center; justify-content: center; }
+.dizgi-yuva.dolu, .harf-kalip { background: linear-gradient(#d9d2c0, #a8a294); border: 3px solid var(--koyu); border-radius: .25rem; color: var(--koyu); font: 900 1.9rem Manset, serif; }
+.dizgi-yuva.dolu { border-style: solid; animation: otur .3s; }
+.dizgi-yuva span, .harf-kalip span { display: block; transform: scaleX(-1); }
+.harf-kalip { width: 3.6rem; height: 4.2rem; min-width: 48px; cursor: pointer; box-shadow: 0 4px 0 var(--koyu); }
+.harf-kalip:disabled { opacity: .25; cursor: default; }
+.harf-kalip.yanlis { animation: salla .4s; }
+.baski-sayfa { padding: .8rem 1.4rem; text-align: center; display: flex; flex-direction: column; gap: .25rem; animation: belir .5s; min-width: 16rem; }
+.baski-sayfa h3 { font: 900 1.2rem Manset, serif; border-bottom: 4px double var(--koyu); padding-bottom: .2rem; }
+.baski-sayfa h2 { font: 900 2.2rem Manset, serif; letter-spacing: .1em; color: var(--kirmizi); }
+.baski-sayfa.mars p { font: 600 1rem Metin, serif; text-align: left; border-bottom: 1px solid var(--sepya); min-height: 1.5em; }
+.baski-sayfa.mars p.bos { color: var(--sepya); }
+.dize-dugme { flex: 1 1 40%; font: 600 .9rem Metin, serif; }
 .telgraf-panel { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: .8rem; pointer-events: none; }
 .telgraf-panel > * { pointer-events: auto; }
 .telgraf-panel.ust { align-items: flex-start; justify-content: flex-start; padding-top: 2.7rem; }

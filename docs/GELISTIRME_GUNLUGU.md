@@ -351,3 +351,38 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Kazanım cümlesi ("Bir haberi yaymadan önce kaynağına bakılır.") senaryodaki dezenformasyon notundan türetildi. Bonus soru da "Biliyor muydun?" metninden türetildi.
 - Bu mini oyunda kaybetme yok; bitiren herkes yıldızı alıyor.
 - Sıradaki iş: Mehmet Âkif Ersoy'un bölümü (10. ve son kahraman; mini oyunu "Mürettip"). İstiklal Marşı'nın ilk iki kıtası resmî kaynaktan alınmalı.
+
+---
+
+## 2 Ekim 2026 — Mehmet Âkif Ersoy'un bölümü (onuncu kahraman)
+
+**Ne istendi?**
+- Yunus Nadi'nin bölümünün GitHub'a gönderilmesi ve son kahramana, Mehmet Âkif Ersoy'a geçilmesi.
+
+**Ne yapıldı?**
+- Yunus Nadi'nin bölümü kaydedildi ve GitHub'a gönderildi.
+- `data/heroes.json` dosyasına Mehmet Âkif Ersoy'un içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`. **Artık on kahramanın hepsi oyunda.**
+- **5 yeni hikâye çizimi:** camide kürsüdeki Âkif ve kalabalık, kâğıttan kalıba uçan harfler, Anadolu'ya dağılan dergi sayfaları, gece lamba ışığında yazılan marş (ödül kesesi masanın kenarında dokunulmadan durur), ayakta alkışlayan Meclis.
+- **Yeni portre:** kalpaklı, sakallı temsilî çizim.
+- **Yeni mini oyun "Mürettip"** (`games/murettip.js`), üç aşamalı:
+  - *1. aşama — Dizgi:* Manşet ("BİRLİK") harf kalıplarıyla dizilir. Gerçek matbaadaki gibi kalıplardaki harfler ters görünür ve satır sağdan sola dolar. Üç çeldirici harf vardır.
+  - *2. aşama — Baskı:* Baskı makinesinin kolu çekilir, sayfa basılır. Basılı sayfada dergi adı, manşet ve vaazın konusu düz okunur.
+  - *3. aşama — Marş:* İstiklal Marşı'nın ilk iki kıtasının dizeleri sıraya konur. **Dizeler henüz dosyada yok** (`[İÇERİK BEKLENİYOR]`); bu yüzden aşama şimdilik atlanıyor. Ekip dizeleri resmî kaynaktan dosyaya yazınca aşama kendiliğinden açılır.
+- **Harita düzeni:** Kuzeyde beş konum birbirine çok yakın olduğu için etiketler üst üste biniyordu. "Anadolu Haritası" başlığı haritanın altına alındı; Ankara'nın etiketi iğnenin altına asılıyor. On etiketin hepsi artık okunuyor.
+- On sayfa tamamlanınca haritada "On sayfanın hepsi canlandı! Zafer Nüshası hazırlanıyor." yazıyor.
+
+**Ne test edildi?**
+- Bölüm otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Test programı dizgide bir harfi bilerek yanlış seçti; uyarı çıktı. 3 yıldız kaydedildi (toplam 30 yıldız, rütbe "Ajans Şefi"), hata çıkmadı.
+- Marş aşaması, dosyaya dokunmadan geçici "Deneme dize 1–8" satırlarıyla denendi: yanlış sıra reddedildi, iki kıta da tamamlandı.
+- Ajans Bülteni 1 yeniden oynatıldı (harita düzeni değiştiği için); bozulmadı.
+
+**Ne bulundu ve düzeltildi?**
+- Haritada on etiket birbirinin ve başlığın üstüne biniyordu (yukarıdaki düzenle giderildi).
+- Meclis çiziminde kürsüdeki kişi bayrağın ay-yıldızını kapatıyordu; bayrak yana alındı.
+
+**Açık konular**
+- **İstiklal Marşı dizeleri:** İlk iki kıta resmî kaynaktan alınıp `heroes.json` içindeki `mars.kitalar` listesine yazılmalı, `kaynak` alanı doldurulmalı.
+- Manşet sözcüğü ("BİRLİK") senaryodaki haber şablonundan seçildi; dergideki gerçek başlık değildir. Ekip onaylamalı ya da değiştirmeli.
+- Kazanım cümlesi ve bonus soru türetildi; ekip onaylamalı.
+- Âkif'in ödülü kabul etmediği bilgisi `[DOĞRULA]` etiketli; çizimde yalnızca dokunulmamış bir kese olarak gösterildi.
+- **Kalan işler:** Final (Zafer Nüshası + 15 soruluk Büyük Bülten), öğretmen paneli ve CSV dışa aktarma; ardından pilot test ve içeriğin kaynaklarla doğrulanması.

@@ -154,6 +154,8 @@
     var h3 = IP.ucb.var ? IP.ucb.harita() : null;
     var hesap = durumHesapla(), durumlar = hesap.durumlar, bekleyen = hesap.bekleyenBulten;
     var siradaki = IP.veri.kahramanlar.filter(function (k) { return durumlar[k.id] === 'acik'; })[0];
+    var hepsiTamam = IP.kayit.tamamSayisi() >= IP.veri.kahramanlar.length;
+    var bosMesaj = hepsiTamam ? 'On sayfanın hepsi canlandı! Zafer Nüshası hazırlanıyor.' : 'Sıradaki kahramanın bölümü hazırlanıyor.';
     if (o.yak) durumlar[o.yak] = 'acik'; // ışık birazdan gözümüzün önünde yanacak
     return IP.sahneDegistir(function (e) {
       IP.ucb.goster('harita');
@@ -162,7 +164,7 @@
       e.classList.add('harita-ekrani');
       var baslik = IP.el('div', 'harita-baslik');
       baslik.appendChild(IP.el('h2', null, 'Anadolu Haritası'));
-      var yonerge = IP.el('div', 'yonerge', siradaki ? 'Yanıp sönen konuma dokun.' : 'Sıradaki kahramanın bölümü hazırlanıyor.');
+      var yonerge = IP.el('div', 'yonerge', siradaki ? 'Yanıp sönen konuma dokun.' : bosMesaj);
       baslik.appendChild(yonerge);
       if (bekleyen) {
         yonerge.textContent = 'Nuri\'den acil telgraf var!';
@@ -199,12 +201,17 @@
           if (durumlar[b.id] === 'kilitli') return false;
           return Math.abs(k.konum.harita_y - b.konum.harita_y) < 0.16 && Math.abs(k.konum.harita_x - b.konum.harita_x) < 0.1;
         }).sort(function (a, b) { return a.konum.harita_y - b.konum.harita_y; });
-        // Haritanın en üstündeki konumun etiketi başlığın üstüne binmesin diye iğnenin soluna asılır.
-        var tepede = kume[0].konum.harita_y < 0.12;
-        if (kume[0] === k) return tepede ? ' sol tepe' : '';
+        if (kume.length < 2) {
+          // Kümede değil ama hemen üstünde başka konumlar varsa etiket alta asılır (üsttekilerin etiketine binmesin).
+          var ustuDolu = IP.veri.kahramanlar.some(function (b) {
+            var dy = k.konum.harita_y - b.konum.harita_y;
+            return durumlar[b.id] !== 'kilitli' && dy >= 0.16 && dy < 0.25 && Math.abs(k.konum.harita_x - b.konum.harita_x) < 0.1;
+          });
+          return ustuDolu ? ' alt' : '';
+        }
+        if (kume[0] === k) return '';
         var alttakiler = kume.slice(1).sort(function (a, b) { return a.konum.harita_x - b.konum.harita_x; });
         if (alttakiler.length < 2) return ' alt';
-        if (tepede) return alttakiler[alttakiler.length - 1] === k ? ' sag' : ' alt';
         return alttakiler[0] === k ? ' sol' : (alttakiler[alttakiler.length - 1] === k ? ' sag' : ' alt');
       }
       function isaretEtiketi(d, k, durum) {
@@ -266,7 +273,7 @@
         }).then(function () {
           e.classList.remove('toren');
           yonerge.textContent = bekleyen ? 'Sayfa canlandı! Nuri\'den acil telgraf var!'
-            : (siradaki ? 'Sayfa canlandı! Sıradaki görev: ' + siradaki.konum.ad : 'Sayfa canlandı! Sıradaki kahramanın bölümü hazırlanıyor.');
+            : (siradaki ? 'Sayfa canlandı! Sıradaki görev: ' + siradaki.konum.ad : (hepsiTamam ? '' : 'Sayfa canlandı! ') + bosMesaj);
         });
       }
     });

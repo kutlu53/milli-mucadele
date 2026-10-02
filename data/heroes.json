@@ -81,7 +81,80 @@
       "duygu_ani": "Sıradan bir sütçünün tek bir cesaret anı bir şehri ayağa kaldırır.",
       "portre": { "dosya": "", "cizim": "sarikli", "temsili": true }
     },
-    { "id": "sahin-bey", "hazir": false, "ad": "Şahin Bey", "alan": "cephe", "alan_etiketi": "Cephe — Güney", "konum": { "ad": "Antep", "harita_x": 0.609, "harita_y": 0.776 } },
+    {
+      "id": "sahin-bey",
+      "hazir": true,
+      "ad": "Şahin Bey",
+      "baslik": "Antep Yolunun Bekçisi",
+      "alan": "cephe",
+      "alan_etiketi": "Cephe — Güney",
+      "konum": { "ad": "Antep", "harita_x": 0.609, "harita_y": 0.776 },
+      "tarih_etiketi": "Mart 1920",
+      "tarih_dogrulandi": false,
+      "altin_bilgiler": [
+        {
+          "metin": "Antep'te halktan gönüllülerle oluşan bir Kuvâ-yi Milliye birliğinin başındaydı.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Kilis–Antep yolunda Fransız kuvvetlerini durdurmak için savaştı ve 28 Mart 1920'de şehit oldu.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Tarih doğrulanacak."
+        },
+        {
+          "metin": "Antep'in uzun direnişi nedeniyle TBMM şehre \"Gazi\" unvanını verdi (1921).",
+          "kaynaklar": [],
+          "dogrulandi": false
+        }
+      ],
+      "paneller": [
+        { "metin": "Şahin Bey köylerden gelen gönüllüleri toplar. Gerçek adı Mehmet Said'dir.", "gorsel": "gonulluler", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Gerçek adı doğrulanacak." },
+        { "metin": "Kilis yönünden uzun bir işgal kolonu yaklaşır.", "gorsel": "kolon", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Az sayıda gönüllüyle yolu günlerce tutarlar. Şehir hazırlanmak için zaman kazanır.", "gorsel": "yol_tut", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Şahin Bey şehit düşer.", "gorsel": "kalpak", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Antep aylarca direnir. TBMM şehre \"Gazi\" unvanını verir.", "gorsel": "gazi_sehir", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Direnişin süresi doğrulanacak." }
+      ],
+      "mini_oyun": {
+        "modul": "yolutut",
+        "ad": "Yolu Tut",
+        "aciklama": "Kilis'ten Antep'e uzanan yolda geçitleri tut. Şehir hazırlanmak için zaman kazansın.",
+        "baslangic": "Kilis",
+        "bitis": "Antep",
+        "gecit_sayisi": 5,
+        "dalga_sayisi": 3,
+        "kazanim": "Az sayıda gönüllü yolu tutunca şehir hazırlanmak için zaman kazandı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Gönüllüleriniz kimlerdi?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Kilis–Antep yolu neden bu kadar önemliydi?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Az kişiyle nasıl dayanabildiniz?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Antep halkı sizden sonra ne yaptı?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 2, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "{0} Bey {1} yolunda işgalcileri durdurmak için savaştı. Antep'in direnişi nedeniyle şehre {2} unvanı verildi.",
+        "dogrular": ["Şahin", "Kilis–Antep", "Gazi"],
+        "celdiriciler": ["Kahraman", "Şanlı", "İzmir–Aydın"],
+        "ipucu_bilgi": [0, 1, 2]
+      },
+      "biliyor_muydun": {
+        "metin": "Şehrin bugünkü adı olan Gaziantep, bu unvandan gelir.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "Gaziantep adındaki \"Gazi\" sözü nereden gelir?",
+          "secenekler": ["Bir nehrin adından", "Bir dağın adından", "Şehre verilen unvandan"],
+          "dogru": 2,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "Şehri korumak için yolu tutan bir avuç insan.",
+      "portre": { "dosya": "", "cizim": "kalpakli", "temsili": true }
+    },
     { "id": "tayyar-rahmiye", "hazir": false, "ad": "Tayyar Rahmiye", "alan": "cephe", "alan_etiketi": "Cephe — Güney", "konum": { "ad": "Antep", "harita_x": 0.632, "harita_y": 0.79 } },
     { "id": "kara-fatma", "hazir": false, "ad": "Kara Fatma", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Erzurum", "harita_x": 0.809, "harita_y": 0.371 } },
     { "id": "gordesli-makbule", "hazir": false, "ad": "Gördesli Makbule", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Gördes", "harita_x": 0.143, "harita_y": 0.51 } },

@@ -126,9 +126,14 @@
     o = o || {};
     var h3 = IP.ucb.var ? IP.ucb.harita() : null;
     var durumlar = {};
+    // Kahramanlar sırayla açılır: bir öncekinin sayfası canlanmadan sıradaki kilitli kalır.
+    var oncekiTamam = true;
     IP.veri.kahramanlar.forEach(function (k) {
-      durumlar[k.id] = IP.kayit.tamamMi(k.id) ? 'tamam' : (k.hazir ? 'acik' : 'kilitli');
+      var tamam = IP.kayit.tamamMi(k.id);
+      durumlar[k.id] = tamam ? 'tamam' : (k.hazir && oncekiTamam ? 'acik' : 'kilitli');
+      oncekiTamam = tamam;
     });
+    var siradaki = IP.veri.kahramanlar.filter(function (k) { return durumlar[k.id] === 'acik'; })[0];
     if (o.yak) durumlar[o.yak] = 'acik'; // ışık birazdan gözümüzün önünde yanacak
     return IP.sahneDegistir(function (e) {
       IP.ucb.goster('harita');
@@ -163,8 +168,16 @@
         (duz || e).appendChild(d);
       });
 
+      // Üstünde çok yakın başka bir konum varsa etiket iğnenin altına asılır (üst üste binmesin).
+      function altaMi(k) {
+        return IP.veri.kahramanlar.some(function (b) {
+          if (b === k || durumlar[b.id] === 'kilitli') return false;
+          var dy = k.konum.harita_y - b.konum.harita_y;
+          return dy > 0 && dy < 0.16 && Math.abs(k.konum.harita_x - b.konum.harita_x) < 0.1;
+        });
+      }
       function isaretEtiketi(d, k, durum) {
-        d.className = 'isaret ' + durum;
+        d.className = 'isaret ' + durum + (durum !== 'kilitli' && altaMi(k) ? ' alt' : '');
         d.innerHTML = '';
         if (durum === 'tamam') {
           d.appendChild(IP.el('strong', null, k.ad));
@@ -216,7 +229,7 @@
           return h3 ? h3.genel(2.4) : null;
         }).then(function () {
           e.classList.remove('toren');
-          yonerge.textContent = 'Sayfa canlandı! Sıradaki konum hazır olduğunda burada yanıp sönecek.';
+          yonerge.textContent = siradaki ? 'Sayfa canlandı! Sıradaki görev: ' + siradaki.konum.ad : 'Sayfa canlandı! Sıradaki kahramanın bölümü hazırlanıyor.';
         });
       }
     });

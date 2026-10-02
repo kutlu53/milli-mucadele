@@ -145,6 +145,8 @@
     c.lineJoin = 'round'; c.lineCap = 'round';
     var kollar = o.kol === 'acik' ? [[-22, -108, -80, -100], [22, -108, 80, -100]]
       : o.kol === 'yukari' ? [[-22, -108, -48, -178], [22, -108, 48, -178]]
+        : o.kol === 'cagri' ? [[-25, -108, -33, -54], [22, -108, 58, -172]]
+        : o.kol === 'gozet' ? [[-25, -108, -33, -54], [22, -108, 30, -150]]
         : [[-25, -108, -33, -54], [25, -108, 33, -54]];
     kollar.forEach(function (k) {
       c.strokeStyle = cizgi; c.lineWidth = 20; c.beginPath(); c.moveTo(k[0], k[1]); c.lineTo(k[2], k[3]); c.stroke();
@@ -181,6 +183,9 @@
     } else if (o.bas === 'kep') {
       c.fillStyle = sil || '#4a5568'; c.beginPath(); c.rect(-20, -174, 40, 18); c.fill(); c.stroke();
       c.beginPath(); c.moveTo(18, -158); c.lineTo(34, -156); c.stroke();
+    } else if (o.bas === 'kalpak') {
+      c.fillStyle = sil || '#2b2118'; c.beginPath(); c.moveTo(-22, -154); c.lineTo(-18, -186); c.quadraticCurveTo(0, -198, 18, -186);
+      c.lineTo(22, -154); c.quadraticCurveTo(0, -162, -22, -154); c.closePath(); c.fill(); c.stroke();
     }
     c.restore();
   }
@@ -461,6 +466,177 @@
       doku(c);
     },
 
+    /* ----- Şahin Bey ----- */
+    // 1. Köy meydanı: gönüllüler iki yandan gelip Şahin Bey'in çevresinde toplanır.
+    gonulluler: function (c, t) {
+      gok(c, '#f5e4b6', '#e9c88c');
+      bulut(c, (t * 7) % 1900 - 200, 140, 1, 'rgba(255,250,235,.75)');
+      tepeler(c, 430, 60, '#d6b77e', 1.1);
+      tepeler(c, 520, 36, '#c29f66', 2.6);
+      ev(c, 70, 648, 210, 150, { cati: 'kiremit', renk: '#e2cfa4' });
+      ev(c, 320, 636, 170, 124, {});
+      ev(c, 1150, 640, 210, 150, { cati: 'kiremit', renk: '#d6bd8c' });
+      ev(c, 1400, 652, 170, 120, {});
+      zemin(c, 650, '#cbad74');
+      var renkler = ['#6b5a4a', '#55657a', '#7a5c3e', '#5f6f52', '#7b4a55'];
+      var gel = (t % 16) / 7;
+      for (var i = 0; i < 8; i++) {
+        var yan = i % 2 ? 1 : -1, hedef = 800 + yan * (190 + Math.floor(i / 2) * 110);
+        var o = Math.max(0, Math.min(1, gel - i * 0.06)), yum = 1 - Math.pow(1 - o, 3);
+        var x = (yan > 0 ? 1750 : -150) + (hedef - (yan > 0 ? 1750 : -150)) * yum;
+        var zip = o < 1 ? Math.abs(Math.sin(t * 6 + i)) * 7 : 0;
+        c.fillStyle = 'rgba(43,33,24,.2)'; c.beginPath(); c.ellipse(x, 812 + (i % 3) * 16, 48, 9, 0, 0, TAU); c.fill();
+        kisi(c, x, 808 + (i % 3) * 16 - zip, 1.05, { bas: ['fes', 'sarik', '', 'fes'][i % 4], govde: renkler[i % 5], yon: -yan, kusak: i % 3 ? null : '#8a3a2a' });
+      }
+      // Şahin Bey ortada, bir taşın üstünde
+      c.fillStyle = '#9a8a70'; c.strokeStyle = R.koyu; c.lineWidth = 5;
+      c.beginPath(); c.ellipse(800, 800, 90, 30, 0, 0, TAU); c.fill(); c.stroke();
+      kisi(c, 800, 786, 1.4, { bas: 'kalpak', govde: '#6b6a4a', kusak: '#3a2a1c', kol: 'cagri' });
+      kuslar(c, t);
+      doku(c);
+    },
+
+    // 2. Kolon: ufuktan kıvrılarak gelen uzun kol, öndeki kayada bir gözcü.
+    kolon: function (c, t) {
+      gok(c, '#d8c9a6', '#ead6a6');
+      c.fillStyle = 'rgba(255,248,220,.8)'; daire(c, 420, 190, 60); c.fill();
+      tepeler(c, 470, 50, '#bfa878', 0.2);
+      c.fillStyle = '#c7a970'; c.fillRect(0, 520, 1600, 380);
+      function yol(u) { return [1120 - 760 * u + Math.sin(u * 5.2) * 150 * (0.3 + u), 520 + 380 * Math.pow(u, 1.4)]; }
+      c.beginPath();
+      var u;
+      for (u = 0; u <= 1.001; u += 0.04) { var p = yol(u); c.lineTo(p[0] - (10 + 190 * u), p[1]); }
+      for (u = 1; u >= -0.001; u -= 0.04) { var q = yol(u); c.lineTo(q[0] + (10 + 190 * u), q[1]); }
+      c.closePath(); c.fillStyle = '#e0c995'; c.fill(); c.strokeStyle = 'rgba(43,33,24,.45)'; c.lineWidth = 4; c.stroke();
+      // kolon: uzaktan yakına sıralanmış gölgeler ve toz
+      var parca = [];
+      for (var i = 0; i < 16; i++) parca.push(((i / 16) * 0.6 + t * 0.008) % 0.6);
+      parca.sort(function (a, b) { return a - b; });
+      parca.forEach(function (pu, n) {
+        var k = yol(pu), olcek = 0.1 + pu * 1.05;
+        c.fillStyle = 'rgba(190,165,120,.35)'; daire(c, k[0] + 30 * olcek, k[1] - 30 * olcek, 70 * olcek); c.fill();
+        if (n % 5 === 4) {
+          // yük arabası
+          c.fillStyle = '#23262e'; c.fillRect(k[0] - 70 * olcek, k[1] - 95 * olcek, 140 * olcek, 60 * olcek);
+          daire(c, k[0] - 40 * olcek, k[1] - 22 * olcek, 22 * olcek); c.fill(); daire(c, k[0] + 40 * olcek, k[1] - 22 * olcek, 22 * olcek); c.fill();
+        } else {
+          kisi(c, k[0] - 34 * olcek, k[1] - Math.abs(Math.sin(t * 4 + n)) * 5 * olcek, olcek, { siluet: '#23262e', bas: 'kep' });
+          kisi(c, k[0] + 34 * olcek, k[1] - Math.abs(Math.sin(t * 4 + n + 1.5)) * 5 * olcek, olcek, { siluet: '#2b2e38', bas: 'kep' });
+        }
+      });
+      // öndeki kaya ve gözcü
+      c.fillStyle = '#8f7f66'; c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round';
+      c.beginPath(); c.moveTo(1180, 900); c.lineTo(1230, 760); c.lineTo(1360, 700); c.lineTo(1500, 730); c.lineTo(1600, 800); c.lineTo(1600, 900); c.closePath(); c.fill(); c.stroke();
+      kisi(c, 1380, 716, 1.3, { bas: 'fes', govde: '#5f6f52', kol: 'gozet', yon: -1, kusak: '#8a3a2a' });
+      doku(c);
+    },
+
+    // 3. Yolu tutmak: barikatın ardında gönüllüler; güneş ve ay dönerek günlerin geçtiğini gösterir.
+    yol_tut: function (c, t) {
+      var faz = (t * 0.11) % 1, gunduz = faz < 0.5, o = (faz * 2) % 1, isik = Math.sin(o * Math.PI);
+      if (gunduz) gok(c, '#f1dca4', '#ecc98a'); else gok(c, '#101836', '#2a3458');
+      var gx = 150 + 1300 * o, gy = 430 - isik * 320;
+      if (gunduz) { c.fillStyle = '#fff3c0'; daire(c, gx, gy, 62); c.fill(); }
+      else { c.fillStyle = '#f6efcf'; daire(c, gx, gy, 46); c.fill(); c.fillStyle = '#18214a'; daire(c, gx - 20, gy - 10, 42); c.fill(); }
+      tepeler(c, 470, 50, gunduz ? '#d0b27a' : '#1c2444', 0.7);
+      // uzaktaki şehir (sağda): gece pencereleri yanar
+      for (var e = 0; e < 6; e++) {
+        ev(c, 1180 + e * 68, 540 - (e % 2) * 14, 60, 50 + (e % 3) * 16, { renk: gunduz ? '#dcc79c' : '#2a3050', pencere: 1, isik: !gunduz, kapisiz: true, cizgi: gunduz ? R.koyu : '#0a0d1c', catiRenk: gunduz ? R.sepya : '#2d2a40' });
+      }
+      c.fillStyle = gunduz ? '#c9ab72' : '#2a2f48'; c.fillRect(0, 540, 1600, 360);
+      // yol
+      c.fillStyle = gunduz ? '#e0c995' : '#3a4060'; c.beginPath(); c.moveTo(0, 690); c.lineTo(1600, 600); c.lineTo(1600, 700); c.lineTo(0, 860); c.closePath(); c.fill();
+      // solda durmuş kolon gölgeleri
+      for (var a = 0; a < 4; a++) kisi(c, 60 + a * 90, 770 - a * 6, 0.8, { siluet: '#1b1e28', bas: 'kep' });
+      // barikat: taşlar, kütükler, araba tekerleği
+      c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round';
+      [[600, 760, 60, 40], [680, 745, 70, 46], [640, 700, 56, 38], [730, 790, 62, 40], [580, 810, 58, 36], [700, 690, 44, 30]].forEach(function (k, n) {
+        c.fillStyle = ['#9a8a70', '#857660', '#a69678'][n % 3]; c.beginPath(); c.ellipse(k[0], k[1], k[2], k[3], 0, 0, TAU); c.fill(); c.stroke();
+      });
+      c.fillStyle = '#7a5c3e'; c.save(); c.translate(660, 640); c.rotate(-0.12); c.beginPath(); c.rect(-150, -16, 300, 32); c.fill(); c.stroke(); c.restore();
+      c.fillStyle = '#9b7648'; daire(c, 770, 700, 52); c.fill(); c.stroke(); daire(c, 770, 700, 12); c.fill(); c.stroke();
+      for (var s = 0; s < 8; s++) { c.beginPath(); c.moveTo(770, 700); c.lineTo(770 + Math.cos(s * Math.PI / 4) * 52, 700 + Math.sin(s * Math.PI / 4) * 52); c.stroke(); }
+      // gönüllüler
+      var renk = ['#6b5a4a', '#55657a', '#5f6f52', '#7a5c3e'];
+      for (var g = 0; g < 4; g++) kisi(c, 900 + g * 100, 800 - g * 8 + Math.sin(t * 1.5 + g) * 2, 1.1, { bas: ['fes', 'sarik', 'fes', ''][g], govde: renk[g], yon: -1 });
+      kisi(c, 850, 830, 1.3, { bas: 'kalpak', govde: '#6b6a4a', kusak: '#3a2a1c', yon: -1 });
+      // geçen günlerin çetelesi
+      var gun = Math.min(5, Math.floor(t * 0.11) + 1);
+      c.strokeStyle = gunduz ? R.koyu : R.krem; c.lineWidth = 7; c.lineCap = 'round';
+      for (var d = 0; d < gun; d++) {
+        c.beginPath();
+        if (d === 4) { c.moveTo(60, 270); c.lineTo(170, 210); } else { c.moveTo(80 + d * 24, 204); c.lineTo(80 + d * 24, 276); }
+        c.stroke();
+      }
+      if (!gunduz) { c.fillStyle = 'rgba(10,14,40,.35)'; c.fillRect(0, 0, 1600, 900); }
+      doku(c);
+    },
+
+    // 4. Yol kenarında yalnız bir kalpak, rüzgârda toz.
+    kalpak: function (c, t) {
+      gok(c, '#c4603a', '#f2c98c');
+      var g = c.createRadialGradient(1100, 520, 30, 1100, 520, 520);
+      g.addColorStop(0, 'rgba(255,240,190,.95)'); g.addColorStop(0.3, 'rgba(255,200,120,.45)'); g.addColorStop(1, 'rgba(255,200,120,0)');
+      c.fillStyle = g; c.fillRect(0, 0, 1600, 900);
+      c.fillStyle = '#fff0c0'; daire(c, 1100, 520, 90); c.fill();
+      tepeler(c, 500, 50, '#8a5a3c', 1.9);
+      tepeler(c, 570, 30, '#6b4630', 0.4);
+      c.fillStyle = '#7a5a3a'; c.fillRect(0, 600, 1600, 300);
+      // boş yol
+      c.fillStyle = '#a8845a'; c.beginPath(); c.moveTo(1050, 600); c.lineTo(1150, 600); c.lineTo(1000, 900); c.lineTo(200, 900); c.closePath(); c.fill();
+      // toz bulutları
+      for (var i = 0; i < 5; i++) bulut(c, ((t * (30 + i * 9) + i * 400) % 2100) - 250, 700 + i * 34, 0.8 + i * 0.15, 'rgba(210,170,120,.28)');
+      // taş ve kalpak
+      c.strokeStyle = R.koyu; c.lineWidth = 6; c.lineJoin = 'round';
+      c.fillStyle = 'rgba(30,20,10,.35)'; c.beginPath(); c.ellipse(560, 800, 260, 26, 0, 0, TAU); c.fill();
+      c.fillStyle = '#8f7f66'; c.beginPath(); c.moveTo(560, 800); c.lineTo(590, 720); c.lineTo(680, 690); c.lineTo(790, 716); c.lineTo(830, 800); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = '#2b2118'; c.beginPath(); c.moveTo(640, 698); c.lineTo(652, 606); c.quadraticCurveTo(706, 576, 760, 606); c.lineTo(772, 700);
+      c.quadraticCurveTo(706, 680, 640, 698); c.closePath(); c.fill(); c.stroke();
+      // rüzgârda eğilen otlar
+      c.strokeStyle = '#3a2a1c'; c.lineWidth = 4; c.lineCap = 'round';
+      for (var o = 0; o < 26; o++) {
+        var ox = (o * 127) % 1600, oy = 820 + (o * 53) % 70, eg = Math.sin(t * 2.2 + o) * 12 + 14;
+        c.beginPath(); c.moveTo(ox, oy); c.quadraticCurveTo(ox + eg * 0.4, oy - 22, ox + eg, oy - 40); c.stroke();
+      }
+      kuslar(c, t * 0.6, '#3a2a1c');
+      doku(c);
+    },
+
+    // 5. Direnen şehir: kalesi ve bayrağıyla şehir; arkada parlayan madalya unvanı simgeler.
+    gazi_sehir: function (c, t) {
+      gok(c, '#f3d9a0', '#fbf0cf');
+      // madalya (unvanın simgesi)
+      c.save(); c.translate(800, 190);
+      for (var i = 0; i < 16; i++) {
+        c.rotate(TAU / 16);
+        c.fillStyle = 'rgba(255,225,140,' + (0.22 + Math.sin(t * 2 + i) * 0.08) + ')';
+        c.beginPath(); c.moveTo(0, 0); c.lineTo(-60, -900); c.lineTo(60, -900); c.closePath(); c.fill();
+      }
+      var vur = 0.8 + Math.sin(t * 2.5) * 0.03;
+      c.scale(vur, vur);
+      c.strokeStyle = R.koyu; c.lineWidth = 6; c.lineJoin = 'round';
+      c.fillStyle = R.kirmizi; c.beginPath(); c.moveTo(-50, -150); c.lineTo(50, -150); c.lineTo(30, -70); c.lineTo(-30, -70); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = R.altin; daire(c, 0, 0, 92); c.fill(); c.stroke();
+      c.fillStyle = '#fff3c4'; c.beginPath();
+      for (var k = 0; k < 10; k++) { var a = -Math.PI / 2 + k * Math.PI / 5, r = k % 2 ? 26 : 62; c.lineTo(Math.cos(a) * r, Math.sin(a) * r); }
+      c.closePath(); c.fill(); c.stroke();
+      c.restore();
+      tepeler(c, 560, 30, '#e0b377', 0.4);
+      c.fillStyle = '#a9824f'; c.strokeStyle = R.koyu; c.lineWidth = 5;
+      c.beginPath(); c.moveTo(380, 760); c.quadraticCurveTo(800, 380, 1220, 760); c.closePath(); c.fill(); c.stroke();
+      kaleCiz(c, 800, 590, 460, '#d9c39a');
+      c.lineWidth = 8; c.lineCap = 'round'; c.beginPath(); c.moveTo(800, 392); c.lineTo(800, 300); c.stroke();
+      bayrak(c, 804, 304, 120, 78, t);
+      var ev1 = ['#e2cfa4', '#d6bd8c', '#e8d9b5', '#d0b584'];
+      for (var e = 0; e < 9; e++) ev(c, -20 + e * 185, 800, 170, 120 + (e % 3) * 26, { cati: e % 2 ? 'kiremit' : 'duz', renk: ev1[e % 4] });
+      zemin(c, 800, '#cbad74');
+      for (var p = 0; p < 7; p++) {
+        kisi(c, 130 + p * 220, 892 - Math.abs(Math.sin(t * 3 + p * 1.1)) * 12, 0.8, { bas: ['fes', 'ortu', 'sarik'][p % 3], uzun: p % 3 === 1, govde: ['#55657a', '#7b4a55', '#5f6f52', '#6b5a4a'][p % 4], kol: p % 2 ? 'yukari' : 'acik' });
+      }
+      kuslar(c, t, '#5b3a22');
+      doku(c);
+    },
+
     // Görseli henüz hazır olmayan paneller için.
     bos: function (c) {
       gok(c, '#eadab4', '#dcc594');
@@ -504,34 +680,62 @@
       g.addColorStop(0, '#ecd9ad'); g.addColorStop(1, '#b89868');
       c.fillStyle = g; c.fillRect(0, 0, 400, 400);
       c.lineWidth = 6; c.strokeStyle = R.koyu; c.lineJoin = 'round'; c.lineCap = 'round';
-      if (tip !== 'sarikli') {
+      var kalpakli = tip === 'kalpakli';
+      if (tip !== 'sarikli' && !kalpakli) {
         c.fillStyle = R.sepya; c.beginPath(); c.moveTo(60, 400); c.quadraticCurveTo(200, 240, 340, 400); c.fill(); c.stroke();
         daire(c, 200, 180, 70); c.fill(); c.stroke();
         c.fillStyle = R.krem; c.font = '900 90px Manset, serif'; c.textAlign = 'center'; c.fillText('?', 200, 212);
         return;
       }
       // omuzlar ve cübbe
-      c.fillStyle = '#5f6f52'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 290, 150, 280); c.lineTo(250, 280);
+      c.fillStyle = kalpakli ? '#6b6a4a' : '#5f6f52'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 290, 150, 280); c.lineTo(250, 280);
       c.quadraticCurveTo(340, 290, 370, 400); c.closePath(); c.fill(); c.stroke();
-      c.fillStyle = '#efe6d2'; c.beginPath(); c.moveTo(165, 282); c.lineTo(200, 340); c.lineTo(235, 282); c.closePath(); c.fill(); c.stroke();
+      if (kalpakli) {
+        // dik yaka ve düğmeler
+        c.fillStyle = '#55543a'; c.beginPath(); c.moveTo(158, 262); c.lineTo(242, 262); c.lineTo(246, 292); c.lineTo(200, 306); c.lineTo(154, 292); c.closePath(); c.fill(); c.stroke();
+        c.beginPath(); c.moveTo(200, 306); c.lineTo(200, 400); c.stroke();
+        c.fillStyle = R.altin; daire(c, 200, 336, 8); c.fill(); c.stroke(); daire(c, 200, 376, 8); c.fill(); c.stroke();
+      } else {
+        c.fillStyle = '#efe6d2'; c.beginPath(); c.moveTo(165, 282); c.lineTo(200, 340); c.lineTo(235, 282); c.closePath(); c.fill(); c.stroke();
+      }
       // boyun ve yüz
-      c.fillStyle = '#d9ab7c'; c.beginPath(); c.rect(172, 240, 56, 50); c.fill(); c.stroke();
+      if (!kalpakli) { c.fillStyle = '#d9ab7c'; c.beginPath(); c.rect(172, 240, 56, 50); c.fill(); c.stroke(); }
       c.fillStyle = '#e2b98c'; c.beginPath(); c.ellipse(200, 190, 68, 82, 0, 0, TAU); c.fill(); c.stroke();
-      // sakal
-      c.fillStyle = '#4a3a2a'; c.beginPath(); c.moveTo(134, 196); c.quadraticCurveTo(140, 300, 200, 304); c.quadraticCurveTo(260, 300, 266, 196);
-      c.quadraticCurveTo(250, 236, 200, 232); c.quadraticCurveTo(150, 236, 134, 196); c.closePath(); c.fill(); c.stroke();
+      c.fillStyle = kalpakli ? '#2b2118' : '#4a3a2a';
+      if (!kalpakli) {
+        // sakal
+        c.beginPath(); c.moveTo(134, 196); c.quadraticCurveTo(140, 300, 200, 304); c.quadraticCurveTo(260, 300, 266, 196);
+        c.quadraticCurveTo(250, 236, 200, 232); c.quadraticCurveTo(150, 236, 134, 196); c.closePath(); c.fill(); c.stroke();
+      }
       // bıyık, burun, gözler, kaşlar
-      c.beginPath(); c.moveTo(166, 226); c.quadraticCurveTo(200, 206, 234, 226); c.quadraticCurveTo(200, 222, 166, 226); c.fill(); c.stroke();
+      if (kalpakli) {
+        c.beginPath(); c.moveTo(150, 236); c.quadraticCurveTo(176, 212, 200, 224); c.quadraticCurveTo(224, 212, 250, 236);
+        c.quadraticCurveTo(222, 236, 200, 232); c.quadraticCurveTo(178, 236, 150, 236); c.fill(); c.stroke();
+        c.lineWidth = 4; c.beginPath(); c.arc(200, 246, 16, 0.15 * Math.PI, 0.85 * Math.PI); c.stroke(); c.lineWidth = 6;
+      } else {
+        c.beginPath(); c.moveTo(166, 226); c.quadraticCurveTo(200, 206, 234, 226); c.quadraticCurveTo(200, 222, 166, 226); c.fill(); c.stroke();
+      }
       c.lineWidth = 5; c.beginPath(); c.moveTo(200, 170); c.quadraticCurveTo(190, 200, 204, 206); c.stroke();
       c.fillStyle = R.koyu; daire(c, 172, 174, 7); c.fill(); daire(c, 228, 174, 7); c.fill();
       c.lineWidth = 7; c.beginPath(); c.moveTo(154, 156); c.quadraticCurveTo(172, 146, 188, 156); c.stroke();
       c.beginPath(); c.moveTo(212, 156); c.quadraticCurveTo(228, 146, 246, 156); c.stroke();
-      // sarık
-      c.lineWidth = 6; c.fillStyle = '#f3ead6';
-      c.beginPath(); c.ellipse(200, 124, 92, 46, 0, 0, TAU); c.fill(); c.stroke();
-      c.beginPath(); c.ellipse(200, 92, 58, 34, 0, 0, TAU); c.fill(); c.stroke();
-      c.lineWidth = 4; c.beginPath(); c.moveTo(118, 112); c.quadraticCurveTo(200, 160, 282, 112); c.stroke();
-      c.beginPath(); c.moveTo(126, 134); c.quadraticCurveTo(200, 176, 274, 134); c.stroke();
+      c.lineWidth = 6;
+      if (kalpakli) {
+        // kalpak
+        c.fillStyle = '#2b2118'; c.beginPath(); c.moveTo(124, 152); c.lineTo(136, 62); c.quadraticCurveTo(200, 28, 264, 62);
+        c.lineTo(276, 152); c.quadraticCurveTo(200, 128, 124, 152); c.closePath(); c.fill(); c.stroke();
+        c.strokeStyle = '#5b4a3a'; c.lineWidth = 3;
+        var rk = IP.tohumluRastgele(12);
+        for (var q = 0; q < 46; q++) { var qx = 142 + rk() * 116, qy = 60 + rk() * 70; c.beginPath(); c.moveTo(qx, qy); c.lineTo(qx + 3, qy + 9); c.stroke(); }
+        c.strokeStyle = R.koyu;
+      } else {
+        // sarık
+        c.fillStyle = '#f3ead6';
+        c.beginPath(); c.ellipse(200, 124, 92, 46, 0, 0, TAU); c.fill(); c.stroke();
+        c.beginPath(); c.ellipse(200, 92, 58, 34, 0, 0, TAU); c.fill(); c.stroke();
+        c.lineWidth = 4; c.beginPath(); c.moveTo(118, 112); c.quadraticCurveTo(200, 160, 282, 112); c.stroke();
+        c.beginPath(); c.moveTo(126, 134); c.quadraticCurveTo(200, 176, 274, 134); c.stroke();
+      }
       var rs = IP.tohumluRastgele(3);
       for (var i = 0; i < 1500; i++) { c.fillStyle = 'rgba(60,40,20,' + rs() * 0.12 + ')'; c.fillRect(rs() * 400, rs() * 400, 2, 2); }
     },

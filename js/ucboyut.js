@@ -436,7 +436,7 @@
           } else if (i.durum === 'tamam') {
             i.topMat.color.setHex(0xffd27a); i.topMat.emissive.setHex(0xffa030); i.topMat.emissiveIntensity = 1.2 * i.guc;
             i.halka.material.color.setHex(0xffc866); i.halka.scale.setScalar(1 + i.patlama * 6); i.halka.material.opacity = 0.9 - i.patlama * 0.6;
-            i.isilti.material.color.setHex(0xffc060); i.isilti.material.opacity = (0.75 + Math.sin(t * 2.3 + i.grup.position.x) * 0.15) * i.guc;
+            i.isilti.material.color.setHex(0xffc060); i.isilti.material.opacity = (0.5 + Math.sin(t * 2.3 + i.grup.position.x) * 0.12) * i.guc;
             i.isilti.scale.setScalar(2.6 + i.patlama * 5);
             i.huzme.material.opacity = 0.13 * i.guc + i.patlama * 0.1;
             i.isik.color.setHex(0xffb44d); i.isik.intensity = 1.7 * i.guc + i.patlama * 1.2;

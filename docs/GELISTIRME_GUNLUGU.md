@@ -51,3 +51,29 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Senaryoda oyuncu adını seçiyor ve Zafer Nüshası'nda adı yazıyor; kurallarda ise "öğrenci adı tutulmaz" deniyor. Şimdilik kural uygulandı (yalnızca kod). Karar verilmeli.
 - Sütçü İmam'ın bilgileri iki kaynakla doğrulanıp `heroes.json` dosyasına kaynak kodlarıyla işlenmeli; röportaj cevapları yazılmalı.
 - Mini oyunun zorluğu pilot testte ayarlanmalı (test programı 9–12 saniyede bitirdi; öğrenciler için süre ve devriye sayısı denenmeli).
+
+---
+
+## 2 Ekim 2026 — Şahin Bey'in bölümü
+
+**Ne istendi?**
+- İkinci kahramana, Şahin Bey'e geçilmesi.
+
+**Ne yapıldı?**
+- `data/heroes.json` dosyasına Şahin Bey'in içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`.
+- **5 yeni hikâye çizimi:** köy meydanında toplanan gönüllüler, ufuktan gelen kolon ve gözcü, barikat (güneş ve ay dönerek günlerin geçtiğini gösterir), yol kenarında yalnız bir kalpak, kalesi ve bayrağıyla direnen şehir. Silah ya da çatışma çizilmedi.
+- **Yeni portre:** kalpaklı, bıyıklı temsilî çizim.
+- **Yeni mini oyun "Yolu Tut"** (`games/yolutut.js`): Yoldaki 5 geçide kart yerleştirilir, sonra kolon yola çıkar. Engelci kolonu durdurur, Haberci hazırlığı artırır, Gözcü bir sonraki geçitteki kartı 2 kat güçlendirir. 3 dalganın sonunda "şehir hazırlık" çubuğu %100 olmalı. Kolon yalnızca "durdu" işaretiyle yavaşlar.
+- **Sıralı açılma:** Bir kahramanın sayfası canlanmadan sıradaki kahraman haritada açılmıyor.
+- Haritada birbirine yakın iki konumun etiketleri üst üste binmesin diye alttaki etiket iğnenin altına asılıyor.
+
+**Ne test edildi?**
+- Şahin Bey'in bölümü otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Hata çıkmadı, 3 yıldız kaydedildi.
+- Mini oyun iki biçimde oynatıldı: iyi yerleşimle hazırlık %100 oldu; kötü yerleşimle (Gözcü en sonda, kartların bir kısmı kullanılmadan) %70'te kaldı ve "tekrar dene / yıldızsız devam et" ekranı çıktı.
+- Sütçü İmam'ın bölümü yeniden oynatıldı; bozulmadı.
+
+**Açık konular**
+- Bonus soru ("Gaziantep adındaki 'Gazi' sözü nereden gelir?") senaryo belgesinde yoktu; "Biliyor muydun?" metninden türetildi. Ekip onaylamalı ya da değiştirmeli.
+- Mini oyunun "kazanım" cümlesi de senaryoda yoktu; 3. hikâye panelinden türetildi.
+- "Yolu Tut" oyununun süreleri ve puanları dosyanın başındaki ayarlardan değiştirilebilir; pilot testte denenmeli.
+- Sıradaki kahraman Tayyar Rahmiye de Antep'te; haritadaki iğnesi Şahin Bey'inkine çok yakın, etiket yerleşimi o bölümde yeniden ele alınmalı.

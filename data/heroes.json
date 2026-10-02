@@ -1,0 +1,94 @@
+{
+  "surum": "0.1-taslak",
+  "aciklama": "Oyundaki tüm tarihî içerik bu dosyadan gelir. 'dogrulandi': false olan her bilgi TASLAKTIR; en az iki güvenilir kaynakla doğrulanmadan gerçek uygulamada kullanılmaz. Bu dosyayı değiştirdikten sonra 'araclar/veri-paketle.bat' dosyasını çalıştırın.",
+  "rehber": { "ad": "Telgrafçı Nuri", "kurgusal": true },
+  "prolog": [
+    { "konusan": "anlatici", "metin": "Okulun eski deposunda tozlu bir tahta sandık buldun. İçinde pirinçten bir telgraf makinesi ve eski bir defter var." },
+    { "konusan": "telgraf", "metin": "Burası Ankara, yıl 1920. Milletin sesini duyuracak bir muhabir arıyoruz. Unutulan kahramanların sayfaları siliniyor. Onları kaydet!" },
+    { "konusan": "nuri", "metin": "Ben Telgrafçı Nuri. On kahramanın hikâyesini topla, röportaj yap, haberini yaz." },
+    { "konusan": "nuri", "metin": "Defterin her sayfası canlanınca Anadolu haritasında bir ışık yanacak. On sayfa tamamlanınca Zafer Nüshası basılacak!" }
+  ],
+  "kahramanlar": [
+    {
+      "id": "sutcu-imam",
+      "hazir": true,
+      "ad": "Sütçü İmam",
+      "baslik": "Uzunoluk'ta Kıvılcım",
+      "alan": "cephe",
+      "alan_etiketi": "Cephe — Güney",
+      "konum": { "ad": "Maraş", "harita_x": 0.586, "harita_y": 0.703 },
+      "tarih_etiketi": "31 Ekim 1919",
+      "tarih_dogrulandi": false,
+      "tarih_dogrula_notu": "Kaynaklarda farklı tarih geçebilir.",
+      "altin_bilgiler": [
+        {
+          "metin": "Maraş'ta Fransız işgaline karşı direnişi başlatan halk kahramanıdır.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Uzunoluk Hamamı önünde Maraşlı kadınlara yapılan saldırıya karşı çıkması direnişin kıvılcımı oldu.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "Halkın direnişi sonunda Maraş 12 Şubat 1920'de kurtuldu. Şehre bu yüzden \"Kahraman\" unvanı verildi.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Unvanın veriliş yılı doğrulanacak."
+        }
+      ],
+      "paneller": [
+        { "metin": "Maraş çarşısı. Ahmet İmam sütünü dağıtıyor.", "nuri": "Herkes ona Sütçü İmam der.", "gorsel": "carsi", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "İşgal askerleri sokaklarda. Halk tedirgin, dükkânlar kapanıyor.", "gorsel": "isgal", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Uzunoluk Hamamı önünde kadınlara saldırılır. Sütçü İmam buna karşı çıkar.", "gorsel": "kivilcim", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Haber mahalleden mahalleye yayılır. Pencerelerde ışıklar yanar.", "gorsel": "isiklar", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "12 Şubat 1920 sabahı Maraş kurtulmuştur. Kalede bayrak dalgalanır.", "gorsel": "kale_bayrak", "anlati_mi": false, "dogrulandi": false }
+      ],
+      "mini_oyun": {
+        "modul": "kivilcim",
+        "ad": "Kıvılcımı Yay",
+        "aciklama": "Haberi mahalleden mahalleye taşı. Uğradığın her mahallede direniş ışığı yanar.",
+        "sure_sn": 90,
+        "mahalle_sayisi": 9,
+        "kazanim": "Direniş tek bir kişinin değil, birleşen halkın eseridir."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Size neden \"Sütçü İmam\" deniyor?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "O gün Uzunoluk'ta ne oldu?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Maraş halkı nasıl birleşti?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Şehrin adına \"Kahraman\" neden eklendi?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 2, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "{0} halkı boyun eğmedi! {1} önünde başlayan direnişin sonunda şehir {2} tarihinde kurtuldu.",
+        "dogrular": ["Maraş", "Uzunoluk Hamamı", "12 Şubat 1920"],
+        "celdiriciler": ["Antep", "İnebolu İskelesi", "9 Eylül 1922"],
+        "ipucu_bilgi": [0, 1, 2]
+      },
+      "biliyor_muydun": {
+        "metin": "Kahramanmaraş \"Kahraman\", Gaziantep \"Gazi\", Şanlıurfa \"Şanlı\" unvanlarını Millî Mücadele'deki direnişleri nedeniyle aldı.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "\"Gazi\" unvanı hangi şehre verildi?",
+          "secenekler": ["Maraş", "Antep", "Urfa"],
+          "dogru": 1
+        }
+      },
+      "duygu_ani": "Sıradan bir sütçünün tek bir cesaret anı bir şehri ayağa kaldırır.",
+      "portre": { "dosya": "", "cizim": "sarikli", "temsili": true }
+    },
+    { "id": "sahin-bey", "hazir": false, "ad": "Şahin Bey", "alan": "cephe", "alan_etiketi": "Cephe — Güney", "konum": { "ad": "Antep", "harita_x": 0.609, "harita_y": 0.776 } },
+    { "id": "tayyar-rahmiye", "hazir": false, "ad": "Tayyar Rahmiye", "alan": "cephe", "alan_etiketi": "Cephe — Güney", "konum": { "ad": "Antep", "harita_x": 0.632, "harita_y": 0.79 } },
+    { "id": "kara-fatma", "hazir": false, "ad": "Kara Fatma", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Erzurum", "harita_x": 0.809, "harita_y": 0.371 } },
+    { "id": "gordesli-makbule", "hazir": false, "ad": "Gördesli Makbule", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Gördes", "harita_x": 0.143, "harita_y": 0.51 } },
+    { "id": "halime-cavus", "hazir": false, "ad": "Halime Çavuş", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "Kastamonu", "harita_x": 0.425, "harita_y": 0.16 } },
+    { "id": "serife-baci", "hazir": false, "ad": "Şerife Bacı", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "İnebolu", "harita_x": 0.424, "harita_y": 0.074 } },
+    { "id": "halide-edib", "hazir": false, "ad": "Halide Edib Adıvar", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "İstanbul", "harita_x": 0.178, "harita_y": 0.213 } },
+    { "id": "yunus-nadi", "hazir": false, "ad": "Yunus Nadi", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Ankara", "harita_x": 0.377, "harita_y": 0.367 } },
+    { "id": "mehmet-akif", "hazir": false, "ad": "Mehmet Âkif Ersoy", "alan": "basin", "alan_etiketi": "Basın-yayın", "konum": { "ad": "Kastamonu", "harita_x": 0.45, "harita_y": 0.19 } }
+  ]
+}

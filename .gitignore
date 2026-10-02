@@ -1,0 +1,16 @@
+# İşletim sistemi ve editör artıkları
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+*.tmp
+*.bak
+
+# Geliştirme araçları (oyunun çalışması için gerekmez)
+node_modules/
+.claude/settings.local.json
+
+# Araştırma verisi ve kişisel bilgi GitHub'a gitmez
+*.csv
+veriler/
+onam/

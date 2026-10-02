@@ -199,9 +199,12 @@
           if (durumlar[b.id] === 'kilitli') return false;
           return Math.abs(k.konum.harita_y - b.konum.harita_y) < 0.16 && Math.abs(k.konum.harita_x - b.konum.harita_x) < 0.1;
         }).sort(function (a, b) { return a.konum.harita_y - b.konum.harita_y; });
-        if (kume.length < 2 || kume[0] === k) return '';
+        // Haritanın en üstündeki konumun etiketi başlığın üstüne binmesin diye iğnenin soluna asılır.
+        var tepede = kume[0].konum.harita_y < 0.12;
+        if (kume[0] === k) return tepede ? ' sol tepe' : '';
         var alttakiler = kume.slice(1).sort(function (a, b) { return a.konum.harita_x - b.konum.harita_x; });
         if (alttakiler.length < 2) return ' alt';
+        if (tepede) return alttakiler[alttakiler.length - 1] === k ? ' sag' : ' alt';
         return alttakiler[0] === k ? ' sol' : (alttakiler[alttakiler.length - 1] === k ? ' sag' : ' alt');
       }
       function isaretEtiketi(d, k, durum) {

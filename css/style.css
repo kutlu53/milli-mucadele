@@ -143,6 +143,8 @@ p { margin: 0; }
 .isaret.alt::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--koyu); }
 .isaret.sol { --dx: calc(-100% - 18px); --dy: -50%; }
 .isaret.sol::after { left: 100%; top: 50%; margin: -9px 0 0; border-top-color: transparent; border-left-color: var(--koyu); }
+.isaret.sol.tepe { --dy: -12%; }
+.isaret.sol.tepe::after { top: 12%; margin-top: 0; }
 .isaret.sag { --dx: 18px; --dy: -50%; }
 .isaret.sag::after { left: auto; right: 100%; top: 50%; margin: -9px 0 0; border-top-color: transparent; border-right-color: var(--koyu); }
 @keyframes nabiz { 50% { transform: translate(var(--dx), var(--dy)) scale(1.09); box-shadow: 0 4px 0 var(--koyu), 0 0 26px rgba(255, 90, 60, .9); } }

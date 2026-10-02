@@ -68,6 +68,73 @@ window.IP_BULTEN = {
           "celdiriciler": ["Maraş", "Erzurum"]
         }
       ]
+    },
+    {
+      "no": 2,
+      "ad": "Ajans Bülteni 2",
+      "sonra": "serife-baci",
+      "nuri": "Ajans bülteni çıkıyor, haberleri kontrol et!",
+      "dogrulandi": false,
+      "not": "Sorular senaryo belgesinde yoktu; ilk yedi kahramanın Altın Bilgilerinden ve senaryodaki çeldiricilerden türetildi. Ekip onaylamalı. Başarı testindeki sorular bunlarla birebir aynı olmamalı.",
+      "sorular": [
+        {
+          "tur": "dy",
+          "kahraman": "kara-fatma",
+          "ifade": "Kara Fatma Erzurumludur ve asıl adı Fatma Seher Erden'dir.",
+          "dogru": true
+        },
+        {
+          "tur": "bosluk",
+          "kahraman": "gordesli-makbule",
+          "sablon": "Gördesli Makbule, {0} birliklerinde efe kıyafetiyle savaştı.",
+          "dogru": "Kuvâ-yi Milliye",
+          "celdiriciler": ["Anadolu Ajansı", "İnebolu İskelesi"]
+        },
+        {
+          "tur": "dy",
+          "kahraman": "halime-cavus",
+          "ifade": "Halime Çavuş, cephane taşıyan birliklere \"Said\" adıyla katıldı.",
+          "dogru": false,
+          "aciklama": "Halime Çavuş, birliklere \"Halim\" adıyla katıldı."
+        },
+        {
+          "tur": "eslestir",
+          "yonerge": "Her kahramanı kendi şehriyle eşleştir.",
+          "ciftler": [
+            { "sol": "Sütçü İmam", "sag": "Maraş", "kahraman": "sutcu-imam" },
+            { "sol": "Kara Fatma", "sag": "Erzurum", "kahraman": "kara-fatma" },
+            { "sol": "Gördesli Makbule", "sag": "Gördes", "kahraman": "gordesli-makbule" },
+            { "sol": "Halime Çavuş", "sag": "Kastamonu", "kahraman": "halime-cavus" }
+          ]
+        },
+        {
+          "tur": "bosluk",
+          "kahraman": "serife-baci",
+          "sablon": "Şerife Bacı, {0} İskelesi'ne gelen cephaneyi kağnılarla taşıyan kadınlardandır.",
+          "dogru": "İnebolu",
+          "celdiriciler": ["İzmir", "Maraş"]
+        },
+        {
+          "tur": "dy",
+          "kahraman": "sahin-bey",
+          "ifade": "Şahin Bey, halktan gönüllülerle oluşan bir Kuvâ-yi Milliye birliğinin başındaydı.",
+          "dogru": true
+        },
+        {
+          "tur": "bosluk",
+          "kahraman": "kara-fatma",
+          "sablon": "Kara Fatma, gösterdiği başarılar nedeniyle rütbe ve {0} aldı.",
+          "dogru": "İstiklal Madalyası",
+          "celdiriciler": ["Nobel Ödülü", "\"Gazi\" unvanı"]
+        },
+        {
+          "tur": "dy",
+          "kahraman": "tayyar-rahmiye",
+          "ifade": "Tayyar Rahmiye, Maraş savunmasında çarpıştı.",
+          "dogru": false,
+          "aciklama": "Tayyar Rahmiye, Antep savunmasında çarpıştı."
+        }
+      ]
     }
   ]
 };

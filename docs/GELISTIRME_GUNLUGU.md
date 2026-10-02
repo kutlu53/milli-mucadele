@@ -262,3 +262,24 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Bonus soru ("İnebolu'dan Ankara'ya uzanan yola bugün ne ad veriliyor?") senaryoda yoktu; "Biliyor muydun?" metninden türetildi.
 - Senaryo bu oyun için yaklaşık 4 dakika diyor; test programı 41 saniyede bitirdi (okumadan tıkladığı için). Öğrencilerle süre ölçülmeli.
 - Sıradaki iş: Ajans Bülteni 2 (ilk yedi kahramanın karışık tekrarı).
+
+---
+
+## 2 Ekim 2026 — Ajans Bülteni 2
+
+**Ne istendi?**
+- Şerife Bacı'nın bölümünün GitHub'a gönderilmesi ve ilk yedi kahramanı karışık soran Ajans Bülteni 2'nin yapılması.
+
+**Ne yapıldı?**
+- Şerife Bacı'nın bölümü kaydedildi ve GitHub'a gönderildi.
+- `data/bulletins.json` dosyasına Ajans Bülteni 2 eklendi: 8 soru (4 doğru/yanlış, 3 boşluk doldurma, 1 eşleştirme). Yedi kahramanın hepsi en az bir soruda geçiyor. Eşleştirme sorusu "kahraman ↔ şehir" biçiminde.
+- Yeni kod yazılmadı: bülten ekranı ilk bültende hazırlanmıştı, yalnızca sorular eklendi. Bülten 2, Şerife Bacı'nın sayfası canlanınca haritada açılır; yapılmadan sekizinci kahraman açılmaz.
+- **Haritada etiket düzeni:** Haritanın en üstündeki konumun (İnebolu) etiketi "Anadolu Haritası" başlığının üstüne biniyordu. Artık iğnenin soluna, biraz aşağıya asılıyor.
+
+**Ne test edildi?**
+- Bülten 2 otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Test programı iki soruda bilerek hata yaptı; kart açıldı, puan 6/8 kaydedildi, hata çıkmadı.
+- İlk denemede test takıldı; sebep oyun değil test programıydı ("Gördes" düğmesini ararken "Gördesli Makbule" düğmesine basıyordu). Test programı düzeltildi.
+
+**Açık konular**
+- Bülten 2 soruları da senaryoda yoktu; Altın Bilgilerden ve senaryodaki çeldiricilerden türetildi. Ekip onaylamalı. Başarı testindeki sorularla birebir aynı olmamalı.
+- Sıradaki iş: Halide Edib Adıvar'ın bölümü (8. kahraman; mini oyunu "Kalabalığa Seslen").

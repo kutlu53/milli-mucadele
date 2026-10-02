@@ -155,7 +155,79 @@
       "duygu_ani": "Şehri korumak için yolu tutan bir avuç insan.",
       "portre": { "dosya": "", "cizim": "kalpakli", "temsili": true }
     },
-    { "id": "tayyar-rahmiye", "hazir": false, "ad": "Tayyar Rahmiye", "alan": "cephe", "alan_etiketi": "Cephe — Güney", "konum": { "ad": "Antep", "harita_x": 0.632, "harita_y": 0.79 } },
+    {
+      "id": "tayyar-rahmiye",
+      "hazir": true,
+      "ad": "Tayyar Rahmiye",
+      "baslik": "Siperdeki Cesaret",
+      "alan": "cephe",
+      "alan_etiketi": "Cephe — Güney",
+      "konum": { "ad": "Antep", "harita_x": 0.632, "harita_y": 0.79 },
+      "tarih_etiketi": "1920",
+      "tarih_dogrulandi": false,
+      "altin_bilgiler": [
+        {
+          "metin": "Antep savunmasında erkeklerle birlikte çarpışan bir kadın kahramandır.",
+          "kaynaklar": [],
+          "dogrulandi": false
+        },
+        {
+          "metin": "\"Tayyar\" lakabı hızı ve cesaretinden dolayı verilmiştir.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Lakabın nedeni doğrulanacak."
+        },
+        {
+          "metin": "Antep savunması sırasında şehit düştü.",
+          "kaynaklar": [],
+          "dogrulandi": false,
+          "dogrula_notu": "Tarih doğrulanacak."
+        }
+      ],
+      "paneller": [
+        { "metin": "Antep kuşatma altında. Kadınlar ve çocuklar siperlere yiyecek ve cephane taşıyor.", "gorsel": "siper_tasima", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Rahmiye siperler arasında herkesten hızlı koşar.", "nuri": "Ona \"Tayyar\", yani \"uçan\" derlerdi.", "gorsel": "tayyar_kosu", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Lakabın nedeni doğrulanacak." },
+        { "metin": "Bir siper zor durumdadır. Rahmiye oraya ulaşır ve savunmaya katılır.", "gorsel": "zor_siper", "anlati_mi": false, "dogrulandi": false },
+        { "metin": "Rahmiye şehit düşer.", "gorsel": "yemeni", "anlati_mi": false, "dogrulandi": false, "dogrula_notu": "Tarih doğrulanacak." }
+      ],
+      "mini_oyun": {
+        "modul": "sipere",
+        "ad": "Sipere Ulaştır",
+        "aciklama": "Damlardan ve dar sokaklardan geç. Devriye fenerlerine görünmeden yükünü sipere ulaştır.",
+        "tur_sayisi": 3,
+        "tur_sure_sn": 120,
+        "yukler": ["su", "cephane torbası", "su ve cephane torbası"],
+        "kazanim": "Cephede yalnızca askerler değil, bütün bir şehir vardır.",
+        "not": "Kazanım cümlesi senaryo belgesindeki 'Duygu anı' satırından alındı. Ekip onaylamalı."
+      },
+      "roportaj": {
+        "secilecek": 3,
+        "konusan_notu": "",
+        "sorular": [
+          { "soru": "Antep savunmasında kadınlar neler yaptı?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "\"Tayyar\" lakabını nasıl aldınız?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 1, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" },
+          { "soru": "Siperlerde bir gün nasıl geçerdi?", "cevap": "[İÇERİK BEKLENİYOR]", "altin_bilgi": 0, "kaynaklar": [], "dogrulayan": "", "dogrulama_tarihi": "" }
+        ]
+      },
+      "haber": {
+        "sablon": "{0} savunmasında erkeklerle omuz omuza çarpışan bir {1} kahraman: {2} Rahmiye.",
+        "dogrular": ["Antep", "kadın", "Tayyar"],
+        "celdiriciler": ["Maraş", "Kara", "genç"],
+        "ipucu_bilgi": [0, 0, 1]
+      },
+      "biliyor_muydun": {
+        "metin": "Antep savunmasında kadınlar ve çocuklar da cephane taşıma, yemek hazırlama ve yaralılara bakma gibi görevler üstlendi.",
+        "dogrulandi": false,
+        "bonus_soru": {
+          "soru": "Antep savunmasında kadınlar ve çocuklar hangi görevi üstlendi?",
+          "secenekler": ["Gazete basmak", "Cephane taşımak", "Telgraf çekmek"],
+          "dogru": 1,
+          "not": "Bu soru senaryo belgesinde yoktu; 'Biliyor muydun?' metninden türetildi. Ekip onaylamalı."
+        }
+      },
+      "duygu_ani": "Cephede yalnızca askerler değil, bütün bir şehir vardır.",
+      "portre": { "dosya": "", "cizim": "yemenili", "temsili": true }
+    },
     { "id": "kara-fatma", "hazir": false, "ad": "Kara Fatma", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Erzurum", "harita_x": 0.809, "harita_y": 0.371 } },
     { "id": "gordesli-makbule", "hazir": false, "ad": "Gördesli Makbule", "alan": "cephe", "alan_etiketi": "Cephe — Batı", "konum": { "ad": "Gördes", "harita_x": 0.143, "harita_y": 0.51 } },
     { "id": "halime-cavus", "hazir": false, "ad": "Halime Çavuş", "alan": "lojistik", "alan_etiketi": "Lojistik", "konum": { "ad": "Kastamonu", "harita_x": 0.425, "harita_y": 0.16 } },

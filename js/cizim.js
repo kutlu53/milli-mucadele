@@ -273,6 +273,55 @@
     }
   }
 
+  var YEMENI = '#b8452f';
+
+  // Kum torbalarından siper. (x, y) sol alt köşedir.
+  function siper(c, x, y, adet, sira) {
+    c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round';
+    for (var s = 0; s < sira; s++) {
+      for (var i = 0; i < adet - (s % 2); i++) {
+        c.fillStyle = ['#c9b48a', '#bda67a', '#d2bf97'][(i + s) % 3];
+        c.beginPath(); c.ellipse(x + 40 + i * 76 + (s % 2) * 38, y - 22 - s * 38, 42, 23, 0, 0, TAU); c.fill(); c.stroke();
+      }
+    }
+  }
+
+  // Sırtta taşınan torba.
+  function torba(c, x, y, s) {
+    c.strokeStyle = R.koyu; c.lineWidth = 5 * s; c.fillStyle = '#c9b48a';
+    c.beginPath(); c.ellipse(x, y, 25 * s, 32 * s, 0.2, 0, TAU); c.fill(); c.stroke();
+    c.beginPath(); c.moveTo(x - 10 * s, y - 28 * s); c.lineTo(x + 14 * s, y - 24 * s); c.stroke();
+  }
+
+  // Koşan yemenili kadın. (x, y) ayak hizasıdır. o.egik: saklanıyor, o.havada: zıplıyor, o.yuk: sırtında torba var.
+  function kosan(c, x, y, s, t, o) {
+    o = o || {};
+    var a = Math.sin(t * 13), b = Math.cos(t * 13);
+    if (o.egik) { a = 0.25; b = 0; }
+    if (o.havada) { a = 0.95; b = 0; }
+    c.save(); c.translate(x, y); c.scale(s * (o.yon === -1 ? -1 : 1), s * (o.egik ? 0.62 : 1));
+    c.rotate(o.egik ? 0.04 : 0.16);
+    c.lineJoin = 'round'; c.lineCap = 'round';
+    c.strokeStyle = '#3a2a1c'; c.lineWidth = 13;
+    c.beginPath(); c.moveTo(-4, -56); c.lineTo(-6 + a * 34, -4 - Math.max(0, b) * 16); c.stroke();
+    c.beginPath(); c.moveTo(4, -56); c.lineTo(6 - a * 34, -4 - Math.max(0, -b) * 16); c.stroke();
+    if (o.yuk) torba(c, -36, -100, 1);
+    [-1, 1].forEach(function (yn) {
+      c.strokeStyle = R.koyu; c.lineWidth = 19; c.beginPath(); c.moveTo(0, -112); c.lineTo(yn * a * 36, -76); c.stroke();
+      c.strokeStyle = o.govde || '#4f6d5c'; c.lineWidth = 10; c.beginPath(); c.moveTo(0, -112); c.lineTo(yn * a * 36, -76); c.stroke();
+    });
+    c.strokeStyle = R.koyu; c.lineWidth = 5; c.fillStyle = o.govde || '#4f6d5c';
+    c.beginPath(); c.moveTo(-22, -124); c.lineTo(22, -124); c.lineTo(34, -44); c.lineTo(-32, -44); c.closePath(); c.fill(); c.stroke();
+    c.fillStyle = '#e2b98c'; daire(c, 6, -146, 21); c.fill(); c.stroke();
+    // yemeni: ucu rüzgârda uçuşur
+    var uc = Math.sin(t * 11) * 9;
+    c.fillStyle = YEMENI;
+    c.beginPath(); c.moveTo(-14, -136); c.lineTo(-62, -132 + uc); c.lineTo(-72, -160 - uc); c.lineTo(-12, -156); c.closePath(); c.fill(); c.stroke();
+    c.beginPath(); c.arc(6, -148, 23, Math.PI * 0.9, Math.PI * 1.95); c.quadraticCurveTo(8, -158, -15, -140); c.closePath(); c.fill(); c.stroke();
+    c.fillStyle = R.koyu; daire(c, 17, -146, 3.5); c.fill();
+    c.restore();
+  }
+
   /* ---------- Hikâye sahneleri (1600 × 900 sanal ölçü) ---------- */
   var DUKKAN_RENK = ['#e2cfa4', '#d6bd8c', '#e8d9b5', '#d0b584', '#dec79a', '#d9c39a'];
   var evlerGece = null;
@@ -637,6 +686,157 @@
       doku(c);
     },
 
+    /* ----- Tayyar Rahmiye ----- */
+    // 1. Kuşatma: kadınlar ve çocuklar sırtlarında torbalarla sipere doğru yürür.
+    siper_tasima: function (c, t) {
+      gok(c, '#c98a5a', '#f0d39a');
+      // uzakta yükselen duman (kuşatmanın simgesi)
+      for (var d = 0; d < 3; d++) {
+        var dy = (t * 14 + d * 90) % 260;
+        bulut(c, 230 + d * 70 + Math.sin(t * 0.5 + d) * 20, 400 - dy, 0.7 + dy / 300, 'rgba(90,80,80,' + (0.4 - dy / 700) + ')');
+      }
+      tepeler(c, 470, 40, '#b98c5c', 0.9);
+      c.fillStyle = '#a9824f'; c.beginPath(); c.moveTo(560, 620); c.quadraticCurveTo(880, 330, 1200, 620); c.closePath(); c.fill();
+      kaleCiz(c, 880, 478, 330, '#c9ab78', 'yok');
+      var renk = ['#dcc79c', '#d0b584', '#e2cfa4'];
+      for (var e = 0; e < 9; e++) ev(c, -30 + e * 190, 640, 172, 110 + (e % 3) * 30, { renk: renk[e % 3], cati: e % 2 ? 'kiremit' : 'duz', kepenk: true });
+      zemin(c, 640, '#c7a56e');
+      // sağda siper ve ardındaki savunmacılar
+      kisi(c, 1330, 760, 1.05, { bas: 'fes', govde: '#6b5a4a', yon: -1 });
+      kisi(c, 1450, 764, 1.05, { bas: 'sarik', govde: '#55657a', yon: -1 });
+      siper(c, 1190, 810, 5, 3);
+      // taşıyıcılar: kadınlar ve çocuklar
+      var giysi = ['#7b4a55', '#4f6d5c', '#8a6a45', '#5d5a7a', '#6b5a4a', '#7a5c3e'];
+      for (var i = 0; i < 6; i++) {
+        var x = ((t * 45 + i * 217) % 1300) - 150, cocuk = i % 3 === 2, s = cocuk ? 0.62 : 1.05;
+        var y = 790 + (i % 2) * 40 - Math.abs(Math.sin(t * 5 + i)) * 5;
+        c.globalAlpha = Math.max(0, Math.min(1, (1150 - x) / 90));
+        c.fillStyle = 'rgba(43,33,24,.2)'; c.beginPath(); c.ellipse(x, 794 + (i % 2) * 40, 46 * s, 9 * s, 0, 0, TAU); c.fill();
+        torba(c, x - 26 * s, y - 118 * s, s);
+        kisi(c, x, y, s, cocuk ? { govde: giysi[i] } : { bas: 'ortu', uzun: true, govde: giysi[i], ortu: i === 1 ? YEMENI : null });
+        c.globalAlpha = 1;
+      }
+      doku(c);
+    },
+
+    // 2. Koşu: Rahmiye siperler arasında herkesten hızlı koşar; arka plan hızla geriye akar.
+    tayyar_kosu: function (c, t) {
+      function sar(deger, boy) { return ((deger % boy) + boy) % boy; }
+      gok(c, '#f2d9a0', '#eec78a');
+      c.fillStyle = 'rgba(255,248,220,.85)'; daire(c, 1280, 170, 58); c.fill();
+      tepeler(c, 450, 44, '#d6b77e', t * 0.25);
+      var renk = ['#e2cfa4', '#d6bd8c', '#e8d9b5'], i;
+      for (i = 0; i < 8; i++) ev(c, sar(i * 260 - t * 60, 2080) - 240, 600, 200, 120 + (i % 3) * 30, { renk: renk[i % 3], cati: i % 2 ? 'kiremit' : 'duz', kepenk: true });
+      zemin(c, 600, '#cbad74');
+      // geride kalan diğer taşıyıcılar
+      for (i = 0; i < 3; i++) {
+        var kx = sar(i * 640 - t * 170, 1920) - 160;
+        torba(c, kx - 26, 612, 0.95);
+        kisi(c, kx, 724 - Math.abs(Math.sin(t * 5 + i)) * 4, 0.95, { bas: 'ortu', uzun: true, govde: ['#7b4a55', '#5d5a7a', '#8a6a45'][i] });
+      }
+      // siperler hızla geçer
+      for (i = 0; i < 2; i++) siper(c, sar(i * 1100 - t * 520, 2200) - 420, 770, 4, 2);
+      // hız çizgileri
+      c.strokeStyle = 'rgba(255,255,255,.6)'; c.lineWidth = 6; c.lineCap = 'round';
+      for (i = 0; i < 7; i++) {
+        var lx = sar(i * 260 - t * 900, 1900) - 150, ly = 430 + i * 52;
+        c.beginPath(); c.moveTo(lx, ly); c.lineTo(lx + 170, ly); c.stroke();
+      }
+      // toz
+      for (i = 0; i < 5; i++) {
+        var faz = (t * 1.6 + i / 5) % 1;
+        c.fillStyle = 'rgba(190,160,110,' + 0.45 * (1 - faz) + ')'; daire(c, 720 - faz * 300, 828 - faz * 30, 14 + faz * 34); c.fill();
+      }
+      c.fillStyle = 'rgba(43,33,24,.25)'; c.beginPath(); c.ellipse(800, 842, 70, 12, 0, 0, TAU); c.fill();
+      kosan(c, 800, 838 - Math.abs(Math.sin(t * 13)) * 12, 1.6, t, { yuk: true });
+      doku(c);
+    },
+
+    // 3. Zor durumdaki siper: Rahmiye koşarak ulaşır, uyarı işareti umut ışığına döner.
+    zor_siper: function (c, t) {
+      var d = t % 10, vardi = d > 4;
+      gok(c, '#8d7f78', '#d9b98c');
+      bulut(c, (t * 20) % 2000 - 200, 150, 1.5, 'rgba(70,62,66,.5)');
+      bulut(c, (900 + t * 14) % 2000 - 200, 230, 1.2, 'rgba(70,62,66,.4)');
+      tepeler(c, 480, 44, '#9c8468', 0.5);
+      for (var e = 0; e < 4; e++) ev(c, 1180 + e * 110, 640, 100, 80 + (e % 2) * 30, { renk: '#b5a283', kepenk: true, pencere: 1, catiRenk: '#6b6152' });
+      zemin(c, 640, '#b3976a');
+      if (vardi) {
+        var g = c.createRadialGradient(1000, 640, 20, 1000, 640, 420);
+        g.addColorStop(0, 'rgba(255,236,160,.75)'); g.addColorStop(1, 'rgba(255,200,90,0)');
+        c.fillStyle = g; c.fillRect(560, 200, 880, 700);
+      }
+      kisi(c, 1120, 772, 1.05, { bas: 'fes', govde: '#6b5a4a', yon: -1, kol: vardi ? 'yukari' : null });
+      kisi(c, 1230, 776, 1.05, { bas: 'sarik', govde: '#55657a', yon: -1 });
+      if (vardi) kisi(c, 990, 780, 1.12, { bas: 'ortu', ortu: YEMENI, uzun: true, govde: '#4f6d5c', kol: 'cagri' });
+      siper(c, 900, 820, 5, 3);
+      // dağılmış kum torbaları
+      c.strokeStyle = R.koyu; c.lineWidth = 5;
+      [[840, 826, 0.5], [770, 836, -0.3], [1310, 832, 0.2]].forEach(function (k) {
+        c.fillStyle = '#bda67a'; c.beginPath(); c.ellipse(k[0], k[1], 42, 23, k[2], 0, TAU); c.fill(); c.stroke();
+      });
+      if (vardi) torba(c, 1060, 690, 1.1);
+      else {
+        // uyarı işareti
+        var vur = 1 + Math.sin(t * 8) * 0.08;
+        c.save(); c.translate(1090, 400); c.scale(vur, vur);
+        c.fillStyle = R.kirmizi; c.strokeStyle = R.koyu; c.lineWidth = 8; c.lineJoin = 'round';
+        c.beginPath(); c.moveTo(0, -90); c.lineTo(96, 70); c.lineTo(-96, 70); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = R.krem; c.fillRect(-10, -42, 20, 62); daire(c, 0, 44, 11); c.fill();
+        c.restore();
+        var x = -120 + (d / 4) * 960;
+        for (var i = 0; i < 4; i++) {
+          var faz = (t * 1.6 + i / 4) % 1;
+          c.fillStyle = 'rgba(160,135,95,' + 0.45 * (1 - faz) + ')'; daire(c, x - 70 - faz * 220, 838 - faz * 24, 12 + faz * 28); c.fill();
+        }
+        kosan(c, x, 846 - Math.abs(Math.sin(t * 13)) * 10, 1.4, t, { yuk: true });
+      }
+      doku(c);
+    },
+
+    // 4. Siperde rüzgârda dalgalanan bir yemeni.
+    yemeni: function (c, t) {
+      gok(c, '#b9553a', '#f4cf94');
+      var g = c.createRadialGradient(480, 540, 30, 480, 540, 520);
+      g.addColorStop(0, 'rgba(255,240,190,.95)'); g.addColorStop(0.3, 'rgba(255,200,120,.45)'); g.addColorStop(1, 'rgba(255,200,120,0)');
+      c.fillStyle = g; c.fillRect(0, 0, 1600, 900);
+      c.fillStyle = '#fff0c0'; daire(c, 480, 540, 84); c.fill();
+      tepeler(c, 520, 44, '#8a5a3c', 1.2);
+      kaleCiz(c, 1260, 530, 250, '#6b4630', 'yok');
+      tepeler(c, 590, 26, '#6b4630', 2.9);
+      c.fillStyle = '#7a5a3a'; c.fillRect(0, 620, 1600, 280);
+      siper(c, 520, 810, 7, 3);
+      // direk
+      c.lineCap = 'round';
+      c.strokeStyle = R.koyu; c.lineWidth = 14; c.beginPath(); c.moveTo(800, 700); c.lineTo(800, 320); c.stroke();
+      c.strokeStyle = '#7a5c3e'; c.lineWidth = 7; c.beginPath(); c.moveTo(800, 700); c.lineTo(800, 320); c.stroke();
+      // yemeni
+      var n = 26, ust = [], alt = [], i;
+      for (i = 0; i <= n; i++) {
+        var o = i / n, dal = Math.sin(t * 4 - o * 6) * 30 * o, x = 806 + o * 340, y = 340 + dal + o * 30;
+        ust.push([x, y]); alt.push([x, y + 160 * (1 - o)]);
+      }
+      c.beginPath();
+      ust.forEach(function (p) { c.lineTo(p[0], p[1]); });
+      alt.reverse().forEach(function (p) { c.lineTo(p[0], p[1]); });
+      c.closePath(); c.fillStyle = YEMENI; c.strokeStyle = R.koyu; c.lineWidth = 5; c.lineJoin = 'round'; c.fill(); c.stroke();
+      c.fillStyle = R.krem;
+      alt.forEach(function (p, k) { if (k % 3 === 1) { daire(c, p[0], p[1] - 12, 5); c.fill(); } });
+      // boş testi ve torba
+      c.fillStyle = '#b0703f'; c.strokeStyle = R.koyu; c.lineWidth = 5;
+      c.beginPath(); c.ellipse(640, 838, 50, 30, 0, 0, TAU); c.fill(); c.stroke();
+      c.beginPath(); c.ellipse(586, 838, 14, 20, 0, 0, TAU); c.fill(); c.stroke();
+      torba(c, 1010, 836, 1.2);
+      // rüzgârda eğilen otlar
+      c.strokeStyle = '#3a2a1c'; c.lineWidth = 4;
+      for (i = 0; i < 26; i++) {
+        var ox = (i * 127) % 1600, oy = 850 + (i * 53) % 46, eg = Math.sin(t * 2.2 + i) * 12 + 14;
+        c.beginPath(); c.moveTo(ox, oy); c.quadraticCurveTo(ox + eg * 0.4, oy - 22, ox + eg, oy - 40); c.stroke();
+      }
+      kuslar(c, t * 0.6, '#3a2a1c');
+      doku(c);
+    },
+
     // Görseli henüz hazır olmayan paneller için.
     bos: function (c) {
       gok(c, '#eadab4', '#dcc594');
@@ -681,6 +881,31 @@
       c.fillStyle = g; c.fillRect(0, 0, 400, 400);
       c.lineWidth = 6; c.strokeStyle = R.koyu; c.lineJoin = 'round'; c.lineCap = 'round';
       var kalpakli = tip === 'kalpakli';
+      function kumlama() {
+        var rs = IP.tohumluRastgele(3);
+        for (var i = 0; i < 1500; i++) { c.fillStyle = 'rgba(60,40,20,' + rs() * 0.12 + ')'; c.fillRect(rs() * 400, rs() * 400, 2, 2); }
+      }
+      if (tip === 'yemenili') {
+        // omuzlar, omuza inen yemeni, yüz
+        c.fillStyle = '#4f6d5c'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 300, 150, 290); c.lineTo(250, 290);
+        c.quadraticCurveTo(340, 300, 370, 400); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = YEMENI; c.beginPath(); c.moveTo(120, 150); c.quadraticCurveTo(92, 250, 122, 330); c.lineTo(278, 330);
+        c.quadraticCurveTo(308, 250, 280, 150); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = '#e2b98c'; c.beginPath(); c.ellipse(200, 196, 62, 76, 0, 0, TAU); c.fill(); c.stroke();
+        c.fillStyle = YEMENI;
+        c.beginPath(); c.moveTo(130, 196); c.quadraticCurveTo(112, 92, 200, 84); c.quadraticCurveTo(288, 92, 270, 196);
+        c.quadraticCurveTo(254, 134, 200, 130); c.quadraticCurveTo(146, 134, 130, 196); c.closePath(); c.fill(); c.stroke();
+        c.beginPath(); c.moveTo(144, 240); c.quadraticCurveTo(200, 296, 256, 240); c.lineTo(240, 312); c.lineTo(200, 296); c.lineTo(160, 312); c.closePath(); c.fill(); c.stroke();
+        c.fillStyle = R.krem;
+        [[150, 118], [200, 102], [250, 118], [124, 250], [276, 250], [180, 306], [220, 306]].forEach(function (n) { daire(c, n[0], n[1], 5); c.fill(); });
+        c.lineWidth = 5; c.beginPath(); c.moveTo(200, 180); c.quadraticCurveTo(192, 206, 204, 212); c.stroke();
+        c.fillStyle = R.koyu; daire(c, 174, 184, 6.5); c.fill(); daire(c, 226, 184, 6.5); c.fill();
+        c.beginPath(); c.moveTo(158, 168); c.quadraticCurveTo(174, 160, 188, 168); c.stroke();
+        c.beginPath(); c.moveTo(212, 168); c.quadraticCurveTo(226, 160, 242, 168); c.stroke();
+        c.beginPath(); c.arc(200, 224, 14, 0.2 * Math.PI, 0.8 * Math.PI); c.stroke();
+        kumlama();
+        return;
+      }
       if (tip !== 'sarikli' && !kalpakli) {
         c.fillStyle = R.sepya; c.beginPath(); c.moveTo(60, 400); c.quadraticCurveTo(200, 240, 340, 400); c.fill(); c.stroke();
         daire(c, 200, 180, 70); c.fill(); c.stroke();
@@ -736,9 +961,11 @@
         c.lineWidth = 4; c.beginPath(); c.moveTo(118, 112); c.quadraticCurveTo(200, 160, 282, 112); c.stroke();
         c.beginPath(); c.moveTo(126, 134); c.quadraticCurveTo(200, 176, 274, 134); c.stroke();
       }
-      var rs = IP.tohumluRastgele(3);
-      for (var i = 0; i < 1500; i++) { c.fillStyle = 'rgba(60,40,20,' + rs() * 0.12 + ')'; c.fillRect(rs() * 400, rs() * 400, 2, 2); }
+      kumlama();
     },
+
+    // Mini oyunların da kullandığı hazır çizimler.
+    kosan: kosan, siper: siper, torba: torba, kisi: kisi,
 
     // Rehber Telgrafçı Nuri (kurgusal karakter) — mavi tonlarla ayrılır.
     nuri: function (tuval) {

@@ -168,16 +168,20 @@
         (duz || e).appendChild(d);
       });
 
-      // Üstünde çok yakın başka bir konum varsa etiket iğnenin altına asılır (üst üste binmesin).
-      function altaMi(k) {
-        return IP.veri.kahramanlar.some(function (b) {
-          if (b === k || durumlar[b.id] === 'kilitli') return false;
-          var dy = k.konum.harita_y - b.konum.harita_y;
-          return dy > 0 && dy < 0.16 && Math.abs(k.konum.harita_x - b.konum.harita_x) < 0.1;
-        });
+      // Birbirine çok yakın konumların etiketleri üst üste binmesin diye:
+      // en üstteki konumun etiketi iğnenin üstünde kalır; altındaki tekse alta, iki taneyse sola ve sağa asılır.
+      function yerlesim(k) {
+        var kume = IP.veri.kahramanlar.filter(function (b) {
+          if (durumlar[b.id] === 'kilitli') return false;
+          return Math.abs(k.konum.harita_y - b.konum.harita_y) < 0.16 && Math.abs(k.konum.harita_x - b.konum.harita_x) < 0.1;
+        }).sort(function (a, b) { return a.konum.harita_y - b.konum.harita_y; });
+        if (kume.length < 2 || kume[0] === k) return '';
+        var alttakiler = kume.slice(1).sort(function (a, b) { return a.konum.harita_x - b.konum.harita_x; });
+        if (alttakiler.length < 2) return ' alt';
+        return alttakiler[0] === k ? ' sol' : (alttakiler[alttakiler.length - 1] === k ? ' sag' : ' alt');
       }
       function isaretEtiketi(d, k, durum) {
-        d.className = 'isaret ' + durum + (durum !== 'kilitli' && altaMi(k) ? ' alt' : '');
+        d.className = 'isaret ' + durum + (durum !== 'kilitli' ? yerlesim(k) : '');
         d.innerHTML = '';
         if (durum === 'tamam') {
           d.appendChild(IP.el('strong', null, k.ad));

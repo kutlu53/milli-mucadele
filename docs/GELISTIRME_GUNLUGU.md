@@ -77,3 +77,32 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Mini oyunun "kazanım" cümlesi de senaryoda yoktu; 3. hikâye panelinden türetildi.
 - "Yolu Tut" oyununun süreleri ve puanları dosyanın başındaki ayarlardan değiştirilebilir; pilot testte denenmeli.
 - Sıradaki kahraman Tayyar Rahmiye de Antep'te; haritadaki iğnesi Şahin Bey'inkine çok yakın, etiket yerleşimi o bölümde yeniden ele alınmalı.
+
+---
+
+## 2 Ekim 2026 — Tayyar Rahmiye'nin bölümü
+
+**Ne istendi?**
+- Şahin Bey'in bölümünün kaydedilip GitHub'a gönderilmesi, ardından üçüncü kahramana, Tayyar Rahmiye'ye geçilmesi.
+
+**Ne yapıldı?**
+- Şahin Bey'in bölümü kaydedildi ve GitHub'a gönderildi.
+- `data/heroes.json` dosyasına Tayyar Rahmiye'nin içeriği eklendi (senaryo belgesindeki taslaktan). Hepsi `"dogrulandi": false`; röportaj cevapları `[İÇERİK BEKLENİYOR]`.
+- **4 yeni hikâye çizimi:** sırtlarında torbalarla sipere yürüyen kadınlar ve çocuklar, siperler arasında koşan Rahmiye (arka plan hızla geriye akar), zor durumdaki sipere ulaşması (uyarı işareti umut ışığına döner), siperde rüzgârda dalgalanan bir yemeni. Silah ya da çatışma çizilmedi.
+- **Yeni portre:** yemenili temsilî çizim.
+- **Yeni mini oyun "Sipere Ulaştır"** (`games/sipere.js`): Rahmiye gece vakti damların üstünden koşar. Kısa dokunuş zıplatır (dam boşlukları ve sandıklar), basılı tutmak eğilip saklanmayı sağlar (devriye fenerinin ışığı). 3 siper, her biri bir öncekinden uzun ve hızlı. Cezası yok: ışığa yakalanan ya da sokağa düşen oyuncu biraz geriden devam eder. Süre dolarsa "tekrar dene / yıldızsız devam et" ekranı çıkar.
+- **Haritada etiket düzeni:** Maraş ve iki Antep konumu birbirine çok yakın. Artık üstteki etiket iğnenin üstünde, alttaki iki etiket iğnelerin solunda ve sağında duruyor; üst üste binmiyor.
+
+**Ne test edildi?**
+- Bölüm otomatik oynatıldı: 3 boyutlu (1366×768) ve 3 boyutsuz (1024×768). Hata çıkmadı, 3 yıldız kaydedildi.
+- Mini oyun iki biçimde oynatıldı: dikkatli oynayan test programı üç sipere de ulaştı (turlar 49, 55 ve 66 saniye sürdü); fenerlere hiç aldırmayan program 53 kez yakalandı, süre doldu ve "yıldızsız devam et" ile bölüm 2 yıldızla bitti.
+- Şahin Bey'in bölümü yeniden oynatıldı; bozulmadı.
+
+**Ne bulundu ve düzeltildi?**
+- İlk denemede Rahmiye zıpladıktan sonra dama basamayıp sokağa düşüyordu. Sebep: yavaş bilgisayarda iki kare arasında dam çizgisini "atlayıp" geçiyordu. Artık bir önceki karede damın üstündeyse dama basmış sayılıyor.
+
+**Açık konular**
+- Bonus soru ("Antep savunmasında kadınlar ve çocuklar hangi görevi üstlendi?") senaryo belgesinde yoktu; "Biliyor muydun?" metninden türetildi. Ekip onaylamalı.
+- Mini oyunun "kazanım" cümlesi senaryodaki "Duygu anı" satırından alındı. Ekip onaylamalı.
+- Tur süresi 120 saniye yapıldı (senaryoda tur başına yaklaşık 1 dakika yazıyor). Koşu hızı, boşluklar ve fener hızı `games/sipere.js` dosyasının başındaki ayarlardan değiştirilebilir; pilot testte denenmeli.
+- Sıradaki iş: Ajans Bülteni 1 (ilk üç kahramanın karışık tekrarı).

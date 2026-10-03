@@ -23,8 +23,8 @@ p { margin: 0; }
 #sahne.gizle { opacity: 0; }
 #efekt { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
 .ekran {
-  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 4.1rem 1rem 0.9rem; gap: 0.7rem;
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; justify-content: safe center;
+  padding: 4.1rem 1rem 0.9rem; gap: 0.7rem; overflow: hidden auto;
 }
 
 /* Üst şerit */
@@ -115,7 +115,7 @@ p { margin: 0; }
 .kod-tire { font: 700 1.6rem Daktilo, monospace; margin: 0 .3rem; }
 
 /* Prolog */
-.prolog { justify-content: flex-end; padding-bottom: 1.6rem; }
+.prolog { justify-content: flex-end; justify-content: safe flex-end; padding-bottom: 1.6rem; }
 .altyazi { width: min(52rem, 94vw); padding: 1rem 1.3rem; display: flex; flex-direction: column; gap: .6rem; animation: belir .4s; }
 .altyazi p { font-size: 1.15rem; min-height: 3.3em; }
 .altyazi-bas { display: flex; align-items: center; gap: .6rem; min-height: 1.2rem; }
@@ -225,7 +225,7 @@ p { margin: 0; }
 .gazete-haber canvas, .gazete-haber img { width: 3.6rem; height: 3.6rem; flex: none; border-radius: 50%; border: 3px solid var(--koyu); object-fit: cover; }
 .gazete-haber h3 { font: 900 1.05rem Manset, serif; color: var(--kirmizi); }
 .gazete-haber p { font-size: .85rem; line-height: 1.35; }
-.veda { justify-content: flex-end; padding-bottom: 5rem; gap: 1rem; }
+.veda { justify-content: flex-end; justify-content: safe flex-end; padding-bottom: 5rem; gap: 1rem; }
 .veda .nuri-balon { max-width: min(46rem, 94vw); }
 .veda .nuri-yazi { font: 700 1.5rem Manset, serif; }
 @media (max-width: 760px) { .gazete-sutunlar { columns: 1; } }
@@ -261,7 +261,7 @@ p { margin: 0; }
 .sunum-secici .dugme-sira { justify-content: flex-start; }
 
 /* Yolculuk */
-.yolculuk { justify-content: flex-end; padding-bottom: 12vh; pointer-events: none; }
+.yolculuk { justify-content: flex-end; justify-content: safe flex-end; padding-bottom: 12vh; pointer-events: none; }
 .yolculuk-yazi { position: relative; text-align: center; color: var(--krem); text-shadow: 0 4px 16px #000, 0 0 3px #000; padding: 0 2rem; }
 .yolculuk-yazi h1 { font: 700 clamp(2.4rem, 8vw, 6rem) Daktilo, monospace; letter-spacing: .12em; min-height: 1.2em; }
 .yolculuk-tarih { font: 700 1.6rem Manset, serif; color: var(--altin); }
@@ -534,4 +534,58 @@ p { margin: 0; }
   .panel-alt { flex-direction: column; }
   .panel-cerceve { width: 94vw; }
   .yildiz-sayac { display: none; }
+}
+
+/* Alçak ekranlar (yatay telefon): her şey biraz küçülür, dokunma alanları 48 px kalır */
+@media (max-height: 520px) {
+  :root { --b: 13px; }
+  #ust { height: 3rem; padding: 0 .5rem; }
+  .ekran { padding: 3.2rem .8rem .5rem; gap: .45rem; }
+  .ust-orta .adim:not(.aktif) { display: none; }
+  .acilis { padding-bottom: .4rem; gap: .3rem; }
+  .acilis-baslik { margin-top: 0; }
+  .acilis-baslik h1 { font-size: 1.8rem; padding: .05em .3em; }
+  .acilis-ust { font-size: .8rem; margin-bottom: 0; }
+  .acilis-alt { display: none; }
+  .acilis-panel { padding: .45rem 1rem; gap: .3rem; }
+  .kod-deger { font-size: 1.5rem; }
+  .ad-giris { min-height: 44px; }
+  .prolog { padding-bottom: .5rem; }
+  .altyazi { padding: .6rem .9rem; gap: .4rem; }
+  .altyazi p { font-size: 1rem; min-height: 2.2em; }
+  .harita2b { width: min(96vw, calc((100vh - 9.5rem) * 2.16)); }
+  .defter-serit { padding: .3rem .8rem; }
+  .yolculuk { padding-bottom: 4vh; }
+  .panel-cerceve { width: min(94vw, calc((100vh - 13rem) * 16 / 9)); border-width: 4px; }
+  .panel-alt { min-height: 0; gap: .5rem; }
+  .panel-metin { font-size: 1rem; padding: .4rem .8rem; }
+  .oyun-ust h2 { font-size: 1.1rem; }
+  .portre-cerceve { width: 5.2rem; }
+  .portre-ad { font-size: 1rem; }
+  /* Röportajda üst bölüm sıkışmasın: gerekirse ekran kaydırılır */
+  .roportaj { justify-content: flex-start; }
+  .rop-ust { flex: none; min-height: 9rem; }
+  .rop-sol { align-items: flex-start; gap: .7rem; }
+  .defter { min-height: 9rem; }
+  .balon { padding: .4rem .8rem; }
+  .balon.cevap { min-height: 3.4rem; font-size: 1rem; }
+  .rop-sorular { gap: .4rem; }
+  .gazete { padding: .6rem 1rem; gap: .4rem; }
+  .spot { line-height: 2; font-size: 1rem; }
+  .bonus-kart { padding: .6rem 1rem; gap: .3rem; }
+  .bonus-kart h2 { font-size: 1.3rem; }
+  .bonus-metin { font-size: 1rem; }
+  .bonus-soru { gap: .4rem; }
+  .bonus-soru h3 { font-size: 1.1rem; }
+  .sayfa-govde { gap: 1rem; }
+  .defter-sayfasi { padding: .7rem 1rem; gap: .3rem; }
+  .defter-sayfasi h2 { font-size: 1.6rem; }
+  .yildiz-sekil { font-size: 2rem; }
+  .kart { width: clamp(9rem, 44vh, 15rem); }
+  .veda { padding-bottom: 1rem; }
+  .bulten-kart { padding: .6rem 1rem .8rem; gap: .5rem; }
+  .bulten-kart h2 { font-size: 1.3rem; }
+  .bulten-ifade { font-size: 1.1rem; }
+  .zafer-gazete { padding: .6rem 1rem .8rem; }
+  .ogretmen { padding: .6rem 1rem; gap: .4rem; }
 }

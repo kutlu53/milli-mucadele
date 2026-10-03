@@ -520,3 +520,26 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 **Açık konular**
 - **Fotoğrafların kimliği doğrulanmalı.** Commons kayıtlarının ilk kaynağı Tayyar Rahmiye'de bir resim paylaşım sitesi, Kara Fatma'da bir blog, Makbule'de bir haber sitesi: zayıf. Ekip bu fotoğrafları güvenilir bir kaynakta (ATAM, hakemli makale, valilik) görürse `dogrulandi: true` yapmalı; göremezse fotoğrafı kaldırıp `temsili: true` çizime dönmeli. Yunus Nadi (TBMM Albümü) ve Halide Edib (kütüphane koleksiyonu) daha güçlü.
 - Sütçü İmam ve Halime Çavuş'un fotoğrafları kurum sayfalarında var; ekip izinli bir kopya bulursa `assets/portre/` içine koyup `dosya` alanına yazması yeterli.
+
+---
+
+## 3 Ekim 2026 — Yatay telefon ve tablet uyarlaması
+
+**Ne istendi?**
+- Oyun yatay telefonda ve tablette de kullanılabilsin.
+
+**Ne yapıldı?**
+- **Sorun:** Ekran yüksekliği azalınca (yatay telefon ≈ 390 px) içerik ekrana sığmıyor ve kesiliyordu; açılışta "Göreve başla" düğmesi bile görünmüyordu. Çünkü ekranlar sabit boyda ve kaydırma kapalıydı.
+- **İki çözüm birlikte:**
+  1. Her ekran, içerik sığmazsa **dikey kaydırılabilir** oldu (`.ekran { overflow: hidden auto }`). Ortalanmış içerik taşınca üstü kesilmesin diye `justify-content: safe center` kullanıldı (eski tarayıcılar bu satırı atlar, bir önceki satır geçerli kalır).
+  2. **520 px'den alçak ekranlar için ayrı bir ölçek seti** (`@media (max-height: 520px)`): temel yazı boyu 13 px, üst şerit 3 rem, açılış başlığı küçük, alt başlık gizli, hikâye paneli ve harita daha küçük hesaplanıyor, portre 5.2 rem, röportaj/haber/bonus/sayfa kutularında boşluklar azaltıldı, adım çipleri yalnızca aktif olanı gösteriyor. **Düğmeler 48 px'in altına inmiyor.**
+- Tablet (1024×768, 1180×820) bu kuraldan etkilenmez; önceki görünüm aynen kalır.
+
+**Ne test edildi?**
+- **844×390 (yatay telefon):** Sütçü İmam tam döngü, Kara Fatma (köy + görev yerleri), Ajans Bülteni 1 (bilerek hatalı eşleştirme dahil), Final (gazete, Büyük Bülten, veda) ve öğretmen paneli otomatik oynatıldı. Hata yok; her ekranda düğmeler ulaşılabilir. Röportajda uzun cevapta ekran kaydırılarak sorulara iniliyor.
+- **1024×768 ve 1180×820 (tablet):** Sütçü İmam ve Kara Fatma döngüleri yeniden oynatıldı; düzen eskisi gibi, hata yok.
+- Gerçek bir telefon ve tablette dokunarak denenmedi (ekibin yapması gereken deneme).
+
+**Açık konular**
+- 360 px yükseklikteki küçük Android telefonlarda da çalışır ama daha çok kaydırma gerekir; oyunun asıl hedefi akıllı tahta ve tablet olduğu için telefon "yedek" seçenek olarak düşünülmeli.
+- Sürükle-bırak (Haberi Yaz) telefonda parmakla denenmeli: kelime sürüklenirken sayfa kaymamalı (`touch-action: none` var).

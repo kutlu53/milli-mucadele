@@ -160,14 +160,16 @@ Başvurunun Ocak ortası civarında kapanacağı varsayımına dayanır. Kesin t
 |---|---|---|---|---|
 | 1 | Sütçü İmam | Cephe — Güney | Maraş | ☐ |
 | 2 | Şahin Bey | Cephe — Güney | Antep | ☐ |
-| 3 | Tayyar Rahmiye | Cephe — Güney | Antep | ☐ |
-| 4 | Kara Fatma (Fatma Seher Erden) | Cephe — Batı | Erzurum → Batı Cephesi | ☐ |
+| 3 | Tayyar Rahmiye (kaynaklarda: Rahime Hatun) | Cephe — Güney | Osmaniye | ☐ |
+| 4 | Kara Fatma (Fatma Seher) | Cephe — Batı | Erzurum (memleketi) · Batı Cephesi | ☐ |
 | 5 | Gördesli Makbule | Cephe — Batı | Gördes (Manisa) | ☐ |
 | 6 | Halime Çavuş | Lojistik | Kastamonu | ☐ |
 | 7 | Şerife Bacı | Lojistik | İnebolu – Kastamonu | ☐ |
 | 8 | Halide Edib Adıvar | Basın-yayın | İstanbul → Ankara | ☐ |
 | 9 | Yunus Nadi | Basın-yayın | Ankara | ☐ |
 | 10 | Mehmet Âkif Ersoy | Basın-yayın | Kastamonu → Ankara | ☐ |
+
+**Kaynak taraması (3 Ekim 2026):** Yapay zekâ destekli bir ön tarama yapıldı; bulunan kaynaklar `data/kaynaklar.json` dosyasında, bilgi bilgi karşılaştırma `docs/KAYNAK_RAPORU.md` dosyasında. Tablodaki "doğrulama durumu" kutuları bilerek boş bırakıldı: kutuyu ekip, kaynağı kendi okuduktan sonra işaretler.
 
 **Not:** Doğu Cephesi'nden bir kahraman yok. Jüri sorabilir. Ya listeye bir isim eklenmeli ya da raporda seçim ölçütleri açıklanmalı (ör. "Güney ve Batı cephelerinde halk direnişinin öne çıktığı örnekler seçildi").
 

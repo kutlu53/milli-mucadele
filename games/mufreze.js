@@ -1,6 +1,6 @@
 /* Mini oyun: "Müfrezeni Kur"
    1. aşama — Gönüllü toplama: Köydeki kişilerle konuşulur. Her görev, o işi bilen kişiyle eşleştirilir.
-   2. aşama — Rota: Yoldaki duraklar doğru sıraya dizilir. Duraklar heroes.json dosyasında henüz
+   2. aşama — Rota: Kahramanın görev yerleri doğru sıraya dizilir. Duraklar heroes.json dosyasında henüz
       yazılı değilse ("[İÇERİK BEKLENİYOR]") bulmaca atlanır, müfreze yalnızca yola çıkar.
    Köylüler kurgusaldır; ekranda bu belirtilir. Cezası yok: yanlış eşleştirmede tekrar denenir.
    Ortak arayüz: start(container, heroData) → Promise<{completed, durationSec, details}> */
@@ -108,7 +108,7 @@
                 } else {
                   hata.rota++; IP.ses.cal('yanlis');
                   d.classList.remove('yanlis'); void d.offsetWidth; d.classList.add('yanlis');
-                  mesajYaz('Sıradaki durak bu değil. Yola en yakın durağı düşün.');
+                  mesajYaz(rota.ipucu ? 'İpucu: ' + rota.ipucu : 'Sıradaki yer bu değil. Bir daha dene.', 5200);
                 }
               });
               tepsi.appendChild(d);
@@ -164,7 +164,7 @@
           asama = 'rota'; balon = null; yolU = 0; durakSira = 0;
           hedefU = rotaHazir ? 0 : 1;
           tepsiCiz(); gostergeYaz();
-          mesajYaz(rotaHazir ? 'Durakları ' + (rota.baslangic || '') + ' çıkışından başlayarak sırayla seç.' : 'Müfreze yola çıktı!', 4000);
+          mesajYaz(rotaHazir ? (rota.yonerge || 'Durakları sırasıyla seç.') : 'Müfreze yola çıktı!', 4000);
         }
         function yolNokta(u) { return [160 + 1280 * u, 660 + Math.sin(u * 6) * 46]; }
 

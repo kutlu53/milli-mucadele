@@ -1,5 +1,6 @@
-/* Mini oyun: "Sipere Ulaştır"
-   Yandan görünüşlü koşu oyunu. Kahraman gece vakti damların üstünden koşarak yükünü sipere taşır.
+/* Mini oyun: "Müfrezeye Ulaştır" (senaryodaki adıyla "Sipere Ulaştır")
+   Yandan görünüşlü koşu oyunu. Kahraman gece vakti damların üstünden koşarak yükünü hedefe taşır.
+   Hedefin adı (ör. "müfreze") heroes.json dosyasından gelir.
    Kısa dokunuş = zıpla, basılı tut = eğil ve saklan. Devriye fenerinin ışığına yakalanmamak gerekir.
    Cezası yok: ışığa yakalanan ya da sokağa düşen oyuncu biraz geriden yeniden dener.
    Ortak arayüz: start(container, heroData) → Promise<{completed, durationSec, details}> */
@@ -54,7 +55,7 @@
         var mo = heroData.mini_oyun || {};
         var TUR = Math.max(1, Math.min(AYAR.length, mo.tur_sayisi || 3));
         var SURE = mo.tur_sure_sn || 90;
-        var yukler = mo.yukler || [];
+        var yukler = mo.yukler || [], HEDEF = mo.hedef_adi || 'hedef';
         var rs = IP.tohumluRastgele(53), yildizlar = [], i;
         for (i = 0; i < 80; i++) yildizlar.push([rs(), rs() * 0.6, rs() * 6]);
 
@@ -91,7 +92,7 @@
           mesajYaz.z = setTimeout(function () { mesaj.classList.remove('goster'); }, sure || 2600);
         }
         function gostergeYaz() {
-          turYazi.textContent = 'Siper ' + Math.min(tur + 1, TUR) + ' / ' + TUR;
+          turYazi.textContent = 'Yük ' + Math.min(tur + 1, TUR) + ' / ' + TUR;
           sureYazi.textContent = '⏱ ' + Math.max(0, Math.ceil(kalan)) + ' sn';
           sureYazi.classList.toggle('az', kalan < 15);
         }
@@ -109,7 +110,7 @@
           o = { x: 0, h: 0, vy: 0, yerde: true, egik: false, sersem: 0, sonDam: 0 };
           kalan = SURE; basili = false; zipIstek = 0; faz = 'kosu';
           gostergeYaz();
-          mesajYaz(yukler[tur] ? 'Yükün: ' + yukler[tur] + '. Sipere ulaştır!' : 'Yükünü sipere ulaştır!', 3200);
+          mesajYaz(yukler[tur] ? 'Yükün: ' + yukler[tur] + '. Yerine ulaştır!' : 'Yükünü yerine ulaştır!', 3200);
         }
 
         function turBitti() {
@@ -117,10 +118,10 @@
           tur++;
           if (tur >= TUR) { bitir(true); return; }
           faz = 'ara';
-          kaplama(tur + '. sipere ulaştın!', [
+          kaplama(tur + '. yük yerine ulaştı!', [
             yukler[tur - 1] ? 'Ulaştırdığın yük: ' + yukler[tur - 1] : '',
             'Sıradaki yol daha uzun, fenerler daha hızlı.'
-          ], [['Sonraki siper ▶', turBaslat]]);
+          ], [['Sonraki yük ▶', turBaslat]]);
         }
 
         function bitir(tamam) {
@@ -131,10 +132,10 @@
           };
           if (tamam) {
             IP.ses.cal('zafer'); IP.efekt.patlat(window.innerWidth / 2, window.innerHeight / 2, 80);
-            kaplama('Yükler siperlere ulaştı!', [mo.kazanim || '', 'Fenere yakalanma: ' + sayac.gorulme], [['Devam ▶', function () { kapat(); coz(sonuc); }]]);
+            kaplama('Bütün yükler ulaştı!', [mo.kazanim || '', 'Fenere yakalanma: ' + sayac.gorulme], [['Devam ▶', function () { kapat(); coz(sonuc); }]]);
           } else {
             kaplama('Süre doldu', [
-              'Üzülme, cezası yok. Bu siperi baştan deneyebilirsin.',
+              'Üzülme, cezası yok. Bu yolu baştan deneyebilirsin.',
               'İpucu: Işık yaklaşınca basılı tut ve bekle. Işık uzaklaşınca bırak.'
             ], [
               ['Tekrar dene', turBaslat],
@@ -320,7 +321,7 @@
             IP.cizim.kisi(c, yol.siperX + 70, DAM_Y - 8, 0.42, { bas: 'fes', govde: '#6b5a4a', yon: -1, kol: 'yukari' });
             IP.cizim.kisi(c, yol.siperX + 125, DAM_Y - 8, 0.42, { bas: 'sarik', govde: '#55657a', yon: -1 });
             c.save(); c.translate(yol.siperX, DAM_Y); c.scale(0.45, 0.45); IP.cizim.siper(c, 0, 0, 5, 3); c.restore();
-            yazi(IP.buyukHarf('Siper'), yol.siperX + 80, DAM_Y - 110, 20);
+            yazi(IP.buyukHarf(HEDEF), yol.siperX + 80, DAM_Y - 110, 20);
           }
 
           // ilk turda öğretici yazılar
@@ -382,7 +383,7 @@
           mo.aciklama || '',
           '• Kısa dokun: zıpla. Dam boşluklarının ve sandıkların üstünden atla.',
           '• Basılı tut: eğil ve saklan. Fenerin ışığı üstünden geçene kadar bekle.',
-          '• ' + TUR + ' sipere de yükünü ulaştır. Her siper için ' + SURE + ' saniyen var.'
+          '• ' + TUR + ' yükü de yerine ulaştır. Her yük için ' + SURE + ' saniyen var.'
         ], [['Başla ▶', turBaslat]]);
       });
     }

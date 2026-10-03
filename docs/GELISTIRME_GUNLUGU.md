@@ -417,3 +417,64 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - İçerik doğrulanana kadar gazetede ve yazdırılan kâğıtta "TASLAK İÇERİK" damgası görünüyor.
 - Gazete gerçek bir yazıcıda (okul yazıcısı, A4) denenmeli.
 - **Kalan işler:** öğretmen paneli (gizli giriş, ilerleme, tümünü aç, sunum modu, CSV dışa aktarma, sıfırlama); ardından pilot test ve içeriğin kaynaklarla doğrulanması.
+
+---
+
+## 3 Ekim 2026 — Öğretmen paneli ve CSV dışa aktarma
+
+**Ne istendi?**
+- Finalin GitHub'a gönderilmesi ve öğretmen panelinin yapılması.
+
+**Ne yapıldı?**
+- Final kaydedildi ve GitHub'a gönderildi.
+- **Yeni ekran: öğretmen paneli (`js/teacher.js`).**
+  - **Gizli giriş:** Açılış ekranındaki "İSTİKLAL POSTASI" yazısına 5 kez dokunulur, sonra rakam düğmeleriyle 4 haneli PIN girilir (klavye gerekmez). İlk PIN **2204**; panelden değiştirilebilir.
+  - **Sınıf hedefi:** Bu cihazdaki bütün öğrenci kodlarının toplam canlandırdığı sayfa sayısı ve bir ilerleme çubuğu. Bireysel sıralama tablosu yok.
+  - **İlerleme tablosu:** Her öğrenci kodu için on kahramanın yıldızları, üç bültenin puanı ve toplam yıldız.
+  - **Veriyi indir (CSV):** Araştırmanın oyun içi verilerini tek dosya olarak indirir. Alanlar senaryodaki gibi: `ogrenci_kodu, kahraman_id, mini_oyun_sure_sn, mini_oyun_tamam, haber_deneme_sayisi, bonus_dogru, yildiz, bulten_no, bulten_dogru, toplam_sure_dk, tarih`. Her kahraman sonucu ve her bülten sonucu ayrı bir satırdır.
+  - **Tüm bölümler: açık / sırayla:** Tanıtım ve sunum için kilitleri kaldırır. Açıkken haritada "Tanıtım modu: tüm bölümler açık." yazar.
+  - **Sunum modu:** Seçilen kahramanın hikâye panelleri akıllı tahtada sınıfa okutulur; kayıt tutulmaz.
+  - **Sıfırlama:** Tek öğrenci ya da bütün cihaz. Yanlışlıkla silinmesin diye düğmeye iki kez dokunmak gerekir ("Emin misin?").
+- Veriler yalnızca o cihazın tarayıcısında durur; hiçbir yere gönderilmez. İsim tutulmaz, yalnızca anonim kod.
+
+**Ne test edildi?**
+- Panel üç deneme öğrenci koduyla otomatik denendi (1366×768): yanlış PIN reddedildi, doğru PIN paneli açtı; tablo ve sınıf hedefi doğru göründü; CSV metni beklenen satırları üretti; "tüm bölümler açık" seçilince haritada kalan 7 konumun hepsi açıldı; sunum modunda hikâye paneli açıldı; tek öğrenci iki dokunuşla silindi. Hata çıkmadı.
+- CSV dosyasının gerçekten indirilip bir tablo programında açılması elle denenmeli.
+
+**Açık konular**
+- **CSV ayırıcı:** Sütunlar noktalı virgülle (;) ayrılıyor, çünkü Türkçe ayarlı tablo programları virgülü ondalık işareti sayıyor. Analizde başka bir araç kullanılacaksa ayırıcı değiştirilebilir.
+- **Bülten satırlarında** `bulten_dogru` ilk denemedeki doğru sayısıdır; `toplam_sure_dk` bültenin süresidir.
+- **PIN güvenlik değildir:** Yalnızca öğrencinin paneli yanlışlıkla açmasını önler. İlk PIN herkese açık kodda yazılı olduğu için öğretmen kendi PIN'ini belirlemeli.
+- Her cihaz kendi verisini tutar. Sınıfta birden çok bilgisayar varsa CSV her birinden ayrı ayrı indirilip birleştirilmeli.
+- "Tüm bölümler açık" seçeneği araştırma uygulamasında kapalı tutulmalı (deneyde herkes aynı sırayı izlesin diye).
+- **Yazılım tarafında senaryodaki bütün parçalar tamam.** Kalan işler: içeriğin iki kaynakla doğrulanması ve röportaj cevapları, eksik içerikler (Kara Fatma rota durakları, İstiklal Marşı dizeleri), ekibin onaylayacağı türetilmiş metinler, pilot test ve zorluk ayarı, okul bilgisayarı/akıllı tahta/yazıcı denemeleri.
+
+## 3 Ekim 2026 — Kaynak taraması ve içerik düzeltmeleri
+
+**Ne istendi?**
+- Oyundaki taslak tarihî bilgilerin güvenilir kaynaklarla karşılaştırılması; yanlış ya da kaynaksız bilgilerin ayıklanması.
+
+**Ne yapıldı?**
+- Yapay zekâ destekli bir **kaynak taraması** yapıldı. On kahraman için toplam ~100 kaynak okundu (Atatürk Ansiklopedisi, TDV İslâm Ansiklopedisi, DergiPark'taki hakemli makaleler, valilik sayfaları). Haber siteleri yalnızca not olarak tutuldu, "iki kaynak" sayımına girmedi.
+- **Yeni dosyalar:** `data/kaynaklar.json` (kaynak künyeleri ve kodları: K1, K2…) ve `docs/KAYNAK_RAPORU.md` (her bilgi için: iki kaynak / tek kaynak / çelişki / bulunamadı sonucu, kaynak alıntıları ve işaretlenecek kutular).
+- `data/heroes.json` sürüm **0.2-kaynak-taramasi** oldu. Her bilginin yanına kaynak kodları yazıldı. Kaynakta bulunamayan ya da çelişen cümleler daha genel ifadelerle değiştirildi. Önemli düzeltmeler:
+  - **Tayyar Rahmiye** Antepli değil **Osmaniyeli**dir (kaynaklarda "Rahime Hatun"). Mini oyunun hedefi "siper" yerine veriden gelen "müfreze" oldu (`games/sipere.js`).
+  - **Şahin Bey:** "Şehre hazırlanmak için zaman kazandırdı" düşüncesi kaynaklarda yok; kaynaklar "Antep'teki işgal birliklerine yardımı engelledi" diyor. Mini oyun göstergesi "şehir hazırlığı" yerine **"yol tutuldu"** oldu (`games/yolutut.js`).
+  - **Halime Çavuş:** "Asıl adı Kezban" bilgisi hiçbir kaynakta yok; kaynaklarda adı Halime (Kocabıyık). "Halim" adı yalnızca anlatıda geçiyor, "Anlatılanlara göre" ile kullanılıyor.
+  - **Gördesli Makbule:** "Efe kıyafeti" bulunamadı; çizimde efe kıyafeti kaldırıldı, koyu giysi ve siyah başlık çizildi (`js/cizim.js`).
+  - **Kara Fatma:** Kaynaklar yolculuğun Erzurum'dan değil İstanbul'dan başladığını, görüşmenin Sivas'ta olduğunu söylüyor. Rota aşaması "yoldaki duraklar" yerine **"görev yerleri sırası"** oldu; yönerge ve ipucu veriden geliyor (`games/mufreze.js`).
+  - **Halide Edib:** Konuşma 23 Mayıs 1919'daki ilk Sultanahmet Mitingi; ajans fikri Akhisar (Geyve) istasyonunda doğdu. "Siyah pankart" yerine kaynaklardaki "siyah bayrak".
+  - **Sütçü İmam:** "Ahmet İmam" adı kaynaklarda yok. Hamamın adı (Uzunoluk / Çukur) ve "Kahraman" unvanı günü gibi çelişkiler rapora işlendi.
+- Bültenler (`data/bulletins.json`) ve `docs/OYUN_SENARYOSU.md`, `docs/PROJE_BILGILERI.md` bu düzeltmelere göre güncellendi. Senaryonun 5. bölümü ilk taslak olarak korundu, başına uyarı notu eklendi.
+
+**Ne test edildi?**
+- heroes.json ve heroes.veri.js dosyalarının geçerli JSON olduğu ve içeriklerinin aynı olduğu kontrol edildi.
+- Değişen mini oyunlar (Yolu Tut, Sipere Ulaştır, Müfrezeni Kur) açılıp yeni metinlerin göründüğü denendi.
+
+**Açık konular**
+- **Bu tarama doğrulama değildir.** heroes.json'daki 88 bilginin hepsi hâlâ `dogrulandi: false`. Ekip, KAYNAK_RAPORU.md'deki her kaynağı kendi gözüyle okuyup kutuyu işaretleyecek; iki kaynağı işaretlenen bilgi `true` yapılacak.
+- Bazı alıntılar sayfanın özetinden alındı; kurum sayfalarındaki alıntılar sayfada harfi harfine aranmalı.
+- Akademik kaynakların bir kısmı aynı kök esere dayanıyor (ör. Kara Fatma için Tansel); "iki bağımsız kaynak" kuralı bu durumlarda dikkatle uygulanmalı.
+- Röportaj cevapları hâlâ yer tutucu; PROJE_BILGILERI.md §8'deki akışla üretilip cümle cümle doğrulanacak.
+- Kara Fatma görev yerleri sırası ve İstiklal Marşı dizeleri hâlâ eksik.
+- Sütçü İmam'ın "Kahraman" unvanı sorusu, onun ölümünden (1922) sonraki bir olayı (1973) soruyor; soru yeniden düşünülmeli.

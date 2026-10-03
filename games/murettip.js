@@ -75,7 +75,7 @@
           asama = 'dizgi'; harfNo = 0; gostergeYaz();
           panel.innerHTML = ''; panel.className = 'dizgi-panel';
           var hedef = IP.el('div', 'dizgi-hedef kagit');
-          hedef.appendChild(IP.el('small', null, 'Dizilecek manşet'));
+          hedef.appendChild(IP.el('small', null, 'Dizilecek manşet' + (mo.manset_etiketi ? ' · ' + mo.manset_etiketi : '')));
           hedef.appendChild(IP.el('strong', null, manset.join('')));
           var cubuk = IP.el('div', 'dizgi-cubuk');
           yuvalar = manset.map(function () { var y = IP.el('span', 'dizgi-yuva'); cubuk.appendChild(y); return y; });

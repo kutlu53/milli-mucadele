@@ -1135,7 +1135,7 @@
       doku(c);
     },
 
-    // 2. Efe kıyafeti: Makbule ve eşi dağ yoluna çıkar.
+    // 2. Makbule (koyu giysili, siyah başlıklı) eşi Halil Efe'nin ardından dağ yoluna çıkar.
     efe_kiyafet: function (c, t) {
       gok(c, '#f3dba6', '#eccb8e');
       c.fillStyle = 'rgba(255,248,220,.85)'; daire(c, 300, 180, 60); c.fill();
@@ -1149,7 +1149,7 @@
       ev(c, 80, 760, 230, 150, { cati: 'kiremit', renk: '#e2cfa4' });
       [[420, 640, 1.2], [1250, 470, 0.9], [1420, 660, 1.5], [1100, 760, 1.6], [620, 600, 1]].forEach(function (a) { cam(c, a[0], a[1], a[2]); });
       kisi(c, 990, 716 - Math.abs(Math.sin(t * 4 + 1)) * 6, 1.35, { bas: 'efe', govde: '#3d4f6b', kusak: '#8a3a2a' });
-      kisi(c, 760, 808 - Math.abs(Math.sin(t * 4)) * 6, 1.55, { bas: 'efe', govde: '#4a5a3a', kusak: R.kirmizi });
+      kisi(c, 760, 808 - Math.abs(Math.sin(t * 4)) * 6, 1.55, { bas: 'kalpak', uzun: true, govde: '#2b2630' });
       kuslar(c, t);
       doku(c);
     },
@@ -1844,7 +1844,7 @@
       g.addColorStop(0, '#ecd9ad'); g.addColorStop(1, '#b89868');
       c.fillStyle = g; c.fillRect(0, 0, 400, 400);
       c.lineWidth = 6; c.strokeStyle = R.koyu; c.lineJoin = 'round'; c.lineCap = 'round';
-      var genc = tip === 'kalpakli_genc', sakalli = tip === 'kalpakli_sakalli', kalpakli = tip === 'kalpakli' || genc || sakalli;
+      var siyahBaslikli = tip === 'siyah_baslikli', genc = tip === 'kalpakli_genc' || siyahBaslikli, sakalli = tip === 'kalpakli_sakalli', kalpakli = tip === 'kalpakli' || genc || sakalli;
       function kumlama() {
         var rs = IP.tohumluRastgele(3);
         for (var i = 0; i < 1500; i++) { c.fillStyle = 'rgba(60,40,20,' + rs() * 0.12 + ')'; c.fillRect(rs() * 400, rs() * 400, 2, 2); }
@@ -1927,7 +1927,7 @@
         return;
       }
       // omuzlar ve cübbe
-      c.fillStyle = kalpakli ? '#6b6a4a' : '#5f6f52'; c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 290, 150, 280); c.lineTo(250, 280);
+      c.fillStyle = siyahBaslikli ? '#2b2630' : (kalpakli ? '#6b6a4a' : '#5f6f52'); c.beginPath(); c.moveTo(30, 400); c.quadraticCurveTo(60, 290, 150, 280); c.lineTo(250, 280);
       c.quadraticCurveTo(340, 290, 370, 400); c.closePath(); c.fill(); c.stroke();
       if (kalpakli) {
         // dik yaka ve düğmeler

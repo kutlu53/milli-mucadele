@@ -79,6 +79,39 @@
       return Object.keys(ks).filter(function (id) { return ks[id].tamam; }).length;
     },
 
+    /* ----- Öğretmen paneli için ----- */
+    // Bu cihazda kaydı bulunan bütün öğrenci kodları.
+    tumKodlar: function () {
+      var kodlar = [];
+      try {
+        for (var i = 0; i < localStorage.length; i++) {
+          var a = localStorage.key(i);
+          if (a.indexOf(ON_EK) === 0) kodlar.push(a.slice(ON_EK.length));
+        }
+      } catch (e) {
+        Object.keys(yedek).forEach(function (a) { if (a.indexOf(ON_EK) === 0) kodlar.push(a.slice(ON_EK.length)); });
+      }
+      return kodlar.sort();
+    },
+
+    kayitOku: function (kod) {
+      try { return JSON.parse(oku(ON_EK + kod)); } catch (e) { return null; }
+    },
+
+    sil: function (kod) {
+      try { localStorage.removeItem(ON_EK + kod); } catch (e) { delete yedek[ON_EK + kod]; }
+      if (this.kod === kod) { this.kod = null; this.veri = null; }
+    },
+
+    hepsiniSil: function () {
+      var self = this;
+      this.tumKodlar().forEach(function (kod) { self.sil(kod); });
+    },
+
+    // Cihaz ayarları (öğretmen PIN'i, "tüm bölümler açık" seçeneği).
+    ayarOku: function (ad) { return oku('ip_ayar_' + ad) || ''; },
+    ayarYaz: function (ad, deger) { yaz('ip_ayar_' + ad, deger); },
+
     sifirla: function () {
       this.veri = { ogrenci_kodu: this.kod, prolog_goruldu: false, kahramanlar: {} };
       this.kaydet();

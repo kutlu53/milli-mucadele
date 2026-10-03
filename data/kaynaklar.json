@@ -1,0 +1,1247 @@
+{
+  "aciklama": "Kaynak taramasında (3 Ekim 2026) açılıp okunan kaynaklar. 'tur': 'haber' olanlar zayıf kaynaktır ve iki kaynak sayımına girmez. Künyesi eksik olanlar 'not' alanında belirtilmiştir; ekip tamamlamalıdır.",
+  "kaynaklar": [
+    {
+      "kod": "K1",
+      "baslik": "Sütçü İmam (1871-1922)",
+      "yazar": "Nejla Günay",
+      "yayinci": "Atatürk Araştırma Merkezi — Atatürk Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/311/S%C3%BCt%C3%A7%C3%BC-%C4%B0mam-(1871-1922)",
+      "erisim": "2026-10-03",
+      "not": "Birinci öncelikli kaynak (ATAM). Sayfa tarayıcıda sonradan yüklenen bir uygulama olduğu için WebFetch yalnızca başlığı gösterdi; madde metni sitenin kendi açık veri adresinden (apiko.ayk.gov.tr/v1/1/itemPublic/byId/311) okundu. Yazar S3 ile aynı kişi: S1 ve S3 birbirinden bağımsız sayılmadı.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K2",
+      "baslik": "KAHRAMANMARAŞ",
+      "yazar": "Tufan Gündüz; Metin Tuncel; Hamza Gündoğdu",
+      "yayinci": "TDV İslâm Ansiklopedisi (c. 24, 2001)",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/kahramanmaras",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir ansiklopedi maddesi. Olayı kısaca anlatır; olayın gününü vermez.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K3",
+      "baslik": "Milli Mücadelenin İlk Zaferi: Maraş Millî Mücadelesi ve Maraş’ın Kahramanlığı",
+      "yazar": "Nejla Günay",
+      "yayinci": "Türkiyat Mecmuası (İstanbul Üniversitesi), 29, Millî Mücadele Özel Sayısı, 2019, s. 47-74",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/901654",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi, arşiv belgelerine dayanır. PDF indirildi ve metni okundu. Yazarı S1 ile aynı.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K4",
+      "baslik": "Maraş Savunması Taşınmaz Kültürel Mirası",
+      "yazar": "Veysel Özbey",
+      "yayinci": "Kahramanmaraş Sütçü İmam Üniversitesi Sosyal Bilimler Dergisi, 17 (Özel Sayı), 2020, s. 202-218",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/1031278",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi (mimarlık/kültürel miras). Tarih bilgisini ikincil kaynaklardan (Eyicil, Ünalp, Özalp) aktarır. PDF metni okundu.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K5",
+      "baslik": "TBMM Tarafından Maraş’a İstiklal Madalyası Verilmesi ve Şair Mehmet Tâhir Nâdî Bey’in Madalya Kasidesi",
+      "yazar": "Erhan Alpaslan; Sadi Gedik",
+      "yayinci": "KSÜ Sosyal Bilimler Dergisi, 15 (1), 2018",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/473227",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi. PDF metni okundu. S4 ile aynı dergide yayımlanmış ama farklı yazar ve farklı çalışma.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K6",
+      "baslik": "Birinci Dünya Harbi Sonunda Maraş’ın İtilaf Devletlerince İşgali ve Maraş Savunması",
+      "yazar": "F. Rezzan Ünalp",
+      "yayinci": "Gazi Akademik Bakış, 11 (22), Yaz 2018, s. 205-235",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/495856",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi. PDF indirildi ve metni okundu. Sütçü İmam’ın adı ve mesleğiyle ilgili dipnotu yerel bir gazete yazısına dayanıyor (zayıf dayanak).",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K7",
+      "baslik": "Vali Ömer Faruk Coşkun’un Maraş’a “Kahraman” Unvanı Verilişinin 48. Yıldönümü Mesajı",
+      "yazar": "",
+      "yayinci": "Kahramanmaraş Valiliği",
+      "tur": "kurumsal_web",
+      "url": "https://www.kahramanmaras.gov.tr/vali-omer-faruk-coskunun-marasa-kahraman-unvani-verilisinin-48-yildonumu-mesaji",
+      "erisim": "2026-10-03",
+      "not": "Resmî kurum sayfası (ikincil). Alıntı WebFetch özetinden alındı; kullanmadan önce sayfadan bir kez daha bakılmalı.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K8",
+      "baslik": "GAZİANTEP",
+      "yazar": "",
+      "yayinci": "TDV İslâm Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/gaziantep",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir ansiklopedi maddesi. Sayfa metni indirildi ve okundu.",
+      "kahramanlar": [
+        "sutcu-imam",
+        "sahin-bey"
+      ]
+    },
+    {
+      "kod": "K9",
+      "baslik": "ŞANLIURFA",
+      "yazar": "Ahmet Nezihi Turan; Metin Tuncel; Ahmet Cihat Kürkçüoğlu",
+      "yayinci": "TDV İslâm Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/sanliurfa",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir ansiklopedi maddesi. Sayfa metni indirildi ve okundu.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K10",
+      "baslik": "Tarih (Gaziantep tarihi)",
+      "yazar": "",
+      "yayinci": "Gaziantep Valiliği",
+      "tur": "kurumsal_web",
+      "url": "https://www.gaziantep.gov.tr/gaziantep-tarihi",
+      "erisim": "2026-10-03",
+      "not": "Resmî kurum sayfası (ikincil). Alıntı WebFetch özetinden alındı.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K11",
+      "baslik": "Urfa'ya “Şanlı” Unvanı Verilişinin 41'inci Yıl Dönümü",
+      "yazar": "",
+      "yayinci": "Şanlıurfa Valiliği",
+      "tur": "kurumsal_web",
+      "url": "https://www.sanliurfa.gov.tr/urfaya-sanli-unvani-verilisinin-41inci-yil-donumu",
+      "erisim": "2026-10-03",
+      "not": "Resmî kurum sayfası (ikincil). Alıntı WebFetch özetinden alındı.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K12",
+      "baslik": "Gazianteplilerin asrı aşan 'Gazilik' gururu",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı",
+      "tur": "haber",
+      "url": "https://www.aa.com.tr/tr/gundem/gazianteplilerin-asri-asan-gazilik-gururu/2496775",
+      "erisim": "2026-10-03",
+      "not": "Haber metni: zayıf kaynak, iki kaynak sayımına girmez. Yalnızca tarih farkını göstermek için kaydedildi.",
+      "kahramanlar": [
+        "sutcu-imam"
+      ]
+    },
+    {
+      "kod": "K13",
+      "baslik": "Antep Savunması: Bir Albayın Hatıratı",
+      "yazar": "Aydın Efe",
+      "yayinci": "Atatürk Üniversitesi Türkiyat Araştırmaları Enstitüsü Dergisi (TAED), sayı 53, Erzurum 2015, s. 221-253",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/33766",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi. PDF metni doğrudan okundu, alıntılar birebir. Şahin Bey bilgileri s. 226-227 ve 45 numaralı dipnotta. Hatırat metni (Albay İrfan Durukan) ile yazarın dipnotu ayrı ayrı alıntılandı.",
+      "kahramanlar": [
+        "sahin-bey"
+      ]
+    },
+    {
+      "kod": "K14",
+      "baslik": "Şahinbey (ilçe tanıtım sayfası) ve Gaziantep Tarihi sayfası",
+      "yazar": "",
+      "yayinci": "Gaziantep Valiliği",
+      "tur": "kurumsal_web",
+      "url": "https://www.gaziantep.gov.tr/sahinbey",
+      "erisim": "2026-10-03",
+      "not": "Resmî ama ikincil kaynak, yazar ve dipnot yok. İkinci sayfa: https://www.gaziantep.gov.tr/gaziantep-tarihi . Alıntılar sayfa getirme aracının çıkardığı metinden; ekip sayfada gözle kontrol etmeli.",
+      "kahramanlar": [
+        "sahin-bey"
+      ]
+    },
+    {
+      "kod": "K15",
+      "baslik": "Vali Davut Gül'ün Antep'e Gazi Unvanı Verilişinin 101. Yıl Dönümü Mesajı",
+      "yazar": "",
+      "yayinci": "Gaziantep Valiliği",
+      "tur": "kurumsal_web",
+      "url": "https://www.gaziantep.gov.tr/vali-davut-gulun-antepe-gazi-unvani-verilisinin-101-yil-donumu-mesaji",
+      "erisim": "2026-10-03",
+      "not": "Resmî anma mesajı; tarih araştırması değil. S3 ile aynı kurum olduğu için S3'ten bağımsız sayılmadı.",
+      "kahramanlar": [
+        "sahin-bey"
+      ]
+    },
+    {
+      "kod": "K16",
+      "baslik": "Antep Savunması Ana Kaynaklarında Maraş",
+      "yazar": "İbrahim Halil Yakar",
+      "yayinci": "Gaziantep Üniversitesi Ayıntâb Araştırmaları Dergisi, 1(1), 2018, s. 49-62",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/612344",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi. PDF metni doğrudan okundu, alıntılar birebir (s. 49-50).",
+      "kahramanlar": [
+        "sahin-bey"
+      ]
+    },
+    {
+      "kod": "K17",
+      "baslik": "Antep Savunması Bibliyografyası",
+      "yazar": "Halil İbrahim Yakar, Ali Gezginci",
+      "yayinci": "DergiPark'ta yayımlanan hakemli dergi makalesi (kabul: 1 Ocak 2022; dergi adı PDF'in ilk sayfasından tam okunamadı, künye ekipçe tamamlanmalı)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/2159786",
+      "erisim": "2026-10-03",
+      "not": "PDF metni doğrudan okundu. Yazarı S5 ile aynı kişi ve giriş metni çok benzer; bu yüzden S5 ile BAĞIMSIZ SAYILMADI. Şahin Bey bilgisi için Yetkin 1970, s. 79'a atıf yapıyor.",
+      "kahramanlar": [
+        "sahin-bey"
+      ]
+    },
+    {
+      "kod": "K18",
+      "baslik": "Antep Savunması ve Açlık",
+      "yazar": "Mustafa Çabuk, Deniz Ayata",
+      "yayinci": "Hatay Mustafa Kemal Üniversitesi Sosyal Bilimler Enstitüsü Dergisi, 21(53), 2024, s. 110-125",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/en/download/article-file/3795574",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi. PDF metni doğrudan okundu, alıntılar birebir.",
+      "kahramanlar": [
+        "sahin-bey"
+      ]
+    },
+    {
+      "kod": "K19",
+      "baslik": "Antep savunmasının simgesi: Şahin Bey",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı",
+      "tur": "haber",
+      "url": "https://www.aa.com.tr/tr/yasam/antep-savunmasinin-simgesi-sahin-bey/1781510",
+      "erisim": "2026-10-03",
+      "not": "Zayıf kaynak (haber); iki kaynak sayımına girmez. Bilgiyi veren kişi Prof. Dr. Halil İbrahim Yakar (S5 ve S6'nın yazarı).",
+      "kahramanlar": [
+        "sahin-bey"
+      ]
+    },
+    {
+      "kod": "K20",
+      "baslik": "Fransız İşgalinde Osmaniye (Cebel-i Bereket) ve Rahime Hatun Üzerine Bir Değerlendirme",
+      "yazar": "Volkan Payaslı",
+      "yayinci": "Ankara Üniversitesi Türk İnkılâp Tarihi Enstitüsü Atatürk Yolu Dergisi, Sayı 61, Güz 2017, s. 269-308",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/675371",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi; Rahime Hatun'un biyografisini arşiv, anı ve yerel kaynaklardan derleyen ana kaynak. PDF indirilip metni okundu. Lakap bilgisi Miralay Mehmet Arif Bey'in anılarından aktarma.",
+      "kahramanlar": [
+        "tayyar-rahmiye"
+      ]
+    },
+    {
+      "kod": "K21",
+      "baslik": "Osmaniye'nin İşgali ve Kurtuluşu (Millî Mücadele'nin Yerel Tarihi 1918-1923 içinde, 8. bölüm)",
+      "yazar": "Nejla Günay",
+      "yayinci": "Türkiye Bilimler Akademisi (TÜBA)",
+      "tur": "kitap",
+      "url": "https://www.tuba.gov.tr/files/yayinlar/tarih-serisi/TUBA-978-625-8352-66-5_ch08.pdf",
+      "erisim": "2026-10-03",
+      "not": "Resmî bilim akademisi yayını, kitap bölümü. Rahime Hatun'a kısa bir paragraf ayırıyor (dayanak: Zeki Sarıhan, Damar Arıkoğlu). Kesin gün vermiyor; olayı 1920 Haziran'ındaki Osmaniye çarpışmaları bağlamında anlatıyor. PDF indirilip metni okundu.",
+      "kahramanlar": [
+        "tayyar-rahmiye"
+      ]
+    },
+    {
+      "kod": "K22",
+      "baslik": "Millî Mücadele'de Türk Kadını ve İnönü Muharebeleri'nde Çarpışan İki Kadın Kahraman",
+      "yazar": "Esra Sarıkoyuncu Değerli",
+      "yayinci": "Anadolu Üniversitesi Sosyal Bilimler Dergisi, 21 (Özel Sayı), 2021",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/en/download/article-file/1677335",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi. Tayyar Rahmiye'den yalnızca birkaç cümleyle söz ediyor (Osmaniye, şehit düştüğü). PDF indirilip metni okundu.",
+      "kahramanlar": [
+        "tayyar-rahmiye",
+        "kara-fatma",
+        "halime-cavus"
+      ]
+    },
+    {
+      "kod": "K23",
+      "baslik": "Kurtuluş Savaşı'ndaki Kadın Kahramanların Cumhuriyet Dönemi'ndeki Tematik Bir Müze Bağlamında İncelenmesi",
+      "yazar": "Zeynep Yamaç Erdoğan",
+      "yayinci": "Gaziantep University Journal of Social Sciences, 2023 Özel Sayı",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/en/download/article-file/3412433",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi; konusu müzecilik/turizm, tarih bilgisi ikincil aktarım. Tayyar Rahmiye için tek paragraf; tarih olarak 1 Temmuz 1920 veriyor (S1 ile çelişiyor). PDF indirilip metni okundu.",
+      "kahramanlar": [
+        "tayyar-rahmiye",
+        "halime-cavus"
+      ]
+    },
+    {
+      "kod": "K24",
+      "baslik": "Antep'in İşgali ve Kurtuluşu (Millî Mücadele'nin Yerel Tarihi 1918-1923 içinde, 5. bölüm)",
+      "yazar": "Mustafa Can",
+      "yayinci": "Türkiye Bilimler Akademisi (TÜBA)",
+      "tur": "kitap",
+      "url": "https://www.tuba.gov.tr/files/yayinlar/tarih-serisi/TUBA-978-625-8352-66-5_ch05.pdf",
+      "erisim": "2026-10-03",
+      "not": "Yalnızca Antep savunmasında kadın ve çocukların görevleri (biliyor_muydun) için bakıldı. Tayyar Rahmiye'den söz etmiyor. PDF indirilip metni okundu.",
+      "kahramanlar": [
+        "tayyar-rahmiye"
+      ]
+    },
+    {
+      "kod": "K25",
+      "baslik": "Rahime Hatun (Tayyar Rahmiye)",
+      "yazar": "Umur Gürsoy",
+      "yayinci": "Osmaniye Ansiklopedisi (osmaniyeansiklopedisi.com)",
+      "tur": "kurumsal_web",
+      "url": "https://www.osmaniyeansiklopedisi.com/rahime-hatun-tayyar-rahmiye/",
+      "erisim": "2026-10-03",
+      "not": "ZAYIF / BAĞIMSIZ DEĞİL: Yerel ansiklopedi sitesi; resmî kurum olduğu doğrulanamadı, kaynakçasında Vikipedi de var ve cümleleri S1 (Payaslı) ile birebir aynı. İki kaynak sayımına KATILMADI; yalnızca bilgi için kaydedildi.",
+      "kahramanlar": [
+        "tayyar-rahmiye"
+      ]
+    },
+    {
+      "kod": "K26",
+      "baslik": "Millî Mücadelede Türk Kadını",
+      "yazar": "Şefika Kurnaz",
+      "yayinci": "Atatürk Araştırma Merkezi Dergisi (DergiPark üzerinden)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/en/download/article-file/1680925",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi, PDF tam metni okundu (s. 266-267). Cilt/sayı bilgisi (XII/34, 1996, s. 257-268) PDF'in içinden değil arama sonucundan; ekip künyeyi teyit etmeli. S2 ile AYNI kurumun dergisi; birlikte tek kurum sayıldı.",
+      "kahramanlar": [
+        "kara-fatma"
+      ]
+    },
+    {
+      "kod": "K27",
+      "baslik": "Atatürk ve Türk Kadını",
+      "yazar": "Tülin İçli",
+      "yayinci": "Atatürk Araştırma Merkezi Dergisi (atamdergi.gov.tr)",
+      "tur": "makale",
+      "url": "https://atamdergi.gov.tr/tam-metin-pdf/592/",
+      "erisim": "2026-10-03",
+      "not": "Taranmış (resim) PDF; s. 67-68 sayfa görüntüsünden okundu. Künye S5'in kaynakçasına göre: 1992, 9 (25), 67-72. Kara Fatma bölümü F. A. Tansel'in TTK basımı kitabına (1991) dayanıyor. S1 ile aynı kurum.",
+      "kahramanlar": [
+        "kara-fatma"
+      ]
+    },
+    {
+      "kod": "K28",
+      "baslik": "Sosyal Yardımlar Bağlamında \"Nene Hatun-Kara Fatma\" Analizi",
+      "yazar": "Akın Aktaş",
+      "yayinci": "Tarih ve Günce: Atatürk ve Türkiye Cumhuriyeti Tarihi Dergisi, Sayı 6 (2020/Kış), s. 243-262",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/961993",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi, PDF tam metni okundu. Cumhuriyet Arşivi (BCA) belgelerine ve İlknur Bektaş'ın 2013 tarihli kitabına dayanıyor. Kara Fatma'nın 1944 tarihli kendi dilekçesini ve 1954 kanun teklifini aktarıyor.",
+      "kahramanlar": [
+        "kara-fatma"
+      ]
+    },
+    {
+      "kod": "K29",
+      "baslik": "Kurtuluş Savaşı'ndaki Kadın Kahramanların Cumhuriyet Dönemi'ndeki Tematik Bir Müze Bağlamında İncelenmesi",
+      "yazar": "Zeynep Yamaç Erdoğan",
+      "yayinci": "Gaziantep University Journal of Social Sciences, 2023 Özel Sayı, s. 679-699",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/3412433",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi, PDF tam metni okundu (s. 684-685). Derleme niteliğinde; Kara Fatma bilgisi popüler bir kitap (Gürkan 2023), İçli 1992 ve Sarıçoban 2017'den aktarılıyor. Tek başına zayıf-orta.",
+      "kahramanlar": [
+        "kara-fatma"
+      ]
+    },
+    {
+      "kod": "K30",
+      "baslik": "Milli Mücadele'de Anadolu Kadını",
+      "yazar": "Gülay Sarıçoban",
+      "yayinci": "Atatürk Üniversitesi Sosyal Bilimler Enstitüsü Dergisi, 2017, 21(4), s. 1331-1346",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/407136",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi, PDF okundu. Kara Fatma paragrafı büyük ölçüde S1'in (Kurnaz) aktarımı; S1'den BAĞIMSIZ SAYILMADI. Yalnızca 'üst teğmenlik' cümlesi farklı bir kaynağa (Özcüler 2002) dayanıyor.",
+      "kahramanlar": [
+        "kara-fatma",
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K31",
+      "baslik": "Kadınlara Seçme ve Seçilme Hakkı Verilmesinin Türk Kamuoyundaki Yankıları",
+      "yazar": "Sevilay Özer",
+      "yayinci": "DergiPark (aynı makale atamdergi.gov.tr'de de listeleniyor)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/en/download/article-file/676160",
+      "erisim": "2026-10-03",
+      "not": "Yalnızca 17 numaralı dipnotta Kara Fatma geçiyor (ikincil bir kitaptan aktarım). Dergi künyesi PDF'ten teyit edilemedi. Yardımcı kaynak.",
+      "kahramanlar": [
+        "kara-fatma"
+      ]
+    },
+    {
+      "kod": "K32",
+      "baslik": "Atatürk'ün emriyle cephede bir Türk kadını: Üsteğmen Kara Fatma",
+      "yazar": "Kübra Kara",
+      "yayinci": "Anadolu Ajansı (02.07.2022)",
+      "tur": "haber",
+      "url": "https://www.aa.com.tr/tr/yasam/ataturkun-emriyle-cephede-bir-turk-kadini-ustegmen-kara-fatma/2628610",
+      "erisim": "2026-10-03",
+      "not": "HABER: zayıf kaynak, iki kaynak sayımına girmez. İçinde Doç. Dr. Esma Torun'un (Kocaeli Üniversitesi) anlatımı var; görüşme ayrıntıları Kara Fatma'nın kendi anlatısına dayanıyor.",
+      "kahramanlar": [
+        "kara-fatma"
+      ]
+    },
+    {
+      "kod": "K33",
+      "baslik": "Milli Mücadele'de fedakarlığın ve cesaretin simgesi: Kara Fatma",
+      "yazar": "Rüveyda Mina Meral",
+      "yayinci": "Anadolu Ajansı (02.07.2025)",
+      "tur": "haber",
+      "url": "https://www.aa.com.tr/tr/kultur/milli-mucadelede-fedakarligin-ve-cesaretin-simgesi-kara-fatma/3619400",
+      "erisim": "2026-10-03",
+      "not": "HABER: zayıf kaynak, iki kaynak sayımına girmez. 'Kaynaklardan derlenen bilgi' diyor, kaynak adı vermiyor.",
+      "kahramanlar": [
+        "kara-fatma"
+      ]
+    },
+    {
+      "kod": "K34",
+      "baslik": "Kadın Kahramanlarımızdan Bir Milis; Gördesli Makbule",
+      "yazar": "Şeyma Özelmacı, Uğur Çakır",
+      "yayinci": "Takvim-i Vekayi dergisi, Cilt 7, No 1, 2019, s. 1-23 (DergiPark)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/692621",
+      "erisim": "2026-10-03",
+      "not": "Tam metin PDF indirilip okundu. DergiPark'ta yayımlanan dergi makalesi. Makbule bölümü ikincil kaynaklara dayanıyor (İ. Çiçek 1998, Z. Sarıhan 2009, Büyük Larousse); bazı ayrıntıları 'rivayet' diye kendisi belirtiyor. Makale sayfası: https://dergipark.org.tr/tr/pub/takvim/issue/44522/536035",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K35",
+      "baslik": "Demirci Kaymakamı İbrahim Ethem Bey ve Demirci Akıncıları",
+      "yazar": "İsmail Oğuz, Nurettin Gülmez",
+      "yayinci": "Celal Bayar Üniversitesi Sosyal Bilimler Dergisi, Cilt 14, Sayı 1, Mart 2016 (DergiPark)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/229315",
+      "erisim": "2026-10-03",
+      "not": "Tam metin PDF indirilip okundu. Üniversite dergisi, doktora tezinden türetilmiş; birincil kaynağı İbrahim Ethem Akıncı'nın TTK'den çıkan hatıratı (Demirci Akıncıları). En güçlü kaynak. Sayfa aralığı (427-468) yalnızca arama sonucunda görüldü, PDF'ten doğrulanmalı. Makale sayfası: https://dergipark.org.tr/tr/pub/cbayarsos/issue/24868/262787",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K36",
+      "baslik": "Milli Mücadele Kahramanı Şehit Makbule Hanım",
+      "yazar": "",
+      "yayinci": "T.C. Gördes Kaymakamlığı",
+      "tur": "kurumsal_web",
+      "url": "http://www.gordes.gov.tr/milli-mucadele-kahramani-sehit-makbule-hanim",
+      "erisim": "2026-10-03",
+      "not": "Resmî kaymakamlık sayfası (ikincil kaynak). Kaynak göstermiyor, anlatı diliyle yazılmış. Alıntılar WebFetch aracının verdiği kısa birebir alıntılardır; ekipçe sayfadan gözle kontrol edilmeli.",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K37",
+      "baslik": "Demirci Akıncıları 12. Müfreze Komutanı Şehit Usturumcalı Halil Efe",
+      "yazar": "",
+      "yayinci": "T.C. Selendi Kaymakamlığı",
+      "tur": "kurumsal_web",
+      "url": "https://www.selendi.gov.tr/demirci-akincilari-12-mufreze-komutani-sehit-usturumcali-halil-efe",
+      "erisim": "2026-10-03",
+      "not": "Resmî kaymakamlık sayfası (ikincil). İbrahim Ethem Akıncı'nın 'Demirci Akıncıları' hatıratına dayandığını belirtiyor. Alıntılar WebFetch aracından; gözle kontrol edilmeli.",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K38",
+      "baslik": "Gördes'in kızı Makbule Hanım, şehadetinin 100. yılında anılıyor",
+      "yazar": "Ahmet Bayram",
+      "yayinci": "Anadolu Ajansı (16 Mart 2022)",
+      "tur": "haber",
+      "url": "https://www.aa.com.tr/tr/kultur-sanat/gordesin-kizi-makbule-hanim-sehadetinin-100-yilinda-aniliyor/2537629",
+      "erisim": "2026-10-03",
+      "not": "Haber; ZAYIF kaynak, iki kaynak sayımına girmez. İbrahim Ethem Bey'in hatıratına ve Balıkesir Üniversitesi okutmanı Zekeriya Özdemir'in araştırmalarına dayandığını söylüyor. Kıyafet tarifinin bulunduğu tek açılabilen sayfalardan biri.",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K39",
+      "baslik": "Kuvayı Milliye Kahramanı Makbule Efe",
+      "yazar": "Av. Erol Türk",
+      "yayinci": "Cumhuriyet gazetesi, Olaylar ve Görüşler (24.03.2019)",
+      "tur": "haber",
+      "url": "https://www.cumhuriyet.com.tr/yazarlar/olaylar-ve-gorusler/kuvayi-milliye-kahramani-makbule-efe-1310300",
+      "erisim": "2026-10-03",
+      "not": "Gazete köşe yazısı; kaynak göstermiyor, ZAYIF kaynak, iki kaynak sayımına girmez. Kendi içinde çelişkili (evlilik Eylül 1920 ama Kasım 1921'de 'iki aylık evli').",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K40",
+      "baslik": "Demirci Akıncıları (4. baskı, 2020) – tanıtım PDF'i: künye ve içindekiler",
+      "yazar": "İbrahim Ethem Akıncı",
+      "yayinci": "Türk Tarih Kurumu Yayınları, XVI. Dizi - Sayı 333",
+      "tur": "kitap",
+      "url": "https://www.ttk.gov.tr/karekod/DEMIRCIAKINCILARI.pdf",
+      "erisim": "2026-10-03",
+      "not": "Birincil kaynak (komutanın hatıratı), TTK yayını. Çevrim içi PDF yalnızca künye + içindekiler içeriyor; kitabın metni OKUNAMADI. İçindekiler satırı Koca Yayla baskınını ve Makbule Hanım'ın şehadetini (s. 204-212) gösteriyor. PDF'in metin katmanında 'ı' harfleri düşmüş; alıntıda 'ı'lar tarafımdan yerine kondu. Kitabın kendisi kütüphaneden bulunmalı (s. 211-214, 241-243).",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K41",
+      "baslik": "Kuvâ-yı Millîye (Atatürk Ansiklopedisi maddesi)",
+      "yazar": "Günver Güneş",
+      "yayinci": "Atatürk Araştırma Merkezi Başkanlığı – Atatürk Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/546/Kuv%C3%A2-y%C4%B1-Mill%C3%AEye",
+      "erisim": "2026-10-03",
+      "not": "En üst öncelikli kaynak türü. Sayfa JavaScript ile yüklendiği için WebFetch boş döndü; madde metni sitenin kendi veri adresinden (https://apiko.ayk.gov.tr/v1/1/itemPublic/byId/546) alınıp okundu. Alıntılar bu metinden birebirdir.",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K42",
+      "baslik": "Kuva-yı Milliye (makale özeti sayfası)",
+      "yazar": "Yücel Özkaya",
+      "yayinci": "Atatürk Araştırma Merkezi Dergisi, Cilt VIII, Sayı 24, Temmuz 1992, s. 451-480",
+      "tur": "makale",
+      "url": "https://atamdergi.gov.tr/ozet/569/tur",
+      "erisim": "2026-10-03",
+      "not": "Yalnızca özet sayfası okunabildi (tam metin PDF taranmış görüntü, metni çıkarılamadı). S8 ile aynı kurum (ATAM) ve tanım cümlesi neredeyse aynı; S8'den BAĞIMSIZ sayılmadı.",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K43",
+      "baslik": "Milli Mücadele Başlarken Batı Anadolu'da \"Kuvâ-yi Milliye\"",
+      "yazar": "Sezai Kürşat Ökte",
+      "yayinci": "Tarih ve Günce dergisi, Sayı 16, 2025, s. 49-86 (DergiPark)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/pub/tarihvegunce/article/1632852",
+      "erisim": "2026-10-03",
+      "not": "Yalnızca DergiPark özet sayfası okundu (tam metin açılmadı). Alıntı WebFetch aracından; gözle kontrol edilmeli. S8'den bağımsız kurum.",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K44",
+      "baslik": "Şehit Makbule Hanım",
+      "yazar": "",
+      "yayinci": "Gördes Belediyesi",
+      "tur": "kurumsal_web",
+      "url": "https://www.gordes.bel.tr/icerik/sehit-makbule-hanim",
+      "erisim": "2026-10-03",
+      "not": "Resmî belediye sayfası (ikincil). Metin S3 (kaymakamlık) ile büyük ölçüde aynı görünüyor; S3'ten BAĞIMSIZ sayılmadı.",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K45",
+      "baslik": "Kuvâ-yi Milliye (gönderme maddesi)",
+      "yazar": "",
+      "yayinci": "TDV İslâm Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/kuva-yi-milliye",
+      "erisim": "2026-10-03",
+      "not": "Yalnızca tek satırlık gönderme maddesi (asıl bilgi 'Millî Mücadele' maddesinde). Kısa tanım dışında içerik yok.",
+      "kahramanlar": [
+        "gordesli-makbule"
+      ]
+    },
+    {
+      "kod": "K46",
+      "baslik": "Değerler Eğitiminde Rol Model Olarak Kadın Kahramanlar",
+      "yazar": "Neslihan Karakuş, Pınar Çoksever",
+      "yayinci": "Eğitim ve İnsani Bilimler Dergisi: Teori ve Uygulama, Cilt 10, Sayı 20, Güz 2019 (DergiPark)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/912350",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi. MEB ders kitaplarını inceliyor; Halime Çavuş'un 7. sınıf Türkçe ders kitabında (s. 43) adının geçtiğini söylüyor. Halime Çavuş hakkında tek cümlelik bilgi var. PDF metni pdftotext ile okundu; alıntılar birebir.",
+      "kahramanlar": [
+        "halime-cavus"
+      ]
+    },
+    {
+      "kod": "K47",
+      "baslik": "İl Kültür ve Turizm Müdürlüğü Halime Çavuş'u anlattı! (Kastamonu İl Kültür ve Turizm Müdürlüğü açıklaması)",
+      "yazar": "",
+      "yayinci": "Kastamonu İl Kültür ve Turizm Müdürlüğü açıklaması; aktaran: Kastamonu Güncel (yerel haber sitesi), 20 Şubat 2026",
+      "tur": "haber",
+      "url": "https://www.kastamonuguncel.com/haber/27496669/il-kultur-ve-turizm-mudurlugu-halime-cavusu-anlatti",
+      "erisim": "2026-10-03",
+      "not": "Resmî kurumun (İl Kültür ve Turizm Müdürlüğü) açıklaması ama yerel haber sitesi üzerinden okundu. Kurumun kendi sayfası (kastamonu.ktb.gov.tr/TR-94807/halime-kocabiyik-cavus.html) açıldı fakat gövde metni araca gelmedi; ekip tarayıcıda açıp doğrudan o sayfayı kaynak göstermeli. Metin büyük ölçüde S4 ile aynı cümleleri içeriyor; S3 ve S4 birbirinden BAĞIMSIZ SAYILMAZ. Alıntılar WebFetch aracının aktardığı biçimde; ekip sayfadan bir kez daha karşılaştırmalı.",
+      "kahramanlar": [
+        "halime-cavus"
+      ]
+    },
+    {
+      "kod": "K48",
+      "baslik": "Kastamonu'nun Yüzleri: Halime Çavuş (Kocabıyık) (1898-1976)",
+      "yazar": "Prof. Dr. Mehmet Serhat Yılmaz",
+      "yayinci": "Açıksöz gazetesi (Kastamonu), köşe yazısı, 20 Şubat 2026",
+      "tur": "haber",
+      "url": "https://www.aciksoz.com.tr/makale/27490020/prof-dr-mehmet-serhat-yilmaz/kastamonunun-yuzleri-halime-cavus-kocabiyik-1898-1976",
+      "erisim": "2026-10-03",
+      "not": "Yerel gazetede yayımlanmış uzman (tarih profesörü) yazısı; hakemli değil, bu yüzden 'haber' türünde. Ancak bulunan en ayrıntılı ve belgeye dayanan metin: Cumhuriyet Arşivi (BCA 30.11.1.0.275.11.11, 1 Nisan 1959), TBMM Tutanak Dergisi, Resmî Gazete (sayı 12835), Mustafa Eski'nin '20. Yüzyılda Kastamonu Kadınları' (2008) kitabını kaynak gösteriyor. Çavuş rütbesinin belgeyle doğrulanamadığını söyleyen tek kaynak. Alıntılar WebFetch aracının aktardığı biçimde (bazıları kısaltılmış); ekip sayfadan karşılaştırmalı. Mümkünse yazarın dayandığı kitap/arşiv belgeleri doğrudan görülmeli.",
+      "kahramanlar": [
+        "halime-cavus"
+      ]
+    },
+    {
+      "kod": "K49",
+      "baslik": "Türk Büyükleri - HALİME ÇAVUŞ",
+      "yazar": "",
+      "yayinci": "Zübeyde Hanım Kız Mesleki ve Teknik Anadolu Lisesi (MEB okul sitesi, meb.k12.tr)",
+      "tur": "kurumsal_web",
+      "url": "https://zubeydehanimmtal.meb.k12.tr/icerikler/turkbuyuklerihalimecavus_3350212.html",
+      "erisim": "2026-10-03",
+      "not": "ZAYIF KAYNAK. MEB alan adında ama bir okulun kendi eklediği, kaynak göstermeyen popüler anlatı (internette yaygın dolaşan metinle aynı). 'Halim Çavuş' adı ve Mustafa Kemal Paşa'yla yolda karşılaşma anlatısı yalnızca burada bulundu. Bu bilgiler oyunda ancak 'Anlatılanlara göre' diye verilebilir.",
+      "kahramanlar": [
+        "halime-cavus"
+      ]
+    },
+    {
+      "kod": "K50",
+      "baslik": "Millî Mücadele Döneminde Kastamonu (kitap bölümü, 'Millî Mücadele'nin Yerel Tarihi 1918-1923' içinde, bölüm 1)",
+      "yazar": "Ercan Çelebi (Doç. Dr., Kastamonu Üniversitesi)",
+      "yayinci": "Türkiye Bilimler Akademisi (TÜBA), DOI: 10.53478/TUBA.978-625-8352-69-6.ch01",
+      "tur": "kitap",
+      "url": "https://www.tuba.gov.tr/files/yayinlar/tarih-serisi/TUBA-978-625-8352-69-6_ch01.pdf",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir akademik kitap bölümü (TÜBA yayını). Halime Çavuş'un adı bu bölümde HİÇ GEÇMİYOR; yalnızca cephane taşımacılığı (kağnı kolları) için kullanıldı. PDF metni pdftotext ile okundu; alıntılar birebir. Baskı yılı PDF'ten okunamadı, ekip künyeyi tamamlamalı.",
+      "kahramanlar": [
+        "halime-cavus",
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K51",
+      "baslik": "Millî Mücadelede Cephe Gerisinin Stratejik Önemi ve İnebolu (kitap bölümü, 'Millî Mücadele'nin Yerel Tarihi 1918-1923' içinde, bölüm 12)",
+      "yazar": "Hüsnü Özlü (Prof. Dr., Millî Savunma Üniversitesi)",
+      "yayinci": "Türkiye Bilimler Akademisi (TÜBA), DOI: 10.53478/TUBA.978-625-8352-69-6.ch12",
+      "tur": "kitap",
+      "url": "https://www.tuba.gov.tr/files/yayinlar/tarih-serisi/TUBA-978-625-8352-69-6_ch12.pdf",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir akademik kitap bölümü. S6 ile AYNI KİTAPTA (aynı yayıncı) olduğu için S6'dan bağımsız kaynak sayılmadı. Halime Çavuş'un adı geçmiyor.",
+      "kahramanlar": [
+        "halime-cavus"
+      ]
+    },
+    {
+      "kod": "K52",
+      "baslik": "Millî Mücadelede İnebolu-Kastamonu-Ankara Hattı",
+      "yazar": "Refik Turan (Prof. Dr.)",
+      "yayinci": "Atatürk Araştırma Merkezi Dergisi (atamdergi.gov.tr), s. 695-699 civarı; cilt/sayı PDF'te görülemedi",
+      "tur": "makale",
+      "url": "https://atamdergi.gov.tr/tam-metin-pdf/936/tur",
+      "erisim": "2026-10-03",
+      "not": "Atatürk Araştırma Merkezi yayını. PDF taranmış metin (OCR); satır sonu tireleri ve küçük OCR hataları var. Şerife Bacı'nın adı geçmiyor; yol, kağnı, kadınların rolü ve 'yorganını cephaneye örten nine' anısı (Mustafa Necati) var.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K53",
+      "baslik": "Şehit Şerife Bacı",
+      "yazar": "",
+      "yayinci": "T.C. İnebolu Kaymakamlığı",
+      "tur": "kurumsal_web",
+      "url": "https://inebolu.gov.tr/serife-baci",
+      "erisim": "2026-10-03",
+      "not": "Resmî ama ikincil ve kaynakçasız sayfa. Alıntılar WebFetch aracının aktardığı biçimdedir; ekip sayfadan bir kez daha gözle kontrol etmeli.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K54",
+      "baslik": "Atatürk ve Şehit Şerife Bacı Anıtı - Kastamonu",
+      "yazar": "",
+      "yayinci": "T.C. Kültür ve Turizm Bakanlığı, Kültür Portalı",
+      "tur": "kurumsal_web",
+      "url": "https://www.kulturportali.gov.tr/turkiye/kastamonu/gezilecekyer/ataturk-ve-seht-serfe-baci-aniti",
+      "erisim": "2026-10-03",
+      "not": "Resmî, ikincil, kaynakçasız. Alıntılar WebFetch aracının aktardığı biçimdedir; gözle kontrol edilmeli.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K55",
+      "baslik": "Tarihi İstiklal Yolu",
+      "yazar": "",
+      "yayinci": "Çankırı İl Kültür ve Turizm Müdürlüğü",
+      "tur": "kurumsal_web",
+      "url": "https://cankiri.ktb.gov.tr/TR-242668/tarihi-istiklal-yolu.html",
+      "erisim": "2026-10-03",
+      "not": "Resmî, ikincil. Alıntılar WebFetch aracının aktardığı biçimdedir.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K56",
+      "baslik": "Kastamonu-İstiklal Yolu Tarihi Milli Parkı",
+      "yazar": "",
+      "yayinci": "T.C. Tarım ve Orman Bakanlığı, 10. Bölge Müdürlüğü",
+      "tur": "kurumsal_web",
+      "url": "https://bolge10.tarimorman.gov.tr/Menu/75/Kastamonu-Istiklal-Yolu-Tarihi-Milli-Parki",
+      "erisim": "2026-10-03",
+      "not": "Resmî, ikincil. Alıntılar WebFetch aracının aktardığı biçimdedir.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K57",
+      "baslik": "Şerife Bacı ve Tüm Şehitlerimizi Anma İstiklal Yolu Yürüyüşü Sona Erdi (21.02.2017)",
+      "yazar": "",
+      "yayinci": "Kastamonu Valiliği",
+      "tur": "kurumsal_web",
+      "url": "http://www.kastamonu.gov.tr/serife-baci-ve-tum-sehitlerimizi-anma-istiklal-yolu-yuruyusu-sona-erdi",
+      "erisim": "2026-10-03",
+      "not": "Resmî duyuru. Yalnızca anıtın Cumhuriyet Meydanı'nda olduğu ve yolun İnebolu-Kastamonu bölümünün 95 km olduğu için kullanıldı. Birebir alıntı alınamadı (araç özet verdi).",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K58",
+      "baslik": "Türk kadınının kahramanlık timsali: Şerife Bacı",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı",
+      "tur": "haber",
+      "url": "https://www.aa.com.tr/tr/turkiye/turk-kadininin-kahramanlik-timsali-serife-baci/1397803",
+      "erisim": "2026-10-03",
+      "not": "Haber; zayıf kaynak, iki kaynak sayımına girmez. Kastamonu Üniversitesi'nden Dr. Mustafa Eski ve Seydiler Belediye Başkanı konuşuyor. Belirsizlikleri açıkça söylediği için değerli.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K59",
+      "baslik": "Şerife Bacı'nın hakkı 51 yıl sonra teslim edildi",
+      "yazar": "",
+      "yayinci": "Sözcü",
+      "tur": "haber",
+      "url": "https://www.sozcu.com.tr/serife-bacinin-hakki-51-yil-sonra-teslim-edildi-wp3833367",
+      "erisim": "2026-10-03",
+      "not": "Haber; zayıf kaynak, sayıma girmez. Adın ilk kez 1972'de açıklandığı iddiası yalnızca burada.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K60",
+      "baslik": "Kastamonulu Şehit Şerife Bacı Kimdir? (14.03.2022)",
+      "yazar": "Selahattin Ateş (Doç. Dr.)",
+      "yayinci": "STRASAM (Stratejik Araştırmalar Merkezi) web sitesi",
+      "tur": "kurumsal_web",
+      "url": "https://strasam.org/tarih/turkiye-cumhuriyeti-tarihi/kastamonulu-sehit-serife-baci-kimdir-612",
+      "erisim": "2026-10-03",
+      "not": "Hakemli değil, dernek/düşünce kuruluşu yazısı; ZAYIF, sayıma girmez. Peker'in 1955 tarihli kitabına dayandığını belirtiyor.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K61",
+      "baslik": "Şerife Bacı'nın Öyküsü",
+      "yazar": "",
+      "yayinci": "Şerife Bacı Özel Eğitim Anaokulu (MEB okul sitesi, meb.k12.tr)",
+      "tur": "kurumsal_web",
+      "url": "https://serifebaciozelegitimanaokulu.meb.k12.tr/icerikler/serife-bacinin-oykusu_2214794.html",
+      "erisim": "2026-10-03",
+      "not": "Okul sitesi; kaynak ve yazar belirtilmemiş, öyküleştirilmiş metin. ZAYIF. Yalnızca tarih çelişkisini (21 Şubat 1921) göstermek için kaydedildi.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K62",
+      "baslik": "Atatürk ve Şerife Bacı Anıtı",
+      "yazar": "",
+      "yayinci": "kulturenvanteri.com",
+      "tur": "kurumsal_web",
+      "url": "https://kulturenvanteri.com/en/yer/ataturk-ve-serife-baci-aniti/",
+      "erisim": "2026-10-03",
+      "not": "Gönüllü envanter sitesi; ZAYIF, sayıma girmez. Metni S5 ile çok benzer (bağımsız değil).",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K63",
+      "baslik": "İstiklal Savaşı'nda Bir Yol: İstiklal Yolu ve Kastamonu Bölgesindeki Lojistik Faaliyetlerin Değerlendirmesi",
+      "yazar": "Hüsnü Özlü",
+      "yayinci": "Savunma Bilimleri Dergisi, 18(36), 2019, s. 155-180 (DergiPark)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/pub/khosbd/article/642152",
+      "erisim": "2026-10-03",
+      "not": "Hakemli. YALNIZCA künye ve özet sayfası okunabildi (tam metin PDF'i sertifika hatasıyla açılmadı). Bu yüzden yalnızca 'İstiklal Yolu' adının akademik kullanımda olduğunu göstermek için kullanıldı. Ekip tam metni okumalı; Şerife Bacı için büyük olasılıkla en iyi ikinci akademik kaynak.",
+      "kahramanlar": [
+        "serife-baci"
+      ]
+    },
+    {
+      "kod": "K64",
+      "baslik": "ADIVAR, Halide Edip",
+      "yazar": "İnci Enginün",
+      "yayinci": "TDV İslâm Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/adivar-halide-edip",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir ansiklopedi maddesi. Alıntılar sayfa özetleyici araçla alındı; ekip sayfayı açıp birebir kontrol etmeli.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K65",
+      "baslik": "Millî Mücadele'de Halide Edip Adıvar'ın Rolü",
+      "yazar": "Beytullah Kaya, Burcu Başaran",
+      "yayinci": "Çekmece Sosyal Bilimler Dergisi, 11 (23), s. 124-138 (İstanbul Sabahattin Zaim Üniversitesi; yayım 15.02.2024)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/3667539",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi. PDF metni indirilip doğrudan okundu; alıntılar birebir. Makale sayfası: https://dergipark.org.tr/tr/pub/cekmece/article/1421578",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K66",
+      "baslik": "Milli Mücadele Dönemi Mitinglerinde Türk Kadını",
+      "yazar": "Nuray Özdemir",
+      "yayinci": "Belgi Dergisi, S. 21, Kış 2021/I, s. 1-22 (Pamukkale Üniversitesi Atatürk İlkeleri ve İnkılâp Tarihi Araştırma ve Uygulama Merkezi)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/1202398",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi; dönemin gazetelerine (İkdam, Vakit) dayanıyor. PDF metni doğrudan okundu; alıntılar birebir. Mitinglerin tarihleri için en sağlam kaynak.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K67",
+      "baslik": "Milli Mücadelenin Hazırlık Safhasında Halide Edib Adıvar'ın Faaliyetleri ve Mustafa Kemal Atatürk",
+      "yazar": "Hacı Murat Arabacı",
+      "yayinci": "Dumlupınar Üniversitesi (DPÜ) Sosyal Bilimler Dergisi (sayı/yıl PDF'te görülemedi)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/55439",
+      "erisim": "2026-10-03",
+      "not": "Üniversite dergisi makalesi. PDF metni doğrudan okundu. Sayı ve yıl bilgisi ekipçe DergiPark sayfasından tamamlanmalı. Sultanahmet Mitingi için gün vermiyor.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K68",
+      "baslik": "Mustafa Kemal Paşa'nın Ankara'da İlk Günleri \"Ziraat Mektebi\"",
+      "yazar": "Necdet Aysal",
+      "yayinci": "Ankara Üniversitesi (açık ders malzemesi olarak yayımlanan dergi makalesi; dergi adı PDF'te doğrulanamadı)",
+      "tur": "makale",
+      "url": "https://acikders.ankara.edu.tr/pluginfile.php/37278/mod_resource/content/0/MUSTAFA%20KEMAL%20PA%C5%9EANIN%20ANKARADA%20%C4%B0LK%20G%C3%9CNLER%C4%B0%20Z%C4%B0RAAT%20MEKTEB%C4%B0.pdf",
+      "erisim": "2026-10-03",
+      "not": "Arşiv belgelerine (ATASE) ve Yunus Nadi'nin anılarına dipnotlu akademik makale. PDF metni doğrudan okundu; alıntılar birebir. Dergi künyesi tamamlanmalı.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K69",
+      "baslik": "AA'nın temelini atan iki isim: Halide Edip Adıvar ve Yunus Nadi Abalıoğlu",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı (kurumsal haberler)",
+      "tur": "kurumsal_web",
+      "url": "https://www.aa.com.tr/tr/kurumsal-haberler/aanin-temelini-atan-iki-isim-halide-edip-adivar-ve-yunus-nadi-abalioglu/2198353",
+      "erisim": "2026-10-03",
+      "not": "Kurumun kendi tarihçesi; ajansın kuruluşu için kullanılabilir. Halide Edib biyografisi kısmı S1 metnini tekrar ediyor (bağımsız değil). Alıntılar özetleyici araçla alındı.",
+      "kahramanlar": [
+        "halide-edib",
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K70",
+      "baslik": "Milli Mücadele'nin kahramanı: Halide Edip",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı",
+      "tur": "haber",
+      "url": "https://www.aa.com.tr/tr/kultur/milli-mucadelenin-kahramani-halide-edip/2782970",
+      "erisim": "2026-10-03",
+      "not": "Haber; zayıf kaynak, iki kaynak sayımına girmez. Alıntılar özetleyici araçla alındı.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K71",
+      "baslik": "Güvenilir haberciliğin yüz yıllık yolculuğu: Anadolu Ajansı",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı (AA Yüz Yaşında)",
+      "tur": "kurumsal_web",
+      "url": "https://www.aa.com.tr/tr/aa-yuz-yasinda/guvenilir-haberciligin-yuz-yillik-yolculugu-anadolu-ajansi/1792827",
+      "erisim": "2026-10-03",
+      "not": "Kurumun kendi tarihçesi. S6 ile aynı kurum; birlikte tek kaynak sayılır. Alıntılar özetleyici araçla alındı.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K72",
+      "baslik": "Millî Mücadele'den Millî Kimlik İnşasına: Ateşten Gömlek",
+      "yazar": "Ahmet Metehan Şahin",
+      "yayinci": "Türkiyat Mecmuası, 29, 'Milli Mücadele' Özel Sayısı (2019), s. 151-168 (İstanbul Üniversitesi)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/article-file/862247",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi makalesi. PDF metni doğrudan okundu; alıntılar birebir.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K73",
+      "baslik": "Halide Edip Adıvar (1882, İstanbul – 9 Ocak 1964, İstanbul)",
+      "yazar": "Şerif Aktaş",
+      "yayinci": "Ankara Üniversitesi Dil ve Tarih-Coğrafya Fakültesi Türkoloji Dergisi 20, 1 (2013), s. 1-12 (Büyük Türk Klâsikleri, C. 11, Ötüken, 1992'den yeniden basım)",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/download/issue-file/17905",
+      "erisim": "2026-10-03",
+      "not": "Üniversite dergisinde yayımlanan biyografi. PDF metni doğrudan okundu; alıntılar birebir.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K74",
+      "baslik": "Ateşten Gömlek (film künyesi)",
+      "yazar": "",
+      "yayinci": "TSA Türk Sineması Araştırmaları (Bilim ve Sanat Vakfı; Kültür ve Turizm Bakanlığı destekli)",
+      "tur": "kurumsal_web",
+      "url": "https://tsa.org.tr/tr/film/filmgoster/5349/atesten-gomlek",
+      "erisim": "2026-10-03",
+      "not": "Sinema veri tabanı; vakıf sitesi (resmî kurum değil). Film bilgisi için tek kaynak. Bilgiler özetleyici araçla alındı.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K75",
+      "baslik": "ADIVAR, Abdülhak Adnan",
+      "yazar": "Orhan F. Köprülü",
+      "yayinci": "TDV İslâm Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/adivar-abdulhak-adnan",
+      "erisim": "2026-10-03",
+      "not": "S1 ile aynı kurum; bağımsız ikinci kaynak sayılmaz. Alıntı özetleyici araçla alındı.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K76",
+      "baslik": "Anadolu Ajansının isim annesi: Halide Edip Adıvar",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı (AA Yüz Yaşında)",
+      "tur": "haber",
+      "url": "https://www.aa.com.tr/tr/aa-yuz-yasinda/anadolu-ajansinin-isim-annesi-halide-edip-adivar/1792826",
+      "erisim": "2026-10-03",
+      "not": "Haber niteliğinde; zayıf kaynak. Alıntılar özetleyici araçla alındı.",
+      "kahramanlar": [
+        "halide-edib"
+      ]
+    },
+    {
+      "kod": "K77",
+      "baslik": "Yunus Nadi Abalıoğlu (1879-1945)",
+      "yazar": "Bengül Bolat",
+      "yayinci": "Atatürk Araştırma Merkezi — Atatürk Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/110/Yunus-Nadi-Abal%C4%B1o%C4%9Flu-(1879--1945)",
+      "erisim": "2026-10-03",
+      "not": "Birinci öncelikli kaynak. Sayfa JavaScript ile açıldığı için madde metni sitenin kendi veri adresinden (apiko.ayk.gov.tr/v1/1/itemPublic/byId/110) tam metin olarak okundu; alıntılar birebir.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K78",
+      "baslik": "Anadolu'da Yenigün Gazetesi",
+      "yazar": "Mustafa Arıkan",
+      "yayinci": "Atatürk Araştırma Merkezi — Atatürk Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/571/Anadolu%E2%80%99da-Yenig%C3%BCn-Gazetesi",
+      "erisim": "2026-10-03",
+      "not": "Birinci öncelikli kaynak; tam metin okundu (byId/571). S1 ile AYNI kurum: iki kaynak sayımında tek kurum sayıldı.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K79",
+      "baslik": "Ülkelerin Bağımsızlık Mücadeleleri ve Haber Ajansları İlişkisi – Anadolu Ajansı Örneği",
+      "yazar": "Süleyman Hilmi Bengi",
+      "yayinci": "Atatürk Araştırma Merkezi Dergisi, Cilt XXXV, Sayı 100, Kasım 2019",
+      "tur": "makale",
+      "url": "https://atamdergi.gov.tr/tam-metin/194/tur",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi; tam metin okundu, alıntılar birebir. Yayıncı yine ATAM (S1, S2 ile aynı kurum). Yazar Anadolu Ajansı tarihi uzmanı; S4 ile aynı yazar.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K80",
+      "baslik": "Tarihsel Süreç İçinde Anadolu Ajansı'nın Özgün Kurumsal Yapısı (1920-2011)",
+      "yazar": "Hilmi Bengi",
+      "yayinci": "Ankara Üniversitesi Türk İnkılâp Tarihi Enstitüsü Atatürk Yolu Dergisi, S 50, Güz 2012, s. 299-341",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/pub/ankuayd/article/22446",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi; PDF (dergipark.org.tr/tr/download/article-file/20480) indirilip tam metin okundu, alıntılar birebir. Kurum olarak ATAM'dan bağımsız, ama yazar S3 ile aynı kişi.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K81",
+      "baslik": "Anadolu Ajansı'nın kuruluşu",
+      "yazar": "Ayşe Kübra Birey",
+      "yayinci": "Nosyon: Uluslararası Toplum ve Kültür Çalışmaları Dergisi, 2025, 16, s. 182-196",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/pub/nosyon/article/1772798",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi; PDF (article-file/5189452) indirilip tam metin okundu, alıntılar birebir. İkincil derleme: Özkaya (1985), Tekeli (2002), Bengi gibi kaynakları aktarıyor.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K82",
+      "baslik": "Anadolu Ajansı 101 yıldır Anadolu'nun sesini dünyaya duyuruyor",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı (kurumsal haberler)",
+      "tur": "kurumsal_web",
+      "url": "https://www.aa.com.tr/tr/kurumsal-haberler/anadolu-ajansi-101-yildir-anadolunun-sesini-dunyaya-duyuruyor/2198331",
+      "erisim": "2026-10-03",
+      "not": "S6 ile AYNI kurum (tek kurum sayılır). Yalnızca WebFetch ile okundu; alıntılar ekipçe sayfadan bir kez daha karşılaştırılmalı. İlk bülten metni günümüz Türkçesine çevrilmiş hâlidir, özgün Osmanlıca metin değildir.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K83",
+      "baslik": "Tarihçe",
+      "yazar": "",
+      "yayinci": "Anadolu Ajansı (kurumsal sayfa)",
+      "tur": "kurumsal_web",
+      "url": "https://www.aa.com.tr/tr/p/tarihce",
+      "erisim": "2026-10-03",
+      "not": "S6, S7 ile aynı kurum. Yalnızca WebFetch ile okundu. Sayfada 'resmî haber ajansı' ifadesi geçmiyor; 'özerk statü' deniyor.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K84",
+      "baslik": "Millî Mücadele Yıllarında Anadolu'da Yeni Gün Gazetesinde Cumhuriyet, Cihan İnkılabı ve Millî Komünizm Meseleleri",
+      "yazar": "(sayfadan okunamadı)",
+      "yayinci": "Üsküdar Üniversitesi Sosyal Bilimler Dergisi",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/pub/uskudarsbd/issue/58724/777834",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi; yalnızca özet sayfası WebFetch ile okundu. Yazar adı ve sayı bilgisi alınamadı; ekip tamamlamalı.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K85",
+      "baslik": "Sakarya Savaşı'nda Anadolu'da Yeni Gün",
+      "yazar": "Hakan Aydın",
+      "yayinci": "Selçuk İletişim Dergisi, C 6, S 2, 2010, s. 218-229",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/tr/pub/josc/issue/19020/200644",
+      "erisim": "2026-10-03",
+      "not": "Hakemli dergi; yalnızca özet sayfası WebFetch ile okundu. Künye S2'nin kaynakçasından alındı.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K86",
+      "baslik": "Basın Yayın Genel Müdürlüğü (Matbuat ve İstihbarat Müdüriyet-i Umumiyesi)",
+      "yazar": "Emin Alp Malkoç",
+      "yayinci": "Atatürk Araştırma Merkezi — Atatürk Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/692/Bas%C4%B1n-Yay%C4%B1n-Genel-M%C3%BCd%C3%BCrl%C3%BC%C4%9F%C3%BC-(Matbuat-ve-%C4%B0stihbarat-M%C3%BCd%C3%BCriyet-i-Umumiyesi)",
+      "erisim": "2026-10-03",
+      "not": "Tam metin okundu (byId/692). S1-S3 ile aynı kurum.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K87",
+      "baslik": "Halide Edip Adıvar (1882-1964)",
+      "yazar": "Banu Altınova",
+      "yayinci": "Atatürk Araştırma Merkezi — Atatürk Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/600/Halide-Edip-Ad%C4%B1var-(1882-1964)",
+      "erisim": "2026-10-03",
+      "not": "Tam metin okundu (byId/600). S1-S3 ile aynı kurum.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K88",
+      "baslik": "Anadolu Ajansı Kuruluşu",
+      "yazar": "Şafak Tanır",
+      "yayinci": "İLETİM — İstanbul Üniversitesi İletişim Fakültesi uygulama gazetesi (6 Nisan 2021)",
+      "tur": "haber",
+      "url": "https://iletim.istanbul.edu.tr/index.php/2021/04/06/anadolu-ajansi-kurulusu/",
+      "erisim": "2026-10-03",
+      "not": "ZAYIF KAYNAK: öğrenci gazetesi haberi; metin büyük ölçüde AA'nın tarihçe metnine dayanıyor, bağımsız sayılmaz. İki kaynak sayımına katılmadı. Tam metin okundu.",
+      "kahramanlar": [
+        "yunus-nadi"
+      ]
+    },
+    {
+      "kod": "K89",
+      "baslik": "Mehmed Âkif Ersoy",
+      "yazar": "",
+      "yayinci": "TDV İslâm Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/mehmed-akif-ersoy",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir ansiklopedi maddesi. Madde yazarı sayfada okunmadı; ekip künyeyi sayfadan tamamlamalı. S1, S2 ve S3 aynı kurumun yayını olduğu için birbirinden bağımsız sayılmadı.",
+      "kahramanlar": [
+        "mehmet-akif"
+      ]
+    },
+    {
+      "kod": "K90",
+      "baslik": "Sebîlürreşâd",
+      "yazar": "Adem Efe",
+      "yayinci": "TDV İslâm Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/sebilurresad",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir ansiklopedi maddesi. S1 ve S3 ile aynı kurum (bağımsız sayılmaz).",
+      "kahramanlar": [
+        "mehmet-akif"
+      ]
+    },
+    {
+      "kod": "K91",
+      "baslik": "İstiklâl Marşı",
+      "yazar": "",
+      "yayinci": "TDV İslâm Ansiklopedisi",
+      "tur": "ansiklopedi",
+      "url": "https://islamansiklopedisi.org.tr/istiklal-marsi",
+      "erisim": "2026-10-03",
+      "not": "Güvenilir ansiklopedi maddesi. Madde yazarı sayfada okunmadı. S1 ve S2 ile aynı kurum (bağımsız sayılmaz).",
+      "kahramanlar": [
+        "mehmet-akif"
+      ]
+    },
+    {
+      "kod": "K92",
+      "baslik": "Milli Mücadele Döneminde Mehmet Akif Ersoy'un Kastamonu Vaazı Üzerine Bir İnceleme",
+      "yazar": "Sinan Şahin",
+      "yayinci": "Afyon Kocatepe Üniversitesi Sosyal Bilimler Dergisi, Cilt 19, Sayı 2, Aralık 2017, s. 311-338",
+      "tur": "makale",
+      "url": "https://dergipark.org.tr/en/download/article-file/403953",
+      "erisim": "2026-10-03",
+      "not": "Hakemli üniversite dergisi makalesi (DergiPark). PDF'in tam metni indirilip okundu; alıntılar metinden doğrudan kopyalandı. Özet sayfası: https://dergipark.org.tr/en/pub/akusosbil/issue/34128/378530",
+      "kahramanlar": [
+        "mehmet-akif"
+      ]
+    },
+    {
+      "kod": "K93",
+      "baslik": "Milli Mücadele'de Mehmet Akif Ersoy ve İstiklal Marşı (İstiklal Marşı'nın Kabulü'nün 94. Yılı ve Mehmet Akif Ersoy'u Anma Günü, 12 Mart 2015)",
+      "yazar": "Dr. Nihan Altınbaş (hazırlayan)",
+      "yayinci": "TBMM Basın, Yayın ve Halkla İlişkiler Başkanlığı, TBMM Basımevi, Mart 2015",
+      "tur": "kitap",
+      "url": "https://cdn.tbmm.gov.tr/TbmmWeb/Icerik/Dosya/15A7FAA8-6C7F-4BD0-9D93-805B9FF06AC8.pdf",
+      "erisim": "2026-10-03",
+      "not": "Resmî kurum (TBMM) yayını, dipnotlu; TBMM Zabıt Ceridelerine atıf yapıyor. PDF'in tam metni indirilip okundu; alıntılar metinden doğrudan kopyalandı.",
+      "kahramanlar": [
+        "mehmet-akif"
+      ]
+    },
+    {
+      "kod": "K94",
+      "baslik": "Mehmet Akif Ersoy — Hayatı — Kronoloji",
+      "yazar": "",
+      "yayinci": "Millî Eğitim Bakanlığı (meb.gov.tr, İstiklal Marşı sayfası)",
+      "tur": "kurumsal_web",
+      "url": "https://www.meb.gov.tr/istiklalmarsi/mehmetakifersoy/Hayati/Kronoloji",
+      "erisim": "2026-10-03",
+      "not": "Resmî kurum sayfası; kaynak göstermeyen kısa kronoloji. Tarihleri S4 ve S2 ile birebir uyuşmuyor (aşağıda çelişki olarak yazıldı).",
+      "kahramanlar": [
+        "mehmet-akif"
+      ]
+    },
+    {
+      "kod": "K95",
+      "baslik": "İstiklal Marşı'nın Kabulünün 99. Yıl Dönümü",
+      "yazar": "",
+      "yayinci": "Millî Eğitim Bakanlığı (meb.gov.tr haber)",
+      "tur": "kurumsal_web",
+      "url": "https://www.meb.gov.tr/istiklal-marsinin-kabulunun-99-yil-donumu/haber/20493/tr",
+      "erisim": "2026-10-03",
+      "not": "Resmî kurum sayfası ama haber niteliğinde, kaynak göstermiyor. S6 ile aynı kurum (bağımsız sayılmaz).",
+      "kahramanlar": [
+        "mehmet-akif"
+      ]
+    }
+  ]
+}

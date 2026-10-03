@@ -8,7 +8,7 @@ window.IP_BULTEN = {
       "sonra": "tayyar-rahmiye",
       "nuri": "Ajans bülteni çıkıyor, haberleri kontrol et!",
       "dogrulandi": false,
-      "not": "Sorular senaryo belgesinde yoktu; ilk üç kahramanın Altın Bilgilerinden ve senaryodaki çeldiricilerden türetildi. Ekip onaylamalı. Başarı testindeki sorular bunlarla birebir aynı olmamalı.",
+      "not": "Sorular senaryo belgesinde yoktu; ilk üç kahramanın Altın Bilgilerinden ve senaryodaki çeldiricilerden türetildi. 3 Ekim 2026'daki kaynak taramasına göre düzeltildi. Ekip onaylamalı. Başarı testindeki sorular bunlarla birebir aynı olmamalı.",
       "sorular": [
         {
           "tur": "dy",
@@ -21,22 +21,37 @@ window.IP_BULTEN = {
           "kahraman": "sahin-bey",
           "sablon": "Antep'in direnişi nedeniyle TBMM şehre {0} unvanını verdi.",
           "dogru": "Gazi",
-          "celdiriciler": ["Kahraman", "Şanlı"]
+          "celdiriciler": [
+            "Kahraman",
+            "Şanlı"
+          ]
         },
         {
           "tur": "dy",
           "kahraman": "tayyar-rahmiye",
           "ifade": "\"Tayyar\" lakabı Rahmiye'ye Maraşlı olduğu için verilmiştir.",
           "dogru": false,
-          "aciklama": "\"Tayyar\" lakabı hızı ve cesaretinden dolayı verilmiştir."
+          "aciklama": "\"Tayyar\" lakabı, bir çarpışmadaki cesareti nedeniyle verilmiştir."
         },
         {
           "tur": "eslestir",
           "yonerge": "Her kahramanı doğru ipucuyla eşleştir.",
           "ciftler": [
-            { "sol": "Sütçü İmam", "sag": "Uzunoluk Hamamı", "kahraman": "sutcu-imam" },
-            { "sol": "Şahin Bey", "sag": "Kilis–Antep yolu", "kahraman": "sahin-bey" },
-            { "sol": "Tayyar Rahmiye", "sag": "Antep savunmasının kadın kahramanı", "kahraman": "tayyar-rahmiye" }
+            {
+              "sol": "Sütçü İmam",
+              "sag": "Uzunoluk Hamamı",
+              "kahraman": "sutcu-imam"
+            },
+            {
+              "sol": "Şahin Bey",
+              "sag": "Kilis–Antep yolu",
+              "kahraman": "sahin-bey"
+            },
+            {
+              "sol": "Tayyar Rahmiye",
+              "sag": "Osmaniye'nin kadın kahramanı",
+              "kahraman": "tayyar-rahmiye"
+            }
           ]
         },
         {
@@ -44,7 +59,10 @@ window.IP_BULTEN = {
           "kahraman": "sutcu-imam",
           "sablon": "Halkın direnişi sonunda Maraş {0} tarihinde kurtuldu.",
           "dogru": "12 Şubat 1920",
-          "celdiriciler": ["9 Eylül 1922", "6 Nisan 1920"]
+          "celdiriciler": [
+            "9 Eylül 1922",
+            "6 Nisan 1920"
+          ]
         },
         {
           "tur": "dy",
@@ -58,14 +76,20 @@ window.IP_BULTEN = {
           "kahraman": "sutcu-imam",
           "sablon": "Sütçü İmam'ın {0} önünde Maraşlı kadınlara yapılan saldırıya karşı çıkması direnişin kıvılcımı oldu.",
           "dogru": "Uzunoluk Hamamı",
-          "celdiriciler": ["İnebolu İskelesi", "Nasrullah Camii"]
+          "celdiriciler": [
+            "İnebolu İskelesi",
+            "Nasrullah Camii"
+          ]
         },
         {
           "tur": "bosluk",
           "kahraman": "tayyar-rahmiye",
-          "sablon": "Tayyar Rahmiye, {0} savunması sırasında şehit düştü.",
-          "dogru": "Antep",
-          "celdiriciler": ["Maraş", "Erzurum"]
+          "sablon": "Tayyar Rahmiye'nin memleketi: {0}.",
+          "dogru": "Osmaniye",
+          "celdiriciler": [
+            "Erzurum",
+            "Kastamonu"
+          ]
         }
       ]
     },
@@ -75,36 +99,55 @@ window.IP_BULTEN = {
       "sonra": "serife-baci",
       "nuri": "Ajans bülteni çıkıyor, haberleri kontrol et!",
       "dogrulandi": false,
-      "not": "Sorular senaryo belgesinde yoktu; ilk yedi kahramanın Altın Bilgilerinden ve senaryodaki çeldiricilerden türetildi. Ekip onaylamalı. Başarı testindeki sorular bunlarla birebir aynı olmamalı.",
+      "not": "Sorular senaryo belgesinde yoktu; ilk yedi kahramanın Altın Bilgilerinden ve senaryodaki çeldiricilerden türetildi. 3 Ekim 2026'daki kaynak taramasına göre düzeltildi. Ekip onaylamalı. Başarı testindeki sorular bunlarla birebir aynı olmamalı.",
       "sorular": [
         {
           "tur": "dy",
           "kahraman": "kara-fatma",
-          "ifade": "Kara Fatma Erzurumludur ve asıl adı Fatma Seher Erden'dir.",
+          "ifade": "Kara Fatma Erzurumludur ve asıl adı Fatma Seher'dir.",
           "dogru": true
         },
         {
           "tur": "bosluk",
           "kahraman": "gordesli-makbule",
-          "sablon": "Gördesli Makbule, {0} birliklerinde efe kıyafetiyle savaştı.",
+          "sablon": "Gördesli Makbule, {0} birliklerinde işgale karşı savaştı.",
           "dogru": "Kuvâ-yi Milliye",
-          "celdiriciler": ["Anadolu Ajansı", "İnebolu İskelesi"]
+          "celdiriciler": [
+            "Anadolu Ajansı",
+            "İnebolu İskelesi"
+          ]
         },
         {
           "tur": "dy",
           "kahraman": "halime-cavus",
-          "ifade": "Halime Çavuş, cephane taşıyan birliklere \"Said\" adıyla katıldı.",
+          "ifade": "Halime Çavuş Erzurumludur.",
           "dogru": false,
-          "aciklama": "Halime Çavuş, birliklere \"Halim\" adıyla katıldı."
+          "aciklama": "Halime Çavuş Kastamonuludur."
         },
         {
           "tur": "eslestir",
           "yonerge": "Her kahramanı kendi şehriyle eşleştir.",
           "ciftler": [
-            { "sol": "Sütçü İmam", "sag": "Maraş", "kahraman": "sutcu-imam" },
-            { "sol": "Kara Fatma", "sag": "Erzurum", "kahraman": "kara-fatma" },
-            { "sol": "Gördesli Makbule", "sag": "Gördes", "kahraman": "gordesli-makbule" },
-            { "sol": "Halime Çavuş", "sag": "Kastamonu", "kahraman": "halime-cavus" }
+            {
+              "sol": "Sütçü İmam",
+              "sag": "Maraş",
+              "kahraman": "sutcu-imam"
+            },
+            {
+              "sol": "Kara Fatma",
+              "sag": "Erzurum",
+              "kahraman": "kara-fatma"
+            },
+            {
+              "sol": "Gördesli Makbule",
+              "sag": "Gördes",
+              "kahraman": "gordesli-makbule"
+            },
+            {
+              "sol": "Halime Çavuş",
+              "sag": "Kastamonu",
+              "kahraman": "halime-cavus"
+            }
           ]
         },
         {
@@ -112,7 +155,10 @@ window.IP_BULTEN = {
           "kahraman": "serife-baci",
           "sablon": "Şerife Bacı, {0} İskelesi'ne gelen cephaneyi kağnılarla taşıyan kadınlardandır.",
           "dogru": "İnebolu",
-          "celdiriciler": ["İzmir", "Maraş"]
+          "celdiriciler": [
+            "İzmir",
+            "Maraş"
+          ]
         },
         {
           "tur": "dy",
@@ -123,16 +169,19 @@ window.IP_BULTEN = {
         {
           "tur": "bosluk",
           "kahraman": "kara-fatma",
-          "sablon": "Kara Fatma, gösterdiği başarılar nedeniyle rütbe ve {0} aldı.",
-          "dogru": "İstiklal Madalyası",
-          "celdiriciler": ["Nobel Ödülü", "\"Gazi\" unvanı"]
+          "sablon": "Kara Fatma, Batı Cephesi'nde {0} rütbesine kadar yükseldi.",
+          "dogru": "üsteğmen",
+          "celdiriciler": [
+            "paşa",
+            "amiral"
+          ]
         },
         {
           "tur": "dy",
           "kahraman": "tayyar-rahmiye",
-          "ifade": "Tayyar Rahmiye, Maraş savunmasında çarpıştı.",
+          "ifade": "Tayyar Rahmiye, Maraş'ta işgale karşı çarpıştı.",
           "dogru": false,
-          "aciklama": "Tayyar Rahmiye, Antep savunmasında çarpıştı."
+          "aciklama": "Tayyar Rahmiye, Osmaniye'de işgale karşı çarpıştı."
         }
       ]
     },
@@ -142,40 +191,156 @@ window.IP_BULTEN = {
       "sonra": "final",
       "nuri": "Son bülten: on kahramanın haberlerini bir kez daha kontrol et!",
       "dogrulandi": false,
-      "not": "Sorular senaryo belgesinde yoktu; on kahramanın Altın Bilgilerinden ve senaryodaki çeldiricilerden türetildi. Ekip onaylamalı. Bu bülten araştırmadaki başarı testi DEĞİLDİR; başarı testindeki sorular bunlarla birebir aynı olmamalı.",
+      "not": "Sorular senaryo belgesinde yoktu; on kahramanın Altın Bilgilerinden ve senaryodaki çeldiricilerden türetildi. 3 Ekim 2026'daki kaynak taramasına göre düzeltildi. Ekip onaylamalı. Bu bülten araştırmadaki başarı testi DEĞİLDİR; başarı testindeki sorular bunlarla birebir aynı olmamalı.",
       "sorular": [
-        { "tur": "dy", "kahraman": "sutcu-imam", "ifade": "Maraş, halkın direnişi sonunda 12 Şubat 1920'de kurtuldu.", "dogru": true },
-        { "tur": "bosluk", "kahraman": "sahin-bey", "sablon": "Şahin Bey, {0} yolunda işgal kuvvetlerini durdurmak için savaştı.", "dogru": "Kilis–Antep", "celdiriciler": ["İzmir–Aydın", "İnebolu–Kastamonu"] },
-        { "tur": "dy", "kahraman": "tayyar-rahmiye", "ifade": "Tayyar Rahmiye, Antep savunmasında erkeklerle birlikte çarpışan bir kadın kahramandır.", "dogru": true },
-        { "tur": "bosluk", "kahraman": "kara-fatma", "sablon": "Kara Fatma, gönüllülerden oluşan bir {0} kurdu.", "dogru": "milis müfrezesi", "celdiriciler": ["gazete", "haber ajansı"] },
-        { "tur": "dy", "kahraman": "gordesli-makbule", "ifade": "Gördesli Makbule, Erzurum'un bir ilçesindendir.", "dogru": false, "aciklama": "Gördesli Makbule, Manisa'nın Gördes ilçesindendir." },
-        { "tur": "bosluk", "kahraman": "halime-cavus", "sablon": "Halime Çavuş'un asıl adı: {0}.", "dogru": "Kezban", "celdiriciler": ["Rahmiye", "Makbule"] },
-        { "tur": "dy", "kahraman": "serife-baci", "ifade": "Şerife Bacı, cephaneyi İnebolu'dan trenle taşıyan kadınlardandır.", "dogru": false, "aciklama": "Şerife Bacı, cephaneyi kağnılarla taşıyan kadınlardandır." },
+        {
+          "tur": "dy",
+          "kahraman": "sutcu-imam",
+          "ifade": "Maraş, halkın direnişi sonunda 12 Şubat 1920'de kurtuldu.",
+          "dogru": true
+        },
+        {
+          "tur": "bosluk",
+          "kahraman": "sahin-bey",
+          "sablon": "Şahin Bey, {0} yolunda işgal kuvvetlerini durdurmak için savaştı.",
+          "dogru": "Kilis–Antep",
+          "celdiriciler": [
+            "İzmir–Aydın",
+            "İnebolu–Kastamonu"
+          ]
+        },
+        {
+          "tur": "dy",
+          "kahraman": "tayyar-rahmiye",
+          "ifade": "Tayyar Rahmiye, Osmaniye'de işgale karşı erkeklerle birlikte çarpışan bir kadın kahramandır.",
+          "dogru": true
+        },
+        {
+          "tur": "bosluk",
+          "kahraman": "kara-fatma",
+          "sablon": "Kara Fatma, gönüllülerden oluşan bir {0} kurdu.",
+          "dogru": "milis müfrezesi",
+          "celdiriciler": [
+            "gazete",
+            "haber ajansı"
+          ]
+        },
+        {
+          "tur": "dy",
+          "kahraman": "gordesli-makbule",
+          "ifade": "Gördesli Makbule, Erzurum'un bir ilçesindendir.",
+          "dogru": false,
+          "aciklama": "Gördesli Makbule, Manisa'nın Gördes ilçesindendir."
+        },
+        {
+          "tur": "bosluk",
+          "kahraman": "halime-cavus",
+          "sablon": "Halime Çavuş cephaneyi {0} ile taşıdı.",
+          "dogru": "kağnı",
+          "celdiriciler": [
+            "gemi",
+            "uçak"
+          ]
+        },
+        {
+          "tur": "dy",
+          "kahraman": "serife-baci",
+          "ifade": "Şerife Bacı, cephaneyi İnebolu'dan trenle taşıyan kadınlardandır.",
+          "dogru": false,
+          "aciklama": "Şerife Bacı, cephaneyi kağnılarla taşıyan kadınlardandır."
+        },
         {
           "tur": "eslestir",
           "yonerge": "Basın-yayın kahramanlarını eserleriyle eşleştir.",
           "ciftler": [
-            { "sol": "Halide Edib Adıvar", "sag": "\"Ateşten Gömlek\" romanı", "kahraman": "halide-edib" },
-            { "sol": "Yunus Nadi", "sag": "\"Yeni Gün\" gazetesi", "kahraman": "yunus-nadi" },
-            { "sol": "Mehmet Âkif Ersoy", "sag": "İstiklal Marşı", "kahraman": "mehmet-akif" }
+            {
+              "sol": "Halide Edib Adıvar",
+              "sag": "\"Ateşten Gömlek\" romanı",
+              "kahraman": "halide-edib"
+            },
+            {
+              "sol": "Yunus Nadi",
+              "sag": "\"Anadolu'da Yeni Gün\" gazetesi",
+              "kahraman": "yunus-nadi"
+            },
+            {
+              "sol": "Mehmet Âkif Ersoy",
+              "sag": "İstiklal Marşı",
+              "kahraman": "mehmet-akif"
+            }
           ]
         },
-        { "tur": "bosluk", "kahraman": "yunus-nadi", "sablon": "Anadolu Ajansı {0} tarihinde kuruldu.", "dogru": "6 Nisan 1920", "celdiriciler": ["12 Mart 1921", "12 Şubat 1920"] },
-        { "tur": "dy", "kahraman": "mehmet-akif", "ifade": "İstiklal Marşı 12 Mart 1921'de TBMM'de kabul edildi.", "dogru": true },
-        { "tur": "dy", "kahraman": "halide-edib", "ifade": "Halide Edib, Sultanahmet Mitingi'nde İzmir'in işgalini protesto eden bir konuşma yaptı.", "dogru": true },
-        { "tur": "dy", "kahraman": "mehmet-akif", "ifade": "Mehmet Âkif'in Kastamonu'daki vaazı \"Yeni Gün\" gazetesinde basıldı.", "dogru": false, "aciklama": "Vaaz \"Sebilürreşad\" dergisinde basıldı." },
+        {
+          "tur": "bosluk",
+          "kahraman": "yunus-nadi",
+          "sablon": "Anadolu Ajansı {0} tarihinde kuruldu.",
+          "dogru": "6 Nisan 1920",
+          "celdiriciler": [
+            "12 Mart 1921",
+            "12 Şubat 1920"
+          ]
+        },
+        {
+          "tur": "dy",
+          "kahraman": "mehmet-akif",
+          "ifade": "İstiklal Marşı 12 Mart 1921'de TBMM'de kabul edildi.",
+          "dogru": true
+        },
+        {
+          "tur": "dy",
+          "kahraman": "halide-edib",
+          "ifade": "Halide Edib, Sultanahmet Mitingi'nde İzmir'in işgalini protesto eden bir konuşma yaptı.",
+          "dogru": true
+        },
+        {
+          "tur": "dy",
+          "kahraman": "mehmet-akif",
+          "ifade": "Mehmet Âkif'in Kastamonu'daki vaazı \"Yeni Gün\" gazetesinde basıldı.",
+          "dogru": false,
+          "aciklama": "Vaaz \"Sebilürreşad\" dergisinde basıldı."
+        },
         {
           "tur": "eslestir",
           "yonerge": "Her kahramanı doğru ipucuyla eşleştir.",
           "ciftler": [
-            { "sol": "Sütçü İmam", "sag": "Uzunoluk Hamamı", "kahraman": "sutcu-imam" },
-            { "sol": "Şerife Bacı", "sag": "İnebolu İskelesi", "kahraman": "serife-baci" },
-            { "sol": "Mehmet Âkif Ersoy", "sag": "Nasrullah Camii", "kahraman": "mehmet-akif" },
-            { "sol": "Gördesli Makbule", "sag": "Efe kıyafeti", "kahraman": "gordesli-makbule" }
+            {
+              "sol": "Sütçü İmam",
+              "sag": "Uzunoluk Hamamı",
+              "kahraman": "sutcu-imam"
+            },
+            {
+              "sol": "Şerife Bacı",
+              "sag": "İnebolu İskelesi",
+              "kahraman": "serife-baci"
+            },
+            {
+              "sol": "Mehmet Âkif Ersoy",
+              "sag": "Nasrullah Camii",
+              "kahraman": "mehmet-akif"
+            },
+            {
+              "sol": "Gördesli Makbule",
+              "sag": "Kocayayla",
+              "kahraman": "gordesli-makbule"
+            }
           ]
         },
-        { "tur": "bosluk", "kahraman": "kara-fatma", "sablon": "Kara Fatma, {0} Cephesi'nde savaştı.", "dogru": "Batı", "celdiriciler": ["Doğu", "Güney"] },
-        { "tur": "dy", "kahraman": "halime-cavus", "ifade": "Halime Çavuş, hizmetleri nedeniyle çavuş rütbesi ve İstiklal Madalyası aldı.", "dogru": true }
+        {
+          "tur": "bosluk",
+          "kahraman": "kara-fatma",
+          "sablon": "Kara Fatma, {0} Cephesi'nde savaştı.",
+          "dogru": "Batı",
+          "celdiriciler": [
+            "Doğu",
+            "Güney"
+          ]
+        },
+        {
+          "tur": "dy",
+          "kahraman": "halime-cavus",
+          "ifade": "Halime Çavuş, hizmetleri nedeniyle İstiklal Madalyası aldı.",
+          "dogru": true
+        }
       ]
     }
   ]

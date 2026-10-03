@@ -3,6 +3,8 @@
 Sürüm 0.1 · Ekim 2026
 Proje: TÜBİTAK 2204-B (Tarih) — Millî Mücadele kahramanlarının yapay zekâ destekli dijital oyunla öğretimi
 
+> **Güncelleme (3 Ekim 2026):** Kaynak taraması sonucunda bu belgedeki bazı taslak bilgilerin yanlış ya da kaynaksız olduğu görüldü (ör. Tayyar Rahmiye Antepli değil Osmaniyelidir; Halime Çavuş'un "asıl adı Kezban" bilgisi kaynaklarda yoktur; Gördesli Makbule için "efe kıyafeti" bulunamadı). **Oyundaki güncel içerik `data/heroes.json` dosyasındadır;** bu belgenin 5. bölümü ilk taslak olarak korunmuştur. Ayrıntılar: `docs/KAYNAK_RAPORU.md`.
+
 > **Önemli:** Bu belgedeki tarihî bilgiler bir başlangıç taslağıdır. `[DOĞRULA]` etiketli her bilgi, oyuna girmeden önce en az iki güvenilir kaynakla doğrulanmalı ve `data/heroes.json` dosyasına kaynağıyla birlikte yazılmalıdır. Etiketsiz bilgiler de kaynak tablosuna işlenmeden kullanılmamalıdır.
 
 ---

@@ -1,6 +1,6 @@
 /* Mini oyun: "Yolu Tut"
    Yol üzerindeki geçitlere gönüllü kartları yerleştirilir. Kolon ilerlerken kartlar devreye girer
-   ve şehre hazırlanması için zaman kazandırır. Amaç "şehir hazırlık" çubuğunu doldurmaktır.
+   ve yolu tutar. Amaç "yol tutuldu" çubuğunu doldurmaktır (işgal birliklerine yardım ulaşmasın).
    Çatışma gösterilmez: kolon yalnızca "durdu" işaretiyle yavaşlar.
    Ortak arayüz: start(container, heroData) → Promise<{completed, durationSec, details}> */
 (function () {
@@ -10,7 +10,7 @@
   // Kart türleri ve oyun ayarları (pilot testten sonra buradan değiştirilebilir).
   var KARTLAR = {
     gozcu: { ad: 'Gözcü', renk: '#2c5a85', etki: 'Kolonu erken görür: bir sonraki geçitteki kartı 2 kat güçlendirir.' },
-    haberci: { ad: 'Haberci', renk: '#5f6f52', etki: 'Şehre haber uçurur: hazırlık hemen artar.' },
+    haberci: { ad: 'Haberci', renk: '#5f6f52', etki: 'Şehre haber uçurur: gösterge hemen artar.' },
     engelci: { ad: 'Engelci', renk: '#b3261e', etki: 'Yolu kapatır: kolon bir süre durur.' }
   };
   var ELLER = [
@@ -86,7 +86,7 @@
         }
         function gostergeYaz() {
           dalgaYazi.textContent = 'Dalga ' + Math.min(dalga + 1, DALGA) + ' / ' + DALGA;
-          hazYazi.textContent = 'Hazırlık %' + Math.min(100, Math.floor(hazirlik));
+          hazYazi.textContent = 'Yol tutuldu %' + Math.min(100, Math.floor(hazirlik));
         }
         function kaplama(baslik, satirlar, dugmeler) {
           var k = IP.el('div', 'oyun-kaplama'), kutu = IP.el('div', 'kagit oyun-kutu');
@@ -162,7 +162,7 @@
           if (dalga >= DALGA) { bitir(); return; }
           faz = 'ara'; tepsiCiz();
           kaplama(dalga + '. dalga geçti', [
-            'Şehrin hazırlığı: %' + Math.min(100, Math.floor(hazirlik)),
+            'Yol tutuldu: %' + Math.min(100, Math.floor(hazirlik)),
             bos ? 'İpucu: Elinde kullanmadığın kart kaldı. Hepsini yerleştirmeyi dene.' : 'İpucu: Gözcüyü başka bir kartın hemen önündeki geçide koyarsan o kart 2 kat güçlenir.',
             'Sıradaki kolon daha hızlı!'
           ], [['Sonraki dalga ▶', dalgaHazirla]]);
@@ -174,10 +174,10 @@
           var sonuc = { completed: tamam, durationSec: Math.round(gecen), details: { hazirlik: Math.min(100, Math.floor(hazirlik)), dalga: DALGA } };
           if (tamam) {
             IP.ses.cal('zafer'); IP.efekt.patlat(window.innerWidth / 2, window.innerHeight / 2, 80);
-            kaplama('Şehir hazır!', [mo.kazanim || '', 'Hazırlık: %100'], [['Devam ▶', function () { kapat(); coz(sonuc); }]]);
+            kaplama('Yol tutuldu!', [mo.kazanim || '', 'Gösterge: %100'], [['Devam ▶', function () { kapat(); coz(sonuc); }]]);
           } else {
-            kaplama('Hazırlık yetişmedi', [
-              'Hazırlık %' + sonuc.details.hazirlik + ' oldu. Üzülme, cezası yok.',
+            kaplama('Yol tutulamadı', [
+              'Gösterge %' + sonuc.details.hazirlik + ' oldu. Üzülme, cezası yok.',
               'İpucu: Gözcüyü, Haberci ya da Engelci kartının hemen önündeki geçide koy.'
             ], [
               ['Tekrar dene', function () { dalga = 0; hazirlik = 0; gecen = 0; dalgaHazirla(); }],
@@ -272,7 +272,7 @@
           c.fillStyle = '#2b2118'; c.fillRect(sx - 8 * u, sy - 98 * u, cw + 4 * u, 22 * u);
           c.fillStyle = oran >= 1 ? '#4e8a4a' : '#e0a83a'; c.fillRect(sx - 6 * u, sy - 96 * u, cw * oran, 18 * u);
           c.fillStyle = '#f1e4c6'; c.font = '700 ' + 13 * u + 'px Metin, serif'; c.textAlign = 'center';
-          c.fillText('hazırlık %' + Math.floor(oran * 100), sx + cw / 2 - 6 * u, sy - 82 * u);
+          c.fillText('yol tutuldu %' + Math.floor(oran * 100), sx + cw / 2 - 6 * u, sy - 82 * u);
 
           // geçitler
           for (i = 0; i < GECIT; i++) {
@@ -375,9 +375,9 @@
         kaplama(mo.ad || 'Mini oyun', [
           mo.aciklama || '',
           '• Kartlarını yoldaki geçitlere yerleştir, sonra "Kolonu karşıla" düğmesine bas.',
-          '• Engelci kolonu durdurur, Haberci hazırlığı artırır.',
+          '• Engelci kolonu durdurur, Haberci göstergeyi artırır.',
           '• Gözcü, bir sonraki geçitteki kartı 2 kat güçlendirir.',
-          '• ' + DALGA + ' dalganın sonunda şehrin hazırlığı %100 olmalı.'
+          '• ' + DALGA + ' dalganın sonunda "yol tutuldu" göstergesi %100 olmalı.'
         ], [['Başla ▶', dalgaHazirla]]);
       });
     }

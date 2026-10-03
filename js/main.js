@@ -45,7 +45,10 @@
       e.classList.add('acilis');
       var baslik = IP.el('div', 'acilis-baslik');
       baslik.appendChild(IP.el('div', 'acilis-ust', '— Zaman Muhabiri —'));
-      baslik.appendChild(IP.el('h1', null, IP.buyukHarf('İstiklal Postası')));
+      var ad = IP.el('h1', null, IP.buyukHarf('İstiklal Postası')), dokunus = 0;
+      // Gizli giriş: oyun adına 5 kez dokunulunca öğretmen paneli açılır.
+      ad.addEventListener('click', function () { if (++dokunus >= 5) ogretmenEkrani(); });
+      baslik.appendChild(ad);
       baslik.appendChild(IP.el('div', 'acilis-alt', 'Millî Mücadele\'nin kahramanlarını sen yaz'));
 
       // Anonim öğrenci kodu seçici (isim yazılmaz): harf + sayı, ör. D-07
@@ -72,6 +75,26 @@
         if (IP.kayit.veri.prolog_goruldu) haritaEkrani(); else prolog();
       }));
       e.appendChild(baslik); e.appendChild(panel);
+    });
+  }
+
+  /* ---------- Öğretmen paneli ve sunum modu ---------- */
+  function ogretmenEkrani() {
+    IP.sahneDegistir(function (e) {
+      IP.ucb.goster(null);
+      ustSerit();
+      return IP.ogretmen.goster(e);
+    }).then(function (sonuc) {
+      if (sonuc.eylem !== 'sunum') { acilisEkrani(); return; }
+      // Sunum modu: yalnızca hikâye panelleri gösterilir, kayıt tutulmaz.
+      IP.sahneDegistir(function (e) {
+        ustEl.innerHTML = '';
+        var sol = IP.el('div', 'ust-sol');
+        sol.appendChild(IP.dugme('◀ Panel', 'ikincil kucuk', ogretmenEkrani));
+        ustEl.appendChild(sol);
+        e.classList.add('sunum');
+        return IP.hikaye.goster(e, sonuc.kahraman);
+      }).then(ogretmenEkrani);
     });
   }
 
@@ -125,10 +148,11 @@
   // Kahramanlar sırayla açılır: bir öncekinin sayfası canlanmadan sıradaki kilitli kalır.
   // Araya bülten giriyorsa, bülten yapılmadan sonraki kahraman açılmaz (puanı ne olursa olsun).
   function durumHesapla() {
-    var durumlar = {}, oncekiTamam = true, bekleyenBulten = null;
+    // Öğretmen panelinden "tüm bölümler açık" seçildiyse sıra beklenmez.
+    var durumlar = {}, oncekiTamam = true, bekleyenBulten = null, tumuAcik = IP.ogretmen.tumuAcik();
     IP.veri.kahramanlar.forEach(function (k) {
       var tamam = IP.kayit.tamamMi(k.id);
-      durumlar[k.id] = tamam ? 'tamam' : (k.hazir && oncekiTamam ? 'acik' : 'kilitli');
+      durumlar[k.id] = tamam ? 'tamam' : (k.hazir && (oncekiTamam || tumuAcik) ? 'acik' : 'kilitli');
       oncekiTamam = tamam;
       var b = IP.bulten.sonraki(k.id);
       if (b && tamam && !IP.kayit.bulten(b.no)) { oncekiTamam = false; bekleyenBulten = bekleyenBulten || b; }
@@ -164,7 +188,7 @@
       e.classList.add('harita-ekrani');
       var baslik = IP.el('div', 'harita-baslik');
       baslik.appendChild(IP.el('h2', null, 'Anadolu Haritası'));
-      var yonerge = IP.el('div', 'yonerge', siradaki ? 'Yanıp sönen konuma dokun.' : bosMesaj);
+      var yonerge = IP.el('div', 'yonerge', IP.ogretmen.tumuAcik() ? 'Tanıtım modu: tüm bölümler açık.' : (siradaki ? 'Yanıp sönen konuma dokun.' : bosMesaj));
       baslik.appendChild(yonerge);
       if (hepsiTamam && !bekleyen && !IP.kayit.veri.final_goruldu) {
         baslik.appendChild(IP.dugme('• — •  Zafer Nüshası ▶', 'bulten-dugme', finalAkisi));

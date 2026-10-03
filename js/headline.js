@@ -16,7 +16,7 @@
         var gazete = IP.el('div', 'gazete kagit');
         var baslik = IP.el('div', 'gazete-baslik');
         baslik.appendChild(IP.el('span', 'gazete-ad', 'İSTİKLAL POSTASI'));
-        baslik.appendChild(IP.el('span', 'gazete-alt', 'Muhabir: ' + IP.kayit.kod + ' · ' + k.konum.ad));
+        baslik.appendChild(IP.el('span', 'gazete-alt', 'Muhabir: ' + IP.kayit.muhabirAdi() + ' · ' + k.konum.ad));
         gazete.appendChild(baslik);
         var manset = IP.el('h2', 'manset'), spot = IP.el('p', 'spot'), hedef = manset, bosluklar = [];
         h.sablon.split(/(\{\d+\})/).forEach(function (parca) {

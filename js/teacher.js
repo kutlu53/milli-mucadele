@@ -4,7 +4,7 @@
    - İlerleme: hangi öğrenci kodunun hangi kahramanı bitirdiği.
    - Tüm bölümleri aç: sunum ve tanıtım için kilitleri kaldırır.
    - Sunum modu: bir kahramanın hikâye panelleri sınıfa akıllı tahtadan okutulur.
-   - CSV dışa aktarma: araştırmanın oyun içi verileri (isim yok, yalnızca anonim kod).
+   - CSV dışa aktarma: araştırmanın oyun içi verileri (isim yok, yalnızca anonim kod; oyuncunun yazdığı ad da dışarı verilmez).
    - Sıfırlama: tek öğrenci ya da bütün cihaz.
    Veriler yalnızca bu cihazın tarayıcısında durur; hiçbir yere gönderilmez. */
 (function () {

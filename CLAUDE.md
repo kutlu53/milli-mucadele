@@ -14,7 +14,7 @@ Ayrıntılar:
 - **Arayüz dili Türkçe.** Türkçe karakterler (ç, ğ, ı, İ, ö, ş, ü) her yerde doğru görünmeli. Büyük/küçük harf dönüşümünde `toLocaleUpperCase('tr-TR')` kullan.
 - **Kontrol:** Yalnızca tıklama/dokunma ve sürükle-bırak. Dokunma alanları en az 48 px. Akıllı tahtada ve tablette test edilebilir olmalı.
 - **Şiddet sembolik:** Nişan alma, kan veya ölüm görüntüsü yok.
-- **Kişisel veri yok:** Öğrenci adı tutulmaz, yalnızca anonim kod.
+- **Kişisel veri yok:** Araştırma verisi (kayıt, CSV, öğretmen paneli) yalnızca anonim kodla tutulur. Oyuncu isterse adını yazar; ad yalnızca o cihazda, gazete imzası için saklanır ve CSV'ye asla girmez.
 - **Marka adı yok:** Oyun ekranlarında ve üretilen belgelerde ticari ürün adı geçmesin.
 
 ## Çalışma biçimi

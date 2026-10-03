@@ -1,5 +1,6 @@
 /* Kayıt: İlerleme tarayıcının yerel deposunda (localStorage) tutulur.
-   Öğrenci adı tutulmaz; yalnızca anonim kod (ör. D-07) kullanılır. */
+   Araştırma verisi anonim kodla (ör. D-07) tutulur. Oyuncu isterse adını yazar; ad yalnızca bu cihazda,
+   gazete imzası ve üst şerit için saklanır, CSV dışa aktarımına ve araştırma verisine girmez. */
 (function () {
   'use strict';
   var IP = window.IP;
@@ -29,6 +30,16 @@
     },
 
     kaydet: function () { yaz(ON_EK + this.kod, JSON.stringify(this.veri)); },
+
+    // Oyuncu adı (isteğe bağlı). Boş bırakılırsa silinir.
+    adYaz: function (ad) {
+      ad = (ad || '').replace(/\s+/g, ' ').trim().slice(0, 30);
+      if (ad) this.veri.ad = ad; else delete this.veri.ad;
+      this.kaydet();
+    },
+
+    // Gazete imzası ve üst şerit için: ad yazıldıysa ad, yoksa anonim kod.
+    muhabirAdi: function () { return (this.veri && this.veri.ad) || this.kod; },
 
     // Bir kahramanın sonucunu yazar. Tekrar oynanırsa en iyi yıldız sayısı korunur.
     kahramanSonucu: function (id, sonuc) {

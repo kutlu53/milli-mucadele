@@ -18,7 +18,7 @@
     }
     if (IP.kayit.veri) {
       var y = IP.kayit.toplamYildiz();
-      sag.appendChild(IP.el('span', 'yildiz-sayac', '★ ' + y + ' · ' + IP.rutbe(y) + ' · ' + IP.kayit.kod));
+      sag.appendChild(IP.el('span', 'yildiz-sayac', '★ ' + y + ' · ' + IP.rutbe(y) + ' · ' + IP.kayit.muhabirAdi()));
     }
     var ses = IP.el('button', 'dugme yuvarlak ikincil', IP.ses.acik ? '🔔' : '🔕');
     ses.type = 'button'; ses.setAttribute('aria-label', 'Sesi aç ya da kapat');
@@ -69,8 +69,22 @@
       secici.appendChild(IP.dugme('+', 'ikincil yuvarlak', function () { sayi = sayi >= 40 ? 1 : sayi + 1; yaz(); }));
       yaz();
       panel.appendChild(secici);
+
+      // Oyuncu adı (isteğe bağlı): yalnızca bu cihazda, gazete imzası için tutulur. CSV'ye ve araştırma verisine girmez.
+      var adKutu = IP.el('label', 'ad-kutu');
+      adKutu.appendChild(IP.el('span', 'acilis-etiket', 'Adın (isteğe bağlı)'));
+      var adGiris = IP.el('input', 'ad-giris');
+      adGiris.type = 'text'; adGiris.maxLength = 30; adGiris.autocomplete = 'off'; adGiris.placeholder = 'Gazetede "Muhabir: …" diye yazar';
+      adKutu.appendChild(adGiris);
+      panel.appendChild(adKutu);
+      // Kod değişince o kodun daha önce yazılmış adı kutuya gelir.
+      function adiGetir() { var k = IP.kayit.kayitOku(kodAl()); adGiris.value = (k && k.ad) || ''; }
+      Array.prototype.forEach.call(secici.querySelectorAll('button'), function (b) { b.addEventListener('click', adiGetir); });
+      adiGetir();
+
       panel.appendChild(IP.dugme('Göreve başla ▶', 'buyuk', function () {
         IP.kayit.ac(kodAl());
+        IP.kayit.adYaz(adGiris.value);
         IP.ses.cal('telgraf');
         if (IP.kayit.veri.prolog_goruldu) haritaEkrani(); else prolog();
       }));

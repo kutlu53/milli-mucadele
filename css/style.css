@@ -105,6 +105,13 @@ p { margin: 0; }
 .acilis-etiket { font: 700 .85rem Manset, serif; letter-spacing: .1em; text-transform: uppercase; color: var(--sepya); }
 .kod-secici { display: flex; align-items: center; gap: .5rem; }
 .kod-deger { font: 700 2rem Daktilo, monospace; min-width: 1.6em; text-align: center; }
+.ad-kutu { display: flex; flex-direction: column; align-items: center; gap: .3rem; width: 100%; }
+.ad-giris {
+  font: 700 1.2rem Daktilo, monospace; color: var(--koyu); background: rgba(255, 255, 255, .55);
+  border: 2px solid var(--sepya); border-radius: .4rem; padding: .4em .7em; width: min(18rem, 90%); min-height: 48px; text-align: center;
+}
+.ad-giris:focus { outline: 3px solid var(--altin); }
+.ad-giris::placeholder { font: italic 400 .85rem Metin, serif; color: var(--sepya); }
 .kod-tire { font: 700 1.6rem Daktilo, monospace; margin: 0 .3rem; }
 
 /* Prolog */

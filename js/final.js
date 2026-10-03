@@ -1,7 +1,7 @@
 /* Final: Zafer Nüshası.
    On sayfa tamamlanınca telgraftan son mesaj gelir, on manşet tek bir gazete sayfasında birleşir.
-   Gazete tarayıcının yazdırma özelliğiyle yazdırılabilir. Öğrenci adı hiçbir yerde saklanmaz:
-   gazetede anonim muhabir kodu yazar, ad için elle doldurulacak boş bir çizgi bırakılır.
+   Gazete tarayıcının yazdırma özelliğiyle yazdırılabilir. Gazetede "Muhabir: [oyuncunun adı]" imzası yer alır;
+   ad yazılmadıysa anonim kod yazar ve ad için elle doldurulacak boş bir çizgi bırakılır.
    Ardından Büyük Bülten (son karışık tekrar) ve Nuri'nin vedası gelir. */
 (function () {
   'use strict';
@@ -38,8 +38,8 @@
         bas.appendChild(IP.el('div', 'gazete-nusha', f.nusha || ''));
         bas.appendChild(IP.el('h1', null, IP.buyukHarf(f.gazete_adi || '')));
         var kunye = IP.el('div', 'gazete-kunye');
-        kunye.appendChild(IP.el('span', null, 'Muhabir: ' + IP.kayit.kod));
-        kunye.appendChild(IP.el('span', 'kunye-ad', 'Adın: '));
+        if (IP.kayit.veri.ad) kunye.appendChild(IP.el('span', null, 'Muhabir: ' + IP.kayit.veri.ad + ' (' + IP.kayit.kod + ')'));
+        else { kunye.appendChild(IP.el('span', null, 'Muhabir: ' + IP.kayit.kod)); kunye.appendChild(IP.el('span', 'kunye-ad', 'Adın: ')); }
         kunye.appendChild(IP.el('span', null, '★ ' + IP.kayit.toplamYildiz() + ' · ' + IP.rutbe(IP.kayit.toplamYildiz())));
         bas.appendChild(kunye);
         gazete.appendChild(bas);

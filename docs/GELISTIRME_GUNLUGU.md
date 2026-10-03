@@ -478,4 +478,23 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 - Akademik kaynakların bir kısmı aynı kök esere dayanıyor (ör. Kara Fatma için Tansel); "iki bağımsız kaynak" kuralı bu durumlarda dikkatle uygulanmalı.
 - Röportaj cevapları taslak; ekip her cevabı cümle cümle kaynakla karşılaştırıp `dogrulayan` ve `dogrulama_tarihi` alanlarını dolduracak (PROJE_BILGILERI.md §8, 6. adımdaki sayım dahil).
 - İstiklal Marşı dizeleri basılı bir resmî kaynakla (ör. MEB ders kitabı) bir kez daha karşılaştırılmalı.
+
+---
+
+## 3 Ekim 2026 — Oyuncu adı
+
+**Ne istendi?**
+- Bekleyen kararlar soruldu. Kararlar: (1) oyuncu adı olsun, (2) gerçek portre fotoğrafları varsa kullanılsın, (3) bültende yanlış cevapta soru yeniden sorulmasın (öneri kabul edildi: doğru seçenek zaten yeşil yanıyor, Kahraman Kartı açılıyor; ilk deneme puanı araştırma verisi olarak anlamlı kalıyor; bülten haritadan tekrar oynanabiliyor), (4) yatay telefon ve tablete uyarlama yapılsın, (5) her adım GitHub'a gönderilsin.
+
+**Ne yapıldı?**
+- Açılış ekranına **"Adın (isteğe bağlı)"** kutusu eklendi. Ad yazılırsa üst şeritte, "Haberi Yaz" gazetesinde ve Zafer Nüshası'nda **"Muhabir: Ad (D-07)"** yazar. Ad yazılmazsa eskisi gibi kod ve elle doldurulacak "Adın: ___" çizgisi kalır.
+- Ad yalnızca o cihazın tarayıcısında, öğrenci kodunun kaydında (`ad` alanı) durur. **CSV dışa aktarmaya ve öğretmen panelindeki tabloya girmez**; araştırma verisi anonim kalır.
+- Aynı kod yeniden seçilince daha önce yazılan ad kutuya gelir; kutu boş bırakılırsa ad silinir. Boşluklar temizlenir, en çok 30 karakter.
+- CLAUDE.md'deki "kişisel veri" kuralı bu karara göre güncellendi.
+
+**Ne test edildi?**
+- Otomatik: "  Ayşe   Yılmaz " yazıldı → kayıtta "Ayşe Yılmaz", üst şeritte ve gazete künyesinde göründü; CSV metninde ad geçmedi; sayfa yenilenince ad kutuda hazır geldi; kutu boşaltılınca kayıttan silindi ve gazete adsız biçime döndü. Hata çıkmadı.
+
+**Açık konular**
+- Ad yazmak klavye gerektirir (tablette ekran klavyesi açılır). İsteğe bağlı olduğu için "klavye zorunlu değil" kuralı bozulmuyor.
 - Sütçü İmam'ın "Kahraman" unvanı sorusu, onun ölümünden (1922) sonraki bir olayı (1973) soruyor; soru yeniden düşünülmeli.

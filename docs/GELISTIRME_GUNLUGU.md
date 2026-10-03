@@ -467,14 +467,15 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
   - **Sütçü İmam:** "Ahmet İmam" adı kaynaklarda yok. Hamamın adı (Uzunoluk / Çukur) ve "Kahraman" unvanı günü gibi çelişkiler rapora işlendi.
 - Bültenler (`data/bulletins.json`) ve `docs/OYUN_SENARYOSU.md`, `docs/PROJE_BILGILERI.md` bu düzeltmelere göre güncellendi. Senaryonun 5. bölümü ilk taslak olarak korundu, başına uyarı notu eklendi.
 
+- Kaynaklardan **röportaj cevabı taslakları** üretildi (`taslak: true`, her cevapta kaynak kodu; `dogrulayan` boş). **Kara Fatma'nın görev yerleri** (Sivas → İzmit → Afyonkarahisar) ve **İstiklal Marşı'nın ilk iki kıtası** (T.C. Cumhurbaşkanlığı sitesindeki resmî metinden) heroes.json'a yazıldı.
+
 **Ne test edildi?**
-- heroes.json ve heroes.veri.js dosyalarının geçerli JSON olduğu ve içeriklerinin aynı olduğu kontrol edildi.
-- Değişen mini oyunlar (Yolu Tut, Sipere Ulaştır, Müfrezeni Kur) açılıp yeni metinlerin göründüğü denendi.
+- İçerik değiştiği için **oyunun tamamı baştan sona otomatik oynatıldı** (gece 00:34–01:22, 1366×768): prolog + 10 kahraman, Bülten 1 ve 2, Final (gazete + Büyük Bülten + veda) ve öğretmen paneli. Ekran görüntülerinde yeni metinler göründü: Tayyar Rahmiye'de "Müfrezeye Ulaştır", Kara Fatma'da üç görev yeri, Makbule'nin çiziminde efe kıyafeti yok. Hata çıkmadı.
 
 **Açık konular**
 - **Bu tarama doğrulama değildir.** heroes.json'daki 88 bilginin hepsi hâlâ `dogrulandi: false`. Ekip, KAYNAK_RAPORU.md'deki her kaynağı kendi gözüyle okuyup kutuyu işaretleyecek; iki kaynağı işaretlenen bilgi `true` yapılacak.
 - Bazı alıntılar sayfanın özetinden alındı; kurum sayfalarındaki alıntılar sayfada harfi harfine aranmalı.
 - Akademik kaynakların bir kısmı aynı kök esere dayanıyor (ör. Kara Fatma için Tansel); "iki bağımsız kaynak" kuralı bu durumlarda dikkatle uygulanmalı.
-- Röportaj cevapları hâlâ yer tutucu; PROJE_BILGILERI.md §8'deki akışla üretilip cümle cümle doğrulanacak.
-- Kara Fatma görev yerleri sırası ve İstiklal Marşı dizeleri hâlâ eksik.
+- Röportaj cevapları taslak; ekip her cevabı cümle cümle kaynakla karşılaştırıp `dogrulayan` ve `dogrulama_tarihi` alanlarını dolduracak (PROJE_BILGILERI.md §8, 6. adımdaki sayım dahil).
+- İstiklal Marşı dizeleri basılı bir resmî kaynakla (ör. MEB ders kitabı) bir kez daha karşılaştırılmalı.
 - Sütçü İmam'ın "Kahraman" unvanı sorusu, onun ölümünden (1922) sonraki bir olayı (1973) soruyor; soru yeniden düşünülmeli.

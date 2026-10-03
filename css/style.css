@@ -222,7 +222,7 @@ p { margin: 0; }
 .kunye-ad::after { content: ''; display: inline-block; width: 12rem; border-bottom: 2px solid var(--koyu); vertical-align: bottom; }
 .gazete-sutunlar { columns: 2; column-gap: 1.6rem; column-rule: 2px solid var(--sepya); }
 .gazete-haber { display: flex; gap: .7rem; align-items: flex-start; break-inside: avoid; padding: .45rem 0; border-bottom: 1px solid var(--sepya); }
-.gazete-haber canvas { width: 3.6rem; height: 3.6rem; flex: none; border-radius: 50%; border: 3px solid var(--koyu); }
+.gazete-haber canvas, .gazete-haber img { width: 3.6rem; height: 3.6rem; flex: none; border-radius: 50%; border: 3px solid var(--koyu); object-fit: cover; }
 .gazete-haber h3 { font: 900 1.05rem Manset, serif; color: var(--kirmizi); }
 .gazete-haber p { font-size: .85rem; line-height: 1.35; }
 .veda { justify-content: flex-end; padding-bottom: 5rem; gap: 1rem; }

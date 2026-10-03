@@ -47,7 +47,9 @@
         var sutunlar = IP.el('div', 'gazete-sutunlar');
         IP.veri.kahramanlar.forEach(function (k) {
           var haber = IP.el('div', 'gazete-haber');
-          var tuval = IP.el('canvas'); IP.cizim.portre(tuval, k.portre ? k.portre.cizim : '');
+          var tuval;
+          if (k.portre && k.portre.dosya) { tuval = IP.el('img'); tuval.src = k.portre.dosya; tuval.alt = k.ad; }
+          else { tuval = IP.el('canvas'); IP.cizim.portre(tuval, k.portre ? k.portre.cizim : ''); }
           var yazi = IP.el('div');
           yazi.appendChild(IP.el('h3', null, k.ad));
           yazi.appendChild(IP.el('p', null, k.haber.sablon.replace(/\{(\d+)\}/g, function (m, i) { return k.haber.dogrular[+i]; })));

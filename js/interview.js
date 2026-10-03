@@ -45,6 +45,8 @@
     }
     kutu.appendChild(cerceve);
     if (k.portre && k.portre.temsili) kutu.appendChild(IP.el('span', 'rozet temsili', 'temsilî çizim'));
+    // Gerçek fotoğraf: ekip kaynağını doğrulayana kadar "doğrulanmadı" rozeti taşır.
+    else if (k.portre && k.portre.fotograf && !k.portre.fotograf.dogrulandi) kutu.appendChild(IP.el('span', 'rozet temsili', 'fotoğraf · doğrulanmadı'));
     kutu.appendChild(IP.el('strong', 'portre-ad', k.ad));
     return kutu;
   };

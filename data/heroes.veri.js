@@ -257,7 +257,8 @@ window.IP_VERI = {
       "portre": {
         "dosya": "",
         "cizim": "sarikli",
-        "temsili": true
+        "temsili": true,
+        "not": "Wikimedia Commons'ta kamu malı fotoğrafı bulunamadı (3 Ekim 2026). Ekip güvenilir bir kaynaktan fotoğraf bulursa assets/portre/ içine koyup \"dosya\" alanına yazmalı."
       },
       "sadelestirme_notu": "Kaynaklara göre Sütçü İmam olay sırasında bir askeri vurmuştur. Oyun, şiddeti göstermeme ilkesi gereği bunu \"karşı çıktı\" diye anlatır. Raporda bu sadeleştirme açıkça yazılmalı."
     },
@@ -476,7 +477,8 @@ window.IP_VERI = {
       "portre": {
         "dosya": "",
         "cizim": "kalpakli",
-        "temsili": true
+        "temsili": true,
+        "not": "Commons'ta \"Şahin Bey\" diye etiketli iki dosya var; biri 1930'lar takım elbiseli bir adam (Şahin Bey 1920'de şehit oldu), öteki kaynaksız. İkisi de kullanılmadı. Ekip güvenilir bir kaynaktan fotoğraf bulursa ekleyebilir."
       }
     },
     {
@@ -671,9 +673,16 @@ window.IP_VERI = {
       },
       "duygu_ani": "Arkadaşları duraklayınca en önde ilerleyen bir kadın.",
       "portre": {
-        "dosya": "",
+        "dosya": "assets/portre/tayyar-rahmiye.jpg",
         "cizim": "yemenili",
-        "temsili": true
+        "temsili": false,
+        "fotograf": {
+          "kaynak": "Wikimedia Commons, \"Tayyar Rahmiye.jpg\", kamu malı (1920 öncesi), https://commons.wikimedia.org/wiki/File:Tayyar_Rahmiye.jpg (erişim: 2026-10-03)",
+          "lisans": "kamu malı",
+          "islem": "Yüz kare kesildi, 320 piksele küçültüldü, sepya tonlandı (3 Ekim 2026).",
+          "dogrulandi": false
+        },
+        "not": "Fotoğraf yaygın olarak Tayyar Rahmiye diye dolaşıyor ama Commons kaydının kaynağı zayıf (bir resim paylaşım sitesi) ve kaynak taramasındaki hiçbir güvenilir kaynakta fotoğraf yok. Ekip güvenilir bir kaynakla (ör. ATAM, valilik) doğrulamadan \"doğrulanmadı\" rozeti kalkmamalı."
       },
       "kaynak_notu": "Senaryo taslağı bu kahramanı Antep savunmasına bağlıyordu. Dört bağımsız akademik kaynak onu Osmaniye'ye bağlıyor; hiçbiri Antep demiyor. Kaynaklarda adı çoğunlukla \"Rahime Hatun\" diye geçer. Bölüm buna göre yeniden yazıldı.",
       "tarih_dogrula_notu": "Şehit olduğu gün kaynaklarda çelişkili (1 Temmuz 1920 / 5 Ağustos 1920); yalnızca yıl verildi."
@@ -953,9 +962,16 @@ window.IP_VERI = {
       },
       "duygu_ani": "Vatanı için savaşmak isteyen ve bunun için Mustafa Kemal Paşa'dan görev isteyen bir kadın.",
       "portre": {
-        "dosya": "",
+        "dosya": "assets/portre/kara-fatma.jpg",
         "cizim": "madalyali",
-        "temsili": true
+        "temsili": false,
+        "fotograf": {
+          "kaynak": "Wikimedia Commons, \"Kara Fatma.jpg\", kamu malı (1919), https://commons.wikimedia.org/wiki/File:Kara_Fatma.jpg (erişim: 2026-10-03)",
+          "lisans": "kamu malı",
+          "islem": "Yüz kare kesildi, 320 piksele küçültüldü, sepya tonlandı (3 Ekim 2026).",
+          "dogrulandi": false
+        },
+        "not": "Üniformalı ve madalyalı tanınmış fotoğraf. Commons kaydının ilk kaynağı bir blog; ekip hakemli bir makale ya da kurum sayfasındaki aynı fotoğrafla karşılaştırmalı."
       }
     },
     {
@@ -1148,10 +1164,16 @@ window.IP_VERI = {
       },
       "duygu_ani": "Dağların türküsünü bilen bir kadının vatan savunması.",
       "portre": {
-        "dosya": "",
+        "dosya": "assets/portre/gordesli-makbule.jpg",
         "cizim": "siyah_baslikli",
-        "temsili": true,
-        "not": "Kıyafeti haberlerde \"siyah pantolon, ceket, uzun manto, çizme, siyah başlık\" diye tarif ediliyor; çizim buna göre ve temsilîdir."
+        "temsili": false,
+        "not": "Kalpaklı, fişeklikli tanınmış fotoğraf. Commons kaydının ilk kaynağı bir haber sitesi; ekip güvenilir bir kaynakla karşılaştırmalı.",
+        "fotograf": {
+          "kaynak": "Wikimedia Commons, \"Gördesli Makbule.jpg\", kamu malı (1919), https://commons.wikimedia.org/wiki/File:G%C3%B6rdesli_Makbule.jpg (erişim: 2026-10-03)",
+          "lisans": "kamu malı",
+          "islem": "Yüz kare kesildi, 320 piksele küçültüldü, sepya tonlandı (3 Ekim 2026).",
+          "dogrulandi": false
+        }
       }
     },
     {
@@ -1385,7 +1407,8 @@ window.IP_VERI = {
       "portre": {
         "dosya": "",
         "cizim": "kalpakli_genc",
-        "temsili": true
+        "temsili": true,
+        "not": "Commons'ta fotoğrafı yok (3 Ekim 2026). Yaşlılık fotoğrafları haberlerde var ama telif durumu belirsiz; ekip kurumdan izinli bir fotoğraf bulursa ekleyebilir."
       },
       "kaynak_notu": "Senaryo taslağındaki \"asıl adı Kezban\" bilgisi hiçbir kaynakta bulunamadı; okunan kaynakların hepsinde adı Halime'dir. \"Halim\" adı yalnızca zayıf bir kaynakta geçer. Çavuş rütbesi kaynaklarda çelişkilidir (bir araştırmacı \"Çavuş\"un halkın verdiği lakap olabileceğini yazıyor)."
     },
@@ -1756,7 +1779,8 @@ window.IP_VERI = {
       "portre": {
         "dosya": "",
         "cizim": "beyaz_ortulu",
-        "temsili": true
+        "temsili": true,
+        "not": "Fotoğrafı bilinmiyor; yalnızca anıt fotoğrafları var. Temsilî çizim kalır."
       },
       "kaynak_notu": "Olayın tamamı tek bir kök anlatıya dayanıyor (bir tanıklığın aktarımı) ve dönem metninde kadının adı geçmiyor. Bu yüzden olayı anlatan cümleler \"Anlatılanlara göre\" diye başlar. \"İlk kadın şehit\" ifadesi ve \"kar fırtınası\" kaynaklarda bulunamadı; kullanılmadı. Kaynaklardaki sözcük \"örtü\" değil \"yorgan\"dır; yorgan hem cephaneyi hem bebeği örtüyordu ve bebek sağ kurtuldu."
     },
@@ -2025,10 +2049,16 @@ window.IP_VERI = {
       },
       "duygu_ani": "Bir kadının sesinin bir meydanı doldurması.",
       "portre": {
-        "dosya": "",
+        "dosya": "assets/portre/halide-edib.jpg",
         "cizim": "siyah_ortulu",
-        "temsili": true,
-        "not": "Senaryoya göre fotoğrafı bulunan kahramanlarda gerçek fotoğrafın stilize hâli kullanılacak. Fotoğraf eklenene kadar temsilî çizim duruyor."
+        "temsili": false,
+        "not": "1910'lardan tanınmış portre (kütüphane koleksiyonu). Ekip bir kez kontrol etmeli.",
+        "fotograf": {
+          "kaynak": "Wikimedia Commons, \"Edib Halide.jpg\", kamu malı; ilk kaynak: University of Texas Libraries, Portrait Gallery, https://commons.wikimedia.org/wiki/File:Edib_Halide.jpg (erişim: 2026-10-03)",
+          "lisans": "kamu malı",
+          "islem": "Yüz kare kesildi, 320 piksele küçültüldü, sepya tonlandı (3 Ekim 2026).",
+          "dogrulandi": false
+        }
       }
     },
     {
@@ -2274,10 +2304,16 @@ window.IP_VERI = {
       },
       "duygu_ani": "Bir istasyonda konuşan iki kişinin bir milletin sesini kurması.",
       "portre": {
-        "dosya": "",
+        "dosya": "assets/portre/yunus-nadi.jpg",
         "cizim": "fesli",
-        "temsili": true,
-        "not": "Fotoğraf eklenene kadar temsilî çizim duruyor."
+        "temsili": false,
+        "not": "TBMM Albümü'nden milletvekili fotoğrafı (güçlü kaynak). Özgün dosya küçük (180×238).",
+        "fotograf": {
+          "kaynak": "Wikimedia Commons, \"Yunus Nadi Bey.jpg\", kamu malı (1923); ilk kaynak: TBMM Albümü, c. 1, https://commons.wikimedia.org/wiki/File:Yunus_Nadi_Bey.jpg (erişim: 2026-10-03)",
+          "lisans": "kamu malı",
+          "islem": "Yüz kare kesildi, 320 piksele küçültüldü, sepya tonlandı (3 Ekim 2026).",
+          "dogrulandi": false
+        }
       }
     },
     {
@@ -2515,10 +2551,16 @@ window.IP_VERI = {
       },
       "duygu_ani": "Meclisin ayağa kalkıp marşı dinlediği an.",
       "portre": {
-        "dosya": "",
+        "dosya": "assets/portre/mehmet-akif.jpg",
         "cizim": "kalpakli_sakalli",
-        "temsili": true,
-        "not": "Fotoğraf eklenene kadar temsilî çizim duruyor."
+        "temsili": false,
+        "not": "Fesli tanınmış portre. Ekip bir kez kontrol etmeli.",
+        "fotograf": {
+          "kaynak": "Wikimedia Commons, \"Mehmet Akif.jpg\", kamu malı (1923 öncesi), https://commons.wikimedia.org/wiki/File:Mehmet_Akif.jpg (erişim: 2026-10-03)",
+          "lisans": "kamu malı",
+          "islem": "Yüz kare kesildi, 320 piksele küçültüldü, sepya tonlandı (3 Ekim 2026).",
+          "dogrulandi": false
+        }
       }
     }
   ]

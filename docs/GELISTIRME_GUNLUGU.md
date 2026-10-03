@@ -498,3 +498,25 @@ Her kayıt üç soruya cevap verir: Ne istendi? Ne yapıldı? Ne test edildi?
 **Açık konular**
 - Ad yazmak klavye gerektirir (tablette ekran klavyesi açılır). İsteğe bağlı olduğu için "klavye zorunlu değil" kuralı bozulmuyor.
 - Sütçü İmam'ın "Kahraman" unvanı sorusu, onun ölümünden (1922) sonraki bir olayı (1973) soruyor; soru yeniden düşünülmeli.
+
+---
+
+## 3 Ekim 2026 — Gerçek portre fotoğrafları
+
+**Ne istendi?**
+- Fotoğrafı bulunan kahramanlarda gerçek fotoğrafın stilize hâli kullanılsın (senaryo §8).
+
+**Ne yapıldı?**
+- Wikimedia Commons'ta **kamu malı** (telifsiz) fotoğraflar arandı. Bulunan 6 kahraman: Tayyar Rahmiye, Kara Fatma, Gördesli Makbule, Halide Edib (1910'lar portresi, Texas Üniversitesi kütüphanesi), Yunus Nadi (TBMM Albümü, 1923), Mehmet Âkif (1923 öncesi).
+- Fotoğraflar yüz ortalanarak kare kesildi, 320 piksele küçültüldü ve oyunun kâğıt-mürekkep renklerine sepya tonlandı. Dosyalar `assets/portre/<id>.jpg` (hepsi 15–30 KB, internet gerekmez).
+- `heroes.json` içinde `portre.dosya` dolduruldu, `temsili: false` yapıldı; `portre.fotograf` alanına kaynak, lisans, uygulanan işlem ve `dogrulandi: false` yazıldı.
+- **Ekip doğrulayana kadar** kartta ve röportajda fotoğrafın altında **"fotoğraf · doğrulanmadı"** rozeti görünür. Doğrulandığında `dogrulandi: true` yapılınca rozet kalkar.
+- Gazete (Zafer Nüshası) da artık fotoğrafı olanlarda fotoğrafı gösteriyor.
+- **Kullanılmayanlar:** Sütçü İmam, Halime Çavuş, Şerife Bacı için kamu malı fotoğraf bulunamadı (temsilî çizim kalır). "Şahin Bey" diye etiketli iki Commons dosyası güvenilmez bulundu (biri 1930'lar takım elbiseli bir adam; Şahin Bey 1920'de şehit oldu), alınmadı. Gerekçeler heroes.json'daki `portre.not` alanlarında.
+
+**Ne test edildi?**
+- Otomatik (1366×768): 10 kahramanın portre kutusu üretildi → 6'sı fotoğraf (rozet "fotoğraf · doğrulanmadı"), 4'ü çizim (rozet "temsilî çizim"); 6 fotoğraf dosyası da 320×320 yüklendi; gazetede 6 fotoğraf + 4 çizim göründü; hata ve yüklenemeyen dosya yok.
+
+**Açık konular**
+- **Fotoğrafların kimliği doğrulanmalı.** Commons kayıtlarının ilk kaynağı Tayyar Rahmiye'de bir resim paylaşım sitesi, Kara Fatma'da bir blog, Makbule'de bir haber sitesi: zayıf. Ekip bu fotoğrafları güvenilir bir kaynakta (ATAM, hakemli makale, valilik) görürse `dogrulandi: true` yapmalı; göremezse fotoğrafı kaldırıp `temsili: true` çizime dönmeli. Yunus Nadi (TBMM Albümü) ve Halide Edib (kütüphane koleksiyonu) daha güçlü.
+- Sütçü İmam ve Halime Çavuş'un fotoğrafları kurum sayfalarında var; ekip izinli bir kopya bulursa `assets/portre/` içine koyup `dosya` alanına yazması yeterli.
